@@ -1,0 +1,6 @@
+lib/libbelr*.dylib
+lib/libbelcard*.dylib
+lib/belr*.lib
+lib/belcard*.lib
+share/Belr/cmake
+share/Belcard/cmake

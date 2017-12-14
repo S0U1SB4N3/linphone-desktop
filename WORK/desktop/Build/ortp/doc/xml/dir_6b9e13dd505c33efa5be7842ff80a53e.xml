@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_6b9e13dd505c33efa5be7842ff80a53e" kind="dir">
+    <compoundname>ortp</compoundname>
+    <innerfile refid="b64_8h">b64.h</innerfile>
+    <innerfile refid="event_8h">event.h</innerfile>
+    <innerfile refid="logging_8h">logging.h</innerfile>
+    <innerfile refid="ortp_8h">ortp.h</innerfile>
+    <innerfile refid="payloadtype_8h">payloadtype.h</innerfile>
+    <innerfile refid="port_8h">port.h</innerfile>
+    <innerfile refid="rtcp_8h">rtcp.h</innerfile>
+    <innerfile refid="rtp_8h">rtp.h</innerfile>
+    <innerfile refid="rtpprofile_8h">rtpprofile.h</innerfile>
+    <innerfile refid="rtpsession_8h">rtpsession.h</innerfile>
+    <innerfile refid="rtpsignaltable_8h">rtpsignaltable.h</innerfile>
+    <innerfile refid="sessionset_8h">sessionset.h</innerfile>
+    <innerfile refid="str__utils_8h">str_utils.h</innerfile>
+    <innerfile refid="telephonyevents_8h">telephonyevents.h</innerfile>
+    <innerfile refid="include_2ortp_2utils_8h">include/ortp/utils.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/"/>
+  </compounddef>
+</doxygen>

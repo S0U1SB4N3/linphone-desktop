@@ -1,0 +1,55 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_gsm"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_gsm.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_gsm-complete.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_gsm/EP_gsm-install.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_gsm/EP_gsm-mkdir.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_gsm/EP_gsm-download.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_gsm/EP_gsm-update.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_gsm/EP_gsm-patch.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_gsm/EP_gsm-configure.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_gsm/EP_gsm-build.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_gsm/EP_gsm-force_build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "EP_gsm" ],
+		"name" : "EP_gsm"
+	}
+}

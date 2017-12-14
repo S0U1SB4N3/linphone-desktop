@@ -1,0 +1,151 @@
+.TH "rtpprofile.h" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rtpprofile.h \- Using and creating standart and custom RTP profiles\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ortp/port\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_RtpProfile\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRTP_PROFILE_MAX_PAYLOADS\fP   128"
+.br
+.ti -1c
+.RI "#define \fBrtp_profile_get_name\fP(profile)   (const char*)((profile)\->name)"
+.br
+.ti -1c
+.RI "#define \fBrtp_profile_clear_payload\fP(profile,  index)   \fBrtp_profile_set_payload\fP(profile,index,NULL)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fB_RtpProfile\fP \fBRtpProfile\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBrtp_profile_set_payload\fP (\fBRtpProfile\fP *prof, int idx, \fBPayloadType\fP *pt)"
+.br
+.ti -1c
+.RI "void \fBrtp_profile_clear_all\fP (\fBRtpProfile\fP *prof)"
+.br
+.ti -1c
+.RI "void \fBrtp_profile_set_name\fP (\fBRtpProfile\fP *prof, const char *name)"
+.br
+.ti -1c
+.RI "\fBPayloadType\fP * \fBrtp_profile_get_payload_from_mime\fP (\fBRtpProfile\fP *profile, const char *mime)"
+.br
+.ti -1c
+.RI "\fBPayloadType\fP * \fBrtp_profile_get_payload_from_rtpmap\fP (\fBRtpProfile\fP *profile, const char *rtpmap)"
+.br
+.ti -1c
+.RI "int \fBrtp_profile_get_payload_number_from_mime\fP (\fBRtpProfile\fP *profile, const char *mime)"
+.br
+.ti -1c
+.RI "int \fBrtp_profile_get_payload_number_from_mime_and_flag\fP (\fBRtpProfile\fP *profile, const char *mime, int flag)"
+.br
+.ti -1c
+.RI "int \fBrtp_profile_get_payload_number_from_rtpmap\fP (\fBRtpProfile\fP *profile, const char *rtpmap)"
+.br
+.ti -1c
+.RI "int \fBrtp_profile_find_payload_number\fP (\fBRtpProfile\fP *prof, const char *mime, int rate, int channels)"
+.br
+.ti -1c
+.RI "\fBPayloadType\fP * \fBrtp_profile_find_payload\fP (\fBRtpProfile\fP *prof, const char *mime, int rate, int channels)"
+.br
+.ti -1c
+.RI "int \fBrtp_profile_move_payload\fP (\fBRtpProfile\fP *prof, int oldpos, int newpos)"
+.br
+.ti -1c
+.RI "\fBRtpProfile\fP * \fBrtp_profile_new\fP (const char *name)"
+.br
+.ti -1c
+.RI "\fBRtpProfile\fP * \fBrtp_profile_clone\fP (\fBRtpProfile\fP *prof)"
+.br
+.ti -1c
+.RI "\fBRtpProfile\fP * \fBrtp_profile_clone_full\fP (\fBRtpProfile\fP *prof)"
+.br
+.ti -1c
+.RI "void \fBrtp_profile_destroy\fP (\fBRtpProfile\fP *prof)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "ORTP_VAR_PUBLIC \fBRtpProfile\fP \fBav_profile\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Using and creating standart and custom RTP profiles\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define rtp_profile_clear_payload(profile, index)   \fBrtp_profile_set_payload\fP(profile,index,NULL)"
+Set payload type number \fIindex\fP unassigned in the profile\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprofile\fP an RTP profile 
+.br
+\fIindex\fP the payload type number 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void rtp_profile_clear_all (\fBRtpProfile\fP * profile)"
+Initialize the profile to the empty profile (all payload type are unassigned)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprofile\fP a RTP profile 
+.RE
+.PP
+
+.SS "void rtp_profile_set_name (\fBRtpProfile\fP * profile, const char * name)"
+Set a name to the rtp profile\&. (This is not required) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprofile\fP a rtp profile object 
+.br
+\fIname\fP a string 
+.RE
+.PP
+
+.SS "void rtp_profile_set_payload (\fBRtpProfile\fP * profile, int idx, \fBPayloadType\fP * pt)"
+Assign payload type number index to payload type desribed in pt for the RTP profile profile\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIprofile\fP a RTP profile 
+.br
+\fIidx\fP the payload type number 
+.br
+\fIpt\fP the payload type description 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

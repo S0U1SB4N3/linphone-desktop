@@ -1,0 +1,72 @@
+\section{\+\_\+\+Ortp\+Payload\+Type Struct Reference}
+\label{struct__OrtpPayloadType}\index{\+\_\+\+Ortp\+Payload\+Type@{\+\_\+\+Ortp\+Payload\+Type}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ type}
+\item 
+int \textbf{ clock\+\_\+rate}
+\item 
+\mbox{\label{struct__OrtpPayloadType_a2fa8198a95a8fbd7f90b96aa05510454}} 
+char {\bfseries bits\+\_\+per\+\_\+sample}
+\item 
+\mbox{\label{struct__OrtpPayloadType_a70863f62bea3eda071265b8d614de293}} 
+char $\ast$ {\bfseries zero\+\_\+pattern}
+\item 
+\mbox{\label{struct__OrtpPayloadType_ae583f7613c1ab46e823ba2cdd3717f0d}} 
+int {\bfseries pattern\+\_\+length}
+\item 
+\mbox{\label{struct__OrtpPayloadType_a2df08deb22028a17d0f6edc6baf22f05}} 
+int {\bfseries normal\+\_\+bitrate}
+\item 
+char $\ast$ \textbf{ mime\+\_\+type}
+\item 
+int \textbf{ channels}
+\item 
+\mbox{\label{struct__OrtpPayloadType_a2fe78d9559d2a738c3e898d88ceafd79}} 
+char $\ast$ {\bfseries recv\+\_\+fmtp}
+\item 
+\mbox{\label{struct__OrtpPayloadType_a095e85e7f09e44b3c0de9b6334c9eea9}} 
+char $\ast$ {\bfseries send\+\_\+fmtp}
+\item 
+\mbox{\label{struct__OrtpPayloadType_a725d6fb741e6943f0049f20998257171}} 
+struct \textbf{ \+\_\+\+Payload\+Type\+Avpf\+Params} {\bfseries avpf}
+\item 
+\mbox{\label{struct__OrtpPayloadType_a3c53ee19e610a9c1fdefb8eb334a590d}} 
+int {\bfseries flags}
+\item 
+\mbox{\label{struct__OrtpPayloadType_a71de6980ac7689ab9528fc810dacc641}} 
+void $\ast$ {\bfseries user\+\_\+data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{struct__OrtpPayloadType_ac5381077d9a9c0ac2b2209d9a73cf924}} 
+\index{\+\_\+\+Ortp\+Payload\+Type@{\+\_\+\+Ortp\+Payload\+Type}!channels@{channels}}
+\index{channels@{channels}!\+\_\+\+Ortp\+Payload\+Type@{\+\_\+\+Ortp\+Payload\+Type}}
+\subsubsection{channels}
+{\footnotesize\ttfamily int \+\_\+\+Ortp\+Payload\+Type\+::channels}
+
+number of channels of audio \mbox{\label{struct__OrtpPayloadType_a020ebbacab34872cfdffc7a5cddf6aa8}} 
+\index{\+\_\+\+Ortp\+Payload\+Type@{\+\_\+\+Ortp\+Payload\+Type}!clock\+\_\+rate@{clock\+\_\+rate}}
+\index{clock\+\_\+rate@{clock\+\_\+rate}!\+\_\+\+Ortp\+Payload\+Type@{\+\_\+\+Ortp\+Payload\+Type}}
+\subsubsection{clock\+\_\+rate}
+{\footnotesize\ttfamily int \+\_\+\+Ortp\+Payload\+Type\+::clock\+\_\+rate}
+
+rtp clock rate \mbox{\label{struct__OrtpPayloadType_aca553824693e8dcf4a6181a4310c0d11}} 
+\index{\+\_\+\+Ortp\+Payload\+Type@{\+\_\+\+Ortp\+Payload\+Type}!mime\+\_\+type@{mime\+\_\+type}}
+\index{mime\+\_\+type@{mime\+\_\+type}!\+\_\+\+Ortp\+Payload\+Type@{\+\_\+\+Ortp\+Payload\+Type}}
+\subsubsection{mime\+\_\+type}
+{\footnotesize\ttfamily char$\ast$ \+\_\+\+Ortp\+Payload\+Type\+::mime\+\_\+type}
+
+actually the submime, ex\+: pcm, pcma, gsm \mbox{\label{struct__OrtpPayloadType_a5e2888d66a1bc98be34fb3bca55f88d2}} 
+\index{\+\_\+\+Ortp\+Payload\+Type@{\+\_\+\+Ortp\+Payload\+Type}!type@{type}}
+\index{type@{type}!\+\_\+\+Ortp\+Payload\+Type@{\+\_\+\+Ortp\+Payload\+Type}}
+\subsubsection{type}
+{\footnotesize\ttfamily int \+\_\+\+Ortp\+Payload\+Type\+::type}
+
+one of P\+A\+Y\+L\+O\+A\+D\+\_\+$\ast$ macros 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ payloadtype.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,55 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_bv16"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_bv16.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_bv16-complete.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bv16/EP_bv16-install.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bv16/EP_bv16-mkdir.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bv16/EP_bv16-download.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bv16/EP_bv16-update.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bv16/EP_bv16-patch.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bv16/EP_bv16-configure.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bv16/EP_bv16-build.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bv16/EP_bv16-force_build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "EP_bv16" ],
+		"name" : "EP_bv16"
+	}
+}

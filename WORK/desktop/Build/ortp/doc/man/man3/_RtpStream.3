@@ -1,0 +1,124 @@
+.TH "_RtpStream" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_RtpStream
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBOrtpStream\fP \fBgs\fP"
+.br
+.ti -1c
+.RI "int \fBtime_jump\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBts_jump\fP"
+.br
+.ti -1c
+.RI "\fBqueue_t\fP \fBrq\fP"
+.br
+.ti -1c
+.RI "\fBqueue_t\fP \fBtev_rq\fP"
+.br
+.ti -1c
+.RI "void * \fBQoSHandle\fP"
+.br
+.ti -1c
+.RI "unsigned long \fBQoSFlowID\fP"
+.br
+.ti -1c
+.RI "\fBJitterControl\fP \fBjittctl\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsnd_time_offset\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsnd_ts_offset\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsnd_rand_offset\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsnd_last_ts\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBrcv_time_offset\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBrcv_ts_offset\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBrcv_query_ts_offset\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBrcv_last_ts\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBrcv_last_seq\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBpad\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBrcv_last_app_ts\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBrcv_last_ret_ts\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBhwrcv_extseq\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBhwrcv_seq_at_last_SR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBhwrcv_since_last_SR\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlast_rcv_SR_ts\fP"
+.br
+.ti -1c
+.RI "struct timeval \fBlast_rcv_SR_time\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBsnd_seq\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlast_rtcp_packet_count\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsent_payload_bytes\fP"
+.br
+.ti -1c
+.RI "int \fBrecv_errno\fP"
+.br
+.ti -1c
+.RI "int \fBsend_errno\fP"
+.br
+.ti -1c
+.RI "int \fBsnd_socket_size\fP"
+.br
+.ti -1c
+.RI "int \fBrcv_socket_size\fP"
+.br
+.ti -1c
+.RI "int \fBssrc_changed_thres\fP"
+.br
+.ti -1c
+.RI "\fBjitter_stats_t\fP \fBjitter_stats\fP"
+.br
+.ti -1c
+.RI "struct \fB_OrtpCongestionDetector\fP * \fBcongdetect\fP"
+.br
+.ti -1c
+.RI "struct \fB_OrtpVideoBandwidthEstimator\fP * \fBvideo_bw_estimator\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

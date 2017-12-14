@@ -1,0 +1,4409 @@
+.TH "buddy_list" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+buddy_list \- Managing Buddies and buddy list and presence\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBlinphone_friend_new_with_addr\fP   \fBlinphone_friend_new_with_address\fP"
+.br
+.RI "Contructor same as \fBlinphone_friend_new()\fP + \fBlinphone_friend_set_address()\fP "
+.ti -1c
+.RI "#define \fBlinphone_friend_set_addr\fP   \fBlinphone_friend_set_address\fP"
+.br
+.RI "Set \fBLinphoneAddress\fP for this friend\&. "
+.ti -1c
+.RI "#define \fBlinphone_friend_get_send_subscribe\fP   \fBlinphone_friend_subscribes_enabled\fP"
+.br
+.ti -1c
+.RI "#define \fBlinphone_friend_send_subscribe\fP   \fBlinphone_friend_enable_subscribes\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBLinphoneFriendListCbsContactCreatedCb\fP) (\fBLinphoneFriendList\fP *list, \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Callback used to notify a new contact has been created on the CardDAV server and downloaded locally\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneFriendListCbsContactDeletedCb\fP) (\fBLinphoneFriendList\fP *list, \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Callback used to notify a contact has been deleted on the CardDAV server\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneFriendListCbsContactUpdatedCb\fP) (\fBLinphoneFriendList\fP *list, \fBLinphoneFriend\fP *new_friend, \fBLinphoneFriend\fP *old_friend)"
+.br
+.RI "Callback used to notify a contact has been updated on the CardDAV server\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneFriendListCbsSyncStateChangedCb\fP) (\fBLinphoneFriendList\fP *list, \fBLinphoneFriendListSyncStatus\fP status, const char *msg)"
+.br
+.RI "Callback used to notify the status of the synchronization has changed\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneConsolidatedPresence\fP \fBLinphoneConsolidatedPresence\fP"
+.br
+.RI "Consolidated presence information: 'online' means the user is open for communication, 'busy' means the user is open for communication but involved in an other activity, 'do not disturb' means the user is not open for communication, and 'offline' means that no presence information is available\&. "
+.ti -1c
+.RI "typedef struct _LinphoneFriend \fBLinphoneFriend\fP"
+.br
+.RI "Represents a buddy, all presence actions like subscription and status change notification are performed on this object\&. "
+.ti -1c
+.RI "typedef struct _LinphoneFriendList \fBLinphoneFriendList\fP"
+.br
+.RI "The LinphoneFriendList object representing a list of friends\&. "
+.ti -1c
+.RI "typedef struct _LinphoneFriendListCbs \fBLinphoneFriendListCbs\fP"
+.br
+.RI "An object to handle the callbacks for LinphoneFriend synchronization\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneFriendListStatus\fP \fBLinphoneFriendListStatus\fP"
+.br
+.RI "Enum describing the status of a LinphoneFriendList operation\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneFriendListSyncStatus\fP \fBLinphoneFriendListSyncStatus\fP"
+.br
+.RI "Enum describing the status of a CardDAV synchronization\&. "
+.ti -1c
+.RI "typedef struct _LinphonePresenceActivity \fBLinphonePresenceActivity\fP"
+.br
+.RI "Presence activity type holding information about a presence activity\&. "
+.ti -1c
+.RI "typedef enum \fBLinphonePresenceActivityType\fP \fBLinphonePresenceActivityType\fP"
+.br
+.RI "Activities as defined in section 3\&.2 of RFC 4480\&. "
+.ti -1c
+.RI "typedef enum \fBLinphonePresenceBasicStatus\fP \fBLinphonePresenceBasicStatus\fP"
+.br
+.RI "Basic status as defined in section 4\&.1\&.4 of RFC 3863\&. "
+.ti -1c
+.RI "typedef struct _LinphonePresenceModel \fBLinphonePresenceModel\fP"
+.br
+.RI "Presence model type holding information about the presence of a person\&. "
+.ti -1c
+.RI "typedef struct _LinphonePresenceNote \fBLinphonePresenceNote\fP"
+.br
+.RI "Presence note type holding information about a presence note\&. "
+.ti -1c
+.RI "typedef struct _LinphonePresencePerson \fBLinphonePresencePerson\fP"
+.br
+.RI "Presence person holding information about a presence person\&. "
+.ti -1c
+.RI "typedef struct _LinphonePresenceService \fBLinphonePresenceService\fP"
+.br
+.RI "Presence service type holding information about a presence service\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneSubscribePolicy\fP \fBLinphoneSubscribePolicy\fP"
+.br
+.RI "Enum controlling behavior for incoming subscription request\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_LinphoneConsolidatedPresence\fP { \fBLinphoneConsolidatedPresenceOnline\fP, \fBLinphoneConsolidatedPresenceBusy\fP, \fBLinphoneConsolidatedPresenceDoNotDisturb\fP, \fBLinphoneConsolidatedPresenceOffline\fP }
+.RI "Consolidated presence information: 'online' means the user is open for communication, 'busy' means the user is open for communication but involved in an other activity, 'do not disturb' means the user is not open for communication, and 'offline' means that no presence information is available\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneFriendListStatus\fP { \fBLinphoneFriendListOK\fP, \fBLinphoneFriendListNonExistentFriend\fP, \fBLinphoneFriendListInvalidFriend\fP }
+.RI "Enum describing the status of a LinphoneFriendList operation\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneFriendListSyncStatus\fP { \fBLinphoneFriendListSyncStarted\fP, \fBLinphoneFriendListSyncSuccessful\fP, \fBLinphoneFriendListSyncFailure\fP }
+.RI "Enum describing the status of a CardDAV synchronization\&. ""
+.br
+.ti -1c
+.RI "enum \fBLinphonePresenceActivityType\fP { \fBLinphonePresenceActivityAppointment\fP, \fBLinphonePresenceActivityAway\fP, \fBLinphonePresenceActivityBreakfast\fP, \fBLinphonePresenceActivityBusy\fP, \fBLinphonePresenceActivityDinner\fP, \fBLinphonePresenceActivityHoliday\fP, \fBLinphonePresenceActivityInTransit\fP, \fBLinphonePresenceActivityLookingForWork\fP, \fBLinphonePresenceActivityLunch\fP, \fBLinphonePresenceActivityMeal\fP, \fBLinphonePresenceActivityMeeting\fP, \fBLinphonePresenceActivityOnThePhone\fP, \fBLinphonePresenceActivityOther\fP, \fBLinphonePresenceActivityPerformance\fP, \fBLinphonePresenceActivityPermanentAbsence\fP, \fBLinphonePresenceActivityPlaying\fP, \fBLinphonePresenceActivityPresentation\fP, \fBLinphonePresenceActivityShopping\fP, \fBLinphonePresenceActivitySleeping\fP, \fBLinphonePresenceActivitySpectator\fP, \fBLinphonePresenceActivitySteering\fP, \fBLinphonePresenceActivityTravel\fP, \fBLinphonePresenceActivityTV\fP, \fBLinphonePresenceActivityUnknown\fP, \fBLinphonePresenceActivityVacation\fP, \fBLinphonePresenceActivityWorking\fP, \fBLinphonePresenceActivityWorship\fP }
+.RI "Activities as defined in section 3\&.2 of RFC 4480\&. ""
+.br
+.ti -1c
+.RI "enum \fBLinphonePresenceBasicStatus\fP { \fBLinphonePresenceBasicStatusOpen\fP, \fBLinphonePresenceBasicStatusClosed\fP }
+.RI "Basic status as defined in section 4\&.1\&.4 of RFC 3863\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneSubscribePolicy\fP { \fBLinphoneSPWait\fP, \fBLinphoneSPDeny\fP, \fBLinphoneSPAccept\fP }
+.RI "Enum controlling behavior for incoming subscription request\&. ""
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLinphoneFriend\fP * \fBlinphone_core_create_friend\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Create a default LinphoneFriend\&. "
+.ti -1c
+.RI "\fBLinphoneFriend\fP * \fBlinphone_core_create_friend_with_address\fP (\fBLinphoneCore\fP *lc, const char *address)"
+.br
+.RI "Create a LinphoneFriend from the given address\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_core_set_presence_info\fP (\fBLinphoneCore\fP *lc, int minutes_away, const char *alternative_contact, LinphoneOnlineStatus os)"
+.br
+.RI "Set my presence status\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_presence_model\fP (\fBLinphoneCore\fP *lc, \fBLinphonePresenceModel\fP *presence)"
+.br
+.RI "Set my presence model\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED LinphoneOnlineStatus \fBlinphone_core_get_presence_info\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get my presence status\&. "
+.ti -1c
+.RI "\fBLinphonePresenceModel\fP * \fBlinphone_core_get_presence_model\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get my presence model\&. "
+.ti -1c
+.RI "\fBLinphoneConsolidatedPresence\fP \fBlinphone_core_get_consolidated_presence\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get my consolidated presence\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_consolidated_presence\fP (\fBLinphoneCore\fP *lc, \fBLinphoneConsolidatedPresence\fP presence)"
+.br
+.RI "Set my consolidated presence\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_core_interpret_friend_uri\fP (\fBLinphoneCore\fP *lc, const char *uri, char **result)"
+.br
+.ti -1c
+.RI "void \fBlinphone_core_add_friend\fP (\fBLinphoneCore\fP *lc, \fBLinphoneFriend\fP *fr)"
+.br
+.RI "Add a friend to the current buddy list, if \fBsubscription attribute \fP is set, a SIP SUBSCRIBE message is sent\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_core_remove_friend\fP (\fBLinphoneCore\fP *lc, \fBLinphoneFriend\fP *fr)"
+.br
+.RI "Removes a friend from the buddy list\&. "
+.ti -1c
+.RI "void \fBlinphone_core_reject_subscriber\fP (\fBLinphoneCore\fP *lc, \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Black list a friend\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED const bctbx_list_t * \fBlinphone_core_get_friend_list\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get Buddy list of LinphoneFriend\&. "
+.ti -1c
+.RI "void \fBlinphone_core_notify_all_friends\fP (\fBLinphoneCore\fP *lc, \fBLinphonePresenceModel\fP *presence)"
+.br
+.RI "Notify all friends that have subscribed\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneFriend\fP * \fBlinphone_core_get_friend_by_address\fP (const \fBLinphoneCore\fP *lc, const char *addr)"
+.br
+.RI "Search a LinphoneFriend by its address\&. "
+.ti -1c
+.RI "\fBLinphoneFriend\fP * \fBlinphone_core_find_friend\fP (const \fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Search a LinphoneFriend by its address\&. "
+.ti -1c
+.RI "\fBLinphoneFriend\fP * \fBlinphone_core_get_friend_by_ref_key\fP (const \fBLinphoneCore\fP *lc, const char *key)"
+.br
+.RI "Search a LinphoneFriend by its reference key\&. "
+.ti -1c
+.RI "\fBLinphoneFriendList\fP * \fBlinphone_core_create_friend_list\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Create a new empty LinphoneFriendList object\&. "
+.ti -1c
+.RI "void \fBlinphone_core_add_friend_list\fP (\fBLinphoneCore\fP *lc, \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Add a friend list\&. "
+.ti -1c
+.RI "void \fBlinphone_core_remove_friend_list\fP (\fBLinphoneCore\fP *lc, \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Removes a friend list\&. "
+.ti -1c
+.RI "const bctbx_list_t * \fBlinphone_core_get_friends_lists\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Retrieves the list of LinphoneFriendList from the core\&. "
+.ti -1c
+.RI "\fBLinphoneFriendList\fP * \fBlinphone_core_get_default_friend_list\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Retrieves the first list of LinphoneFriend from the core\&. "
+.ti -1c
+.RI "\fBLinphonePresenceActivity\fP * \fBlinphone_core_create_presence_activity\fP (\fBLinphoneCore\fP *lc, \fBLinphonePresenceActivityType\fP acttype, const char *description)"
+.br
+.RI "Create a LinphonePresenceActivity with the given type and description\&. "
+.ti -1c
+.RI "\fBLinphonePresenceModel\fP * \fBlinphone_core_create_presence_model\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Create a default LinphonePresenceModel\&. "
+.ti -1c
+.RI "\fBLinphonePresenceModel\fP * \fBlinphone_core_create_presence_model_with_activity\fP (\fBLinphoneCore\fP *lc, \fBLinphonePresenceActivityType\fP acttype, const char *description)"
+.br
+.RI "Create a LinphonePresenceModel with the given activity type and activity description\&. "
+.ti -1c
+.RI "\fBLinphonePresenceModel\fP * \fBlinphone_core_create_presence_model_with_activity_and_note\fP (\fBLinphoneCore\fP *lc, \fBLinphonePresenceActivityType\fP acttype, const char *description, const char *note, const char *lang)"
+.br
+.RI "Create a LinphonePresenceModel with the given activity type, activity description, note content and note language\&. "
+.ti -1c
+.RI "\fBLinphonePresenceNote\fP * \fBlinphone_core_create_presence_note\fP (\fBLinphoneCore\fP *lc, const char *content, const char *lang)"
+.br
+.RI "Create a LinphonePresenceNote with the given content and language\&. "
+.ti -1c
+.RI "\fBLinphonePresencePerson\fP * \fBlinphone_core_create_presence_person\fP (\fBLinphoneCore\fP *lc, const char *id)"
+.br
+.RI "Create a LinphonePresencePerson with the given id\&. "
+.ti -1c
+.RI "\fBLinphonePresenceService\fP * \fBlinphone_core_create_presence_service\fP (\fBLinphoneCore\fP *lc, const char *id, \fBLinphonePresenceBasicStatus\fP basic_status, const char *contact)"
+.br
+.RI "Create a LinphonePresenceService with the given id, basic status and contact\&. "
+.ti -1c
+.RI "void \fBlinphone_core_notify_notify_presence_received\fP (\fBLinphoneCore\fP *lc, \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Notifies the upper layer that a presence status has been received by calling the appropriate callback if one has been set\&. "
+.ti -1c
+.RI "void \fBlinphone_core_notify_notify_presence_received_for_uri_or_tel\fP (\fBLinphoneCore\fP *lc, \fBLinphoneFriend\fP *lf, const char *uri_or_tel, const \fBLinphonePresenceModel\fP *presence_model)"
+.br
+.RI "Notifies the upper layer that a presence model change has been received for the uri or telephone number given as a parameter, by calling the appropriate callback if one has been set\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneFriend\fP * \fBlinphone_friend_new\fP (void)"
+.br
+.RI "Contructor\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneFriend\fP * \fBlinphone_friend_new_with_address\fP (const char *addr)"
+.br
+.RI "Contructor same as \fBlinphone_friend_new()\fP + \fBlinphone_friend_set_address()\fP "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_friend_destroy\fP (\fBLinphoneFriend\fP *lf)"
+.br
+.RI "Destroy a LinphoneFriend\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_friend_set_address\fP (\fBLinphoneFriend\fP *fr, const \fBLinphoneAddress\fP *address)"
+.br
+.RI "Set \fBLinphoneAddress\fP for this friend\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_friend_get_address\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Get address of this friend\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_add_address\fP (\fBLinphoneFriend\fP *lf, const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Adds an address in this friend\&. "
+.ti -1c
+.RI "const bctbx_list_t * \fBlinphone_friend_get_addresses\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Returns a list of \fBLinphoneAddress\fP for this friend\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_remove_address\fP (\fBLinphoneFriend\fP *lf, const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Removes an address in this friend\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_add_phone_number\fP (\fBLinphoneFriend\fP *lf, const char *phone)"
+.br
+.RI "Adds a phone number in this friend\&. "
+.ti -1c
+.RI "bctbx_list_t * \fBlinphone_friend_get_phone_numbers\fP (\fBLinphoneFriend\fP *lf)"
+.br
+.RI "Returns a list of phone numbers for this friend\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_remove_phone_number\fP (\fBLinphoneFriend\fP *lf, const char *phone)"
+.br
+.RI "Removes a phone number in this friend\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_friend_set_name\fP (\fBLinphoneFriend\fP *lf, const char *name)"
+.br
+.RI "Set the display name for this friend\&. "
+.ti -1c
+.RI "const char * \fBlinphone_friend_get_name\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Get the display name for this friend\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_friend_subscribes_enabled\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "get subscription flag value "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_friend_enable_subscribes\fP (\fBLinphoneFriend\fP *fr, bool_t val)"
+.br
+.RI "Configure \fBLinphoneFriend\fP to subscribe to presence information\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_friend_set_inc_subscribe_policy\fP (\fBLinphoneFriend\fP *fr, \fBLinphoneSubscribePolicy\fP pol)"
+.br
+.RI "Configure incoming subscription policy for this friend\&. "
+.ti -1c
+.RI "\fBLinphoneSubscribePolicy\fP \fBlinphone_friend_get_inc_subscribe_policy\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "get current subscription policy for this \fBLinphoneFriend\fP "
+.ti -1c
+.RI "void \fBlinphone_friend_edit\fP (\fBLinphoneFriend\fP *fr)"
+.br
+.RI "Starts editing a friend configuration\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_done\fP (\fBLinphoneFriend\fP *fr)"
+.br
+.RI "Commits modification made to the friend configuration\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED LinphoneOnlineStatus \fBlinphone_friend_get_status\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Get the status of a friend\&. "
+.ti -1c
+.RI "\fBLinphoneSubscriptionState\fP \fBlinphone_friend_get_subscription_state\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Get subscription state of a friend\&. "
+.ti -1c
+.RI "const \fBLinphonePresenceModel\fP * \fBlinphone_friend_get_presence_model\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Get the presence model of a friend\&. "
+.ti -1c
+.RI "\fBLinphoneConsolidatedPresence\fP \fBlinphone_friend_get_consolidated_presence\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Get the consolidated presence of a friend\&. "
+.ti -1c
+.RI "const \fBLinphonePresenceModel\fP * \fBlinphone_friend_get_presence_model_for_uri_or_tel\fP (const \fBLinphoneFriend\fP *lf, const char *uri_or_tel)"
+.br
+.RI "Get the presence model for a specific SIP URI or phone number of a friend\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_set_presence_model\fP (\fBLinphoneFriend\fP *lf, \fBLinphonePresenceModel\fP *presence)"
+.br
+.RI "Set the presence model of a friend\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_set_presence_model_for_uri_or_tel\fP (\fBLinphoneFriend\fP *lf, const char *uri_or_tel, \fBLinphonePresenceModel\fP *presence)"
+.br
+.RI "Set the presence model for a specific SIP URI or phone number of a friend\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_friend_is_presence_received\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Tells whether we already received presence information for a friend\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_set_user_data\fP (\fBLinphoneFriend\fP *lf, void *data)"
+.br
+.RI "Store user pointer to friend object\&. "
+.ti -1c
+.RI "void * \fBlinphone_friend_get_user_data\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Retrieve user data associated with friend\&. "
+.ti -1c
+.RI "\fBBuddyInfo\fP * \fBlinphone_friend_get_info\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.ti -1c
+.RI "void \fBlinphone_friend_set_ref_key\fP (\fBLinphoneFriend\fP *lf, const char *key)"
+.br
+.RI "Set the reference key of a friend\&. "
+.ti -1c
+.RI "const char * \fBlinphone_friend_get_ref_key\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Get the reference key of a friend\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_friend_in_list\fP (const \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Check that the given friend is in a friend list\&. "
+.ti -1c
+.RI "\fBLinphoneFriend\fP * \fBlinphone_friend_ref\fP (\fBLinphoneFriend\fP *lf)"
+.br
+.RI "Acquire a reference to the linphone friend\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_unref\fP (\fBLinphoneFriend\fP *lf)"
+.br
+.RI "Release a reference to the linphone friend\&. "
+.ti -1c
+.RI "\fBLinphoneCore\fP * \fBlinphone_friend_get_core\fP (const \fBLinphoneFriend\fP *fr)"
+.br
+.RI "Returns the LinphoneCore object managing this friend, if any\&. "
+.ti -1c
+.RI "\fBLinphoneVcard\fP * \fBlinphone_friend_get_vcard\fP (\fBLinphoneFriend\fP *fr)"
+.br
+.RI "Returns the vCard object associated to this friend, if any\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_set_vcard\fP (\fBLinphoneFriend\fP *fr, \fBLinphoneVcard\fP *vcard)"
+.br
+.RI "Binds a vCard object to a friend\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_friend_create_vcard\fP (\fBLinphoneFriend\fP *fr, const char *name)"
+.br
+.RI "Creates a vCard object associated to this friend if there isn't one yet and if the full name is available, either by the parameter or the one in the friend's SIP URI\&. "
+.ti -1c
+.RI "\fBLinphoneFriend\fP * \fBlinphone_friend_new_from_vcard\fP (\fBLinphoneVcard\fP *vcard)"
+.br
+.RI "Contructor same as \fBlinphone_friend_new()\fP + \fBlinphone_friend_set_address()\fP "
+.ti -1c
+.RI "void \fBlinphone_friend_save\fP (\fBLinphoneFriend\fP *fr, \fBLinphoneCore\fP *lc)"
+.br
+.RI "Saves a friend either in database if configured, otherwise in linphonerc\&. "
+.ti -1c
+.RI "\fBLinphoneFriendList\fP * \fBlinphone_friend_list_ref\fP (\fBLinphoneFriendList\fP *list)"
+.br
+.RI "Acquire a reference to the friend list\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_unref\fP (\fBLinphoneFriendList\fP *list)"
+.br
+.RI "Release reference to the friend list\&. "
+.ti -1c
+.RI "void * \fBlinphone_friend_list_get_user_data\fP (const \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Retrieve the user pointer associated with the friend list\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_set_user_data\fP (\fBLinphoneFriendList\fP *list, void *ud)"
+.br
+.RI "Assign a user pointer to the friend list\&. "
+.ti -1c
+.RI "const char * \fBlinphone_friend_list_get_display_name\fP (const \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Get the display name of the friend list\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_set_display_name\fP (\fBLinphoneFriendList\fP *list, const char *display_name)"
+.br
+.RI "Set the display name of the friend list\&. "
+.ti -1c
+.RI "const char * \fBlinphone_friend_list_get_rls_uri\fP (const \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Get the RLS (Resource List Server) URI associated with the friend list to subscribe to these friends presence\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_set_rls_uri\fP (\fBLinphoneFriendList\fP *list, const char *rls_uri)"
+.br
+.RI "Set the RLS (Resource List Server) URI associated with the friend list to subscribe to these friends presence\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_friend_list_get_rls_address\fP (const \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Get the RLS (Resource List Server) URI associated with the friend list to subscribe to these friends presence\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_set_rls_address\fP (\fBLinphoneFriendList\fP *list, const \fBLinphoneAddress\fP *rls_addr)"
+.br
+.RI "Set the RLS (Resource List Server) URI associated with the friend list to subscribe to these friends presence\&. "
+.ti -1c
+.RI "\fBLinphoneFriendListStatus\fP \fBlinphone_friend_list_add_friend\fP (\fBLinphoneFriendList\fP *list, \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Add a friend to a friend list\&. "
+.ti -1c
+.RI "\fBLinphoneFriendListStatus\fP \fBlinphone_friend_list_add_local_friend\fP (\fBLinphoneFriendList\fP *list, \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Add a friend to a friend list\&. "
+.ti -1c
+.RI "\fBLinphoneFriendListStatus\fP \fBlinphone_friend_list_remove_friend\fP (\fBLinphoneFriendList\fP *list, \fBLinphoneFriend\fP *lf)"
+.br
+.RI "Remove a friend from a friend list\&. "
+.ti -1c
+.RI "const bctbx_list_t * \fBlinphone_friend_list_get_friends\fP (const \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Retrieves the list of LinphoneFriend from this LinphoneFriendList\&. "
+.ti -1c
+.RI "\fBLinphoneFriend\fP * \fBlinphone_friend_list_find_friend_by_address\fP (const \fBLinphoneFriendList\fP *list, const \fBLinphoneAddress\fP *address)"
+.br
+.RI "Find a friend in the friend list using a LinphoneAddress\&. "
+.ti -1c
+.RI "\fBLinphoneFriend\fP * \fBlinphone_friend_list_find_friend_by_uri\fP (const \fBLinphoneFriendList\fP *list, const char *uri)"
+.br
+.RI "Find a friend in the friend list using an URI string\&. "
+.ti -1c
+.RI "\fBLinphoneFriend\fP * \fBlinphone_friend_list_find_friend_by_ref_key\fP (const \fBLinphoneFriendList\fP *list, const char *ref_key)"
+.br
+.RI "Find a friend in the friend list using a ref key\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_update_subscriptions\fP (\fBLinphoneFriendList\fP *list)"
+.br
+.RI "Update presence subscriptions for the entire list\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_notify_presence\fP (\fBLinphoneFriendList\fP *list, \fBLinphonePresenceModel\fP *presence)"
+.br
+.RI "Notify our presence to all the friends in the friend list that have subscribed to our presence directly (not using a RLS)\&. "
+.ti -1c
+.RI "const char * \fBlinphone_friend_list_get_uri\fP (const \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Get the URI associated with the friend list\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_set_uri\fP (\fBLinphoneFriendList\fP *list, const char *uri)"
+.br
+.RI "Set the URI associated with the friend list\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_update_revision\fP (\fBLinphoneFriendList\fP *list, int rev)"
+.br
+.RI "Sets the revision from the last synchronization\&. "
+.ti -1c
+.RI "\fBLinphoneFriendListCbs\fP * \fBlinphone_friend_list_get_callbacks\fP (const \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Get the LinphoneFriendListCbs object associated with a LinphoneFriendList\&. "
+.ti -1c
+.RI "\fBLinphoneFriendListCbs\fP * \fBlinphone_friend_list_cbs_ref\fP (\fBLinphoneFriendListCbs\fP *cbs)"
+.br
+.RI "Acquire a reference to a LinphoneFriendListCbs object\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_cbs_unref\fP (\fBLinphoneFriendListCbs\fP *cbs)"
+.br
+.RI "Release a reference to a LinphoneFriendListCbs object\&. "
+.ti -1c
+.RI "void * \fBlinphone_friend_list_cbs_get_user_data\fP (const \fBLinphoneFriendListCbs\fP *cbs)"
+.br
+.RI "Retrieve the user pointer associated with a LinphoneFriendListCbs object\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_cbs_set_user_data\fP (\fBLinphoneFriendListCbs\fP *cbs, void *ud)"
+.br
+.RI "Assign a user pointer to a LinphoneFriendListCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneFriendListCbsContactCreatedCb\fP \fBlinphone_friend_list_cbs_get_contact_created\fP (const \fBLinphoneFriendListCbs\fP *cbs)"
+.br
+.RI "Get the contact created callback\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_cbs_set_contact_created\fP (\fBLinphoneFriendListCbs\fP *cbs, \fBLinphoneFriendListCbsContactCreatedCb\fP cb)"
+.br
+.RI "Set the contact created callback\&. "
+.ti -1c
+.RI "\fBLinphoneFriendListCbsContactDeletedCb\fP \fBlinphone_friend_list_cbs_get_contact_deleted\fP (const \fBLinphoneFriendListCbs\fP *cbs)"
+.br
+.RI "Get the contact deleted callback\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_cbs_set_contact_deleted\fP (\fBLinphoneFriendListCbs\fP *cbs, \fBLinphoneFriendListCbsContactDeletedCb\fP cb)"
+.br
+.RI "Set the contact deleted callback\&. "
+.ti -1c
+.RI "\fBLinphoneFriendListCbsContactUpdatedCb\fP \fBlinphone_friend_list_cbs_get_contact_updated\fP (const \fBLinphoneFriendListCbs\fP *cbs)"
+.br
+.RI "Get the contact updated callback\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_cbs_set_contact_updated\fP (\fBLinphoneFriendListCbs\fP *cbs, \fBLinphoneFriendListCbsContactUpdatedCb\fP cb)"
+.br
+.RI "Set the contact updated callback\&. "
+.ti -1c
+.RI "\fBLinphoneFriendListCbsSyncStateChangedCb\fP \fBlinphone_friend_list_cbs_get_sync_status_changed\fP (const \fBLinphoneFriendListCbs\fP *cbs)"
+.br
+.RI "Get the sync status changed callback\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_cbs_set_sync_status_changed\fP (\fBLinphoneFriendListCbs\fP *cbs, \fBLinphoneFriendListCbsSyncStateChangedCb\fP cb)"
+.br
+.RI "Set the contact updated callback\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_synchronize_friends_from_server\fP (\fBLinphoneFriendList\fP *list)"
+.br
+.RI "Starts a CardDAV synchronization using value set using linphone_friend_list_set_uri\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_update_dirty_friends\fP (\fBLinphoneFriendList\fP *list)"
+.br
+.RI "Goes through all the LinphoneFriend that are dirty and does a CardDAV PUT to update the server\&. "
+.ti -1c
+.RI "\fBLinphoneCore\fP * \fBlinphone_friend_list_get_core\fP (const \fBLinphoneFriendList\fP *list)"
+.br
+.RI "Returns the LinphoneCore object attached to this LinphoneFriendList\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_friend_list_import_friends_from_vcard4_file\fP (\fBLinphoneFriendList\fP *list, const char *vcard_file)"
+.br
+.RI "Creates and adds LinphoneFriend objects to LinphoneFriendList from a file that contains the vCard(s) to parse\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_friend_list_import_friends_from_vcard4_buffer\fP (\fBLinphoneFriendList\fP *list, const char *vcard_buffer)"
+.br
+.RI "Creates and adds LinphoneFriend objects to LinphoneFriendList from a buffer that contains the vCard(s) to parse\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_export_friends_as_vcard4_file\fP (\fBLinphoneFriendList\fP *list, const char *vcard_file)"
+.br
+.RI "Creates and export LinphoneFriend objects from LinphoneFriendList to a file using vCard 4 format\&. "
+.ti -1c
+.RI "void \fBlinphone_friend_list_enable_subscriptions\fP (\fBLinphoneFriendList\fP *list, bool_t enabled)"
+.br
+.RI "Enable subscription to NOTIFYes of all friends list\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_friend_list_subscriptions_enabled\fP (\fBLinphoneFriendList\fP *list)"
+.br
+.RI "Gets whether subscription to NOTIFYes of all friends list are enabled or not\&. "
+.ti -1c
+.RI "\fBLinphonePresenceModel\fP * \fBlinphone_presence_model_new_with_activity\fP (\fBLinphonePresenceActivityType\fP activity, const char *description)"
+.br
+.RI "Creates a presence model specifying an activity\&. "
+.ti -1c
+.RI "\fBLinphonePresenceModel\fP * \fBlinphone_presence_model_new_with_activity_and_note\fP (\fBLinphonePresenceActivityType\fP activity, const char *description, const char *note, const char *lang)"
+.br
+.RI "Creates a presence model specifying an activity and adding a note\&. "
+.ti -1c
+.RI "\fBLinphonePresenceBasicStatus\fP \fBlinphone_presence_model_get_basic_status\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Gets the basic status of a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_set_basic_status\fP (\fBLinphonePresenceModel\fP *model, \fBLinphonePresenceBasicStatus\fP basic_status)"
+.br
+.RI "Sets the basic status of a presence model\&. "
+.ti -1c
+.RI "time_t \fBlinphone_presence_model_get_timestamp\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Gets the timestamp of a presence model\&. "
+.ti -1c
+.RI "char * \fBlinphone_presence_model_get_contact\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Gets the contact of a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_set_contact\fP (\fBLinphonePresenceModel\fP *model, const char *contact)"
+.br
+.RI "Sets the contact of a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_set_presentity\fP (\fBLinphonePresenceModel\fP *model, const \fBLinphoneAddress\fP *presentity)"
+.br
+.RI "Sets the presentity of a presence model\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_presence_model_get_presentity\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Gets the presentity of a presence model\&. "
+.ti -1c
+.RI "\fBLinphonePresenceActivity\fP * \fBlinphone_presence_model_get_activity\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Gets the first activity of a presence model (there is usually only one)\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_set_activity\fP (\fBLinphonePresenceModel\fP *model, \fBLinphonePresenceActivityType\fP activity, const char *description)"
+.br
+.RI "Sets the activity of a presence model (limits to only one activity)\&. "
+.ti -1c
+.RI "unsigned int \fBlinphone_presence_model_get_nb_activities\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Gets the number of activities included in the presence model\&. "
+.ti -1c
+.RI "\fBLinphonePresenceActivity\fP * \fBlinphone_presence_model_get_nth_activity\fP (const \fBLinphonePresenceModel\fP *model, unsigned int idx)"
+.br
+.RI "Gets the nth activity of a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_add_activity\fP (\fBLinphonePresenceModel\fP *model, \fBLinphonePresenceActivity\fP *activity)"
+.br
+.RI "Adds an activity to a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_clear_activities\fP (\fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Clears the activities of a presence model\&. "
+.ti -1c
+.RI "\fBLinphonePresenceNote\fP * \fBlinphone_presence_model_get_note\fP (const \fBLinphonePresenceModel\fP *model, const char *lang)"
+.br
+.RI "Gets the first note of a presence model (there is usually only one)\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_add_note\fP (\fBLinphonePresenceModel\fP *model, const char *note_content, const char *lang)"
+.br
+.RI "Adds a note to a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_clear_notes\fP (\fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Clears all the notes of a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneConsolidatedPresence\fP \fBlinphone_presence_model_get_consolidated_presence\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Get the consolidated presence from a presence model\&. "
+.ti -1c
+.RI "\fBLinphonePresenceModel\fP * \fBlinphone_presence_model_new\fP (void)"
+.br
+.RI "Creates a default presence model\&. "
+.ti -1c
+.RI "unsigned int \fBlinphone_presence_model_get_nb_services\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Gets the number of services included in the presence model\&. "
+.ti -1c
+.RI "\fBLinphonePresenceService\fP * \fBlinphone_presence_model_get_nth_service\fP (const \fBLinphonePresenceModel\fP *model, unsigned int idx)"
+.br
+.RI "Gets the nth service of a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_add_service\fP (\fBLinphonePresenceModel\fP *model, \fBLinphonePresenceService\fP *service)"
+.br
+.RI "Adds a service to a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_clear_services\fP (\fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Clears the services of a presence model\&. "
+.ti -1c
+.RI "unsigned int \fBlinphone_presence_model_get_nb_persons\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Gets the number of persons included in the presence model\&. "
+.ti -1c
+.RI "\fBLinphonePresencePerson\fP * \fBlinphone_presence_model_get_nth_person\fP (const \fBLinphonePresenceModel\fP *model, unsigned int idx)"
+.br
+.RI "Gets the nth person of a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_add_person\fP (\fBLinphonePresenceModel\fP *model, \fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Adds a person to a presence model\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_model_clear_persons\fP (\fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Clears the persons of a presence model\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_presence_model_is_online\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Tells whether a presence model is considered online\&. "
+.ti -1c
+.RI "char * \fBlinphone_presence_basic_status_to_string\fP (\fBLinphonePresenceBasicStatus\fP basic_status)"
+.br
+.RI "Gets the string representation of a presence basic status\&. "
+.ti -1c
+.RI "\fBLinphonePresenceService\fP * \fBlinphone_presence_service_new\fP (const char *id, \fBLinphonePresenceBasicStatus\fP basic_status, const char *contact)"
+.br
+.RI "Creates a presence service\&. "
+.ti -1c
+.RI "char * \fBlinphone_presence_service_get_id\fP (const \fBLinphonePresenceService\fP *service)"
+.br
+.RI "Gets the id of a presence service\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_service_set_id\fP (\fBLinphonePresenceService\fP *service, const char *id)"
+.br
+.RI "Sets the id of a presence service\&. "
+.ti -1c
+.RI "\fBLinphonePresenceBasicStatus\fP \fBlinphone_presence_service_get_basic_status\fP (const \fBLinphonePresenceService\fP *service)"
+.br
+.RI "Gets the basic status of a presence service\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_service_set_basic_status\fP (\fBLinphonePresenceService\fP *service, \fBLinphonePresenceBasicStatus\fP basic_status)"
+.br
+.RI "Sets the basic status of a presence service\&. "
+.ti -1c
+.RI "char * \fBlinphone_presence_service_get_contact\fP (const \fBLinphonePresenceService\fP *service)"
+.br
+.RI "Gets the contact of a presence service\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_service_set_contact\fP (\fBLinphonePresenceService\fP *service, const char *contact)"
+.br
+.RI "Sets the contact of a presence service\&. "
+.ti -1c
+.RI "unsigned int \fBlinphone_presence_service_get_nb_notes\fP (const \fBLinphonePresenceService\fP *service)"
+.br
+.RI "Gets the number of notes included in the presence service\&. "
+.ti -1c
+.RI "\fBLinphonePresenceNote\fP * \fBlinphone_presence_service_get_nth_note\fP (const \fBLinphonePresenceService\fP *service, unsigned int idx)"
+.br
+.RI "Gets the nth note of a presence service\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_service_add_note\fP (\fBLinphonePresenceService\fP *service, \fBLinphonePresenceNote\fP *note)"
+.br
+.RI "Adds a note to a presence service\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_service_clear_notes\fP (\fBLinphonePresenceService\fP *service)"
+.br
+.RI "Clears the notes of a presence service\&. "
+.ti -1c
+.RI "\fBLinphonePresencePerson\fP * \fBlinphone_presence_person_new\fP (const char *id)"
+.br
+.RI "Creates a presence person\&. "
+.ti -1c
+.RI "char * \fBlinphone_presence_person_get_id\fP (const \fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Gets the id of a presence person\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_person_set_id\fP (\fBLinphonePresencePerson\fP *person, const char *id)"
+.br
+.RI "Sets the id of a presence person\&. "
+.ti -1c
+.RI "unsigned int \fBlinphone_presence_person_get_nb_activities\fP (const \fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Gets the number of activities included in the presence person\&. "
+.ti -1c
+.RI "\fBLinphonePresenceActivity\fP * \fBlinphone_presence_person_get_nth_activity\fP (const \fBLinphonePresencePerson\fP *person, unsigned int idx)"
+.br
+.RI "Gets the nth activity of a presence person\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_person_add_activity\fP (\fBLinphonePresencePerson\fP *person, \fBLinphonePresenceActivity\fP *activity)"
+.br
+.RI "Adds an activity to a presence person\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_person_clear_activities\fP (\fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Clears the activities of a presence person\&. "
+.ti -1c
+.RI "unsigned int \fBlinphone_presence_person_get_nb_notes\fP (const \fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Gets the number of notes included in the presence person\&. "
+.ti -1c
+.RI "\fBLinphonePresenceNote\fP * \fBlinphone_presence_person_get_nth_note\fP (const \fBLinphonePresencePerson\fP *person, unsigned int idx)"
+.br
+.RI "Gets the nth note of a presence person\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_person_add_note\fP (\fBLinphonePresencePerson\fP *person, \fBLinphonePresenceNote\fP *note)"
+.br
+.RI "Adds a note to a presence person\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_person_clear_notes\fP (\fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Clears the notes of a presence person\&. "
+.ti -1c
+.RI "unsigned int \fBlinphone_presence_person_get_nb_activities_notes\fP (const \fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Gets the number of activities notes included in the presence person\&. "
+.ti -1c
+.RI "\fBLinphonePresenceNote\fP * \fBlinphone_presence_person_get_nth_activities_note\fP (const \fBLinphonePresencePerson\fP *person, unsigned int idx)"
+.br
+.RI "Gets the nth activities note of a presence person\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_person_add_activities_note\fP (\fBLinphonePresencePerson\fP *person, \fBLinphonePresenceNote\fP *note)"
+.br
+.RI "Adds an activities note to a presence person\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_person_clear_activities_notes\fP (\fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Clears the activities notes of a presence person\&. "
+.ti -1c
+.RI "\fBLinphonePresenceActivity\fP * \fBlinphone_presence_activity_new\fP (\fBLinphonePresenceActivityType\fP acttype, const char *description)"
+.br
+.RI "Creates a presence activity\&. "
+.ti -1c
+.RI "char * \fBlinphone_presence_activity_to_string\fP (const \fBLinphonePresenceActivity\fP *activity)"
+.br
+.RI "Gets the string representation of a presence activity\&. "
+.ti -1c
+.RI "\fBLinphonePresenceActivityType\fP \fBlinphone_presence_activity_get_type\fP (const \fBLinphonePresenceActivity\fP *activity)"
+.br
+.RI "Gets the activity type of a presence activity\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_activity_set_type\fP (\fBLinphonePresenceActivity\fP *activity, \fBLinphonePresenceActivityType\fP acttype)"
+.br
+.RI "Sets the type of activity of a presence activity\&. "
+.ti -1c
+.RI "const char * \fBlinphone_presence_activity_get_description\fP (const \fBLinphonePresenceActivity\fP *activity)"
+.br
+.RI "Gets the description of a presence activity\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_activity_set_description\fP (\fBLinphonePresenceActivity\fP *activity, const char *description)"
+.br
+.RI "Sets the description of a presence activity\&. "
+.ti -1c
+.RI "\fBLinphonePresenceNote\fP * \fBlinphone_presence_note_new\fP (const char *content, const char *lang)"
+.br
+.RI "Creates a presence note\&. "
+.ti -1c
+.RI "const char * \fBlinphone_presence_note_get_content\fP (const \fBLinphonePresenceNote\fP *note)"
+.br
+.RI "Gets the content of a presence note\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_note_set_content\fP (\fBLinphonePresenceNote\fP *note, const char *content)"
+.br
+.RI "Sets the content of a presence note\&. "
+.ti -1c
+.RI "const char * \fBlinphone_presence_note_get_lang\fP (const \fBLinphonePresenceNote\fP *note)"
+.br
+.RI "Gets the language of a presence note\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_presence_note_set_lang\fP (\fBLinphonePresenceNote\fP *note, const char *lang)"
+.br
+.RI "Sets the language of a presence note\&. "
+.ti -1c
+.RI "\fBLinphonePresenceModel\fP * \fBlinphone_presence_model_ref\fP (\fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Increase the reference count of the \fBLinphonePresenceModel\fP object\&. "
+.ti -1c
+.RI "\fBLinphonePresenceModel\fP * \fBlinphone_presence_model_unref\fP (\fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Decrease the reference count of the \fBLinphonePresenceModel\fP object and destroy it if it reaches 0\&. "
+.ti -1c
+.RI "void \fBlinphone_presence_model_set_user_data\fP (\fBLinphonePresenceModel\fP *model, void *user_data)"
+.br
+.RI "Sets the user data of a \fBLinphonePresenceModel\fP object\&. "
+.ti -1c
+.RI "void * \fBlinphone_presence_model_get_user_data\fP (const \fBLinphonePresenceModel\fP *model)"
+.br
+.RI "Gets the user data of a \fBLinphonePresenceModel\fP object\&. "
+.ti -1c
+.RI "\fBLinphonePresenceService\fP * \fBlinphone_presence_service_ref\fP (\fBLinphonePresenceService\fP *service)"
+.br
+.RI "Increase the reference count of the \fBLinphonePresenceService\fP object\&. "
+.ti -1c
+.RI "\fBLinphonePresenceService\fP * \fBlinphone_presence_service_unref\fP (\fBLinphonePresenceService\fP *service)"
+.br
+.RI "Decrease the reference count of the \fBLinphonePresenceService\fP object and destroy it if it reaches 0\&. "
+.ti -1c
+.RI "void \fBlinphone_presence_service_set_user_data\fP (\fBLinphonePresenceService\fP *service, void *user_data)"
+.br
+.RI "Sets the user data of a \fBLinphonePresenceService\fP object\&. "
+.ti -1c
+.RI "void * \fBlinphone_presence_service_get_user_data\fP (const \fBLinphonePresenceService\fP *service)"
+.br
+.RI "Gets the user data of a \fBLinphonePresenceService\fP object\&. "
+.ti -1c
+.RI "\fBLinphonePresencePerson\fP * \fBlinphone_presence_person_ref\fP (\fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Increase the reference count of the \fBLinphonePresencePerson\fP object\&. "
+.ti -1c
+.RI "\fBLinphonePresencePerson\fP * \fBlinphone_presence_person_unref\fP (\fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Decrease the reference count of the \fBLinphonePresencePerson\fP object and destroy it if it reaches 0\&. "
+.ti -1c
+.RI "void \fBlinphone_presence_person_set_user_data\fP (\fBLinphonePresencePerson\fP *person, void *user_data)"
+.br
+.RI "Sets the user data of a \fBLinphonePresencePerson\fP object\&. "
+.ti -1c
+.RI "void * \fBlinphone_presence_person_get_user_data\fP (const \fBLinphonePresencePerson\fP *person)"
+.br
+.RI "Gets the user data of a \fBLinphonePresencePerson\fP object\&. "
+.ti -1c
+.RI "\fBLinphonePresenceActivity\fP * \fBlinphone_presence_activity_ref\fP (\fBLinphonePresenceActivity\fP *activity)"
+.br
+.RI "Increase the reference count of the \fBLinphonePresenceActivity\fP object\&. "
+.ti -1c
+.RI "\fBLinphonePresenceActivity\fP * \fBlinphone_presence_activity_unref\fP (\fBLinphonePresenceActivity\fP *activity)"
+.br
+.RI "Decrease the reference count of the \fBLinphonePresenceActivity\fP object and destroy it if it reaches 0\&. "
+.ti -1c
+.RI "void \fBlinphone_presence_activity_set_user_data\fP (\fBLinphonePresenceActivity\fP *activity, void *user_data)"
+.br
+.RI "Sets the user data of a \fBLinphonePresenceActivity\fP object\&. "
+.ti -1c
+.RI "void * \fBlinphone_presence_activity_get_user_data\fP (const \fBLinphonePresenceActivity\fP *activity)"
+.br
+.RI "Gets the user data of a \fBLinphonePresenceActivity\fP object\&. "
+.ti -1c
+.RI "\fBLinphonePresenceNote\fP * \fBlinphone_presence_note_ref\fP (\fBLinphonePresenceNote\fP *note)"
+.br
+.RI "Increase the reference count of the \fBLinphonePresenceNote\fP object\&. "
+.ti -1c
+.RI "\fBLinphonePresenceNote\fP * \fBlinphone_presence_note_unref\fP (\fBLinphonePresenceNote\fP *note)"
+.br
+.RI "Decrease the reference count of the \fBLinphonePresenceNote\fP object and destroy it if it reaches 0\&. "
+.ti -1c
+.RI "void \fBlinphone_presence_note_set_user_data\fP (\fBLinphonePresenceNote\fP *note, void *user_data)"
+.br
+.RI "Sets the user data of a \fBLinphonePresenceNote\fP object\&. "
+.ti -1c
+.RI "void * \fBlinphone_presence_note_get_user_data\fP (const \fBLinphonePresenceNote\fP *note)"
+.br
+.RI "Gets the user data of a \fBLinphonePresenceNote\fP object\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Managing Buddies and buddy list and presence\&. 
+
+\fBBuddies and buddy list\fP 
+.br
+Each buddy is represented by a \fBLinphoneFriend\fP object created by function \fBlinphone_friend_new()\fP\&. Buddy configuration parameters like \fBsip uri \fP or \fBstatus publication \fP policy for this * \fBfriend \fP are configurable for each buddy\&. 
+.br
+Here under a typical buddy creation: 
+.br
+ 
+.PP
+.nf
+LinphoneFriend* my_friend=linphone_friend_new_with_addr("sip:joe@sip\&.linphone\&.org"); /*creates friend object for buddy joe*/
+linphone_friend_enable_subscribes(my_friend,TRUE); /*configure this friend to emit SUBSCRIBE message after being added to LinphoneCore*/
+linphone_friend_set_inc_subscribe_policy(my_friend,LinphoneSPAccept); /* accept Incoming subscription request for this friend*/
+
+.fi
+.PP
+ \fBfriends \fP status changes are reported by callback LinphoneCoreVTable\&.notify_presence_recv 
+.PP
+.nf
+static void notify_presence_recv_updated (struct _LinphoneCore *lc,  LinphoneFriend *friend) {
+        const LinphoneAddress* friend_address = linphone_friend_get_address(friend);
+        printf("New state state [%s] for user id [%s] \n"
+                                ,linphone_online_status_to_string(linphone_friend_get_status(friend))
+                                ,linphone_address_as_string (friend_address));
+}
+
+.fi
+.PP
+ 
+.br
+Once created a buddy can be added to the buddy list using function \fBlinphone_core_add_friend()\fP \&. Added friends will be notified about \fBlocal status changes \fP 
+.br
+ Any subsequente modifications to \fBLinphoneFriend\fP must be first started by a call to function \fBlinphone_friend_edit()\fP and validated by function \fBlinphone_friend_done()\fP 
+.PP
+.nf
+linphone_friend_edit(my_friend); /* start editing friend */
+linphone_friend_enable_subscribes(my_friend,FALSE); /*disable subscription for this friend*/
+linphone_friend_done(my_friend); /*commit changes triggering an UNSUBSCRIBE message*/
+
+.fi
+.PP
+.PP
+\fB Publishing presence status \fP 
+.br
+Local presence status can be changed using function \fBlinphone_core_set_presence_model()\fP \&.New status is propagated to all friends \fBpreviously added \fP to \fBLinphoneCore\fP\&.
+.PP
+\fBHandling incoming subscription request\fP 
+.br
+ New incoming subscription requests are process according to \fBthe incoming subscription policy state \fP for subscription initiated by \fBmembers of the buddy list\&. \fP 
+.br
+ For incoming request comming from an unknown buddy, the call back LinphoneCoreVTable\&.new_subscription_request is invoked\&.
+.PP
+
+.br
+ A complete tutorial can be found at : \fBRegistration tutorial\fP 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define linphone_friend_new_with_addr   \fBlinphone_friend_new_with_address\fP"
+
+.PP
+Contructor same as \fBlinphone_friend_new()\fP + \fBlinphone_friend_set_address()\fP 
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_friend_new_with_address\fP instead 
+.RE
+.PP
+
+.SS "#define linphone_friend_set_addr   \fBlinphone_friend_set_address\fP"
+
+.PP
+Set \fBLinphoneAddress\fP for this friend\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_friend_set_address\fP instead 
+.RE
+.PP
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(* LinphoneFriendListCbsContactCreatedCb) (\fBLinphoneFriendList\fP *list, \fBLinphoneFriend\fP *lf)"
+
+.PP
+Callback used to notify a new contact has been created on the CardDAV server and downloaded locally\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP The LinphoneFriendList object the new contact is added to 
+.br
+\fIlf\fP The LinphoneFriend object that has been created 
+.RE
+.PP
+
+.SS "typedef void(* LinphoneFriendListCbsContactDeletedCb) (\fBLinphoneFriendList\fP *list, \fBLinphoneFriend\fP *lf)"
+
+.PP
+Callback used to notify a contact has been deleted on the CardDAV server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP The LinphoneFriendList object a contact has been removed from 
+.br
+\fIlf\fP The LinphoneFriend object that has been deleted 
+.RE
+.PP
+
+.SS "typedef void(* LinphoneFriendListCbsContactUpdatedCb) (\fBLinphoneFriendList\fP *list, \fBLinphoneFriend\fP *new_friend, \fBLinphoneFriend\fP *old_friend)"
+
+.PP
+Callback used to notify a contact has been updated on the CardDAV server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP The LinphoneFriendList object in which a contact has been updated 
+.br
+\fInew_friend\fP The new LinphoneFriend object corresponding to the updated contact 
+.br
+\fIold_friend\fP The old LinphoneFriend object before update 
+.RE
+.PP
+
+.SS "typedef void(* LinphoneFriendListCbsSyncStateChangedCb) (\fBLinphoneFriendList\fP *list, \fBLinphoneFriendListSyncStatus\fP status, const char *msg)"
+
+.PP
+Callback used to notify the status of the synchronization has changed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP The LinphoneFriendList object for which the status has changed 
+.br
+\fIstatus\fP The new synchronisation status 
+.br
+\fImsg\fP An additional information on the status update 
+.RE
+.PP
+
+.SS "typedef enum \fB_LinphoneSubscribePolicy\fP  \fBLinphoneSubscribePolicy\fP"
+
+.PP
+Enum controlling behavior for incoming subscription request\&. Use by \fBlinphone_friend_set_inc_subscribe_policy()\fP 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_LinphoneSubscribePolicy\fP"
+
+.PP
+Enum controlling behavior for incoming subscription request\&. Use by \fBlinphone_friend_set_inc_subscribe_policy()\fP 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneSPWait \fP\fP
+Does not automatically accept an incoming subscription request\&. This policy implies that a decision has to be taken for each incoming subscription request notified by callback \fBLinphoneCoreVTable\&.new_subscription_requested\fP 
+.TP
+\fB\fILinphoneSPDeny \fP\fP
+Rejects incoming subscription request\&. 
+.TP
+\fB\fILinphoneSPAccept \fP\fP
+Automatically accepts a subscription request\&. 
+.SS "enum \fBLinphonePresenceActivityType\fP"
+
+.PP
+Activities as defined in section 3\&.2 of RFC 4480\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphonePresenceActivityAppointment \fP\fP
+The person has a calendar appointment, without specifying exactly of what type\&. This activity is indicated if more detailed information is not available or the person chooses not to reveal more information\&. 
+.TP
+\fB\fILinphonePresenceActivityAway \fP\fP
+The person is physically away from all interactive communication devices\&. 
+.TP
+\fB\fILinphonePresenceActivityBreakfast \fP\fP
+The person is eating the first meal of the day, usually eaten in the morning\&. 
+.TP
+\fB\fILinphonePresenceActivityBusy \fP\fP
+The person is busy, without further details\&. 
+.TP
+\fB\fILinphonePresenceActivityDinner \fP\fP
+The person is having his or her main meal of the day, eaten in the evening or at midday\&. 
+.TP
+\fB\fILinphonePresenceActivityHoliday \fP\fP
+This is a scheduled national or local holiday\&. 
+.TP
+\fB\fILinphonePresenceActivityInTransit \fP\fP
+The person is riding in a vehicle, such as a car, but not steering\&. 
+.TP
+\fB\fILinphonePresenceActivityLookingForWork \fP\fP
+The person is looking for (paid) work\&. 
+.TP
+\fB\fILinphonePresenceActivityLunch \fP\fP
+The person is eating his or her midday meal\&. 
+.TP
+\fB\fILinphonePresenceActivityMeal \fP\fP
+The person is scheduled for a meal, without specifying whether it is breakfast, lunch, or dinner, or some other meal\&. 
+.TP
+\fB\fILinphonePresenceActivityMeeting \fP\fP
+The person is in an assembly or gathering of people, as for a business, social, or religious purpose\&. A meeting is a sub-class of an appointment\&. 
+.TP
+\fB\fILinphonePresenceActivityOnThePhone \fP\fP
+The person is talking on the telephone\&. 
+.TP
+\fB\fILinphonePresenceActivityOther \fP\fP
+The person is engaged in an activity with no defined representation\&. A string describing the activity in plain text SHOULD be provided\&. 
+.TP
+\fB\fILinphonePresenceActivityPerformance \fP\fP
+A performance is a sub-class of an appointment and includes musical, theatrical, and cinematic performances as well as lectures\&. It is distinguished from a meeting by the fact that the person may either be lecturing or be in the audience, with a potentially large number of other people, making interruptions particularly noticeable\&. 
+.TP
+\fB\fILinphonePresenceActivityPermanentAbsence \fP\fP
+The person will not return for the foreseeable future, e\&.g\&., because it is no longer working for the company\&. 
+.TP
+\fB\fILinphonePresenceActivityPlaying \fP\fP
+The person is occupying himself or herself in amusement, sport, or other recreation\&. 
+.TP
+\fB\fILinphonePresenceActivityPresentation \fP\fP
+The person is giving a presentation, lecture, or participating in a formal round-table discussion\&. 
+.TP
+\fB\fILinphonePresenceActivityShopping \fP\fP
+The person is visiting stores in search of goods or services\&. 
+.TP
+\fB\fILinphonePresenceActivitySleeping \fP\fP
+The person is sleeping\&. 
+.TP
+\fB\fILinphonePresenceActivitySpectator \fP\fP
+The person is observing an event, such as a sports event\&. 
+.TP
+\fB\fILinphonePresenceActivitySteering \fP\fP
+The person is controlling a vehicle, watercraft, or plane\&. 
+.TP
+\fB\fILinphonePresenceActivityTravel \fP\fP
+The person is on a business or personal trip, but not necessarily in-transit\&. 
+.TP
+\fB\fILinphonePresenceActivityTV \fP\fP
+The person is watching television\&. 
+.TP
+\fB\fILinphonePresenceActivityUnknown \fP\fP
+The activity of the person is unknown\&. 
+.TP
+\fB\fILinphonePresenceActivityVacation \fP\fP
+A period of time devoted to pleasure, rest, or relaxation\&. 
+.TP
+\fB\fILinphonePresenceActivityWorking \fP\fP
+The person is engaged in, typically paid, labor, as part of a profession or job\&. 
+.TP
+\fB\fILinphonePresenceActivityWorship \fP\fP
+The person is participating in religious rites\&. 
+.SS "enum \fBLinphonePresenceBasicStatus\fP"
+
+.PP
+Basic status as defined in section 4\&.1\&.4 of RFC 3863\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphonePresenceBasicStatusOpen \fP\fP
+This value means that the associated contact element, if any, is ready to accept communication\&. 
+.TP
+\fB\fILinphonePresenceBasicStatusClosed \fP\fP
+This value means that the associated contact element, if any, is unable to accept communication\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void linphone_core_add_friend (\fBLinphoneCore\fP * lc, \fBLinphoneFriend\fP * fr)"
+
+.PP
+Add a friend to the current buddy list, if \fBsubscription attribute \fP is set, a SIP SUBSCRIBE message is sent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIfr\fP \fBLinphoneFriend\fP to add 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_friend_list_add_friend()\fP instead\&. 
+.RE
+.PP
+
+.SS "void linphone_core_add_friend_list (\fBLinphoneCore\fP * lc, \fBLinphoneFriendList\fP * list)"
+
+.PP
+Add a friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIlist\fP LinphoneFriendList object 
+.RE
+.PP
+
+.SS "\fBLinphoneFriend\fP* linphone_core_create_friend (\fBLinphoneCore\fP * lc)"
+
+.PP
+Create a default LinphoneFriend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created \fBLinphoneFriend\fP object 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendList\fP* linphone_core_create_friend_list (\fBLinphoneCore\fP * lc)"
+
+.PP
+Create a new empty LinphoneFriendList object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A new LinphoneFriendList object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriend\fP* linphone_core_create_friend_with_address (\fBLinphoneCore\fP * lc, const char * address)"
+
+.PP
+Create a LinphoneFriend from the given address\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIaddress\fP A string containing the address to create the LinphoneFriend from 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created \fBLinphoneFriend\fP object 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceActivity\fP* linphone_core_create_presence_activity (\fBLinphoneCore\fP * lc, \fBLinphonePresenceActivityType\fP acttype, const char * description)"
+
+.PP
+Create a LinphonePresenceActivity with the given type and description\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIacttype\fP The \fBLinphonePresenceActivityType\fP to set for the activity\&. 
+.br
+\fIdescription\fP An additional description of the activity to set for the activity\&. Can be NULL if no additional description is to be added\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created \fBLinphonePresenceActivity\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceModel\fP* linphone_core_create_presence_model (\fBLinphoneCore\fP * lc)"
+
+.PP
+Create a default LinphonePresenceModel\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created \fBLinphonePresenceModel\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceModel\fP* linphone_core_create_presence_model_with_activity (\fBLinphoneCore\fP * lc, \fBLinphonePresenceActivityType\fP acttype, const char * description)"
+
+.PP
+Create a LinphonePresenceModel with the given activity type and activity description\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIacttype\fP The \fBLinphonePresenceActivityType\fP to set for the activity of the created model\&. 
+.br
+\fIdescription\fP An additional description of the activity to set for the activity\&. Can be NULL if no additional description is to be added\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created \fBLinphonePresenceModel\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceModel\fP* linphone_core_create_presence_model_with_activity_and_note (\fBLinphoneCore\fP * lc, \fBLinphonePresenceActivityType\fP acttype, const char * description, const char * note, const char * lang)"
+
+.PP
+Create a LinphonePresenceModel with the given activity type, activity description, note content and note language\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIacttype\fP The \fBLinphonePresenceActivityType\fP to set for the activity of the created model\&. 
+.br
+\fIdescription\fP An additional description of the activity to set for the activity\&. Can be NULL if no additional description is to be added\&. 
+.br
+\fInote\fP The content of the note to be added to the created model\&. 
+.br
+\fIlang\fP The language of the note to be added to the created model\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created \fBLinphonePresenceModel\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceNote\fP* linphone_core_create_presence_note (\fBLinphoneCore\fP * lc, const char * content, const char * lang)"
+
+.PP
+Create a LinphonePresenceNote with the given content and language\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIcontent\fP The content of the note to be created\&. 
+.br
+\fIlang\fP The language of the note to be created\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created \fBLinphonePresenceNote\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresencePerson\fP* linphone_core_create_presence_person (\fBLinphoneCore\fP * lc, const char * id)"
+
+.PP
+Create a LinphonePresencePerson with the given id\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIid\fP The id of the person to be created\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created \fBLinphonePresencePerson\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceService\fP* linphone_core_create_presence_service (\fBLinphoneCore\fP * lc, const char * id, \fBLinphonePresenceBasicStatus\fP basic_status, const char * contact)"
+
+.PP
+Create a LinphonePresenceService with the given id, basic status and contact\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIid\fP The id of the service to be created\&. 
+.br
+\fIbasic_status\fP The basic status of the service to be created\&. 
+.br
+\fIcontact\fP A string containing a contact information corresponding to the service to be created\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created \fBLinphonePresenceService\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriend\fP* linphone_core_find_friend (const \fBLinphoneCore\fP * lc, const \fBLinphoneAddress\fP * addr)"
+
+.PP
+Search a LinphoneFriend by its address\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIaddr\fP The address to use to search the friend\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphoneFriend\fP object corresponding to the given address\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneConsolidatedPresence\fP linphone_core_get_consolidated_presence (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get my consolidated presence\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+My consolidated presence 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendList\fP* linphone_core_get_default_friend_list (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Retrieves the first list of LinphoneFriend from the core\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the first LinphoneFriendList object or NULL 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneFriend\fP* linphone_core_get_friend_by_address (const \fBLinphoneCore\fP * lc, const char * addr)"
+
+.PP
+Search a LinphoneFriend by its address\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIaddr\fP The address to use to search the friend\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphoneFriend\fP object corresponding to the given address\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_core_find_friend()\fP instead\&.  
+.RE
+.PP
+
+.SS "\fBLinphoneFriend\fP* linphone_core_get_friend_by_ref_key (const \fBLinphoneCore\fP * lc, const char * key)"
+
+.PP
+Search a LinphoneFriend by its reference key\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIkey\fP The reference key to use to search the friend\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphoneFriend\fP object corresponding to the given reference key\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED const bctbx_list_t* linphone_core_get_friend_list (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get Buddy list of LinphoneFriend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBLinphoneFriend\fP objects\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_core_get_friends_lists()\fP or \fBlinphone_friend_list_get_friends()\fP instead\&.  
+.RE
+.PP
+
+.SS "const bctbx_list_t* linphone_core_get_friends_lists (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Retrieves the list of LinphoneFriendList from the core\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBLinphoneFriendList\fP objects\&. a list of LinphoneFriendList 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED LinphoneOnlineStatus linphone_core_get_presence_info (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get my presence status\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+#LinphoneOnlineStatus 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_core_get_presence_model()\fP instead  
+.RE
+.PP
+
+.SS "\fBLinphonePresenceModel\fP* linphone_core_get_presence_model (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get my presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBLinphonePresenceModel\fP object, or NULL if no presence model has been set\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_core_interpret_friend_uri (\fBLinphoneCore\fP * lc, const char * uri, char ** result)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_core_interpret_url()\fP instead  
+.RE
+.PP
+
+.SS "void linphone_core_notify_all_friends (\fBLinphoneCore\fP * lc, \fBLinphonePresenceModel\fP * presence)"
+
+.PP
+Notify all friends that have subscribed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIpresence\fP \fBLinphonePresenceModel\fP to notify 
+.RE
+.PP
+
+.SS "void linphone_core_notify_notify_presence_received (\fBLinphoneCore\fP * lc, \fBLinphoneFriend\fP * lf)"
+
+.PP
+Notifies the upper layer that a presence status has been received by calling the appropriate callback if one has been set\&. This method is for advanced usage, where customization of the liblinphone's internal behavior is required\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP object\&. 
+.br
+\fIlf\fP the \fBLinphoneFriend\fP whose presence information has been received\&. 
+.RE
+.PP
+
+.SS "void linphone_core_notify_notify_presence_received_for_uri_or_tel (\fBLinphoneCore\fP * lc, \fBLinphoneFriend\fP * lf, const char * uri_or_tel, const \fBLinphonePresenceModel\fP * presence_model)"
+
+.PP
+Notifies the upper layer that a presence model change has been received for the uri or telephone number given as a parameter, by calling the appropriate callback if one has been set\&. This method is for advanced usage, where customization of the liblinphone's internal behavior is required\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP object\&. 
+.br
+\fIlf\fP the \fBLinphoneFriend\fP whose presence information has been received\&. 
+.br
+\fIuri_or_tel\fP telephone number or sip uri 
+.br
+\fIpresence_model\fP the \fBLinphonePresenceModel\fP that has been modified 
+.RE
+.PP
+
+.SS "void linphone_core_reject_subscriber (\fBLinphoneCore\fP * lc, \fBLinphoneFriend\fP * lf)"
+
+.PP
+Black list a friend\&. same as \fBlinphone_friend_set_inc_subscribe_policy()\fP with \fBLinphoneSPDeny\fP policy; 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIlf\fP \fBLinphoneFriend\fP to add 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_core_remove_friend (\fBLinphoneCore\fP * lc, \fBLinphoneFriend\fP * fr)"
+
+.PP
+Removes a friend from the buddy list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIfr\fP \fBLinphoneFriend\fP to remove 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_friend_list_remove_friend()\fP instead\&.  
+.RE
+.PP
+
+.SS "void linphone_core_remove_friend_list (\fBLinphoneCore\fP * lc, \fBLinphoneFriendList\fP * list)"
+
+.PP
+Removes a friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIlist\fP LinphoneFriendList object 
+.RE
+.PP
+
+.SS "void linphone_core_set_consolidated_presence (\fBLinphoneCore\fP * lc, \fBLinphoneConsolidatedPresence\fP presence)"
+
+.PP
+Set my consolidated presence\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIpresence\fP LinphoneConsolidatedPresence value 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_core_set_presence_info (\fBLinphoneCore\fP * lc, int minutes_away, const char * alternative_contact, LinphoneOnlineStatus os)"
+
+.PP
+Set my presence status\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIminutes_away\fP how long in away 
+.br
+\fIalternative_contact\fP sip uri used to redirect call in state #LinphoneStatusMoved 
+.br
+\fIos\fP #LinphoneOnlineStatus 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_core_set_presence_model()\fP instead  
+.RE
+.PP
+
+.SS "void linphone_core_set_presence_model (\fBLinphoneCore\fP * lc, \fBLinphonePresenceModel\fP * presence)"
+
+.PP
+Set my presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIpresence\fP \fBLinphonePresenceModel\fP 
+.RE
+.PP
+
+.SS "void linphone_friend_add_address (\fBLinphoneFriend\fP * lf, const \fBLinphoneAddress\fP * addr)"
+
+.PP
+Adds an address in this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.br
+\fIaddr\fP \fBLinphoneAddress\fP object 
+.RE
+.PP
+
+.SS "void linphone_friend_add_phone_number (\fBLinphoneFriend\fP * lf, const char * phone)"
+
+.PP
+Adds a phone number in this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.br
+\fIphone\fP number to add 
+.RE
+.PP
+
+.SS "bool_t linphone_friend_create_vcard (\fBLinphoneFriend\fP * fr, const char * name)"
+
+.PP
+Creates a vCard object associated to this friend if there isn't one yet and if the full name is available, either by the parameter or the one in the friend's SIP URI\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfr\fP LinphoneFriend object 
+.br
+\fIname\fP The full name of the friend or NULL to use the one from the friend's SIP URI 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+true if the vCard has been created, false if it wasn't possible (for exemple if name and the friend's SIP URI are null or if the friend's SIP URI doesn't have a display name), or if there is already one vcard 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_friend_destroy (\fBLinphoneFriend\fP * lf)"
+
+.PP
+Destroy a LinphoneFriend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP LinphoneFriend object 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_friend_unref()\fP instead\&.  
+.RE
+.PP
+
+.SS "void linphone_friend_done (\fBLinphoneFriend\fP * fr)"
+
+.PP
+Commits modification made to the friend configuration\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfr\fP \fBLinphoneFriend\fP object 
+.RE
+.PP
+
+.SS "void linphone_friend_edit (\fBLinphoneFriend\fP * fr)"
+
+.PP
+Starts editing a friend configuration\&. Because friend configuration must be consistent, applications MUST call \fBlinphone_friend_edit()\fP before doing any attempts to modify friend configuration (such as \fBaddress \fP or \fBsubscription policy\fP and so on)\&. Once the modifications are done, then the application must call \fBlinphone_friend_done()\fP to commit the changes\&. 
+.SS "\fBLinphoneStatus\fP linphone_friend_enable_subscribes (\fBLinphoneFriend\fP * fr, bool_t val)"
+
+.PP
+Configure \fBLinphoneFriend\fP to subscribe to presence information\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfr\fP \fBLinphoneFriend\fP object 
+.br
+\fIval\fP if TRUE this friend will receive subscription message 
+.RE
+.PP
+
+.SS "const \fBLinphoneAddress\fP* linphone_friend_get_address (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Get address of this friend\&. 
+.PP
+\fBNote:\fP
+.RS 4
+the LinphoneAddress object returned is hold by the LinphoneFriend, however calling several time this function may return different objects\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneAddress\fP 
+.RE
+.PP
+
+.SS "const bctbx_list_t* linphone_friend_get_addresses (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Returns a list of \fBLinphoneAddress\fP for this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBLinphoneAddress\fP objects\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneConsolidatedPresence\fP linphone_friend_get_consolidated_presence (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Get the consolidated presence of a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP LinphoneFriend object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The consolidated presence of the friend 
+.RE
+.PP
+
+.SS "\fBLinphoneCore\fP* linphone_friend_get_core (const \fBLinphoneFriend\fP * fr)"
+
+.PP
+Returns the LinphoneCore object managing this friend, if any\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfr\fP LinphoneFriend object 
+.RE
+.PP
+
+.SS "\fBLinphoneSubscribePolicy\fP linphone_friend_get_inc_subscribe_policy (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+get current subscription policy for this \fBLinphoneFriend\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneSubscribePolicy\fP 
+.RE
+.PP
+
+.SS "const char* linphone_friend_get_name (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Get the display name for this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The display name of this friend 
+.RE
+.PP
+
+.SS "bctbx_list_t* linphone_friend_get_phone_numbers (\fBLinphoneFriend\fP * lf)"
+
+.PP
+Returns a list of phone numbers for this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBconst\fP char * objects\&. 
+.RE
+.PP
+
+.SS "const \fBLinphonePresenceModel\fP* linphone_friend_get_presence_model (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Get the presence model of a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP A \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBLinphonePresenceModel\fP object, or NULL if the friend do not have presence information (in which case he is considered offline) 
+.RE
+.PP
+
+.SS "const \fBLinphonePresenceModel\fP* linphone_friend_get_presence_model_for_uri_or_tel (const \fBLinphoneFriend\fP * lf, const char * uri_or_tel)"
+
+.PP
+Get the presence model for a specific SIP URI or phone number of a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP A \fBLinphoneFriend\fP object 
+.br
+\fIuri_or_tel\fP The SIP URI or phone number for which to get the presence model 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBLinphonePresenceModel\fP object, or NULL if the friend do not have presence information for this SIP URI or phone number 
+.RE
+.PP
+
+.SS "const char* linphone_friend_get_ref_key (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Get the reference key of a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The reference key of the friend\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED LinphoneOnlineStatus linphone_friend_get_status (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Get the status of a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP A \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+#LinphoneOnlineStatus 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_friend_get_presence_model()\fP instead  
+.RE
+.PP
+
+.SS "\fBLinphoneSubscriptionState\fP linphone_friend_get_subscription_state (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Get subscription state of a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP A \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneSubscriptionState\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneVcard\fP* linphone_friend_get_vcard (\fBLinphoneFriend\fP * fr)"
+
+.PP
+Returns the vCard object associated to this friend, if any\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfr\fP LinphoneFriend object 
+.RE
+.PP
+
+.SS "bool_t linphone_friend_in_list (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Check that the given friend is in a friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if the friend is in a friend list, FALSE otherwise\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_friend_is_presence_received (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+Tells whether we already received presence information for a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP A \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if presence information has been received for the friend, FALSE otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendListStatus\fP linphone_friend_list_add_friend (\fBLinphoneFriendList\fP * list, \fBLinphoneFriend\fP * lf)"
+
+.PP
+Add a friend to a friend list\&. If or when a remote CardDAV server will be attached to the list, the friend will be sent to the server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIlf\fP LinphoneFriend object to add to the friend list\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneFriendListOK if successfully added, LinphoneFriendListInvalidFriend if the friend is not valid\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendListStatus\fP linphone_friend_list_add_local_friend (\fBLinphoneFriendList\fP * list, \fBLinphoneFriend\fP * lf)"
+
+.PP
+Add a friend to a friend list\&. The friend will never be sent to a remote CardDAV server\&. Warning! LinphoneFriends added this way will be removed on the next synchronization, and the callback contact_deleted will be called\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIlf\fP LinphoneFriend object to add to the friend list\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneFriendListOK if successfully added, LinphoneFriendListInvalidFriend if the friend is not valid\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendListCbsContactCreatedCb\fP linphone_friend_list_cbs_get_contact_created (const \fBLinphoneFriendListCbs\fP * cbs)"
+
+.PP
+Get the contact created callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current contact created callback\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendListCbsContactDeletedCb\fP linphone_friend_list_cbs_get_contact_deleted (const \fBLinphoneFriendListCbs\fP * cbs)"
+
+.PP
+Get the contact deleted callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current contact deleted callback\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendListCbsContactUpdatedCb\fP linphone_friend_list_cbs_get_contact_updated (const \fBLinphoneFriendListCbs\fP * cbs)"
+
+.PP
+Get the contact updated callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current contact updated callback\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendListCbsSyncStateChangedCb\fP linphone_friend_list_cbs_get_sync_status_changed (const \fBLinphoneFriendListCbs\fP * cbs)"
+
+.PP
+Get the sync status changed callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current sync status changedcallback\&. 
+.RE
+.PP
+
+.SS "void* linphone_friend_list_cbs_get_user_data (const \fBLinphoneFriendListCbs\fP * cbs)"
+
+.PP
+Retrieve the user pointer associated with a LinphoneFriendListCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the LinphoneFriendListCbs object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendListCbs\fP* linphone_friend_list_cbs_ref (\fBLinphoneFriendListCbs\fP * cbs)"
+
+.PP
+Acquire a reference to a LinphoneFriendListCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneFriendListCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_cbs_set_contact_created (\fBLinphoneFriendListCbs\fP * cbs, \fBLinphoneFriendListCbsContactCreatedCb\fP cb)"
+
+.PP
+Set the contact created callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.br
+\fIcb\fP The contact created to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_cbs_set_contact_deleted (\fBLinphoneFriendListCbs\fP * cbs, \fBLinphoneFriendListCbsContactDeletedCb\fP cb)"
+
+.PP
+Set the contact deleted callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.br
+\fIcb\fP The contact deleted to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_cbs_set_contact_updated (\fBLinphoneFriendListCbs\fP * cbs, \fBLinphoneFriendListCbsContactUpdatedCb\fP cb)"
+
+.PP
+Set the contact updated callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.br
+\fIcb\fP The contact updated to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_cbs_set_sync_status_changed (\fBLinphoneFriendListCbs\fP * cbs, \fBLinphoneFriendListCbsSyncStateChangedCb\fP cb)"
+
+.PP
+Set the contact updated callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.br
+\fIcb\fP The sync status changed to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_cbs_set_user_data (\fBLinphoneFriendListCbs\fP * cbs, void * ud)"
+
+.PP
+Assign a user pointer to a LinphoneFriendListCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.br
+\fIud\fP The user pointer to associate with the LinphoneFriendListCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_cbs_unref (\fBLinphoneFriendListCbs\fP * cbs)"
+
+.PP
+Release a reference to a LinphoneFriendListCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneFriendListCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_enable_subscriptions (\fBLinphoneFriendList\fP * list, bool_t enabled)"
+
+.PP
+Enable subscription to NOTIFYes of all friends list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP the LinphoneFriendList object 
+.br
+\fIenabled\fP should subscription be enabled or not 
+.RE
+.PP
+
+.SS "void linphone_friend_list_export_friends_as_vcard4_file (\fBLinphoneFriendList\fP * list, const char * vcard_file)"
+
+.PP
+Creates and export LinphoneFriend objects from LinphoneFriendList to a file using vCard 4 format\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP the LinphoneFriendList object 
+.br
+\fIvcard_file\fP the path to a file that will contain the vCards 
+.RE
+.PP
+
+.SS "\fBLinphoneFriend\fP* linphone_friend_list_find_friend_by_address (const \fBLinphoneFriendList\fP * list, const \fBLinphoneAddress\fP * address)"
+
+.PP
+Find a friend in the friend list using a LinphoneAddress\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIaddress\fP LinphoneAddress object of the friend we want to search for\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphoneFriend if found, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriend\fP* linphone_friend_list_find_friend_by_ref_key (const \fBLinphoneFriendList\fP * list, const char * ref_key)"
+
+.PP
+Find a friend in the friend list using a ref key\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIref_key\fP The ref key string of the friend we want to search for\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphoneFriend if found, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriend\fP* linphone_friend_list_find_friend_by_uri (const \fBLinphoneFriendList\fP * list, const char * uri)"
+
+.PP
+Find a friend in the friend list using an URI string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIuri\fP A string containing the URI of the friend we want to search for\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphoneFriend if found, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendListCbs\fP* linphone_friend_list_get_callbacks (const \fBLinphoneFriendList\fP * list)"
+
+.PP
+Get the LinphoneFriendListCbs object associated with a LinphoneFriendList\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The LinphoneFriendListCbs object associated with the LinphoneFriendList\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneCore\fP* linphone_friend_list_get_core (const \fBLinphoneFriendList\fP * list)"
+
+.PP
+Returns the LinphoneCore object attached to this LinphoneFriendList\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a LinphoneCore object 
+.RE
+.PP
+
+.SS "const char* linphone_friend_list_get_display_name (const \fBLinphoneFriendList\fP * list)"
+
+.PP
+Get the display name of the friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The display name of the friend list\&. 
+.RE
+.PP
+
+.SS "const bctbx_list_t* linphone_friend_list_get_friends (const \fBLinphoneFriendList\fP * list)"
+
+.PP
+Retrieves the list of LinphoneFriend from this LinphoneFriendList\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBLinphoneFriend\fP objects\&. a list of LinphoneFriend 
+.RE
+.PP
+
+.SS "const \fBLinphoneAddress\fP* linphone_friend_list_get_rls_address (const \fBLinphoneFriendList\fP * list)"
+
+.PP
+Get the RLS (Resource List Server) URI associated with the friend list to subscribe to these friends presence\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The RLS URI associated with the friend list\&. 
+.RE
+.PP
+
+.SS "const char* linphone_friend_list_get_rls_uri (const \fBLinphoneFriendList\fP * list)"
+
+.PP
+Get the RLS (Resource List Server) URI associated with the friend list to subscribe to these friends presence\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The RLS URI associated with the friend list\&. 
+.RE
+.PP
+
+.SS "const char* linphone_friend_list_get_uri (const \fBLinphoneFriendList\fP * list)"
+
+.PP
+Get the URI associated with the friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The URI associated with the friend list\&. 
+.RE
+.PP
+
+.SS "void* linphone_friend_list_get_user_data (const \fBLinphoneFriendList\fP * list)"
+
+.PP
+Retrieve the user pointer associated with the friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the friend list\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_friend_list_import_friends_from_vcard4_buffer (\fBLinphoneFriendList\fP * list, const char * vcard_buffer)"
+
+.PP
+Creates and adds LinphoneFriend objects to LinphoneFriendList from a buffer that contains the vCard(s) to parse\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP the LinphoneFriendList object 
+.br
+\fIvcard_buffer\fP the buffer that contains the vCard(s) to parse 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the amount of linphone friends created 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_friend_list_import_friends_from_vcard4_file (\fBLinphoneFriendList\fP * list, const char * vcard_file)"
+
+.PP
+Creates and adds LinphoneFriend objects to LinphoneFriendList from a file that contains the vCard(s) to parse\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP the LinphoneFriendList object 
+.br
+\fIvcard_file\fP the path to a file that contains the vCard(s) to parse 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the amount of linphone friends created 
+.RE
+.PP
+
+.SS "void linphone_friend_list_notify_presence (\fBLinphoneFriendList\fP * list, \fBLinphonePresenceModel\fP * presence)"
+
+.PP
+Notify our presence to all the friends in the friend list that have subscribed to our presence directly (not using a RLS)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIpresence\fP LinphonePresenceModel object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendList\fP* linphone_friend_list_ref (\fBLinphoneFriendList\fP * list)"
+
+.PP
+Acquire a reference to the friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneFriendList object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneFriendListStatus\fP linphone_friend_list_remove_friend (\fBLinphoneFriendList\fP * list, \fBLinphoneFriend\fP * lf)"
+
+.PP
+Remove a friend from a friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIlf\fP LinphoneFriend object to remove from the friend list\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneFriendListOK if removed successfully, LinphoneFriendListNonExistentFriend if the friend is not in the list\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_set_display_name (\fBLinphoneFriendList\fP * list, const char * display_name)"
+
+.PP
+Set the display name of the friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIdisplay_name\fP The new display name of the friend list\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_set_rls_address (\fBLinphoneFriendList\fP * list, const \fBLinphoneAddress\fP * rls_addr)"
+
+.PP
+Set the RLS (Resource List Server) URI associated with the friend list to subscribe to these friends presence\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIrls_addr\fP The RLS URI to associate with the friend list\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_set_rls_uri (\fBLinphoneFriendList\fP * list, const char * rls_uri)"
+
+.PP
+Set the RLS (Resource List Server) URI associated with the friend list to subscribe to these friends presence\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIrls_uri\fP The RLS URI to associate with the friend list\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_set_uri (\fBLinphoneFriendList\fP * list, const char * uri)"
+
+.PP
+Set the URI associated with the friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIuri\fP The URI to associate with the friend list\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_set_user_data (\fBLinphoneFriendList\fP * list, void * ud)"
+
+.PP
+Assign a user pointer to the friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIud\fP The user pointer to associate with the friend list\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_friend_list_subscriptions_enabled (\fBLinphoneFriendList\fP * list)"
+
+.PP
+Gets whether subscription to NOTIFYes of all friends list are enabled or not\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP the LinphoneFriendList object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Whether subscriptions are enabled or not 
+.RE
+.PP
+
+.SS "void linphone_friend_list_synchronize_friends_from_server (\fBLinphoneFriendList\fP * list)"
+
+.PP
+Starts a CardDAV synchronization using value set using linphone_friend_list_set_uri\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_unref (\fBLinphoneFriendList\fP * list)"
+
+.PP
+Release reference to the friend list\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_update_dirty_friends (\fBLinphoneFriendList\fP * list)"
+
+.PP
+Goes through all the LinphoneFriend that are dirty and does a CardDAV PUT to update the server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_list_update_revision (\fBLinphoneFriendList\fP * list, int rev)"
+
+.PP
+Sets the revision from the last synchronization\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP LinphoneFriendList object\&. 
+.br
+\fIrev\fP The revision 
+.RE
+.PP
+
+.SS "void linphone_friend_list_update_subscriptions (\fBLinphoneFriendList\fP * list)"
+
+.PP
+Update presence subscriptions for the entire list\&. Calling this function is necessary when list subscriptions are enabled, ie when a RLS presence server is used\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlist\fP the friend list 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneFriend\fP* linphone_friend_new (void)"
+
+.PP
+Contructor\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+a new empty \fBLinphoneFriend\fP 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_core_create_friend\fP instead  
+.RE
+.PP
+
+.SS "\fBLinphoneFriend\fP* linphone_friend_new_from_vcard (\fBLinphoneVcard\fP * vcard)"
+
+.PP
+Contructor same as \fBlinphone_friend_new()\fP + \fBlinphone_friend_set_address()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvcard\fP a vCard object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new \fBLinphoneFriend\fP with \fBvCard initialized \fP 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneFriend\fP* linphone_friend_new_with_address (const char * addr)"
+
+.PP
+Contructor same as \fBlinphone_friend_new()\fP + \fBlinphone_friend_set_address()\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP a buddy address, must be a sip uri like sip:joe@sip.linphone.org 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new \fBLinphoneFriend\fP with \fBaddress initialized \fP 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_core_create_friend_with_address\fP instead  
+.RE
+.PP
+
+.SS "\fBLinphoneFriend\fP* linphone_friend_ref (\fBLinphoneFriend\fP * lf)"
+
+.PP
+Acquire a reference to the linphone friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP LinphoneFriend object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneFriend object 
+.RE
+.PP
+
+.SS "void linphone_friend_remove_address (\fBLinphoneFriend\fP * lf, const \fBLinphoneAddress\fP * addr)"
+
+.PP
+Removes an address in this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.br
+\fIaddr\fP \fBLinphoneAddress\fP object 
+.RE
+.PP
+
+.SS "void linphone_friend_remove_phone_number (\fBLinphoneFriend\fP * lf, const char * phone)"
+
+.PP
+Removes a phone number in this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.br
+\fIphone\fP number to remove 
+.RE
+.PP
+
+.SS "void linphone_friend_save (\fBLinphoneFriend\fP * fr, \fBLinphoneCore\fP * lc)"
+
+.PP
+Saves a friend either in database if configured, otherwise in linphonerc\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfr\fP the linphone friend to save 
+.br
+\fIlc\fP the linphone core 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_friend_set_address (\fBLinphoneFriend\fP * fr, const \fBLinphoneAddress\fP * address)"
+
+.PP
+Set \fBLinphoneAddress\fP for this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfr\fP \fBLinphoneFriend\fP object 
+.br
+\fIaddress\fP \fBLinphoneAddress\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_friend_set_inc_subscribe_policy (\fBLinphoneFriend\fP * fr, \fBLinphoneSubscribePolicy\fP pol)"
+
+.PP
+Configure incoming subscription policy for this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfr\fP \fBLinphoneFriend\fP object 
+.br
+\fIpol\fP \fBLinphoneSubscribePolicy\fP policy to apply\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_friend_set_name (\fBLinphoneFriend\fP * lf, const char * name)"
+
+.PP
+Set the display name for this friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.br
+\fIname\fP 
+.RE
+.PP
+
+.SS "void linphone_friend_set_presence_model (\fBLinphoneFriend\fP * lf, \fBLinphonePresenceModel\fP * presence)"
+
+.PP
+Set the presence model of a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP A \fBLinphoneFriend\fP object 
+.br
+\fIpresence\fP The \fBLinphonePresenceModel\fP object to set for the friend 
+.RE
+.PP
+
+.SS "void linphone_friend_set_presence_model_for_uri_or_tel (\fBLinphoneFriend\fP * lf, const char * uri_or_tel, \fBLinphonePresenceModel\fP * presence)"
+
+.PP
+Set the presence model for a specific SIP URI or phone number of a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP A \fBLinphoneFriend\fP object 
+.br
+\fIuri_or_tel\fP The SIP URI or phone number for which to set the presence model 
+.br
+\fIpresence\fP The \fBLinphonePresenceModel\fP object to set 
+.RE
+.PP
+
+.SS "void linphone_friend_set_ref_key (\fBLinphoneFriend\fP * lf, const char * key)"
+
+.PP
+Set the reference key of a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object\&. 
+.br
+\fIkey\fP The reference key to use for the friend\&. 
+.RE
+.PP
+
+.SS "void linphone_friend_set_vcard (\fBLinphoneFriend\fP * fr, \fBLinphoneVcard\fP * vcard)"
+
+.PP
+Binds a vCard object to a friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfr\fP LinphoneFriend object 
+.br
+\fIvcard\fP The vCard object to bind 
+.RE
+.PP
+
+.SS "bool_t linphone_friend_subscribes_enabled (const \fBLinphoneFriend\fP * lf)"
+
+.PP
+get subscription flag value 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP \fBLinphoneFriend\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+returns true is subscription is activated for this friend 
+.RE
+.PP
+
+.SS "void linphone_friend_unref (\fBLinphoneFriend\fP * lf)"
+
+.PP
+Release a reference to the linphone friend\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlf\fP LinphoneFriend object 
+.RE
+.PP
+
+.SS "const char* linphone_presence_activity_get_description (const \fBLinphonePresenceActivity\fP * activity)"
+
+.PP
+Gets the description of a presence activity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP A pointer to the \fBLinphonePresenceActivity\fP for which to get the description\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the description string of the presence activity, or NULL if no description is specified\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceActivityType\fP linphone_presence_activity_get_type (const \fBLinphonePresenceActivity\fP * activity)"
+
+.PP
+Gets the activity type of a presence activity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP A pointer to the \fBLinphonePresenceActivity\fP for which to get the type\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceActivityType\fP of the activity\&. 
+.RE
+.PP
+
+.SS "void* linphone_presence_activity_get_user_data (const \fBLinphonePresenceActivity\fP * activity)"
+
+.PP
+Gets the user data of a \fBLinphonePresenceActivity\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP The \fBLinphonePresenceActivity\fP object for which to get the user data\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the user data\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceActivity\fP* linphone_presence_activity_new (\fBLinphonePresenceActivityType\fP acttype, const char * description)"
+
+.PP
+Creates a presence activity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIacttype\fP The \fBLinphonePresenceActivityType\fP to set for the activity\&. 
+.br
+\fIdescription\fP An additional description of the activity to set for the activity\&. Can be NULL if no additional description is to be added\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created presence activity, NULL on error\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceActivity\fP* linphone_presence_activity_ref (\fBLinphonePresenceActivity\fP * activity)"
+
+.PP
+Increase the reference count of the \fBLinphonePresenceActivity\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP The \fBLinphonePresenceActivity\fP object for which the reference count is to be increased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceActivity\fP object with the increased reference count\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_activity_set_description (\fBLinphonePresenceActivity\fP * activity, const char * description)"
+
+.PP
+Sets the description of a presence activity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP The \fBLinphonePresenceActivity\fP object for which to set the description\&. 
+.br
+\fIdescription\fP An additional description of the activity\&. Can be NULL if no additional description is to be added\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_activity_set_type (\fBLinphonePresenceActivity\fP * activity, \fBLinphonePresenceActivityType\fP acttype)"
+
+.PP
+Sets the type of activity of a presence activity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP The \fBLinphonePresenceActivity\fP for which to set for the activity type\&. 
+.br
+\fIacttype\fP The activity type to set for the activity\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "void linphone_presence_activity_set_user_data (\fBLinphonePresenceActivity\fP * activity, void * user_data)"
+
+.PP
+Sets the user data of a \fBLinphonePresenceActivity\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP The \fBLinphonePresenceActivity\fP object for which to set the user data\&. 
+.br
+\fIuser_data\fP A pointer to the user data to set\&. 
+.RE
+.PP
+
+.SS "char* linphone_presence_activity_to_string (const \fBLinphonePresenceActivity\fP * activity)"
+
+.PP
+Gets the string representation of a presence activity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP A pointer to the \fBLinphonePresenceActivity\fP object for which to get a string representation\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer a dynamically allocated string representing the given activity\&.
+.RE
+.PP
+The returned string is to be freed by calling ms_free()\&. 
+.SS "\fBLinphonePresenceActivity\fP* linphone_presence_activity_unref (\fBLinphonePresenceActivity\fP * activity)"
+
+.PP
+Decrease the reference count of the \fBLinphonePresenceActivity\fP object and destroy it if it reaches 0\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP The \fBLinphonePresenceActivity\fP object for which the reference count is to be decreased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceActivity\fP object if the reference count is still positive, NULL if the object has been destroyed\&. 
+.RE
+.PP
+
+.SS "char* linphone_presence_basic_status_to_string (\fBLinphonePresenceBasicStatus\fP basic_status)"
+
+.PP
+Gets the string representation of a presence basic status\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbasic_status\fP A LinphonePresenceBasicStatus for which to get a string representation\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer a dynamically allocated string representing the given basic status\&.
+.RE
+.PP
+The returned string is to be freed by calling ms_free()\&. 
+.SS "\fBLinphoneStatus\fP linphone_presence_model_add_activity (\fBLinphonePresenceModel\fP * model, \fBLinphonePresenceActivity\fP * activity)"
+
+.PP
+Adds an activity to a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to add an activity\&. 
+.br
+\fIactivity\fP The \fBLinphonePresenceActivity\fP object to add to the model\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_model_add_note (\fBLinphonePresenceModel\fP * model, const char * note_content, const char * lang)"
+
+.PP
+Adds a note to a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to add a note to\&. 
+.br
+\fInote_content\fP The note to be added to the presence model\&. 
+.br
+\fIlang\fP The language of the note to be added\&. Can be NULL if no language is to be specified for the note\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&.
+.RE
+.PP
+Only one note for each language can be set, so e\&.g\&. setting a note for the 'fr' language if there is only one will replace the existing one\&. 
+.SS "\fBLinphoneStatus\fP linphone_presence_model_add_person (\fBLinphonePresenceModel\fP * model, \fBLinphonePresencePerson\fP * person)"
+
+.PP
+Adds a person to a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to add a person\&. 
+.br
+\fIperson\fP The \fBLinphonePresencePerson\fP object to add to the model\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_model_add_service (\fBLinphonePresenceModel\fP * model, \fBLinphonePresenceService\fP * service)"
+
+.PP
+Adds a service to a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to add a service\&. 
+.br
+\fIservice\fP The \fBLinphonePresenceService\fP object to add to the model\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_model_clear_activities (\fBLinphonePresenceModel\fP * model)"
+
+.PP
+Clears the activities of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to clear the activities\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_model_clear_notes (\fBLinphonePresenceModel\fP * model)"
+
+.PP
+Clears all the notes of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP for which to clear notes\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_model_clear_persons (\fBLinphonePresenceModel\fP * model)"
+
+.PP
+Clears the persons of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to clear the persons\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_model_clear_services (\fBLinphonePresenceModel\fP * model)"
+
+.PP
+Clears the services of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to clear the services\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceActivity\fP* linphone_presence_model_get_activity (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Gets the first activity of a presence model (there is usually only one)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the activity from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBLinphonePresenceActivity\fP object if successful, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceBasicStatus\fP linphone_presence_model_get_basic_status (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Gets the basic status of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the basic status from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceBasicStatus\fP of the \fBLinphonePresenceModel\fP object given as parameter\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneConsolidatedPresence\fP linphone_presence_model_get_consolidated_presence (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Get the consolidated presence from a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP LinphonePresenceModel object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The LinphoneConsolidatedPresence corresponding to the presence model 
+.RE
+.PP
+
+.SS "char* linphone_presence_model_get_contact (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Gets the contact of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the contact from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a dynamically allocated string containing the contact, or NULL if no contact is found\&.
+.RE
+.PP
+The returned string is to be freed by calling ms_free()\&. 
+.SS "unsigned int linphone_presence_model_get_nb_activities (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Gets the number of activities included in the presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the number of activities from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of activities included in the \fBLinphonePresenceModel\fP object\&. 
+.RE
+.PP
+
+.SS "unsigned int linphone_presence_model_get_nb_persons (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Gets the number of persons included in the presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the number of persons from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of persons included in the \fBLinphonePresenceModel\fP object\&. 
+.RE
+.PP
+
+.SS "unsigned int linphone_presence_model_get_nb_services (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Gets the number of services included in the presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the number of services from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of services included in the \fBLinphonePresenceModel\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceNote\fP* linphone_presence_model_get_note (const \fBLinphonePresenceModel\fP * model, const char * lang)"
+
+.PP
+Gets the first note of a presence model (there is usually only one)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the note from\&. 
+.br
+\fIlang\fP The language of the note to get\&. Can be NULL to get a note that has no language specified or to get the first note whatever language it is written into\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a \fBLinphonePresenceNote\fP object if successful, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceActivity\fP* linphone_presence_model_get_nth_activity (const \fBLinphonePresenceModel\fP * model, unsigned int idx)"
+
+.PP
+Gets the nth activity of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the activity from\&. 
+.br
+\fIidx\fP The index of the activity to get (the first activity having the index 0)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a \fBLinphonePresenceActivity\fP object if successful, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresencePerson\fP* linphone_presence_model_get_nth_person (const \fBLinphonePresenceModel\fP * model, unsigned int idx)"
+
+.PP
+Gets the nth person of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the person from\&. 
+.br
+\fIidx\fP The index of the person to get (the first person having the index 0)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a \fBLinphonePresencePerson\fP object if successful, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceService\fP* linphone_presence_model_get_nth_service (const \fBLinphonePresenceModel\fP * model, unsigned int idx)"
+
+.PP
+Gets the nth service of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the service from\&. 
+.br
+\fIidx\fP The index of the service to get (the first service having the index 0)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a \fBLinphonePresenceService\fP object if successful, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "const \fBLinphoneAddress\fP* linphone_presence_model_get_presentity (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Gets the presentity of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the contact from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a const LinphoneAddress, or NULL if no contact is found\&. 
+.RE
+.PP
+
+.SS "time_t linphone_presence_model_get_timestamp (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Gets the timestamp of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object to get the timestamp from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The timestamp of the \fBLinphonePresenceModel\fP object or -1 on error\&. 
+.RE
+.PP
+
+.SS "void* linphone_presence_model_get_user_data (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Gets the user data of a \fBLinphonePresenceModel\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to get the user data\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the user data\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_presence_model_is_online (const \fBLinphonePresenceModel\fP * model)"
+
+.PP
+Tells whether a presence model is considered online\&. It is any of theses cases:
+.IP "\(bu" 2
+basic status is'open' and no activities
+.IP "\(bu" 2
+explicit 'online' tag in the status 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP LinphonePresenceModel object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A boolean value telling whether the presence model is considered online or not\&. 
+.RE
+.PP
+
+.PP
+
+.SS "\fBLinphonePresenceModel\fP* linphone_presence_model_new (void)"
+
+.PP
+Creates a default presence model\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The created presence model, NULL on error\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_presence_model_new_with_activity\fP 
+.PP
+\fBlinphone_presence_model_new_with_activity_and_note\fP
+.RE
+.PP
+The created presence model is considered 'offline'\&. 
+.SS "\fBLinphonePresenceModel\fP* linphone_presence_model_new_with_activity (\fBLinphonePresenceActivityType\fP activity, const char * description)"
+
+.PP
+Creates a presence model specifying an activity\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP The activity to set for the created presence model\&. 
+.br
+\fIdescription\fP An additional description of the activity (mainly useful for the 'other' activity)\&. Set it to NULL to not add a description\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created presence model, or NULL if an error occured\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_presence_model_new\fP 
+.PP
+\fBlinphone_presence_model_new_with_activity_and_note\fP
+.RE
+.PP
+The created presence model has the activity specified in the parameters\&. 
+.SS "\fBLinphonePresenceModel\fP* linphone_presence_model_new_with_activity_and_note (\fBLinphonePresenceActivityType\fP activity, const char * description, const char * note, const char * lang)"
+
+.PP
+Creates a presence model specifying an activity and adding a note\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIactivity\fP The activity to set for the created presence model\&. 
+.br
+\fIdescription\fP An additional description of the activity (mainly useful for the 'other' activity)\&. Set it to NULL to not add a description\&. 
+.br
+\fInote\fP An additional note giving additional information about the contact presence\&. 
+.br
+\fIlang\fP The language the note is written in\&. It can be set to NULL in order to not specify the language of the note\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created presence model, or NULL if an error occured\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_presence_model_new_with_activity\fP 
+.PP
+\fBlinphone_presence_model_new_with_activity_and_note\fP
+.RE
+.PP
+The created presence model has the activity and the note specified in the parameters\&. 
+.SS "\fBLinphonePresenceModel\fP* linphone_presence_model_ref (\fBLinphonePresenceModel\fP * model)"
+
+.PP
+Increase the reference count of the \fBLinphonePresenceModel\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which the reference count is to be increased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceModel\fP object with the increased reference count\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_model_set_activity (\fBLinphonePresenceModel\fP * model, \fBLinphonePresenceActivityType\fP activity, const char * description)"
+
+.PP
+Sets the activity of a presence model (limits to only one activity)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to set the activity\&. 
+.br
+\fIactivity\fP The \fBLinphonePresenceActivityType\fP to set for the model\&. 
+.br
+\fIdescription\fP An additional description of the activity to set for the model\&. Can be NULL if no additional description is to be added\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&.
+.RE
+.PP
+WARNING: This function will modify the basic status of the model according to the activity being set\&. If you don't want the basic status to be modified automatically, you can use the combination of \fBlinphone_presence_model_set_basic_status()\fP, \fBlinphone_presence_model_clear_activities()\fP and \fBlinphone_presence_model_add_activity()\fP\&. 
+.SS "\fBLinphoneStatus\fP linphone_presence_model_set_basic_status (\fBLinphonePresenceModel\fP * model, \fBLinphonePresenceBasicStatus\fP basic_status)"
+
+.PP
+Sets the basic status of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to set the basic status\&. 
+.br
+\fIbasic_status\fP The \fBLinphonePresenceBasicStatus\fP to set for the \fBLinphonePresenceModel\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_model_set_contact (\fBLinphonePresenceModel\fP * model, const char * contact)"
+
+.PP
+Sets the contact of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to set the contact\&. 
+.br
+\fIcontact\fP The contact string to set\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_model_set_presentity (\fBLinphonePresenceModel\fP * model, const \fBLinphoneAddress\fP * presentity)"
+
+.PP
+Sets the presentity of a presence model\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to set the contact\&. 
+.br
+\fIpresentity\fP The presentity address to set (presentity is copied)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "void linphone_presence_model_set_user_data (\fBLinphonePresenceModel\fP * model, void * user_data)"
+
+.PP
+Sets the user data of a \fBLinphonePresenceModel\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which to set the user data\&. 
+.br
+\fIuser_data\fP A pointer to the user data to set\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceModel\fP* linphone_presence_model_unref (\fBLinphonePresenceModel\fP * model)"
+
+.PP
+Decrease the reference count of the \fBLinphonePresenceModel\fP object and destroy it if it reaches 0\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImodel\fP The \fBLinphonePresenceModel\fP object for which the reference count is to be decreased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceModel\fP object if the reference count is still positive, NULL if the object has been destroyed\&. 
+.RE
+.PP
+
+.SS "const char* linphone_presence_note_get_content (const \fBLinphonePresenceNote\fP * note)"
+
+.PP
+Gets the content of a presence note\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInote\fP A pointer to the \fBLinphonePresenceNote\fP for which to get the content\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the content of the presence note\&. 
+.RE
+.PP
+
+.SS "const char* linphone_presence_note_get_lang (const \fBLinphonePresenceNote\fP * note)"
+
+.PP
+Gets the language of a presence note\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInote\fP A pointer to the \fBLinphonePresenceNote\fP for which to get the language\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the language string of the presence note, or NULL if no language is specified\&. 
+.RE
+.PP
+
+.SS "void* linphone_presence_note_get_user_data (const \fBLinphonePresenceNote\fP * note)"
+
+.PP
+Gets the user data of a \fBLinphonePresenceNote\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInote\fP The \fBLinphonePresenceNote\fP object for which to get the user data\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the user data\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceNote\fP* linphone_presence_note_new (const char * content, const char * lang)"
+
+.PP
+Creates a presence note\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP The content of the note to be created\&. 
+.br
+\fIlang\fP The language of the note to be created\&. Can be NULL if no language is to be specified for the note\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created presence note, NULL on error\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceNote\fP* linphone_presence_note_ref (\fBLinphonePresenceNote\fP * note)"
+
+.PP
+Increase the reference count of the \fBLinphonePresenceNote\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInote\fP The \fBLinphonePresenceNote\fP object for which the reference count is to be increased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceNote\fP object with the increased reference count\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_note_set_content (\fBLinphonePresenceNote\fP * note, const char * content)"
+
+.PP
+Sets the content of a presence note\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInote\fP The \fBLinphonePresenceNote\fP object for which to set the content\&. 
+.br
+\fIcontent\fP The content of the note\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_note_set_lang (\fBLinphonePresenceNote\fP * note, const char * lang)"
+
+.PP
+Sets the language of a presence note\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInote\fP The \fBLinphonePresenceNote\fP object for which to set the language\&. 
+.br
+\fIlang\fP The language of the note\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "void linphone_presence_note_set_user_data (\fBLinphonePresenceNote\fP * note, void * user_data)"
+
+.PP
+Sets the user data of a \fBLinphonePresenceNote\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInote\fP The \fBLinphonePresenceNote\fP object for which to set the user data\&. 
+.br
+\fIuser_data\fP A pointer to the user data to set\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceNote\fP* linphone_presence_note_unref (\fBLinphonePresenceNote\fP * note)"
+
+.PP
+Decrease the reference count of the \fBLinphonePresenceNote\fP object and destroy it if it reaches 0\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fInote\fP The \fBLinphonePresenceNote\fP object for which the reference count is to be decreased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceNote\fP object if the reference count is still positive, NULL if the object has been destroyed\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_person_add_activities_note (\fBLinphonePresencePerson\fP * person, \fBLinphonePresenceNote\fP * note)"
+
+.PP
+Adds an activities note to a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which to add an activities note\&. 
+.br
+\fInote\fP The \fBLinphonePresenceNote\fP object to add to the person\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_person_add_activity (\fBLinphonePresencePerson\fP * person, \fBLinphonePresenceActivity\fP * activity)"
+
+.PP
+Adds an activity to a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which to add an activity\&. 
+.br
+\fIactivity\fP The \fBLinphonePresenceActivity\fP object to add to the person\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_person_add_note (\fBLinphonePresencePerson\fP * person, \fBLinphonePresenceNote\fP * note)"
+
+.PP
+Adds a note to a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which to add a note\&. 
+.br
+\fInote\fP The \fBLinphonePresenceNote\fP object to add to the person\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_person_clear_activities (\fBLinphonePresencePerson\fP * person)"
+
+.PP
+Clears the activities of a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which to clear the activities\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_person_clear_activities_notes (\fBLinphonePresencePerson\fP * person)"
+
+.PP
+Clears the activities notes of a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which to clear the activities notes\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_person_clear_notes (\fBLinphonePresencePerson\fP * person)"
+
+.PP
+Clears the notes of a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which to clear the notes\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "char* linphone_presence_person_get_id (const \fBLinphonePresencePerson\fP * person)"
+
+.PP
+Gets the id of a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object to get the id from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a dynamically allocated string containing the id, or NULL in case of error\&.
+.RE
+.PP
+The returned string is to be freed by calling ms_free()\&. 
+.SS "unsigned int linphone_presence_person_get_nb_activities (const \fBLinphonePresencePerson\fP * person)"
+
+.PP
+Gets the number of activities included in the presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object to get the number of activities from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of activities included in the \fBLinphonePresencePerson\fP object\&. 
+.RE
+.PP
+
+.SS "unsigned int linphone_presence_person_get_nb_activities_notes (const \fBLinphonePresencePerson\fP * person)"
+
+.PP
+Gets the number of activities notes included in the presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object to get the number of activities notes from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of activities notes included in the \fBLinphonePresencePerson\fP object\&. 
+.RE
+.PP
+
+.SS "unsigned int linphone_presence_person_get_nb_notes (const \fBLinphonePresencePerson\fP * person)"
+
+.PP
+Gets the number of notes included in the presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object to get the number of notes from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of notes included in the \fBLinphonePresencePerson\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceNote\fP* linphone_presence_person_get_nth_activities_note (const \fBLinphonePresencePerson\fP * person, unsigned int idx)"
+
+.PP
+Gets the nth activities note of a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object to get the activities note from\&. 
+.br
+\fIidx\fP The index of the activities note to get (the first note having the index 0)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a \fBLinphonePresenceNote\fP object if successful, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceActivity\fP* linphone_presence_person_get_nth_activity (const \fBLinphonePresencePerson\fP * person, unsigned int idx)"
+
+.PP
+Gets the nth activity of a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object to get the activity from\&. 
+.br
+\fIidx\fP The index of the activity to get (the first activity having the index 0)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a \fBLinphonePresenceActivity\fP object if successful, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceNote\fP* linphone_presence_person_get_nth_note (const \fBLinphonePresencePerson\fP * person, unsigned int idx)"
+
+.PP
+Gets the nth note of a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object to get the note from\&. 
+.br
+\fIidx\fP The index of the note to get (the first note having the index 0)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a \fBLinphonePresenceNote\fP object if successful, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "void* linphone_presence_person_get_user_data (const \fBLinphonePresencePerson\fP * person)"
+
+.PP
+Gets the user data of a \fBLinphonePresencePerson\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which to get the user data\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the user data\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresencePerson\fP* linphone_presence_person_new (const char * id)"
+
+.PP
+Creates a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP The id of the presence person to be created\&. Can be NULL to generate it automatically\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created presence person, NULL on error\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresencePerson\fP* linphone_presence_person_ref (\fBLinphonePresencePerson\fP * person)"
+
+.PP
+Increase the reference count of the \fBLinphonePresencePerson\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which the reference count is to be increased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresencePerson\fP object with the increased reference count\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_person_set_id (\fBLinphonePresencePerson\fP * person, const char * id)"
+
+.PP
+Sets the id of a presence person\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which to set the id\&. 
+.br
+\fIid\fP The id string to set\&. Can be NULL to generate it automatically\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "void linphone_presence_person_set_user_data (\fBLinphonePresencePerson\fP * person, void * user_data)"
+
+.PP
+Sets the user data of a \fBLinphonePresencePerson\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which to set the user data\&. 
+.br
+\fIuser_data\fP A pointer to the user data to set\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresencePerson\fP* linphone_presence_person_unref (\fBLinphonePresencePerson\fP * person)"
+
+.PP
+Decrease the reference count of the \fBLinphonePresencePerson\fP object and destroy it if it reaches 0\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIperson\fP The \fBLinphonePresencePerson\fP object for which the reference count is to be decreased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresencePerson\fP object if the reference count is still positive, NULL if the object has been destroyed\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_service_add_note (\fBLinphonePresenceService\fP * service, \fBLinphonePresenceNote\fP * note)"
+
+.PP
+Adds a note to a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object for which to add a note\&. 
+.br
+\fInote\fP The \fBLinphonePresenceNote\fP object to add to the service\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_service_clear_notes (\fBLinphonePresenceService\fP * service)"
+
+.PP
+Clears the notes of a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object for which to clear the notes\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceBasicStatus\fP linphone_presence_service_get_basic_status (const \fBLinphonePresenceService\fP * service)"
+
+.PP
+Gets the basic status of a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object to get the basic status from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceBasicStatus\fP of the \fBLinphonePresenceService\fP object given as parameter\&. 
+.RE
+.PP
+
+.SS "char* linphone_presence_service_get_contact (const \fBLinphonePresenceService\fP * service)"
+
+.PP
+Gets the contact of a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object to get the contact from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a dynamically allocated string containing the contact, or NULL if no contact is found\&.
+.RE
+.PP
+The returned string is to be freed by calling ms_free()\&. 
+.SS "char* linphone_presence_service_get_id (const \fBLinphonePresenceService\fP * service)"
+
+.PP
+Gets the id of a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object to get the id from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a dynamically allocated string containing the id, or NULL in case of error\&.
+.RE
+.PP
+The returned string is to be freed by calling ms_free()\&. 
+.SS "unsigned int linphone_presence_service_get_nb_notes (const \fBLinphonePresenceService\fP * service)"
+
+.PP
+Gets the number of notes included in the presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object to get the number of notes from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of notes included in the \fBLinphonePresenceService\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceNote\fP* linphone_presence_service_get_nth_note (const \fBLinphonePresenceService\fP * service, unsigned int idx)"
+
+.PP
+Gets the nth note of a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object to get the note from\&. 
+.br
+\fIidx\fP The index of the note to get (the first note having the index 0)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to a \fBLinphonePresenceNote\fP object if successful, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "void* linphone_presence_service_get_user_data (const \fBLinphonePresenceService\fP * service)"
+
+.PP
+Gets the user data of a \fBLinphonePresenceService\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object for which to get the user data\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to the user data\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceService\fP* linphone_presence_service_new (const char * id, \fBLinphonePresenceBasicStatus\fP basic_status, const char * contact)"
+
+.PP
+Creates a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIid\fP The id of the presence service to be created\&. Can be NULL to generate it automatically\&. 
+.br
+\fIbasic_status\fP The \fBLinphonePresenceBasicStatus\fP to set for the \fBLinphonePresenceService\fP object\&. 
+.br
+\fIcontact\fP The contact string to set\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The created presence service, NULL on error\&.
+.RE
+.PP
+The created presence service has the basic status 'closed'\&. 
+.SS "\fBLinphonePresenceService\fP* linphone_presence_service_ref (\fBLinphonePresenceService\fP * service)"
+
+.PP
+Increase the reference count of the \fBLinphonePresenceService\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object for which the reference count is to be increased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceService\fP object with the increased reference count\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_service_set_basic_status (\fBLinphonePresenceService\fP * service, \fBLinphonePresenceBasicStatus\fP basic_status)"
+
+.PP
+Sets the basic status of a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object for which to set the basic status\&. 
+.br
+\fIbasic_status\fP The \fBLinphonePresenceBasicStatus\fP to set for the \fBLinphonePresenceService\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_service_set_contact (\fBLinphonePresenceService\fP * service, const char * contact)"
+
+.PP
+Sets the contact of a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object for which to set the contact\&. 
+.br
+\fIcontact\fP The contact string to set\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_presence_service_set_id (\fBLinphonePresenceService\fP * service, const char * id)"
+
+.PP
+Sets the id of a presence service\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object for which to set the id\&. 
+.br
+\fIid\fP The id string to set\&. Can be NULL to generate it automatically\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, a value < 0 in case of error\&. 
+.RE
+.PP
+
+.SS "void linphone_presence_service_set_user_data (\fBLinphonePresenceService\fP * service, void * user_data)"
+
+.PP
+Sets the user data of a \fBLinphonePresenceService\fP object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object for which to set the user data\&. 
+.br
+\fIuser_data\fP A pointer to the user data to set\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePresenceService\fP* linphone_presence_service_unref (\fBLinphonePresenceService\fP * service)"
+
+.PP
+Decrease the reference count of the \fBLinphonePresenceService\fP object and destroy it if it reaches 0\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIservice\fP The \fBLinphonePresenceService\fP object for which the reference count is to be decreased\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphonePresenceService\fP object if the reference count is still positive, NULL if the object has been destroyed\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

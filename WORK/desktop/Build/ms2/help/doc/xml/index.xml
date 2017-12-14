@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.13">
+  <compound refid="doxygen_8dox" kind="file"><name>doxygen.dox</name>
+  </compound>
+  <compound refid="filters_8dox" kind="file"><name>filters.dox</name>
+  </compound>
+  <compound refid="ht0-buildagraph_8dox" kind="file"><name>ht0-buildagraph.dox</name>
+  </compound>
+  <compound refid="group__mediastreamer2__intro" kind="group"><name>mediastreamer2_intro</name>
+  </compound>
+  <compound refid="group__mediastreamer2__api" kind="group"><name>mediastreamer2_api</name>
+  </compound>
+  <compound refid="group__mediastreamer2__init" kind="group"><name>mediastreamer2_init</name>
+  </compound>
+  <compound refid="group__mediastreamer2__soundcard" kind="group"><name>mediastreamer2_soundcard</name>
+  </compound>
+  <compound refid="group__mediastreamer2__filter" kind="group"><name>mediastreamer2_filter</name>
+  </compound>
+  <compound refid="group__mediastreamer2__ticker" kind="group"><name>mediastreamer2_ticker</name>
+  </compound>
+  <compound refid="group__mediastreamer2__high__api" kind="group"><name>mediastreamer2_high_api</name>
+  </compound>
+  <compound refid="group__audio__stream__api" kind="group"><name>audio_stream_api</name>
+  </compound>
+  <compound refid="group__mediastreamer2__audio__conference" kind="group"><name>mediastreamer2_audio_conference</name>
+  </compound>
+  <compound refid="group__video__stream__api" kind="group"><name>video_stream_api</name>
+  </compound>
+  <compound refid="group__ring__api" kind="group"><name>ring_api</name>
+  </compound>
+  <compound refid="group__filters" kind="group"><name>filters</name>
+  </compound>
+  <compound refid="group__audiofilters" kind="group"><name>audiofilters</name>
+  </compound>
+  <compound refid="group__videofilters" kind="group"><name>videofilters</name>
+  </compound>
+  <compound refid="group__otherfilters" kind="group"><name>otherfilters</name>
+  </compound>
+  <compound refid="group__mssilk" kind="group"><name>mssilk</name>
+  </compound>
+  <compound refid="group__howto0__samplegraph" kind="group"><name>howto0_samplegraph</name>
+  </compound>
+  <compound refid="mediastreamer2_readme" kind="page"><name>mediastreamer2_readme</name>
+  </compound>
+  <compound refid="mediastreamer2_install" kind="page"><name>mediastreamer2_install</name>
+  </compound>
+  <compound refid="mediastreamer2_license" kind="page"><name>mediastreamer2_license</name>
+  </compound>
+  <compound refid="mediastreamer2_changelog" kind="page"><name>mediastreamer2_changelog</name>
+  </compound>
+  <compound refid="indexpage" kind="page"><name>index</name>
+  </compound>
+</doxygenindex>

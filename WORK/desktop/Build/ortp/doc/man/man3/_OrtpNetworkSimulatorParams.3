@@ -1,0 +1,76 @@
+.TH "_OrtpNetworkSimulatorParams" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_OrtpNetworkSimulatorParams
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <rtpsession\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBenabled\fP"
+.br
+.ti -1c
+.RI "float \fBmax_bandwidth\fP"
+.br
+.ti -1c
+.RI "int \fBmax_buffer_size\fP"
+.br
+.ti -1c
+.RI "float \fBloss_rate\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlatency\fP"
+.br
+.ti -1c
+.RI "float \fBconsecutive_loss_probability\fP"
+.br
+.ti -1c
+.RI "float \fBjitter_burst_density\fP"
+.br
+.ti -1c
+.RI "float \fBjitter_strength\fP"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_only\fP"
+.br
+.ti -1c
+.RI "bool_t \fBpad\fP [3]"
+.br
+.ti -1c
+.RI "OrtpNetworkSimulatorMode \fBmode\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure describing the network simulator parameters 
+.SH "Field Documentation"
+.PP 
+.SS "float _OrtpNetworkSimulatorParams::consecutive_loss_probability"
+a probability of having a subsequent loss after a loss occurred, in a 0-1 range\&. Useful to simulate burst of lost packets 
+.SS "int _OrtpNetworkSimulatorParams::enabled"
+Whether simulation is enabled or off\&. 
+.SS "float _OrtpNetworkSimulatorParams::jitter_burst_density"
+density of gap/bursts events\&. A value of 1 means one gap/burst per second approximately 
+.SS "float _OrtpNetworkSimulatorParams::jitter_strength"
+percentage of max_bandwidth artificially consumed during bursts events 
+.SS "uint32_t _OrtpNetworkSimulatorParams::latency"
+Packet transmission delay, in ms 
+.SS "float _OrtpNetworkSimulatorParams::loss_rate"
+Percentage of lost packets 
+.SS "float _OrtpNetworkSimulatorParams::max_bandwidth"
+IP bandwidth, in bit/s\&. This limitation is applied after loss are simulated, so incoming bandwidth is NOT socket bandwidth, but after-loss-simulation bandwidth e\&.g with 50% loss, the bandwidth will be 50% reduced 
+.SS "int _OrtpNetworkSimulatorParams::max_buffer_size"
+Max number of bit buffered before being discarded 
+.SS "OrtpNetworkSimulatorMode _OrtpNetworkSimulatorParams::mode"
+whether simulation is applied to inbound or outbound stream\&. 
+.SS "bool_t _OrtpNetworkSimulatorParams::pad[3]"
+True for only RTP packet loss, False for both RTP and RTCP 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

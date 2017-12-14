@@ -1,0 +1,50 @@
+\section{Introduction to mediastreamer2 concepts}
+\label{group__mediastreamer2__intro}\index{Introduction to mediastreamer2 concepts@{Introduction to mediastreamer2 concepts}}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Howto 1\+: build a sample audio graph.}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsection{What is mediastreamer2?}\label{group__mediastreamer2__intro_what_is_it}
+mediastreamer2 is a powerful engine to make audio and video streams. mediastreamer2 is G\+PL (C\+O\+P\+Y\+I\+NG). Please understand the licencing details before using it!
+
+Commercial support and licensing is provided by Belledonne Communications {\tt http\+://www.\+belledonne-\/communications.\+com}
+
+\begin{DoxySeeAlso}{See also}
+{\tt http\+://www.\+linphone.\+org/eng/documentation/dev/mediastreamer2.\+html}
+\end{DoxySeeAlso}
+\subsection{Some definitions}\label{group__mediastreamer2__intro_definitions}
+
+\begin{DoxyItemize}
+\item {\bfseries Filter\+:} A filter is a mediastreamer2 component that process data. A filter have 0 or several I\+N\+P\+UT pins and 0 or several O\+U\+T\+P\+UT pins. Here is a list of possible use of filters\+:
+\begin{DoxyItemize}
+\item capture audio or video data.
+\item play audio or display video data.
+\item send or receive R\+TP data.
+\item encode or decode audio or video data.
+\item transform (resize video, resample audio...) data.
+\item duplicate any kind of data.
+\item mix audio/video data.
+\end{DoxyItemize}
+\item {\bfseries Graph\+:} A graph is a manager of filters connected together. It will transfer data from O\+U\+T\+P\+UT pins to I\+N\+P\+UT pins and will be responsible for running filters.
+\end{DoxyItemize}\subsection{How do I use mediastreamer2?}\label{group__mediastreamer2__intro_how_do_i_use_mediastreamer2}
+Mediastreamer2 can be used for a lot of different purpose. The primary use is to manage R\+TP audio and video session. You will need to use the A\+PI to build filters, link them together in a graph. Then the ticker A\+PI will help you to start and stop the graph.
+
+Basic graph example\+:
+
+
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_1}}
+\end{DoxyImageNoCaption}
+
+
+The above graph is composed of three filters. The first one has no input\+: it captures audio data directly from the drivers and provide it to the O\+U\+T\+P\+UT pin. This data is sent to the I\+N\+P\+UT pin of the encoder which of course encodes the data and sends it to its O\+U\+T\+P\+UT pin. This pin is connected to the I\+N\+P\+UT pin of a filter capable of building and sending R\+TP packets.
+
+The modular design helps you to encode in many different formats just by replacing the \char`\"{}\+E\+N\+C\+O\+D\+E F\+I\+L\+T\+E\+R\char`\"{} with another one. mediastreamer2 contains internal support for g711u, g711a, speex and gsm. Other encoding formats can be added by implementing new filters as plugins which can then be dynamically loaded.
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{Filters documentation}{p.}{group__filters} 
+\end{DoxySeeAlso}

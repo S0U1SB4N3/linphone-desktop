@@ -1,0 +1,15 @@
+# libspeexdsp pkg-config source file
+
+prefix=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop
+exec_prefix=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/bin
+libdir=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/lib
+includedir=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include
+
+Name: speexdsp
+Description: Speexdsp is a speech processing library that goes along with the Speex codec
+Version: 1.2rc1
+Requires: 
+Conflicts:
+Libs: -L/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/lib -lspeexdsp
+Libs.private: -lm
+Cflags: -I/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include

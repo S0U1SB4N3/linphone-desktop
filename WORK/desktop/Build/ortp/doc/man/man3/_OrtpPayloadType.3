@@ -1,0 +1,65 @@
+.TH "_OrtpPayloadType" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_OrtpPayloadType
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBtype\fP"
+.br
+.ti -1c
+.RI "int \fBclock_rate\fP"
+.br
+.ti -1c
+.RI "char \fBbits_per_sample\fP"
+.br
+.ti -1c
+.RI "char * \fBzero_pattern\fP"
+.br
+.ti -1c
+.RI "int \fBpattern_length\fP"
+.br
+.ti -1c
+.RI "int \fBnormal_bitrate\fP"
+.br
+.ti -1c
+.RI "char * \fBmime_type\fP"
+.br
+.ti -1c
+.RI "int \fBchannels\fP"
+.br
+.ti -1c
+.RI "char * \fBrecv_fmtp\fP"
+.br
+.ti -1c
+.RI "char * \fBsend_fmtp\fP"
+.br
+.ti -1c
+.RI "struct \fB_PayloadTypeAvpfParams\fP \fBavpf\fP"
+.br
+.ti -1c
+.RI "int \fBflags\fP"
+.br
+.ti -1c
+.RI "void * \fBuser_data\fP"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "int _OrtpPayloadType::channels"
+number of channels of audio 
+.SS "int _OrtpPayloadType::clock_rate"
+rtp clock rate 
+.SS "char* _OrtpPayloadType::mime_type"
+actually the submime, ex: pcm, pcma, gsm 
+.SS "int _OrtpPayloadType::type"
+one of PAYLOAD_* macros 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

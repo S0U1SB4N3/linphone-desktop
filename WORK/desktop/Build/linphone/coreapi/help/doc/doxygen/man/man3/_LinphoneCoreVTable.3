@@ -1,0 +1,266 @@
+.TH "_LinphoneCoreVTable" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_LinphoneCoreVTable \- This structure holds all callbacks that the application should implement\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <core\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBLinphoneCoreGlobalStateChangedCb\fP \fBglobal_state_changed\fP"
+.br
+.RI "Notifies global state changes\&. "
+.ti -1c
+.RI "\fBLinphoneCoreRegistrationStateChangedCb\fP \fBregistration_state_changed\fP"
+.br
+.RI "Notifies registration state changes\&. "
+.ti -1c
+.RI "\fBLinphoneCoreCallStateChangedCb\fP \fBcall_state_changed\fP"
+.br
+.RI "Notifies call state changes\&. "
+.ti -1c
+.RI "\fBLinphoneCoreNotifyPresenceReceivedCb\fP \fBnotify_presence_received\fP"
+.br
+.RI "Notify received presence events\&. "
+.ti -1c
+.RI "\fBLinphoneCoreNotifyPresenceReceivedForUriOrTelCb\fP \fBnotify_presence_received_for_uri_or_tel\fP"
+.br
+.RI "Notify received presence events\&. "
+.ti -1c
+.RI "\fBLinphoneCoreNewSubscriptionRequestedCb\fP \fBnew_subscription_requested\fP"
+.br
+.RI "Notify about pending presence subscription request\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneCoreAuthInfoRequestedCb\fP \fBauth_info_requested\fP"
+.br
+.ti -1c
+.RI "\fBLinphoneCoreAuthenticationRequestedCb\fP \fBauthentication_requested\fP"
+.br
+.RI "Ask the application some authentication information\&. "
+.ti -1c
+.RI "\fBLinphoneCoreCallLogUpdatedCb\fP \fBcall_log_updated\fP"
+.br
+.RI "Notifies that call log list has been updated\&. "
+.ti -1c
+.RI "\fBLinphoneCoreMessageReceivedCb\fP \fBmessage_received\fP"
+.br
+.RI "a message is received, can be text or external body "
+.ti -1c
+.RI "\fBLinphoneCoreCbsMessageReceivedUnableDecryptCb\fP \fBmessage_received_unable_decrypt\fP"
+.br
+.RI "an encrypted message is received but we can't decrypt it "
+.ti -1c
+.RI "\fBLinphoneCoreIsComposingReceivedCb\fP \fBis_composing_received\fP"
+.br
+.RI "An is-composing notification has been received\&. "
+.ti -1c
+.RI "\fBLinphoneCoreDtmfReceivedCb\fP \fBdtmf_received\fP"
+.br
+.RI "A dtmf has been received received\&. "
+.ti -1c
+.RI "\fBLinphoneCoreReferReceivedCb\fP \fBrefer_received\fP"
+.br
+.RI "An out of call refer was received\&. "
+.ti -1c
+.RI "\fBLinphoneCoreCallEncryptionChangedCb\fP \fBcall_encryption_changed\fP"
+.br
+.RI "Notifies on change in the encryption of call streams\&. "
+.ti -1c
+.RI "\fBLinphoneCoreTransferStateChangedCb\fP \fBtransfer_state_changed\fP"
+.br
+.RI "Notifies when a transfer is in progress\&. "
+.ti -1c
+.RI "\fBLinphoneCoreBuddyInfoUpdatedCb\fP \fBbuddy_info_updated\fP"
+.br
+.RI "a LinphoneFriend's BuddyInfo has changed "
+.ti -1c
+.RI "\fBLinphoneCoreCallStatsUpdatedCb\fP \fBcall_stats_updated\fP"
+.br
+.RI "Notifies on refreshing of call's statistics\&. "
+.ti -1c
+.RI "\fBLinphoneCoreInfoReceivedCb\fP \fBinfo_received\fP"
+.br
+.RI "Notifies an incoming informational message received\&. "
+.ti -1c
+.RI "\fBLinphoneCoreSubscriptionStateChangedCb\fP \fBsubscription_state_changed\fP"
+.br
+.RI "Notifies subscription state change\&. "
+.ti -1c
+.RI "\fBLinphoneCoreNotifyReceivedCb\fP \fBnotify_received\fP"
+.br
+.RI "Notifies a an event notification, see \fBlinphone_core_subscribe()\fP "
+.ti -1c
+.RI "\fBLinphoneCorePublishStateChangedCb\fP \fBpublish_state_changed\fP"
+.br
+.ti -1c
+.RI "\fBLinphoneCoreConfiguringStatusCb\fP \fBconfiguring_status\fP"
+.br
+.RI "Notifies publish state change (only from \fBLinphoneEvent\fP api) "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBDisplayStatusCb\fP \fBdisplay_status\fP"
+.br
+.RI "Notifies configuring status changes\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBDisplayMessageCb\fP \fBdisplay_message\fP"
+.br
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBDisplayMessageCb\fP \fBdisplay_warning\fP"
+.br
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBDisplayUrlCb\fP \fBdisplay_url\fP"
+.br
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBShowInterfaceCb\fP \fBshow\fP"
+.br
+.RI "vNotifies the application that it should show up "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneCoreTextMessageReceivedCb\fP \fBtext_received\fP"
+.br
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneCoreFileTransferRecvCb\fP \fBfile_transfer_recv\fP"
+.br
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneCoreFileTransferSendCb\fP \fBfile_transfer_send\fP"
+.br
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneCoreFileTransferProgressIndicationCb\fP \fBfile_transfer_progress_indication\fP"
+.br
+.ti -1c
+.RI "\fBLinphoneCoreNetworkReachableCb\fP \fBnetwork_reachable\fP"
+.br
+.RI "Callback to report IP network status (I\&.E up/down ) "
+.ti -1c
+.RI "\fBLinphoneCoreLogCollectionUploadStateChangedCb\fP \fBlog_collection_upload_state_changed\fP"
+.br
+.RI "Callback to upload collected logs\&. "
+.ti -1c
+.RI "\fBLinphoneCoreLogCollectionUploadProgressIndicationCb\fP \fBlog_collection_upload_progress_indication\fP"
+.br
+.RI "Callback to indicate log collection upload progress\&. "
+.ti -1c
+.RI "\fBLinphoneCoreFriendListCreatedCb\fP \fBfriend_list_created\fP"
+.br
+.ti -1c
+.RI "\fBLinphoneCoreFriendListRemovedCb\fP \fBfriend_list_removed\fP"
+.br
+.ti -1c
+.RI "\fBLinphoneCoreCbsCallCreatedCb\fP \fBcall_created\fP"
+.br
+.ti -1c
+.RI "\fBLinphoneCoreCbsVersionUpdateCheckResultReceivedCb\fP \fBversion_update_check_result_received\fP"
+.br
+.ti -1c
+.RI "void * \fBuser_data\fP"
+.br
+.RI "User data associated with the above callbacks\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This structure holds all callbacks that the application should implement\&. 
+
+None is mandatory\&.  
+.SH "Field Documentation"
+.PP 
+.SS "LINPHONE_DEPRECATED \fBLinphoneCoreAuthInfoRequestedCb\fP _LinphoneCoreVTable::auth_info_requested"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use authentication_requested instead\&.
+.RE
+.PP
+Ask the application some authentication information 
+.SS "\fBLinphoneCoreCallStatsUpdatedCb\fP _LinphoneCoreVTable::call_stats_updated"
+
+.PP
+Notifies on refreshing of call's statistics\&. 
+.SS "LINPHONE_DEPRECATED \fBDisplayMessageCb\fP _LinphoneCoreVTable::display_message"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Callback to display a message to the user 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBDisplayStatusCb\fP _LinphoneCoreVTable::display_status"
+
+.PP
+Notifies configuring status changes\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Callback that notifies various events with human readable text\&.
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBDisplayUrlCb\fP _LinphoneCoreVTable::display_url"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBDisplayMessageCb\fP _LinphoneCoreVTable::display_warning"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Callback to display a warning to the user 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneCoreFileTransferProgressIndicationCb\fP _LinphoneCoreVTable::file_transfer_progress_indication"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Callback to indicate file transfer progress 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneCoreFileTransferRecvCb\fP _LinphoneCoreVTable::file_transfer_recv"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Callback to store file received attached to a \fBLinphoneChatMessage\fP 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneCoreFileTransferSendCb\fP _LinphoneCoreVTable::file_transfer_send"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Callback to collect file chunk to be sent for a \fBLinphoneChatMessage\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneCoreInfoReceivedCb\fP _LinphoneCoreVTable::info_received"
+
+.PP
+Notifies an incoming informational message received\&. 
+.SS "LINPHONE_DEPRECATED \fBLinphoneCoreTextMessageReceivedCb\fP _LinphoneCoreVTable::text_received"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+, use \fBmessage_received\fP instead 
+.br
+ A text message has been received 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

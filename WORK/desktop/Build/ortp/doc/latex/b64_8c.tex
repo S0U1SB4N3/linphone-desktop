@@ -1,0 +1,273 @@
+\section{b64.\+c File Reference}
+\label{b64_8c}\index{b64.\+c@{b64.\+c}}
+{\ttfamily \#include \char`\"{}ortp/port.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ortp/b64.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$bctoolbox/defs.\+h$>$}\newline
+{\ttfamily \#include $<$assert.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ b64\+Error\+String\+\_\+t\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{b64_8c_abb02ef9c156eb61724e43f329a04c9bd}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+\+C\+\_\+\+B64\+\_\+\+M\+A\+J\+OR}~1
+\item 
+\mbox{\label{b64_8c_a3942b4aad9c6babe73035f988ee8f897}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+\+C\+\_\+\+B64\+\_\+\+M\+I\+N\+OR}~2
+\item 
+\mbox{\label{b64_8c_ad18448a1555a2b386ca78978eab02526}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+\+C\+\_\+\+B64\+\_\+\+R\+E\+V\+I\+S\+I\+ON}~3
+\item 
+\mbox{\label{b64_8c_a2e70643ce49a47b41b640cab45e705e3}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+\+C\+\_\+\+B64\+\_\+\+E\+D\+IT}~17
+\item 
+\mbox{\label{b64_8c_ad7a5728d96878819b0dacf5554bb4a6e}} 
+\#define {\bfseries N\+U\+M\+\_\+\+P\+L\+A\+I\+N\+\_\+\+D\+A\+T\+A\+\_\+\+B\+Y\+T\+ES}~(3)
+\item 
+\mbox{\label{b64_8c_ab04dac0a4446dc3fc45f4c42c5be2103}} 
+\#define {\bfseries N\+U\+M\+\_\+\+E\+N\+C\+O\+D\+E\+D\+\_\+\+D\+A\+T\+A\+\_\+\+B\+Y\+T\+ES}~(4)
+\item 
+\mbox{\label{b64_8c_a0bf05373027b4f63e6a275eb4c3da931}} 
+\#define {\bfseries N\+U\+M\+\_\+\+E\+L\+E\+M\+E\+N\+TS}(x)~(sizeof(x) / sizeof(x[0]))
+\item 
+\#define {\bfseries S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+D\+E\+CL}(rc,  desc)
+\item 
+\#define {\bfseries S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+E\+N\+T\+RY}(rc)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{b64_8c_aac1b6d81700849f88a1acf5d994eaa0b}} 
+typedef struct \textbf{ b64\+Error\+String\+\_\+t\+\_\+} {\bfseries b64\+Error\+String\+\_\+t\+\_\+}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \textbf{ b64\+\_\+encode} (void const $\ast$src, size\+\_\+t src\+Size, char $\ast$dest, size\+\_\+t dest\+Len)
+\begin{DoxyCompactList}\small\item\em Encodes a block of binary data into Base-\/64. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ b64\+\_\+encode2} (void const $\ast$src, size\+\_\+t src\+Size, char $\ast$dest, size\+\_\+t dest\+Len, unsigned flags, int line\+Len, \textbf{ B64\+\_\+\+RC} $\ast$rc)
+\begin{DoxyCompactList}\small\item\em Encodes a block of binary data into Base-\/64. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ b64\+\_\+decode} (char const $\ast$src, size\+\_\+t src\+Len, void $\ast$dest, size\+\_\+t dest\+Size)
+\begin{DoxyCompactList}\small\item\em Decodes a sequence of Base-\/64 into a block of binary data. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ b64\+\_\+decode2} (char const $\ast$src, size\+\_\+t src\+Len, void $\ast$dest, size\+\_\+t dest\+Size, unsigned flags, char const $\ast$$\ast$bad\+Char, \textbf{ B64\+\_\+\+RC} $\ast$rc)
+\begin{DoxyCompactList}\small\item\em Decodes a sequence of Base-\/64 into a block of binary data. \end{DoxyCompactList}\item 
+char const  $\ast$ \textbf{ b64\+\_\+get\+Error\+String} (\textbf{ B64\+\_\+\+RC} code)
+\begin{DoxyCompactList}\small\item\em Returns the textual description of the error. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ b64\+\_\+get\+Error\+String\+Length} (\textbf{ B64\+\_\+\+RC} code)
+\begin{DoxyCompactList}\small\item\em Returns the length of the textual description of the error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation file for the b64 library 
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{b64_8c_aede330f4e9a5a2b3c2995f7afc2b4546}} 
+\index{b64.\+c@{b64.\+c}!S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+D\+E\+CL@{S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+D\+E\+CL}}
+\index{S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+D\+E\+CL@{S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+D\+E\+CL}!b64.\+c@{b64.\+c}}
+\subsubsection{S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+D\+E\+CL}
+{\footnotesize\ttfamily \#define S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+D\+E\+CL(\begin{DoxyParamCaption}\item[{}]{rc,  }\item[{}]{desc }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\(\backslash\)
+    static \textcolor{keyword}{const} \textcolor{keywordtype}{char}               s\_str##rc[] =   desc;                                   \(\backslash\)
+    static \textcolor{keyword}{const} b64ErrorString_t_  s\_rct##rc = \{ rc, s\_str##rc, NUM\_ELEMENTS(s\_str##rc) - 1 \}
+\end{DoxyCode}
+\mbox{\label{b64_8c_a8af0337317f4ae55ed9c30c352e7416b}} 
+\index{b64.\+c@{b64.\+c}!S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+E\+N\+T\+RY@{S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+E\+N\+T\+RY}}
+\index{S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+E\+N\+T\+RY@{S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+E\+N\+T\+RY}!b64.\+c@{b64.\+c}}
+\subsubsection{S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+E\+N\+T\+RY}
+{\footnotesize\ttfamily \#define S\+E\+V\+E\+R\+I\+T\+Y\+\_\+\+S\+T\+R\+\_\+\+E\+N\+T\+RY(\begin{DoxyParamCaption}\item[{}]{rc }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\(\backslash\)
+    &s\_rct##rc
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\mbox{\label{b64_8c_af0a580e1694f2addb2fec740214f959a}} 
+\index{b64.\+c@{b64.\+c}!b64\+\_\+decode@{b64\+\_\+decode}}
+\index{b64\+\_\+decode@{b64\+\_\+decode}!b64.\+c@{b64.\+c}}
+\subsubsection{b64\+\_\+decode()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+decode (\begin{DoxyParamCaption}\item[{char const $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Len,  }\item[{void $\ast$}]{dest,  }\item[{size\+\_\+t}]{dest\+Size }\end{DoxyParamCaption})}
+
+
+
+Decodes a sequence of Base-\/64 into a block of binary data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the Base-\/64 block to be decoded. May not be N\+U\+LL, except when {\ttfamily dest} is N\+U\+LL, in which case it is ignored. If {\ttfamily dest} is N\+U\+LL, and {\ttfamily src} is {\bfseries not} N\+U\+LL, then the returned value is calculated exactly, otherwise a value is returned that is guaranteed to be large enough to hold the decoded block.\\
+\hline
+{\em src\+Len} & Length of block to be encoded. Must be an integral of 4, the Base-\/64 encoding quantum, otherwise the Base-\/64 block is assumed to be invalid \\
+\hline
+{\em dest} & Pointer to the buffer into which the result is to be written. May be N\+U\+LL, in which case the function returns the required length \\
+\hline
+{\em dest\+Size} & Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from {\ttfamily b64\+\_\+decode(src, src\+Size, N\+U\+L\+L, 0)}, even in the case where the encoded form contains a number of characters that will be ignored, resulting in a lower total length of converted form.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than {\ttfamily dest\+Size} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function returns the required length if {\ttfamily dest} is N\+U\+LL. The returned size might be larger than the actual required size, but will never be smaller.
+
+\label{b64_8h_anchor__4_characters}%
+The behaviour of both \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2} and \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13} are undefined if the line length is not a multiple of 4.
+
+Threading\+: The function is fully re-\/entrant.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+b64\+::decode() 
+\end{DoxySeeAlso}
+\mbox{\label{b64_8c_a50a93e4f6a922c5314a9cb50befc2d13}} 
+\index{b64.\+c@{b64.\+c}!b64\+\_\+decode2@{b64\+\_\+decode2}}
+\index{b64\+\_\+decode2@{b64\+\_\+decode2}!b64.\+c@{b64.\+c}}
+\subsubsection{b64\+\_\+decode2()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+decode2 (\begin{DoxyParamCaption}\item[{char const $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Len,  }\item[{void $\ast$}]{dest,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{unsigned}]{flags,  }\item[{char const $\ast$$\ast$}]{bad\+Char,  }\item[{\textbf{ B64\+\_\+\+RC} $\ast$}]{rc }\end{DoxyParamCaption})}
+
+
+
+Decodes a sequence of Base-\/64 into a block of binary data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the Base-\/64 block to be decoded. May not be N\+U\+LL, except when {\ttfamily dest} is N\+U\+LL, in which case it is ignored. If {\ttfamily dest} is N\+U\+LL, and {\ttfamily src} is {\bfseries not} N\+U\+LL, then the returned value is calculated exactly, otherwise a value is returned that is guaranteed to be large enough to hold the decoded block.\\
+\hline
+{\em src\+Len} & Length of block to be encoded. Must be an integral of 4, the Base-\/64 encoding quantum, otherwise the Base-\/64 block is assumed to be invalid \\
+\hline
+{\em dest} & Pointer to the buffer into which the result is to be written. May be N\+U\+LL, in which case the function returns the required length \\
+\hline
+{\em dest\+Size} & Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from {\ttfamily b64\+\_\+decode(src, src\+Size, N\+U\+L\+L, 0)}, even in the case where the encoded form contains a number of characters that will be ignored, resulting in a lower total length of converted form. \\
+\hline
+{\em flags} & A combination of the B64\+\_\+\+F\+L\+A\+GS enumeration, that moderate the behaviour of the function. \\
+\hline
+{\em rc} & The return code representing the status of the operation. May be N\+U\+LL. \\
+\hline
+{\em bad\+Char} & If the flags parameter does not contain B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+N\+O\+T\+H\+I\+NG, this parameter specifies the address of a pointer that will be set to point to any character in the sequence that stops the parsing, as dictated by the flags parameter. May be N\+U\+LL.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than {\ttfamily dest\+Size}, or a bad character stopped parsing.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function returns the required length if {\ttfamily dest} is N\+U\+LL. The returned size might be larger than the actual required size, but will never be smaller.
+
+The behaviour of both \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2} and \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13} are undefined if the line length is not a multiple of 4.
+
+Threading\+: The function is fully re-\/entrant.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+b64\+::decode() 
+\end{DoxySeeAlso}
+\mbox{\label{b64_8c_aa518340c8e76af0cf0753c15bebfc2af}} 
+\index{b64.\+c@{b64.\+c}!b64\+\_\+encode@{b64\+\_\+encode}}
+\index{b64\+\_\+encode@{b64\+\_\+encode}!b64.\+c@{b64.\+c}}
+\subsubsection{b64\+\_\+encode()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+encode (\begin{DoxyParamCaption}\item[{void const $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Size,  }\item[{char $\ast$}]{dest,  }\item[{size\+\_\+t}]{dest\+Len }\end{DoxyParamCaption})}
+
+
+
+Encodes a block of binary data into Base-\/64. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the block to be encoded. May not be N\+U\+LL, except when {\ttfamily dest} is N\+U\+LL, in which case it is ignored. \\
+\hline
+{\em src\+Size} & Length of block to be encoded \\
+\hline
+{\em dest} & Pointer to the buffer into which the result is to be written. May be N\+U\+LL, in which case the function returns the required length \\
+\hline
+{\em dest\+Len} & Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from \doxyref{b64\+\_\+encode(\+N\+U\+L\+L, src\+Size, N\+U\+L\+L, 0)}{p.}{b64_8h_aa518340c8e76af0cf0753c15bebfc2af}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than {\ttfamily dest\+Len} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function returns the required length if {\ttfamily dest} is N\+U\+LL
+
+The function returns the required length if {\ttfamily dest} is N\+U\+LL. The returned size might be larger than the actual required size, but will never be smaller.
+
+Threading\+: The function is fully re-\/entrant.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+b64\+::encode() 
+\end{DoxySeeAlso}
+\mbox{\label{b64_8c_ab08b80124c4db4bf423feff5f7ffa5f2}} 
+\index{b64.\+c@{b64.\+c}!b64\+\_\+encode2@{b64\+\_\+encode2}}
+\index{b64\+\_\+encode2@{b64\+\_\+encode2}!b64.\+c@{b64.\+c}}
+\subsubsection{b64\+\_\+encode2()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+encode2 (\begin{DoxyParamCaption}\item[{void const $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Size,  }\item[{char $\ast$}]{dest,  }\item[{size\+\_\+t}]{dest\+Len,  }\item[{unsigned}]{flags,  }\item[{int}]{line\+Len,  }\item[{\textbf{ B64\+\_\+\+RC} $\ast$}]{rc }\end{DoxyParamCaption})}
+
+
+
+Encodes a block of binary data into Base-\/64. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the block to be encoded. May not be N\+U\+LL, except when {\ttfamily dest} is N\+U\+LL, in which case it is ignored. \\
+\hline
+{\em src\+Size} & Length of block to be encoded \\
+\hline
+{\em dest} & Pointer to the buffer into which the result is to be written. May be N\+U\+LL, in which case the function returns the required length \\
+\hline
+{\em dest\+Len} & Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from \doxyref{b64\+\_\+encode2(\+N\+U\+L\+L, src\+Size, N\+U\+L\+L, 0, flags, line\+Len, rc)}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. \\
+\hline
+{\em flags} & A combination of the B64\+\_\+\+F\+L\+A\+GS enumeration, that moderate the behaviour of the function \\
+\hline
+{\em line\+Len} & If the flags parameter contains B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+U\+S\+E\+\_\+\+P\+A\+R\+AM, then this parameter represents the length of the lines into which the encoded form is split, with a hard line break (\textquotesingle{}\textbackslash{}r\textbackslash{}n\textquotesingle{}). If this value is 0, then the line is not split. If it is $<$0, then the R\+F\+C-\/1113 recommended line length of 64 is used \\
+\hline
+{\em rc} & The return code representing the status of the operation. May be N\+U\+LL.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than {\ttfamily dest\+Len} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function returns the required length if {\ttfamily dest} is N\+U\+LL. The returned size might be larger than the actual required size, but will never be smaller.
+
+Threading\+: The function is fully re-\/entrant.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+b64\+::encode() 
+\end{DoxySeeAlso}
+\mbox{\label{b64_8c_a84adc01b9c5028eee501d2fb2bef9a11}} 
+\index{b64.\+c@{b64.\+c}!b64\+\_\+get\+Error\+String@{b64\+\_\+get\+Error\+String}}
+\index{b64\+\_\+get\+Error\+String@{b64\+\_\+get\+Error\+String}!b64.\+c@{b64.\+c}}
+\subsubsection{b64\+\_\+get\+Error\+String()}
+{\footnotesize\ttfamily char const$\ast$ b64\+\_\+get\+Error\+String (\begin{DoxyParamCaption}\item[{\textbf{ B64\+\_\+\+RC}}]{code }\end{DoxyParamCaption})}
+
+
+
+Returns the textual description of the error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The \doxyref{error code}{p.}{b64_8h_a432f620157f14714e209d99a20f523d9} \\
+\hline
+\end{DoxyParams}
+\mbox{\label{b64_8c_a48c61d4785f8b1f8122a5a9f778a9f20}} 
+\index{b64.\+c@{b64.\+c}!b64\+\_\+get\+Error\+String\+Length@{b64\+\_\+get\+Error\+String\+Length}}
+\index{b64\+\_\+get\+Error\+String\+Length@{b64\+\_\+get\+Error\+String\+Length}!b64.\+c@{b64.\+c}}
+\subsubsection{b64\+\_\+get\+Error\+String\+Length()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+get\+Error\+String\+Length (\begin{DoxyParamCaption}\item[{\textbf{ B64\+\_\+\+RC}}]{code }\end{DoxyParamCaption})}
+
+
+
+Returns the length of the textual description of the error. 
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{b64\+\_\+get\+Error\+String()}{p.}{b64_8h_a84adc01b9c5028eee501d2fb2bef9a11}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The \doxyref{error code}{p.}{b64_8h_a432f620157f14714e209d99a20f523d9} \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,587 @@
+.TH "carddav_vcard" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+carddav_vcard
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLINPHONE_VCARD\fP   BELLE_SIP_CAST(object, \fBLinphoneVcard\fP)"
+.br
+.RI "Cast a belle_sip_object_t into LinphoneVcard\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct _LinphoneVcard \fBLinphoneVcard\fP"
+.br
+.RI "The LinphoneVcard object\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneVcard\fP * \fBlinphone_vcard_new\fP (void)"
+.br
+.RI "Creates a LinphoneVcard object that has a pointer to an empty vCard\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_vcard_free\fP (\fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Deletes a LinphoneVcard object properly\&. "
+.ti -1c
+.RI "\fBLinphoneVcard\fP * \fBlinphone_vcard_ref\fP (\fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Take a ref on a \fBLinphoneVcard\fP\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_unref\fP (\fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Release a \fBLinphoneVcard\fP\&. "
+.ti -1c
+.RI "\fBLinphoneVcard\fP * \fBlinphone_vcard_clone\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Clone a \fBLinphoneVcard\fP\&. "
+.ti -1c
+.RI "const char * \fBlinphone_vcard_as_vcard4_string\fP (\fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Returns the vCard4 representation of the LinphoneVcard\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_set_full_name\fP (\fBLinphoneVcard\fP *vCard, const char *name)"
+.br
+.RI "Sets the FN attribute of the vCard (which is mandatory)\&. "
+.ti -1c
+.RI "const char * \fBlinphone_vcard_get_full_name\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Returns the FN attribute of the vCard, or NULL if it isn't set yet\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_set_skip_validation\fP (\fBLinphoneVcard\fP *vCard, bool_t skip)"
+.br
+.RI "Sets the skipFieldValidation property of the vcard\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_vcard_get_skip_validation\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Returns the skipFieldValidation property of the vcard\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_set_family_name\fP (\fBLinphoneVcard\fP *vCard, const char *name)"
+.br
+.RI "Sets the family name in the N attribute of the vCard\&. "
+.ti -1c
+.RI "const char * \fBlinphone_vcard_get_family_name\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Returns the family name in the N attribute of the vCard, or NULL if it isn't set yet\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_set_given_name\fP (\fBLinphoneVcard\fP *vCard, const char *name)"
+.br
+.RI "Sets the given name in the N attribute of the vCard\&. "
+.ti -1c
+.RI "const char * \fBlinphone_vcard_get_given_name\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Returns the given name in the N attribute of the vCard, or NULL if it isn't set yet\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_add_sip_address\fP (\fBLinphoneVcard\fP *vCard, const char *sip_address)"
+.br
+.RI "Adds a SIP address in the vCard, using the IMPP property\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_remove_sip_address\fP (\fBLinphoneVcard\fP *vCard, const char *sip_address)"
+.br
+.RI "Removes a SIP address in the vCard (if it exists), using the IMPP property\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_edit_main_sip_address\fP (\fBLinphoneVcard\fP *vCard, const char *sip_address)"
+.br
+.RI "Edits the preferred SIP address in the vCard (or the first one), using the IMPP property\&. "
+.ti -1c
+.RI "const bctbx_list_t * \fBlinphone_vcard_get_sip_addresses\fP (\fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Returns the list of SIP addresses (as LinphoneAddress) in the vCard (all the IMPP attributes that has an URI value starting by 'sip:') or NULL\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_add_phone_number\fP (\fBLinphoneVcard\fP *vCard, const char *phone)"
+.br
+.RI "Adds a phone number in the vCard, using the TEL property\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_remove_phone_number\fP (\fBLinphoneVcard\fP *vCard, const char *phone)"
+.br
+.RI "Removes a phone number in the vCard (if it exists), using the TEL property\&. "
+.ti -1c
+.RI "bctbx_list_t * \fBlinphone_vcard_get_phone_numbers\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Returns the list of phone numbers (as string) in the vCard (all the TEL attributes) or NULL\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_set_organization\fP (\fBLinphoneVcard\fP *vCard, const char *organization)"
+.br
+.RI "Fills the Organization field of the vCard\&. "
+.ti -1c
+.RI "const char * \fBlinphone_vcard_get_organization\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Gets the Organization of the vCard\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_vcard_generate_unique_id\fP (\fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Generates a random unique id for the vCard\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_set_uid\fP (\fBLinphoneVcard\fP *vCard, const char *uid)"
+.br
+.RI "Sets the unique ID of the vCard\&. "
+.ti -1c
+.RI "const char * \fBlinphone_vcard_get_uid\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Gets the UID of the vCard\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_set_etag\fP (\fBLinphoneVcard\fP *vCard, const char *etag)"
+.br
+.RI "Sets the eTAG of the vCard\&. "
+.ti -1c
+.RI "const char * \fBlinphone_vcard_get_etag\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Gets the eTag of the vCard\&. "
+.ti -1c
+.RI "void \fBlinphone_vcard_set_url\fP (\fBLinphoneVcard\fP *vCard, const char *url)"
+.br
+.RI "Sets the URL of the vCard\&. "
+.ti -1c
+.RI "const char * \fBlinphone_vcard_get_url\fP (const \fBLinphoneVcard\fP *vCard)"
+.br
+.RI "Gets the URL of the vCard\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Function Documentation"
+.PP 
+.SS "void linphone_vcard_add_phone_number (\fBLinphoneVcard\fP * vCard, const char * phone)"
+
+.PP
+Adds a phone number in the vCard, using the TEL property\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIphone\fP the phone number to add 
+.RE
+.PP
+
+.SS "void linphone_vcard_add_sip_address (\fBLinphoneVcard\fP * vCard, const char * sip_address)"
+
+.PP
+Adds a SIP address in the vCard, using the IMPP property\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIsip_address\fP the SIP address to add 
+.RE
+.PP
+
+.SS "const char* linphone_vcard_as_vcard4_string (\fBLinphoneVcard\fP * vCard)"
+
+.PP
+Returns the vCard4 representation of the LinphoneVcard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a const char * that represents the vCard 
+.RE
+.PP
+
+.SS "\fBLinphoneVcard\fP* linphone_vcard_clone (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Clone a \fBLinphoneVcard\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP LinphoneVcard object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new LinphoneVcard object 
+.RE
+.PP
+
+.SS "void linphone_vcard_edit_main_sip_address (\fBLinphoneVcard\fP * vCard, const char * sip_address)"
+
+.PP
+Edits the preferred SIP address in the vCard (or the first one), using the IMPP property\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIsip_address\fP the new SIP address 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_vcard_free (\fBLinphoneVcard\fP * vCard)"
+
+.PP
+Deletes a LinphoneVcard object properly\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard to destroy 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_vcard_unref()\fP or belle_sip_object_unref() instead\&.  
+.RE
+.PP
+
+.SS "bool_t linphone_vcard_generate_unique_id (\fBLinphoneVcard\fP * vCard)"
+
+.PP
+Generates a random unique id for the vCard\&. If is required to be able to synchronize the vCard with a CardDAV server 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if operation is successful, otherwise FALSE (for example if it already has an unique ID) 
+.RE
+.PP
+
+.SS "const char* linphone_vcard_get_etag (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Gets the eTag of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the eTag of the vCard in the CardDAV server, otherwise NULL 
+.RE
+.PP
+
+.SS "const char* linphone_vcard_get_family_name (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Returns the family name in the N attribute of the vCard, or NULL if it isn't set yet\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the family name of the vCard, or NULL 
+.RE
+.PP
+
+.SS "const char* linphone_vcard_get_full_name (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Returns the FN attribute of the vCard, or NULL if it isn't set yet\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the display name of the vCard, or NULL 
+.RE
+.PP
+
+.SS "const char* linphone_vcard_get_given_name (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Returns the given name in the N attribute of the vCard, or NULL if it isn't set yet\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the given name of the vCard, or NULL 
+.RE
+.PP
+
+.SS "const char* linphone_vcard_get_organization (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Gets the Organization of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the Organization of the vCard or NULL 
+.RE
+.PP
+
+.SS "bctbx_list_t* linphone_vcard_get_phone_numbers (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Returns the list of phone numbers (as string) in the vCard (all the TEL attributes) or NULL\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBconst\fP char * objects\&. 
+.RE
+.PP
+
+.SS "const bctbx_list_t* linphone_vcard_get_sip_addresses (\fBLinphoneVcard\fP * vCard)"
+
+.PP
+Returns the list of SIP addresses (as LinphoneAddress) in the vCard (all the IMPP attributes that has an URI value starting by 'sip:') or NULL\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBLinphoneAddress\fP objects\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_vcard_get_skip_validation (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Returns the skipFieldValidation property of the vcard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the skipFieldValidation property of the vcard 
+.RE
+.PP
+
+.SS "const char* linphone_vcard_get_uid (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Gets the UID of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the UID of the vCard, otherwise NULL 
+.RE
+.PP
+
+.SS "const char* linphone_vcard_get_url (const \fBLinphoneVcard\fP * vCard)"
+
+.PP
+Gets the URL of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the URL of the vCard in the CardDAV server, otherwise NULL 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneVcard\fP* linphone_vcard_new (void)"
+
+.PP
+Creates a LinphoneVcard object that has a pointer to an empty vCard\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+a new LinphoneVcard object 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_factory_create_vcard()\fP instead\&.  
+.RE
+.PP
+
+.SS "\fBLinphoneVcard\fP* linphone_vcard_ref (\fBLinphoneVcard\fP * vCard)"
+
+.PP
+Take a ref on a \fBLinphoneVcard\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP LinphoneVcard object 
+.RE
+.PP
+
+.SS "void linphone_vcard_remove_phone_number (\fBLinphoneVcard\fP * vCard, const char * phone)"
+
+.PP
+Removes a phone number in the vCard (if it exists), using the TEL property\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIphone\fP the phone number to remove 
+.RE
+.PP
+
+.SS "void linphone_vcard_remove_sip_address (\fBLinphoneVcard\fP * vCard, const char * sip_address)"
+
+.PP
+Removes a SIP address in the vCard (if it exists), using the IMPP property\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIsip_address\fP the SIP address to remove 
+.RE
+.PP
+
+.SS "void linphone_vcard_set_etag (\fBLinphoneVcard\fP * vCard, const char * etag)"
+
+.PP
+Sets the eTAG of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIetag\fP the eTAG 
+.RE
+.PP
+
+.SS "void linphone_vcard_set_family_name (\fBLinphoneVcard\fP * vCard, const char * name)"
+
+.PP
+Sets the family name in the N attribute of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIname\fP the family name to set for the vCard 
+.RE
+.PP
+
+.SS "void linphone_vcard_set_full_name (\fBLinphoneVcard\fP * vCard, const char * name)"
+
+.PP
+Sets the FN attribute of the vCard (which is mandatory)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIname\fP the display name to set for the vCard 
+.RE
+.PP
+
+.SS "void linphone_vcard_set_given_name (\fBLinphoneVcard\fP * vCard, const char * name)"
+
+.PP
+Sets the given name in the N attribute of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIname\fP the given name to set for the vCard 
+.RE
+.PP
+
+.SS "void linphone_vcard_set_organization (\fBLinphoneVcard\fP * vCard, const char * organization)"
+
+.PP
+Fills the Organization field of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIorganization\fP the Organization 
+.RE
+.PP
+
+.SS "void linphone_vcard_set_skip_validation (\fBLinphoneVcard\fP * vCard, bool_t skip)"
+
+.PP
+Sets the skipFieldValidation property of the vcard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIskip\fP skipFieldValidation property of the vcard 
+.RE
+.PP
+
+.SS "void linphone_vcard_set_uid (\fBLinphoneVcard\fP * vCard, const char * uid)"
+
+.PP
+Sets the unique ID of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIuid\fP the unique id 
+.RE
+.PP
+
+.SS "void linphone_vcard_set_url (\fBLinphoneVcard\fP * vCard, const char * url)"
+
+.PP
+Sets the URL of the vCard\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP the LinphoneVcard 
+.br
+\fIurl\fP the URL 
+.RE
+.PP
+
+.SS "void linphone_vcard_unref (\fBLinphoneVcard\fP * vCard)"
+
+.PP
+Release a \fBLinphoneVcard\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIvCard\fP LinphoneVcard object 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

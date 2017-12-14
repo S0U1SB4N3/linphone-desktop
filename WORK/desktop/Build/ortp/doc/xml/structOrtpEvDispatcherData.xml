@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structOrtpEvDispatcherData" kind="struct" language="C++" prot="public">
+    <compoundname>OrtpEvDispatcherData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structOrtpEvDispatcherData_1a1ed4721a5aec3b57d3a572cbe925eef1" prot="public" static="no" mutable="no">
+        <type>OrtpEventType</type>
+        <definition>OrtpEventType OrtpEvDispatcherData::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" line="114" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" bodystart="114" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpEvDispatcherData_1a450f08d0ba5adb540d8b9ef1d8267dc9" prot="public" static="no" mutable="no">
+        <type>rtcp_type_t</type>
+        <definition>rtcp_type_t OrtpEvDispatcherData::subtype</definition>
+        <argsstring></argsstring>
+        <name>subtype</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" line="115" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpEvDispatcherData_1a1f2bd62ebe963380165bb2087973b0a9" prot="public" static="no" mutable="no">
+        <type>OrtpEvDispatcherCb</type>
+        <definition>OrtpEvDispatcherCb OrtpEvDispatcherData::on_found</definition>
+        <argsstring></argsstring>
+        <name>on_found</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" line="116" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpEvDispatcherData_1aa928c3181c80b3d1ef055b743a36b847" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* OrtpEvDispatcherData::user_data</definition>
+        <argsstring></argsstring>
+        <name>user_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" line="117" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="524">
+        <label>OrtpEvDispatcherData</label>
+        <link refid="structOrtpEvDispatcherData"/>
+        <childnode refid="525" relation="usage">
+          <edgelabel>on_found</edgelabel>
+        </childnode>
+      </node>
+      <node id="528">
+        <label>ortp_recv_addr</label>
+        <link refid="structortp__recv__addr"/>
+      </node>
+      <node id="526">
+        <label>msgb</label>
+        <link refid="structmsgb"/>
+        <childnode refid="527" relation="usage">
+          <edgelabel>b_datap</edgelabel>
+        </childnode>
+        <childnode refid="526" relation="usage">
+          <edgelabel>b_next</edgelabel>
+          <edgelabel>b_cont</edgelabel>
+          <edgelabel>b_prev</edgelabel>
+        </childnode>
+        <childnode refid="528" relation="usage">
+          <edgelabel>recv_addr</edgelabel>
+        </childnode>
+      </node>
+      <node id="525">
+        <label>_OrtpEventData</label>
+        <link refid="struct__OrtpEventData"/>
+        <childnode refid="526" relation="usage">
+          <edgelabel>packet</edgelabel>
+        </childnode>
+        <childnode refid="529" relation="usage">
+          <edgelabel>ts</edgelabel>
+        </childnode>
+      </node>
+      <node id="529">
+        <label>ortpTimeSpec</label>
+        <link refid="structortpTimeSpec"/>
+      </node>
+      <node id="527">
+        <label>datab</label>
+        <link refid="structdatab"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" line="113" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/event.h" bodystart="113" bodyend="118"/>
+    <listofallmembers>
+      <member refid="structOrtpEvDispatcherData_1a1f2bd62ebe963380165bb2087973b0a9" prot="public" virt="non-virtual"><scope>OrtpEvDispatcherData</scope><name>on_found</name></member>
+      <member refid="structOrtpEvDispatcherData_1a450f08d0ba5adb540d8b9ef1d8267dc9" prot="public" virt="non-virtual"><scope>OrtpEvDispatcherData</scope><name>subtype</name></member>
+      <member refid="structOrtpEvDispatcherData_1a1ed4721a5aec3b57d3a572cbe925eef1" prot="public" virt="non-virtual"><scope>OrtpEvDispatcherData</scope><name>type</name></member>
+      <member refid="structOrtpEvDispatcherData_1aa928c3181c80b3d1ef055b743a36b847" prot="public" virt="non-virtual"><scope>OrtpEvDispatcherData</scope><name>user_data</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

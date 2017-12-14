@@ -1,0 +1,438 @@
+\section{b64.\+h File Reference}
+\label{b64_8h}\index{b64.\+h@{b64.\+h}}
+
+
+[C/\+C++] Header file for the b64 library.  
+
+
+{\ttfamily \#include $<$stddef.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{b64_8h_a2c4522ec1680d94b1384af538dcb8ec5}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+\+B64\+\_\+\+H\+\_\+\+B64\+\_\+\+M\+A\+J\+OR}~1
+\item 
+\mbox{\label{b64_8h_ac9c42f119e1ce799c5dddf13d739b8a4}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+\+B64\+\_\+\+H\+\_\+\+B64\+\_\+\+M\+I\+N\+OR}~5
+\item 
+\mbox{\label{b64_8h_a093dc99926d1149bbe9d1e421f474fe1}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+\+B64\+\_\+\+H\+\_\+\+B64\+\_\+\+R\+E\+V\+I\+S\+I\+ON}~4
+\item 
+\mbox{\label{b64_8h_ab0d03e186f1dd9fe8d38283f65402243}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+\+B64\+\_\+\+H\+\_\+\+B64\+\_\+\+E\+D\+IT}~28
+\item 
+\mbox{\label{b64_8h_a91115a820e707a381aa1dbbf2e6b7fb1}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+0\+\_\+1}~0x01000100
+\item 
+\mbox{\label{b64_8h_ae3ac967a600434b13065c917cc5e6957}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+0\+\_\+2}~0x01000200
+\item 
+\mbox{\label{b64_8h_a23aa7c4d56ee1f5a0d942650059cca02}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+0\+\_\+3}~0x01000300
+\item 
+\mbox{\label{b64_8h_ad8258483cf4298de59e16c7117dcbfe8}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+1\+\_\+1}~0x01010100
+\item 
+\mbox{\label{b64_8h_ac71838065083fd8c783bf556426d66b2}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+1\+\_\+2}~0x01010200
+\item 
+\mbox{\label{b64_8h_a8a28e18c13b4f2272c837240057a74c8}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+1\+\_\+3}~0x01010300
+\item 
+\mbox{\label{b64_8h_a033c6c62147ccfa0ae709d1447c3155e}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+2\+\_\+1}~0x01020100
+\item 
+\mbox{\label{b64_8h_a2b5da056c59e9dcd61df67f492aedb53}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+2\+\_\+2}~0x01020200
+\item 
+\mbox{\label{b64_8h_a5a0e37b462635c0a02689ce253157c38}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+2\+\_\+3}~0x01020300
+\item 
+\mbox{\label{b64_8h_ae77f684fbfbbe98e77dff72e114c5a3e}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+2\+\_\+4}~0x01020400
+\item 
+\mbox{\label{b64_8h_ad606ba4b7ebb5ef1c0b5c652cea1325a}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+2\+\_\+5}~0x01020500
+\item 
+\mbox{\label{b64_8h_a0ff69f09786e5d273823e8355e4fe982}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+2\+\_\+6}~0x01020600
+\item 
+\mbox{\label{b64_8h_a92f5e669132fa67fe01c131cd1964bc1}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+2\+\_\+7}~0x01020700
+\item 
+\mbox{\label{b64_8h_a05aa3f40f1f9fd12453b10c0914d5d11}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+3\+\_\+1}~0x010301ff
+\item 
+\mbox{\label{b64_8h_a7384e88f6ca07d46409243ab3632fb26}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+3\+\_\+2}~0x010302ff
+\item 
+\mbox{\label{b64_8h_afc889160969b0e16edcdd8e587686e99}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+3\+\_\+3}~0x010303ff
+\item 
+\mbox{\label{b64_8h_afb70fd4c5845ab2fc5618b8030d161db}} 
+\#define {\bfseries B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+3\+\_\+4}~0x010304ff
+\item 
+\#define \textbf{ B64\+\_\+\+V\+ER}~B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+3\+\_\+4
+\item 
+\#define \textbf{ B64\+\_\+\+V\+E\+R\+\_\+\+M\+A\+J\+OR}~1
+\item 
+\#define \textbf{ B64\+\_\+\+V\+E\+R\+\_\+\+M\+I\+N\+OR}~3
+\item 
+\#define \textbf{ B64\+\_\+\+V\+E\+R\+\_\+\+R\+E\+V\+I\+S\+I\+ON}~4
+\item 
+\mbox{\label{b64_8h_a4c5badd33244f6fe9ca6ab5515a1dcf3}} 
+\#define {\bfseries B64\+\_\+\+N\+O\+\_\+\+N\+A\+M\+E\+S\+P\+A\+CE}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{b64_8h_aa33b5f86d2186fd56bdf85a442202dc3}} 
+typedef enum \textbf{ B64\+\_\+\+RC} {\bfseries B64\+\_\+\+RC}
+\item 
+\mbox{\label{b64_8h_a5bd0b8433038525a851fb4b4f772836c}} 
+typedef enum \textbf{ B64\+\_\+\+F\+L\+A\+GS} {\bfseries B64\+\_\+\+F\+L\+A\+GS}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ B64\+\_\+\+RC} \{ \newline
+\textbf{ B64\+\_\+\+R\+C\+\_\+\+OK} = 0, 
+\newline
+\textbf{ B64\+\_\+\+R\+C\+\_\+\+I\+N\+S\+U\+F\+F\+I\+C\+I\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER} = 1, 
+\newline
+\textbf{ B64\+\_\+\+R\+C\+\_\+\+T\+R\+U\+N\+C\+A\+T\+E\+D\+\_\+\+I\+N\+P\+UT} = 2, 
+\newline
+\textbf{ B64\+\_\+\+R\+C\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR} = 3, 
+\newline
+{\bfseries B64\+\_\+max\+\_\+\+R\+C\+\_\+value}
+ \}\begin{DoxyCompactList}\small\item\em Return codes (from \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2} / \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13}) \end{DoxyCompactList}
+\item 
+enum \textbf{ B64\+\_\+\+F\+L\+A\+GS} \{ \newline
+\textbf{ B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+U\+S\+E\+\_\+\+P\+A\+R\+AM} = 0x0000, 
+\newline
+\textbf{ B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+I\+N\+F\+I\+N\+I\+TE} = 0x0001, 
+\newline
+\textbf{ B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+64} = 0x0002, 
+\newline
+\textbf{ B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+76} = 0x0003, 
+\newline
+\textbf{ B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+M\+A\+SK} = 0x000f, 
+\newline
+\textbf{ B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+N\+O\+T\+H\+I\+NG} = 0x0000, 
+\newline
+\textbf{ B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+C\+H\+AR} = 0x0100, 
+\newline
+\textbf{ B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+WS} = 0x0200, 
+\newline
+\textbf{ B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+B\+A\+D\+\_\+\+C\+H\+AR} = 0x0300
+ \}\begin{DoxyCompactList}\small\item\em Coding behaviour modification flags (for \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2} / \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13}) \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \textbf{ b64\+\_\+encode} (void const $\ast$src, size\+\_\+t src\+Size, char $\ast$dest, size\+\_\+t dest\+Len)
+\begin{DoxyCompactList}\small\item\em Encodes a block of binary data into Base-\/64. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ b64\+\_\+encode2} (void const $\ast$src, size\+\_\+t src\+Size, char $\ast$dest, size\+\_\+t dest\+Len, unsigned flags, int line\+Len, \textbf{ B64\+\_\+\+RC} $\ast$rc)
+\begin{DoxyCompactList}\small\item\em Encodes a block of binary data into Base-\/64. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ b64\+\_\+decode} (char const $\ast$src, size\+\_\+t src\+Len, void $\ast$dest, size\+\_\+t dest\+Size)
+\begin{DoxyCompactList}\small\item\em Decodes a sequence of Base-\/64 into a block of binary data. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ b64\+\_\+decode2} (char const $\ast$src, size\+\_\+t src\+Len, void $\ast$dest, size\+\_\+t dest\+Size, unsigned flags, char const $\ast$$\ast$bad\+Char, \textbf{ B64\+\_\+\+RC} $\ast$rc)
+\begin{DoxyCompactList}\small\item\em Decodes a sequence of Base-\/64 into a block of binary data. \end{DoxyCompactList}\item 
+char const  $\ast$ \textbf{ b64\+\_\+get\+Error\+String} (\textbf{ B64\+\_\+\+RC} code)
+\begin{DoxyCompactList}\small\item\em Returns the textual description of the error. \end{DoxyCompactList}\item 
+size\+\_\+t \textbf{ b64\+\_\+get\+Error\+String\+Length} (\textbf{ B64\+\_\+\+RC} code)
+\begin{DoxyCompactList}\small\item\em Returns the length of the textual description of the error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+[C/\+C++] Header file for the b64 library. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{b64_8h_abe0b08c19ff1be8d226ffc918b094c7a}} 
+\index{b64.\+h@{b64.\+h}!B64\+\_\+\+V\+ER@{B64\+\_\+\+V\+ER}}
+\index{B64\+\_\+\+V\+ER@{B64\+\_\+\+V\+ER}!b64.\+h@{b64.\+h}}
+\subsubsection{B64\+\_\+\+V\+ER}
+{\footnotesize\ttfamily \#define B64\+\_\+\+V\+ER~B64\+\_\+\+V\+E\+R\+\_\+1\+\_\+3\+\_\+4}
+
+The current composite version number of b64 \mbox{\label{b64_8h_a7c8c6f92247adb4a9c879eab9b0746e1}} 
+\index{b64.\+h@{b64.\+h}!B64\+\_\+\+V\+E\+R\+\_\+\+M\+A\+J\+OR@{B64\+\_\+\+V\+E\+R\+\_\+\+M\+A\+J\+OR}}
+\index{B64\+\_\+\+V\+E\+R\+\_\+\+M\+A\+J\+OR@{B64\+\_\+\+V\+E\+R\+\_\+\+M\+A\+J\+OR}!b64.\+h@{b64.\+h}}
+\subsubsection{B64\+\_\+\+V\+E\+R\+\_\+\+M\+A\+J\+OR}
+{\footnotesize\ttfamily \#define B64\+\_\+\+V\+E\+R\+\_\+\+M\+A\+J\+OR~1}
+
+The major version number of b64 \mbox{\label{b64_8h_afbc2c009921cd16d7960def81987189d}} 
+\index{b64.\+h@{b64.\+h}!B64\+\_\+\+V\+E\+R\+\_\+\+M\+I\+N\+OR@{B64\+\_\+\+V\+E\+R\+\_\+\+M\+I\+N\+OR}}
+\index{B64\+\_\+\+V\+E\+R\+\_\+\+M\+I\+N\+OR@{B64\+\_\+\+V\+E\+R\+\_\+\+M\+I\+N\+OR}!b64.\+h@{b64.\+h}}
+\subsubsection{B64\+\_\+\+V\+E\+R\+\_\+\+M\+I\+N\+OR}
+{\footnotesize\ttfamily \#define B64\+\_\+\+V\+E\+R\+\_\+\+M\+I\+N\+OR~3}
+
+The minor version number of b64 \mbox{\label{b64_8h_a6cffd0bac9997a6d085c4b9486487cd5}} 
+\index{b64.\+h@{b64.\+h}!B64\+\_\+\+V\+E\+R\+\_\+\+R\+E\+V\+I\+S\+I\+ON@{B64\+\_\+\+V\+E\+R\+\_\+\+R\+E\+V\+I\+S\+I\+ON}}
+\index{B64\+\_\+\+V\+E\+R\+\_\+\+R\+E\+V\+I\+S\+I\+ON@{B64\+\_\+\+V\+E\+R\+\_\+\+R\+E\+V\+I\+S\+I\+ON}!b64.\+h@{b64.\+h}}
+\subsubsection{B64\+\_\+\+V\+E\+R\+\_\+\+R\+E\+V\+I\+S\+I\+ON}
+{\footnotesize\ttfamily \#define B64\+\_\+\+V\+E\+R\+\_\+\+R\+E\+V\+I\+S\+I\+ON~4}
+
+The revision version number of b64 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413c}} 
+\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+L\+A\+GS@{B64\+\_\+\+F\+L\+A\+GS}}
+\index{B64\+\_\+\+F\+L\+A\+GS@{B64\+\_\+\+F\+L\+A\+GS}!b64.\+h@{b64.\+h}}
+\subsubsection{B64\+\_\+\+F\+L\+A\+GS}
+{\footnotesize\ttfamily enum \textbf{ B64\+\_\+\+F\+L\+A\+GS}}
+
+
+
+Coding behaviour modification flags (for \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2} / \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13}) 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+U\+S\+E\+\_\+\+P\+A\+R\+AM@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+U\+S\+E\+\_\+\+P\+A\+R\+AM}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+U\+S\+E\+\_\+\+P\+A\+R\+AM@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+U\+S\+E\+\_\+\+P\+A\+R\+AM}}}\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413cae413e3e84255c3eae6ad13c5fa98ecca}} 
+B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+U\+S\+E\+\_\+\+P\+A\+R\+AM&Uses the line\+Len parameter to \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. Ignored by \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+I\+N\+F\+I\+N\+I\+TE@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+I\+N\+F\+I\+N\+I\+TE}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+I\+N\+F\+I\+N\+I\+TE@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+I\+N\+F\+I\+N\+I\+TE}}}\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413cadd6af461896c070fa3db1bd33921e379}} 
+B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+I\+N\+F\+I\+N\+I\+TE&Ignores the line\+Len parameter to \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. Line length is infinite. Ignored by \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+64@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+64}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+64@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+64}}}\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413ca816f1c78e0a6f47a5bfad5ff1fcf0b72}} 
+B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+64&Ignores the line\+Len parameter to \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. Line length is 64. Ignored by \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+76@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+76}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+76@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+76}}}\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413ca96b853d392c2cdce0c8019a89a1d4a0b}} 
+B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+76&Ignores the line\+Len parameter to \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. Line length is 76. Ignored by \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+M\+A\+SK@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+M\+A\+SK}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+M\+A\+SK@{B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+M\+A\+SK}}}\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413cacc8694fc21ea7aa55739e129ab004571}} 
+B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+M\+A\+SK&Mask for testing line length flags to \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. Ignored by \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+N\+O\+T\+H\+I\+NG@{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+N\+O\+T\+H\+I\+NG}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+N\+O\+T\+H\+I\+NG@{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+N\+O\+T\+H\+I\+NG}}}\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413cac9103a00218a3d5888e0e40123104340}} 
+B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+N\+O\+T\+H\+I\+NG&Decoding ignores all invalid characters in the input data. Ignored by \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+C\+H\+AR@{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+C\+H\+AR}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+C\+H\+AR@{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+C\+H\+AR}}}\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413caa020e250cf72194c76df9a241b4ec454}} 
+B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+K\+N\+O\+W\+N\+\_\+\+C\+H\+AR&Causes decoding to break if any non-\/\+Base-\/64 [a-\/z\+A-\/\+Z0-\/9=+/], non-\/whitespace character is encountered. Ignored by \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+WS@{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+WS}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+WS@{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+WS}}}\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413caad4bc3f40b605d9364692a04cf198fa2}} 
+B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+U\+N\+E\+X\+P\+E\+C\+T\+E\+D\+\_\+\+WS&Causes decoding to break if any unexpected whitespace is encountered. Ignored by \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+B\+A\+D\+\_\+\+C\+H\+AR@{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+B\+A\+D\+\_\+\+C\+H\+AR}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+B\+A\+D\+\_\+\+C\+H\+AR@{B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+B\+A\+D\+\_\+\+C\+H\+AR}}}\mbox{\label{b64_8h_a5768c3ae7453e1fa71cd7c737fc7413caac1deeef9e56c113faffc338c008346c}} 
+B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+B\+A\+D\+\_\+\+C\+H\+AR&Causes decoding to break if any non-\/\+Base-\/64 [a-\/z\+A-\/\+Z0-\/9=+/] character is encountered. Ignored by \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{b64_8h_a432f620157f14714e209d99a20f523d9}} 
+\index{b64.\+h@{b64.\+h}!B64\+\_\+\+RC@{B64\+\_\+\+RC}}
+\index{B64\+\_\+\+RC@{B64\+\_\+\+RC}!b64.\+h@{b64.\+h}}
+\subsubsection{B64\+\_\+\+RC}
+{\footnotesize\ttfamily enum \textbf{ B64\+\_\+\+RC}}
+
+
+
+Return codes (from \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2} / \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13}) 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+R\+C\+\_\+\+OK@{B64\+\_\+\+R\+C\+\_\+\+OK}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+R\+C\+\_\+\+OK@{B64\+\_\+\+R\+C\+\_\+\+OK}}}\mbox{\label{b64_8h_a432f620157f14714e209d99a20f523d9a093d40a7c78e12094da606fbe9633e36}} 
+B64\+\_\+\+R\+C\+\_\+\+OK&Operation was successful. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+R\+C\+\_\+\+I\+N\+S\+U\+F\+F\+I\+C\+I\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER@{B64\+\_\+\+R\+C\+\_\+\+I\+N\+S\+U\+F\+F\+I\+C\+I\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+R\+C\+\_\+\+I\+N\+S\+U\+F\+F\+I\+C\+I\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER@{B64\+\_\+\+R\+C\+\_\+\+I\+N\+S\+U\+F\+F\+I\+C\+I\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER}}}\mbox{\label{b64_8h_a432f620157f14714e209d99a20f523d9abfeaa32948d5a8b9afe5314a4e5f4ce3}} 
+B64\+\_\+\+R\+C\+\_\+\+I\+N\+S\+U\+F\+F\+I\+C\+I\+E\+N\+T\+\_\+\+B\+U\+F\+F\+ER&The given translation buffer was not of sufficient size. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+R\+C\+\_\+\+T\+R\+U\+N\+C\+A\+T\+E\+D\+\_\+\+I\+N\+P\+UT@{B64\+\_\+\+R\+C\+\_\+\+T\+R\+U\+N\+C\+A\+T\+E\+D\+\_\+\+I\+N\+P\+UT}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+R\+C\+\_\+\+T\+R\+U\+N\+C\+A\+T\+E\+D\+\_\+\+I\+N\+P\+UT@{B64\+\_\+\+R\+C\+\_\+\+T\+R\+U\+N\+C\+A\+T\+E\+D\+\_\+\+I\+N\+P\+UT}}}\mbox{\label{b64_8h_a432f620157f14714e209d99a20f523d9a207599c81a925353d57267f0a878147c}} 
+B64\+\_\+\+R\+C\+\_\+\+T\+R\+U\+N\+C\+A\+T\+E\+D\+\_\+\+I\+N\+P\+UT&The input did not represent a fully formed stream of octet couplings. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B64\+\_\+\+R\+C\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR@{B64\+\_\+\+R\+C\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR}!b64.\+h@{b64.\+h}}\index{b64.\+h@{b64.\+h}!B64\+\_\+\+R\+C\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR@{B64\+\_\+\+R\+C\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR}}}\mbox{\label{b64_8h_a432f620157f14714e209d99a20f523d9a0d7d5feca8db186e00437c4c7b6aeb41}} 
+B64\+\_\+\+R\+C\+\_\+\+D\+A\+T\+A\+\_\+\+E\+R\+R\+OR&Invalid data. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\label{b64_8h_af0a580e1694f2addb2fec740214f959a}} 
+\index{b64.\+h@{b64.\+h}!b64\+\_\+decode@{b64\+\_\+decode}}
+\index{b64\+\_\+decode@{b64\+\_\+decode}!b64.\+h@{b64.\+h}}
+\subsubsection{b64\+\_\+decode()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+decode (\begin{DoxyParamCaption}\item[{char const $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Len,  }\item[{void $\ast$}]{dest,  }\item[{size\+\_\+t}]{dest\+Size }\end{DoxyParamCaption})}
+
+
+
+Decodes a sequence of Base-\/64 into a block of binary data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the Base-\/64 block to be decoded. May not be N\+U\+LL, except when {\ttfamily dest} is N\+U\+LL, in which case it is ignored. If {\ttfamily dest} is N\+U\+LL, and {\ttfamily src} is {\bfseries not} N\+U\+LL, then the returned value is calculated exactly, otherwise a value is returned that is guaranteed to be large enough to hold the decoded block.\\
+\hline
+{\em src\+Len} & Length of block to be encoded. Must be an integral of 4, the Base-\/64 encoding quantum, otherwise the Base-\/64 block is assumed to be invalid \\
+\hline
+{\em dest} & Pointer to the buffer into which the result is to be written. May be N\+U\+LL, in which case the function returns the required length \\
+\hline
+{\em dest\+Size} & Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from {\ttfamily b64\+\_\+decode(src, src\+Size, N\+U\+L\+L, 0)}, even in the case where the encoded form contains a number of characters that will be ignored, resulting in a lower total length of converted form.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than {\ttfamily dest\+Size} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function returns the required length if {\ttfamily dest} is N\+U\+LL. The returned size might be larger than the actual required size, but will never be smaller.
+
+\label{b64_8h_anchor__4_characters}%
+The behaviour of both \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2} and \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13} are undefined if the line length is not a multiple of 4.
+
+Threading\+: The function is fully re-\/entrant.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+b64\+::decode() 
+\end{DoxySeeAlso}
+\mbox{\label{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13}} 
+\index{b64.\+h@{b64.\+h}!b64\+\_\+decode2@{b64\+\_\+decode2}}
+\index{b64\+\_\+decode2@{b64\+\_\+decode2}!b64.\+h@{b64.\+h}}
+\subsubsection{b64\+\_\+decode2()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+decode2 (\begin{DoxyParamCaption}\item[{char const $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Len,  }\item[{void $\ast$}]{dest,  }\item[{size\+\_\+t}]{dest\+Size,  }\item[{unsigned}]{flags,  }\item[{char const $\ast$$\ast$}]{bad\+Char,  }\item[{\textbf{ B64\+\_\+\+RC} $\ast$}]{rc }\end{DoxyParamCaption})}
+
+
+
+Decodes a sequence of Base-\/64 into a block of binary data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the Base-\/64 block to be decoded. May not be N\+U\+LL, except when {\ttfamily dest} is N\+U\+LL, in which case it is ignored. If {\ttfamily dest} is N\+U\+LL, and {\ttfamily src} is {\bfseries not} N\+U\+LL, then the returned value is calculated exactly, otherwise a value is returned that is guaranteed to be large enough to hold the decoded block.\\
+\hline
+{\em src\+Len} & Length of block to be encoded. Must be an integral of 4, the Base-\/64 encoding quantum, otherwise the Base-\/64 block is assumed to be invalid \\
+\hline
+{\em dest} & Pointer to the buffer into which the result is to be written. May be N\+U\+LL, in which case the function returns the required length \\
+\hline
+{\em dest\+Size} & Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from {\ttfamily b64\+\_\+decode(src, src\+Size, N\+U\+L\+L, 0)}, even in the case where the encoded form contains a number of characters that will be ignored, resulting in a lower total length of converted form. \\
+\hline
+{\em flags} & A combination of the B64\+\_\+\+F\+L\+A\+GS enumeration, that moderate the behaviour of the function. \\
+\hline
+{\em rc} & The return code representing the status of the operation. May be N\+U\+LL. \\
+\hline
+{\em bad\+Char} & If the flags parameter does not contain B64\+\_\+\+F\+\_\+\+S\+T\+O\+P\+\_\+\+O\+N\+\_\+\+N\+O\+T\+H\+I\+NG, this parameter specifies the address of a pointer that will be set to point to any character in the sequence that stops the parsing, as dictated by the flags parameter. May be N\+U\+LL.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than {\ttfamily dest\+Size}, or a bad character stopped parsing.
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function returns the required length if {\ttfamily dest} is N\+U\+LL. The returned size might be larger than the actual required size, but will never be smaller.
+
+The behaviour of both \doxyref{b64\+\_\+encode2()}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2} and \doxyref{b64\+\_\+decode2()}{p.}{b64_8h_a50a93e4f6a922c5314a9cb50befc2d13} are undefined if the line length is not a multiple of 4.
+
+Threading\+: The function is fully re-\/entrant.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+b64\+::decode() 
+\end{DoxySeeAlso}
+\mbox{\label{b64_8h_aa518340c8e76af0cf0753c15bebfc2af}} 
+\index{b64.\+h@{b64.\+h}!b64\+\_\+encode@{b64\+\_\+encode}}
+\index{b64\+\_\+encode@{b64\+\_\+encode}!b64.\+h@{b64.\+h}}
+\subsubsection{b64\+\_\+encode()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+encode (\begin{DoxyParamCaption}\item[{void const $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Size,  }\item[{char $\ast$}]{dest,  }\item[{size\+\_\+t}]{dest\+Len }\end{DoxyParamCaption})}
+
+
+
+Encodes a block of binary data into Base-\/64. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the block to be encoded. May not be N\+U\+LL, except when {\ttfamily dest} is N\+U\+LL, in which case it is ignored. \\
+\hline
+{\em src\+Size} & Length of block to be encoded \\
+\hline
+{\em dest} & Pointer to the buffer into which the result is to be written. May be N\+U\+LL, in which case the function returns the required length \\
+\hline
+{\em dest\+Len} & Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from \doxyref{b64\+\_\+encode(\+N\+U\+L\+L, src\+Size, N\+U\+L\+L, 0)}{p.}{b64_8h_aa518340c8e76af0cf0753c15bebfc2af}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than {\ttfamily dest\+Len} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function returns the required length if {\ttfamily dest} is N\+U\+LL
+
+The function returns the required length if {\ttfamily dest} is N\+U\+LL. The returned size might be larger than the actual required size, but will never be smaller.
+
+Threading\+: The function is fully re-\/entrant.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+b64\+::encode() 
+\end{DoxySeeAlso}
+\mbox{\label{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}} 
+\index{b64.\+h@{b64.\+h}!b64\+\_\+encode2@{b64\+\_\+encode2}}
+\index{b64\+\_\+encode2@{b64\+\_\+encode2}!b64.\+h@{b64.\+h}}
+\subsubsection{b64\+\_\+encode2()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+encode2 (\begin{DoxyParamCaption}\item[{void const $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Size,  }\item[{char $\ast$}]{dest,  }\item[{size\+\_\+t}]{dest\+Len,  }\item[{unsigned}]{flags,  }\item[{int}]{line\+Len,  }\item[{\textbf{ B64\+\_\+\+RC} $\ast$}]{rc }\end{DoxyParamCaption})}
+
+
+
+Encodes a block of binary data into Base-\/64. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Pointer to the block to be encoded. May not be N\+U\+LL, except when {\ttfamily dest} is N\+U\+LL, in which case it is ignored. \\
+\hline
+{\em src\+Size} & Length of block to be encoded \\
+\hline
+{\em dest} & Pointer to the buffer into which the result is to be written. May be N\+U\+LL, in which case the function returns the required length \\
+\hline
+{\em dest\+Len} & Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from \doxyref{b64\+\_\+encode2(\+N\+U\+L\+L, src\+Size, N\+U\+L\+L, 0, flags, line\+Len, rc)}{p.}{b64_8h_ab08b80124c4db4bf423feff5f7ffa5f2}. \\
+\hline
+{\em flags} & A combination of the B64\+\_\+\+F\+L\+A\+GS enumeration, that moderate the behaviour of the function \\
+\hline
+{\em line\+Len} & If the flags parameter contains B64\+\_\+\+F\+\_\+\+L\+I\+N\+E\+\_\+\+L\+E\+N\+\_\+\+U\+S\+E\+\_\+\+P\+A\+R\+AM, then this parameter represents the length of the lines into which the encoded form is split, with a hard line break (\textquotesingle{}\textbackslash{}r\textbackslash{}n\textquotesingle{}). If this value is 0, then the line is not split. If it is $<$0, then the R\+F\+C-\/1113 recommended line length of 64 is used \\
+\hline
+{\em rc} & The return code representing the status of the operation. May be N\+U\+LL.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than {\ttfamily dest\+Len} 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+The function returns the required length if {\ttfamily dest} is N\+U\+LL. The returned size might be larger than the actual required size, but will never be smaller.
+
+Threading\+: The function is fully re-\/entrant.
+\end{DoxyNote}
+\begin{DoxySeeAlso}{See also}
+b64\+::encode() 
+\end{DoxySeeAlso}
+\mbox{\label{b64_8h_a84adc01b9c5028eee501d2fb2bef9a11}} 
+\index{b64.\+h@{b64.\+h}!b64\+\_\+get\+Error\+String@{b64\+\_\+get\+Error\+String}}
+\index{b64\+\_\+get\+Error\+String@{b64\+\_\+get\+Error\+String}!b64.\+h@{b64.\+h}}
+\subsubsection{b64\+\_\+get\+Error\+String()}
+{\footnotesize\ttfamily char const$\ast$ b64\+\_\+get\+Error\+String (\begin{DoxyParamCaption}\item[{\textbf{ B64\+\_\+\+RC}}]{code }\end{DoxyParamCaption})}
+
+
+
+Returns the textual description of the error. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The \doxyref{error code}{p.}{b64_8h_a432f620157f14714e209d99a20f523d9} \\
+\hline
+\end{DoxyParams}
+\mbox{\label{b64_8h_a48c61d4785f8b1f8122a5a9f778a9f20}} 
+\index{b64.\+h@{b64.\+h}!b64\+\_\+get\+Error\+String\+Length@{b64\+\_\+get\+Error\+String\+Length}}
+\index{b64\+\_\+get\+Error\+String\+Length@{b64\+\_\+get\+Error\+String\+Length}!b64.\+h@{b64.\+h}}
+\subsubsection{b64\+\_\+get\+Error\+String\+Length()}
+{\footnotesize\ttfamily size\+\_\+t b64\+\_\+get\+Error\+String\+Length (\begin{DoxyParamCaption}\item[{\textbf{ B64\+\_\+\+RC}}]{code }\end{DoxyParamCaption})}
+
+
+
+Returns the length of the textual description of the error. 
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{b64\+\_\+get\+Error\+String()}{p.}{b64_8h_a84adc01b9c5028eee501d2fb2bef9a11}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The \doxyref{error code}{p.}{b64_8h_a432f620157f14714e209d99a20f523d9} \\
+\hline
+\end{DoxyParams}

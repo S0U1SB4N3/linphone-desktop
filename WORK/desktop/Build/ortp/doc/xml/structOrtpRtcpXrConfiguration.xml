@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structOrtpRtcpXrConfiguration" kind="struct" language="C++" prot="public">
+    <compoundname>OrtpRtcpXrConfiguration</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structOrtpRtcpXrConfiguration_1a94dae53ed6a5bd3149c583619bca0778" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t OrtpRtcpXrConfiguration::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="252" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="252" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrConfiguration_1ada4c50e95ee05a5e2c5ff9149da6575a" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t OrtpRtcpXrConfiguration::stat_summary_enabled</definition>
+        <argsstring></argsstring>
+        <name>stat_summary_enabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="253" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrConfiguration_1a6737c9a6d2368e9add2150b54cfa5c39" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t OrtpRtcpXrConfiguration::voip_metrics_enabled</definition>
+        <argsstring></argsstring>
+        <name>voip_metrics_enabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="254" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrConfiguration_1aee236bdd926b519a4511a723a998ce28" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t OrtpRtcpXrConfiguration::pad</definition>
+        <argsstring></argsstring>
+        <name>pad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="255" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrConfiguration_1a29013ad80a2acd13cb83dbf63a776eed" prot="public" static="no" mutable="no">
+        <type>OrtpRtcpXrRcvrRttMode</type>
+        <definition>OrtpRtcpXrRcvrRttMode OrtpRtcpXrConfiguration::rcvr_rtt_mode</definition>
+        <argsstring></argsstring>
+        <name>rcvr_rtt_mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="256" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrConfiguration_1aa941337481959500f933b6dbee95e25b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int OrtpRtcpXrConfiguration::rcvr_rtt_max_size</definition>
+        <argsstring></argsstring>
+        <name>rcvr_rtt_max_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="257" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrConfiguration_1a4014a5c99a42b61a13ef43aa58f3c729" prot="public" static="no" mutable="no">
+        <type>OrtpRtcpXrStatSummaryFlag</type>
+        <definition>OrtpRtcpXrStatSummaryFlag OrtpRtcpXrConfiguration::stat_summary_flags</definition>
+        <argsstring></argsstring>
+        <name>stat_summary_flags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="258" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="251" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="251" bodyend="259"/>
+    <listofallmembers>
+      <member refid="structOrtpRtcpXrConfiguration_1a94dae53ed6a5bd3149c583619bca0778" prot="public" virt="non-virtual"><scope>OrtpRtcpXrConfiguration</scope><name>enabled</name></member>
+      <member refid="structOrtpRtcpXrConfiguration_1aee236bdd926b519a4511a723a998ce28" prot="public" virt="non-virtual"><scope>OrtpRtcpXrConfiguration</scope><name>pad</name></member>
+      <member refid="structOrtpRtcpXrConfiguration_1aa941337481959500f933b6dbee95e25b" prot="public" virt="non-virtual"><scope>OrtpRtcpXrConfiguration</scope><name>rcvr_rtt_max_size</name></member>
+      <member refid="structOrtpRtcpXrConfiguration_1a29013ad80a2acd13cb83dbf63a776eed" prot="public" virt="non-virtual"><scope>OrtpRtcpXrConfiguration</scope><name>rcvr_rtt_mode</name></member>
+      <member refid="structOrtpRtcpXrConfiguration_1ada4c50e95ee05a5e2c5ff9149da6575a" prot="public" virt="non-virtual"><scope>OrtpRtcpXrConfiguration</scope><name>stat_summary_enabled</name></member>
+      <member refid="structOrtpRtcpXrConfiguration_1a4014a5c99a42b61a13ef43aa58f3c729" prot="public" virt="non-virtual"><scope>OrtpRtcpXrConfiguration</scope><name>stat_summary_flags</name></member>
+      <member refid="structOrtpRtcpXrConfiguration_1a6737c9a6d2368e9add2150b54cfa5c39" prot="public" virt="non-virtual"><scope>OrtpRtcpXrConfiguration</scope><name>voip_metrics_enabled</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

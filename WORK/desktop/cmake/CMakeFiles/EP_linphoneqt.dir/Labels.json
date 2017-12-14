@@ -1,0 +1,55 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_linphoneqt"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_linphoneqt.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_linphoneqt-complete.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_linphoneqt/EP_linphoneqt-install.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_linphoneqt/EP_linphoneqt-mkdir.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_linphoneqt/EP_linphoneqt-download.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_linphoneqt/EP_linphoneqt-update.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_linphoneqt/EP_linphoneqt-patch.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_linphoneqt/EP_linphoneqt-configure.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_linphoneqt/EP_linphoneqt-build.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_linphoneqt/EP_linphoneqt-force_build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "EP_linphoneqt" ],
+		"name" : "EP_linphoneqt"
+	}
+}

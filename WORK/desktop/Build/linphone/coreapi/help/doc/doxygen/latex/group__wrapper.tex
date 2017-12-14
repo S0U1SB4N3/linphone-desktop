@@ -1,0 +1,63 @@
+\section{Wrapper}
+\label{group__wrapper}\index{Wrapper@{Wrapper}}
+
+
+Wrapper utilities.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message\+\_\+2} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, \textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Send a message to peer member of this chat room. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+resend\+\_\+2} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Resend a chat message if it is in the \textquotesingle{}not delivered\textquotesingle{} state for whatever reason. \end{DoxyCompactList}\item 
+\mbox{\label{group__wrapper_ga33e3e028e1551a47a6d7af26ce864f5e}} 
+void $\ast$ \textbf{ linphone\+\_\+vcard\+\_\+get\+\_\+belcard} (\textbf{ Linphone\+Vcard} $\ast$vcard)
+\begin{DoxyCompactList}\small\item\em Accessor for the shared\+\_\+ptr$<$Bel\+Card$>$ stored by a \doxyref{Linphone\+Vcard}{p.}{group__carddav__vcard_ga9331db7d45400f64b3eff8fed0c39219}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Wrapper utilities. 
+
+These functions are used by automatic A\+PI wrapper generators and should not be used by C A\+PI users. 
+
+\subsection{Function Documentation}
+\mbox{\label{group__wrapper_ga4a51af228fd7f8f2ea417a6f0f470ea0}} 
+\index{Wrapper@{Wrapper}!linphone\+\_\+chat\+\_\+message\+\_\+resend\+\_\+2@{linphone\+\_\+chat\+\_\+message\+\_\+resend\+\_\+2}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+resend\+\_\+2@{linphone\+\_\+chat\+\_\+message\+\_\+resend\+\_\+2}!Wrapper@{Wrapper}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+resend\+\_\+2()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+resend\+\_\+2 (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Resend a chat message if it is in the \textquotesingle{}not delivered\textquotesingle{} state for whatever reason. 
+
+\begin{DoxyNote}{Note}
+Unlike \doxyref{linphone\+\_\+chat\+\_\+message\+\_\+resend()}{p.}{group__chatroom_ga65436ae23d8f3360494eb77dd9a83fb4}, that function only takes a reference on the \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} instead of totaly takes ownership on it. Thus, the \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} object must be released by the A\+PI user after calling that function.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & Linphone\+Chat\+Message object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__wrapper_ga9b3ee67aa5e93066fe5794d93ebe9c79}} 
+\index{Wrapper@{Wrapper}!linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message\+\_\+2@{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message\+\_\+2}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message\+\_\+2@{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message\+\_\+2}!Wrapper@{Wrapper}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message\+\_\+2()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message\+\_\+2 (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Send a message to peer member of this chat room. 
+
+The state of the sending message will be notified via the callbacks defined in the \doxyref{Linphone\+Chat\+Message\+Cbs}{p.}{group__chatroom_gaa1a715195601cd8885ca3a45bb3a1e6a} object that can be obtained by calling \doxyref{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+callbacks()}{p.}{group__chatroom_ga2ec794964eed8849b421f315429c16ed}. \begin{DoxyNote}{Note}
+Unlike \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message()}{p.}{group__chatroom_ga4f6a53c5c3c0ec9afe7ade876d2da102}, that function only takes a reference on the \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} instead of totaly takes ownership on it. Thus, the \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} object must be released by the A\+PI user after calling that function.
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & A chat room. \\
+\hline
+\mbox{\tt in}  & {\em msg} & The message to send. \\
+\hline
+\end{DoxyParams}

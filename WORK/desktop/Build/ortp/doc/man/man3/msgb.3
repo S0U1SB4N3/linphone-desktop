@@ -1,0 +1,55 @@
+.TH "msgb" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+msgb
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "struct \fBmsgb\fP * \fBb_prev\fP"
+.br
+.ti -1c
+.RI "struct \fBmsgb\fP * \fBb_next\fP"
+.br
+.ti -1c
+.RI "struct \fBmsgb\fP * \fBb_cont\fP"
+.br
+.ti -1c
+.RI "struct \fBdatab\fP * \fBb_datap\fP"
+.br
+.ti -1c
+.RI "unsigned char * \fBb_rptr\fP"
+.br
+.ti -1c
+.RI "unsigned char * \fBb_wptr\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBreserved1\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBreserved2\fP"
+.br
+.ti -1c
+.RI "struct timeval \fBtimestamp\fP"
+.br
+.ti -1c
+.RI "\fBortp_recv_addr_t\fP \fBrecv_addr\fP"
+.br
+.ti -1c
+.RI "struct sockaddr_storage \fBnet_addr\fP"
+.br
+.ti -1c
+.RI "socklen_t \fBnet_addrlen\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBttl_or_hl\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

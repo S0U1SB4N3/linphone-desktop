@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__mediastreamer2__ticker" kind="group">
+    <compoundname>mediastreamer2_ticker</compoundname>
+    <title>Ticker API - Manage mediastreamer2 graphs</title>
+    <briefdescription>
+<para>Ticker API to manage mediastreamer2 graphs. </para>    </briefdescription>
+    <detaileddescription>
+<para>Describes the ticker API. The ticker is the thread responsible for scheduling audio &amp; video processing for one or several filter graphs. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

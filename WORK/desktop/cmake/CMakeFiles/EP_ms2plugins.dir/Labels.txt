@@ -1,0 +1,14 @@
+# Target labels
+ EP_ms2plugins
+# Source files and their labels
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_ms2plugins
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_ms2plugins.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_ms2plugins-complete.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2plugins/EP_ms2plugins-install.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2plugins/EP_ms2plugins-mkdir.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2plugins/EP_ms2plugins-download.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2plugins/EP_ms2plugins-update.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2plugins/EP_ms2plugins-patch.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2plugins/EP_ms2plugins-configure.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2plugins/EP_ms2plugins-build.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2plugins/EP_ms2plugins-force_build.rule

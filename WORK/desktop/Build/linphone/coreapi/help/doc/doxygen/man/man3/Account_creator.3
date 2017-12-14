@@ -1,0 +1,1587 @@
+.TH "Account_creator" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Account_creator
+.SH SYNOPSIS
+.br
+.PP
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBLinphoneAccountCreatorCbsStatusCb\fP) (\fBLinphoneAccountCreator\fP *creator, \fBLinphoneAccountCreatorStatus\fP status, const char *resp)"
+.br
+.RI "Callback to notify a response of server\&. "
+.ti -1c
+.RI "typedef struct _LinphoneAccountCreator \fBLinphoneAccountCreator\fP"
+.br
+.RI "The LinphoneAccountCreator object used to configure an account on a server via XML-RPC\&. "
+.ti -1c
+.RI "typedef struct _LinphoneAccountCreatorService \fBLinphoneAccountCreatorService\fP"
+.br
+.RI "An object to define a LinphoneAccountCreator service\&. "
+.ti -1c
+.RI "typedef struct _LinphoneAccountCreatorCbs \fBLinphoneAccountCreatorCbs\fP"
+.br
+.RI "An object to handle the responses callbacks for handling the LinphoneAccountCreator operations\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneAccountCreatorPhoneNumberStatus\fP \fBLinphoneAccountCreatorPhoneNumberStatus\fP"
+.br
+.RI "Enum describing Phone number checking\&. "
+.ti -1c
+.RI "typedef unsigned int \fBLinphoneAccountCreatorPhoneNumberStatusMask\fP"
+.br
+.RI "A mask of \fBLinphoneAccountCreatorPhoneNumberStatus\fP values\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneAccountCreatorUsernameStatus\fP \fBLinphoneAccountCreatorUsernameStatus\fP"
+.br
+.RI "Enum describing Username checking\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneAccountCreatorEmailStatus\fP \fBLinphoneAccountCreatorEmailStatus\fP"
+.br
+.RI "Enum describing Email checking\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneAccountCreatorPasswordStatus\fP \fBLinphoneAccountCreatorPasswordStatus\fP"
+.br
+.RI "Enum describing Password checking\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneAccountCreatorLanguageStatus\fP \fBLinphoneAccountCreatorLanguageStatus\fP"
+.br
+.RI "Enum describing language checking\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneAccountCreatorActivationCodeStatus\fP \fBLinphoneAccountCreatorActivationCodeStatus\fP"
+.br
+.RI "Enum describing Activation code checking\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneAccountCreatorDomainStatus\fP \fBLinphoneAccountCreatorDomainStatus\fP"
+.br
+.RI "Enum describing Domain checking\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneAccountCreatorTransportStatus\fP \fBLinphoneAccountCreatorTransportStatus\fP"
+.br
+.RI "Enum describing Transport checking\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_LinphoneAccountCreatorPhoneNumberStatus\fP { \fBLinphoneAccountCreatorPhoneNumberStatusOk\fP = 0x1, \fBLinphoneAccountCreatorPhoneNumberStatusTooShort\fP = 0x2, \fBLinphoneAccountCreatorPhoneNumberStatusTooLong\fP = 0x4, \fBLinphoneAccountCreatorPhoneNumberStatusInvalidCountryCode\fP = 0x8, \fBLinphoneAccountCreatorPhoneNumberStatusInvalid\fP = 0x10 }
+.RI "Enum describing Phone number checking\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneAccountCreatorUsernameStatus\fP { \fBLinphoneAccountCreatorUsernameStatusOk\fP, \fBLinphoneAccountCreatorUsernameStatusTooShort\fP, \fBLinphoneAccountCreatorUsernameStatusTooLong\fP, \fBLinphoneAccountCreatorUsernameStatusInvalidCharacters\fP, \fBLinphoneAccountCreatorUsernameStatusInvalid\fP }
+.RI "Enum describing Username checking\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneAccountCreatorEmailStatus\fP { \fBLinphoneAccountCreatorEmailStatusOk\fP, \fBLinphoneAccountCreatorEmailStatusMalformed\fP, \fBLinphoneAccountCreatorEmailStatusInvalidCharacters\fP }
+.RI "Enum describing Email checking\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneAccountCreatorPasswordStatus\fP { \fBLinphoneAccountCreatorPasswordStatusOk\fP, \fBLinphoneAccountCreatorPasswordStatusTooShort\fP, \fBLinphoneAccountCreatorPasswordStatusTooLong\fP, \fBLinphoneAccountCreatorPasswordStatusInvalidCharacters\fP, \fBLinphoneAccountCreatorPasswordStatusMissingCharacters\fP }
+.RI "Enum describing Password checking\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneAccountCreatorLanguageStatus\fP { \fBLinphoneAccountCreatorLanguageStatusOk\fP }
+.RI "Enum describing language checking\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneAccountCreatorActivationCodeStatus\fP { \fBLinphoneAccountCreatorActivationCodeStatusOk\fP, \fBLinphoneAccountCreatorActivationCodeStatusTooShort\fP, \fBLinphoneAccountCreatorActivationCodeStatusTooLong\fP, \fBLinphoneAccountCreatorActivationCodeStatusInvalidCharacters\fP }
+.RI "Enum describing Activation code checking\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneAccountCreatorDomainStatus\fP { \fBLinphoneAccountCreatorDomainOk\fP, \fBLinphoneAccountCreatorDomainInvalid\fP }
+.RI "Enum describing Domain checking\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneAccountCreatorTransportStatus\fP { \fBLinphoneAccountCreatorTransportOk\fP, \fBLinphoneAccountCreatorTransportUnsupported\fP }
+.RI "Enum describing Transport checking\&. ""
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLinphoneAccountCreator\fP * \fBlinphone_account_creator_new\fP (\fBLinphoneCore\fP *core, const char *xmlrpc_url)"
+.br
+.RI "Create a LinphoneAccountCreator and set Linphone Request callbacks\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_reset\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Reset the account creator entries like username, password, phone number\&.\&.\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_is_account_exist\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to know the existence of account on server\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_create_account\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to create an account on server\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_is_account_activated\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to know if an account is activated on server\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_activate_account\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to activate an account on server\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_link_account\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to link an account to an alias\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_activate_alias\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to activate an alias\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_is_alias_used\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to know if an alias is used\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_is_account_linked\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to know if an account is linked\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_recover_account\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to recover an account\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_update_account\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Send a request to update an account\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreator\fP * \fBlinphone_account_creator_ref\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Acquire a reference to the LinphoneAccountCreator\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_unref\fP (\fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Release reference to the LinphoneAccountCreator\&. "
+.ti -1c
+.RI "void * \fBlinphone_account_creator_get_user_data\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Retrieve the user pointer associated with the LinphoneAccountCreator\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_set_user_data\fP (\fBLinphoneAccountCreator\fP *creator, void *ud)"
+.br
+.RI "Assign a user pointer to the LinphoneAccountCreator\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorUsernameStatus\fP \fBlinphone_account_creator_set_username\fP (\fBLinphoneAccountCreator\fP *creator, const char *username)"
+.br
+.RI "Set the username\&. "
+.ti -1c
+.RI "const char * \fBlinphone_account_creator_get_username\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the username\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorPhoneNumberStatusMask\fP \fBlinphone_account_creator_set_phone_number\fP (\fBLinphoneAccountCreator\fP *creator, const char *phone_number, const char *country_code)"
+.br
+.RI "Set the phone number normalized\&. "
+.ti -1c
+.RI "const char * \fBlinphone_account_creator_get_phone_number\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the RFC 3966 normalized phone number\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorPasswordStatus\fP \fBlinphone_account_creator_set_password\fP (\fBLinphoneAccountCreator\fP *creator, const char *password)"
+.br
+.RI "Set the password\&. "
+.ti -1c
+.RI "const char * \fBlinphone_account_creator_get_password\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the password\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorPasswordStatus\fP \fBlinphone_account_creator_set_ha1\fP (\fBLinphoneAccountCreator\fP *creator, const char *ha1)"
+.br
+.RI "Set the ha1\&. "
+.ti -1c
+.RI "const char * \fBlinphone_account_creator_get_ha1\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the ha1\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorActivationCodeStatus\fP \fBlinphone_account_creator_set_activation_code\fP (\fBLinphoneAccountCreator\fP *creator, const char *activation_code)"
+.br
+.RI "Set the activation code\&. "
+.ti -1c
+.RI "const char * \fBlinphone_account_creator_get_activation_code\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the activation code\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorLanguageStatus\fP \fBlinphone_account_creator_set_language\fP (\fBLinphoneAccountCreator\fP *creator, const char *lang)"
+.br
+.RI "Set the language to use in email or SMS if supported\&. "
+.ti -1c
+.RI "const char * \fBlinphone_account_creator_get_language\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the language use in email of SMS\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorUsernameStatus\fP \fBlinphone_account_creator_set_display_name\fP (\fBLinphoneAccountCreator\fP *creator, const char *display_name)"
+.br
+.RI "Set the display name\&. "
+.ti -1c
+.RI "const char * \fBlinphone_account_creator_get_display_name\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the display name\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorEmailStatus\fP \fBlinphone_account_creator_set_email\fP (\fBLinphoneAccountCreator\fP *creator, const char *email)"
+.br
+.RI "Set the email\&. "
+.ti -1c
+.RI "const char * \fBlinphone_account_creator_get_email\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the email\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorDomainStatus\fP \fBlinphone_account_creator_set_domain\fP (\fBLinphoneAccountCreator\fP *creator, const char *domain)"
+.br
+.RI "Set the domain\&. "
+.ti -1c
+.RI "const char * \fBlinphone_account_creator_get_domain\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the domain\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorTransportStatus\fP \fBlinphone_account_creator_set_transport\fP (\fBLinphoneAccountCreator\fP *creator, \fBLinphoneTransportType\fP transport)"
+.br
+.RI "Set Transport\&. "
+.ti -1c
+.RI "\fBLinphoneTransportType\fP \fBlinphone_account_creator_get_transport\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "get Transport "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneAccountCreatorStatus\fP \fBlinphone_account_creator_set_route\fP (\fBLinphoneAccountCreator\fP *creator, const char *route)"
+.br
+.RI "Set the route\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED const char * \fBlinphone_account_creator_get_route\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the route\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbs\fP * \fBlinphone_account_creator_get_callbacks\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the LinphoneAccountCreatorCbs object associated with a LinphoneAccountCreator\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorService\fP * \fBlinphone_account_creator_get_service\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Get the LinphoneAccountCreatorService object associated with a LinphoneAccountCreator\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbs\fP * \fBlinphone_account_creator_cbs_ref\fP (\fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Acquire a reference to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_unref\fP (\fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Release a reference to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "void * \fBlinphone_account_creator_cbs_get_user_data\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Retrieve the user pointer associated with a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_user_data\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, void *ud)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_create_account\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the create account request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_create_account\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_is_account_exist\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the is account exist request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_is_account_exist\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_activate_account\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the activate account request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_activate_account\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_is_account_activated\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the is account activated request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_is_account_activated\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_link_account\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the link account request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_link_account\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_activate_alias\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the activate alias request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_activate_alias\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_is_alias_used\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the is alias used request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_is_alias_used\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_is_account_linked\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the is account linked request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_is_account_linked\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_recover_account\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the recover account request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_recover_account\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreatorCbsStatusCb\fP \fBlinphone_account_creator_cbs_get_update_account\fP (const \fBLinphoneAccountCreatorCbs\fP *cbs)"
+.br
+.RI "Get the update account request\&. "
+.ti -1c
+.RI "void \fBlinphone_account_creator_cbs_set_update_account\fP (\fBLinphoneAccountCreatorCbs\fP *cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+.br
+.RI "Assign a user pointer to a LinphoneAccountCreatorCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneProxyConfig\fP * \fBlinphone_account_creator_create_proxy_config\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Create and configure a proxy config and a authentication info for an account creator\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneProxyConfig\fP * \fBlinphone_account_creator_configure\fP (const \fBLinphoneAccountCreator\fP *creator)"
+.br
+.RI "Configure an account (create a proxy config and authentication info for it)\&. "
+.ti -1c
+.RI "\fBLinphoneAccountCreator\fP * \fBlinphone_core_create_account_creator\fP (\fBLinphoneCore\fP *core, const char *xmlrpc_url)"
+.br
+.RI "Create a LinphoneAccountCreator and set Linphone Request callbacks\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(* LinphoneAccountCreatorCbsStatusCb) (\fBLinphoneAccountCreator\fP *creator, \fBLinphoneAccountCreatorStatus\fP status, const char *resp)"
+
+.PP
+Callback to notify a response of server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIstatus\fP The status of the LinphoneAccountCreator test existence operation that has just finished 
+.RE
+.PP
+
+.SS "typedef struct _LinphoneAccountCreatorService \fBLinphoneAccountCreatorService\fP"
+
+.PP
+An object to define a LinphoneAccountCreator service\&.  
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_LinphoneAccountCreatorActivationCodeStatus\fP"
+
+.PP
+Enum describing Activation code checking\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneAccountCreatorActivationCodeStatusOk \fP\fP
+Activation code ok\&. 
+.TP
+\fB\fILinphoneAccountCreatorActivationCodeStatusTooShort \fP\fP
+Activation code too short\&. 
+.TP
+\fB\fILinphoneAccountCreatorActivationCodeStatusTooLong \fP\fP
+Activation code too long\&. 
+.TP
+\fB\fILinphoneAccountCreatorActivationCodeStatusInvalidCharacters \fP\fP
+Contain invalid characters\&. 
+.SS "enum \fB_LinphoneAccountCreatorDomainStatus\fP"
+
+.PP
+Enum describing Domain checking\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneAccountCreatorDomainOk \fP\fP
+Domain ok\&. 
+.TP
+\fB\fILinphoneAccountCreatorDomainInvalid \fP\fP
+Domain invalid\&. 
+.SS "enum \fB_LinphoneAccountCreatorEmailStatus\fP"
+
+.PP
+Enum describing Email checking\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneAccountCreatorEmailStatusOk \fP\fP
+Email ok\&. 
+.TP
+\fB\fILinphoneAccountCreatorEmailStatusMalformed \fP\fP
+Email malformed\&. 
+.TP
+\fB\fILinphoneAccountCreatorEmailStatusInvalidCharacters \fP\fP
+Contain invalid characters\&. 
+.SS "enum \fB_LinphoneAccountCreatorLanguageStatus\fP"
+
+.PP
+Enum describing language checking\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneAccountCreatorLanguageStatusOk \fP\fP
+Language ok\&. 
+.SS "enum \fB_LinphoneAccountCreatorPasswordStatus\fP"
+
+.PP
+Enum describing Password checking\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneAccountCreatorPasswordStatusOk \fP\fP
+Password ok\&. 
+.TP
+\fB\fILinphoneAccountCreatorPasswordStatusTooShort \fP\fP
+Password too short\&. 
+.TP
+\fB\fILinphoneAccountCreatorPasswordStatusTooLong \fP\fP
+Password too long\&. 
+.TP
+\fB\fILinphoneAccountCreatorPasswordStatusInvalidCharacters \fP\fP
+Contain invalid characters\&. 
+.TP
+\fB\fILinphoneAccountCreatorPasswordStatusMissingCharacters \fP\fP
+Missing specific characters\&. 
+.SS "enum \fB_LinphoneAccountCreatorPhoneNumberStatus\fP"
+
+.PP
+Enum describing Phone number checking\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneAccountCreatorPhoneNumberStatusOk \fP\fP
+Phone number ok\&. 
+.TP
+\fB\fILinphoneAccountCreatorPhoneNumberStatusTooShort \fP\fP
+Phone number too short\&. 
+.TP
+\fB\fILinphoneAccountCreatorPhoneNumberStatusTooLong \fP\fP
+Phone number too long\&. 
+.TP
+\fB\fILinphoneAccountCreatorPhoneNumberStatusInvalidCountryCode \fP\fP
+Country code invalid\&. 
+.TP
+\fB\fILinphoneAccountCreatorPhoneNumberStatusInvalid \fP\fP
+Phone number invalid\&. 
+.SS "enum \fB_LinphoneAccountCreatorTransportStatus\fP"
+
+.PP
+Enum describing Transport checking\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneAccountCreatorTransportOk \fP\fP
+Transport ok\&. 
+.TP
+\fB\fILinphoneAccountCreatorTransportUnsupported \fP\fP
+Transport invalid\&. 
+.SS "enum \fB_LinphoneAccountCreatorUsernameStatus\fP"
+
+.PP
+Enum describing Username checking\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneAccountCreatorUsernameStatusOk \fP\fP
+Username ok\&. 
+.TP
+\fB\fILinphoneAccountCreatorUsernameStatusTooShort \fP\fP
+Username too short\&. 
+.TP
+\fB\fILinphoneAccountCreatorUsernameStatusTooLong \fP\fP
+Username too long\&. 
+.TP
+\fB\fILinphoneAccountCreatorUsernameStatusInvalidCharacters \fP\fP
+Contain invalid characters\&. 
+.TP
+\fB\fILinphoneAccountCreatorUsernameStatusInvalid \fP\fP
+Invalid username\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_activate_account (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to activate an account on server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_activate_alias (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to activate an alias\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_activate_account (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the activate account request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current activate account request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_activate_alias (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the activate alias request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current link account request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_create_account (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the create account request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current create account request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_is_account_activated (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the is account activated request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current is account activated request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_is_account_exist (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the is account exist request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current is account exist request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_is_account_linked (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the is account linked request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current is account linked request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_is_alias_used (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the is alias used request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current is alias used request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_link_account (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the link account request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current link account request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_recover_account (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the recover account request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current recover account request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbsStatusCb\fP linphone_account_creator_cbs_get_update_account (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Get the update account request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current update account request\&. 
+.RE
+.PP
+
+.SS "void* linphone_account_creator_cbs_get_user_data (const \fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Retrieve the user pointer associated with a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbs\fP* linphone_account_creator_cbs_ref (\fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Acquire a reference to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_activate_account (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The activate account request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_activate_alias (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The activate alias request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_create_account (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The create account request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_is_account_activated (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The is account activated request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_is_account_exist (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The is account exist request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_is_account_linked (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The is account linked request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_is_alias_used (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The is alias used request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_link_account (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The link account request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_recover_account (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The recover account request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_update_account (\fBLinphoneAccountCreatorCbs\fP * cbs, \fBLinphoneAccountCreatorCbsStatusCb\fP cb)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIcb\fP The update account request to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_set_user_data (\fBLinphoneAccountCreatorCbs\fP * cbs, void * ud)"
+
+.PP
+Assign a user pointer to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.br
+\fIud\fP The user pointer to associate with the LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_cbs_unref (\fBLinphoneAccountCreatorCbs\fP * cbs)"
+
+.PP
+Release a reference to a LinphoneAccountCreatorCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneAccountCreatorCbs object\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneProxyConfig\fP* linphone_account_creator_configure (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Configure an account (create a proxy config and authentication info for it)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphoneProxyConfig object if successful, NULL otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_create_account (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to create an account on server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneProxyConfig\fP* linphone_account_creator_create_proxy_config (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Create and configure a proxy config and a authentication info for an account creator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphoneProxyConfig object if successful, NULL otherwise 
+.RE
+.PP
+
+.SS "const char* linphone_account_creator_get_activation_code (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the activation code\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The activation code of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorCbs\fP* linphone_account_creator_get_callbacks (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the LinphoneAccountCreatorCbs object associated with a LinphoneAccountCreator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The LinphoneAccountCreatorCbs object associated with the LinphoneAccountCreator\&. 
+.RE
+.PP
+
+.SS "const char* linphone_account_creator_get_display_name (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the display name\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The display name of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "const char* linphone_account_creator_get_domain (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the domain\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The domain of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "const char* linphone_account_creator_get_email (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the email\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The email of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "const char* linphone_account_creator_get_ha1 (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the ha1\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The ha1 of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "const char* linphone_account_creator_get_language (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the language use in email of SMS\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The language of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "const char* linphone_account_creator_get_password (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the password\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The password of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "const char* linphone_account_creator_get_phone_number (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the RFC 3966 normalized phone number\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The phone number of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED const char* linphone_account_creator_get_route (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the route\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The route of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorService\fP* linphone_account_creator_get_service (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the LinphoneAccountCreatorService object associated with a LinphoneAccountCreator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The LinphoneAccountCreatorService object associated with the LinphoneAccountCreator\&.  
+.RE
+.PP
+
+.SS "\fBLinphoneTransportType\fP linphone_account_creator_get_transport (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+get Transport 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The transport of LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "void* linphone_account_creator_get_user_data (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Retrieve the user pointer associated with the LinphoneAccountCreator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the LinphoneAccountCreator\&. 
+.RE
+.PP
+
+.SS "const char* linphone_account_creator_get_username (const \fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Get the username\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The username of the LinphoneAccountCreator 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_is_account_activated (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to know if an account is activated on server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_is_account_exist (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to know the existence of account on server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_is_account_linked (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to know if an account is linked\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_is_alias_used (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to know if an alias is used\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_link_account (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to link an account to an alias\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreator\fP* linphone_account_creator_new (\fBLinphoneCore\fP * core, const char * xmlrpc_url)"
+
+.PP
+Create a LinphoneAccountCreator and set Linphone Request callbacks\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcore\fP The LinphoneCore used for the XML-RPC communication 
+.br
+\fIxmlrpc_url\fP The URL to the XML-RPC server\&. Must be NON NULL\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The new LinphoneAccountCreator object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_recover_account (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to recover an account\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreator\fP* linphone_account_creator_ref (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Acquire a reference to the LinphoneAccountCreator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneAccountCreator object\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_reset (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Reset the account creator entries like username, password, phone number\&.\&.\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorActivationCodeStatus\fP linphone_account_creator_set_activation_code (\fBLinphoneAccountCreator\fP * creator, const char * activation_code)"
+
+.PP
+Set the activation code\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIactivation_code\fP The activation code to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorActivationCodeStatusOk if everything is OK, or a specific error otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorUsernameStatus\fP linphone_account_creator_set_display_name (\fBLinphoneAccountCreator\fP * creator, const char * display_name)"
+
+.PP
+Set the display name\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIdisplay_name\fP The display name to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorUsernameStatusOk if everything is OK, or a specific error otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorDomainStatus\fP linphone_account_creator_set_domain (\fBLinphoneAccountCreator\fP * creator, const char * domain)"
+
+.PP
+Set the domain\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIdomain\fP The domain to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorDomainOk if everything is OK, or a specific error otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorEmailStatus\fP linphone_account_creator_set_email (\fBLinphoneAccountCreator\fP * creator, const char * email)"
+
+.PP
+Set the email\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIemail\fP The email to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorEmailStatusOk if everything is OK, or a specific error otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorPasswordStatus\fP linphone_account_creator_set_ha1 (\fBLinphoneAccountCreator\fP * creator, const char * ha1)"
+
+.PP
+Set the ha1\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIha1\fP The ha1 to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorPasswordStatusOk if everything is OK, or a specific error otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorLanguageStatus\fP linphone_account_creator_set_language (\fBLinphoneAccountCreator\fP * creator, const char * lang)"
+
+.PP
+Set the language to use in email or SMS if supported\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIlang\fP The language to use 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorLanguageStatusOk if everything is OK, or a specific error otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorPasswordStatus\fP linphone_account_creator_set_password (\fBLinphoneAccountCreator\fP * creator, const char * password)"
+
+.PP
+Set the password\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIpassword\fP The password to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorPasswordStatusOk if everything is OK, or specific(s) error(s) otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorPhoneNumberStatusMask\fP linphone_account_creator_set_phone_number (\fBLinphoneAccountCreator\fP * creator, const char * phone_number, const char * country_code)"
+
+.PP
+Set the phone number normalized\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIphone_number\fP The phone number to set 
+.br
+\fIcountry_code\fP Country code to associate phone number with 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorPhoneNumberStatusOk if everything is OK, or specific(s) error(s) otherwise\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneAccountCreatorStatus\fP linphone_account_creator_set_route (\fBLinphoneAccountCreator\fP * creator, const char * route)"
+
+.PP
+Set the route\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIroute\fP The route to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if everything is OK, or a specific error otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorTransportStatus\fP linphone_account_creator_set_transport (\fBLinphoneAccountCreator\fP * creator, \fBLinphoneTransportType\fP transport)"
+
+.PP
+Set Transport\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fItransport\fP The transport to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorTransportOk if everything is OK, or a specific error otherwise\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_set_user_data (\fBLinphoneAccountCreator\fP * creator, void * ud)"
+
+.PP
+Assign a user pointer to the LinphoneAccountCreator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object\&. 
+.br
+\fIud\fP The user pointer to associate with the LinphoneAccountCreator\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorUsernameStatus\fP linphone_account_creator_set_username (\fBLinphoneAccountCreator\fP * creator, const char * username)"
+
+.PP
+Set the username\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.br
+\fIusername\fP The username to set 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorUsernameStatusOk if everything is OK, or a specific error otherwise\&. 
+.RE
+.PP
+
+.SS "void linphone_account_creator_unref (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Release reference to the LinphoneAccountCreator\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreatorStatus\fP linphone_account_creator_update_account (\fBLinphoneAccountCreator\fP * creator)"
+
+.PP
+Send a request to update an account\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcreator\fP LinphoneAccountCreator object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneAccountCreatorStatusRequestOk if the request has been sent, LinphoneAccountCreatorStatusRequestFailed otherwise 
+.RE
+.PP
+
+.SS "\fBLinphoneAccountCreator\fP* linphone_core_create_account_creator (\fBLinphoneCore\fP * core, const char * xmlrpc_url)"
+
+.PP
+Create a LinphoneAccountCreator and set Linphone Request callbacks\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcore\fP The LinphoneCore used for the XML-RPC communication 
+.br
+\fIxmlrpc_url\fP The URL to the XML-RPC server\&. Must be NON NULL\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The new LinphoneAccountCreator object\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

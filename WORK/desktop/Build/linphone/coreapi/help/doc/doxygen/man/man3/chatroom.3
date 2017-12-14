@@ -1,0 +1,2273 @@
+.TH "chatroom" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+chatroom \- Chat room and Messaging\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBlinphone_chat_message_set_from\fP(msg,  addr)   \fBlinphone_chat_message_set_from_address\fP(msg, addr)"
+.br
+.ti -1c
+.RI "#define \fBlinphone_chat_message_get_from\fP(msg)   \fBlinphone_chat_message_get_from_address\fP(msg)"
+.br
+.ti -1c
+.RI "#define \fBlinphone_chat_message_set_to\fP(msg,  addr)   \fBlinphone_chat_message_set_to_address\fP(msg, addr)"
+.br
+.ti -1c
+.RI "#define \fBlinphone_chat_message_get_to\fP(msg)   \fBlinphone_chat_message_get_to_address\fP(msg)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBLinphoneChatMessageStateChangedCb\fP) (\fBLinphoneChatMessage\fP *msg, \fBLinphoneChatMessageState\fP state, void *ud)"
+.br
+.RI "Call back used to notify message delivery status\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneChatMessageCbsMsgStateChangedCb\fP) (\fBLinphoneChatMessage\fP *msg, \fBLinphoneChatMessageState\fP state)"
+.br
+.RI "Call back used to notify message delivery status\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneChatMessageCbsFileTransferRecvCb\fP) (\fBLinphoneChatMessage\fP *message, const \fBLinphoneContent\fP *content, const \fBLinphoneBuffer\fP *buffer)"
+.br
+.RI "File transfer receive callback prototype\&. "
+.ti -1c
+.RI "typedef \fBLinphoneBuffer\fP *(* \fBLinphoneChatMessageCbsFileTransferSendCb\fP) (\fBLinphoneChatMessage\fP *message, const \fBLinphoneContent\fP *content, size_t offset, size_t size)"
+.br
+.RI "File transfer send callback prototype\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneChatMessageCbsFileTransferProgressIndicationCb\fP) (\fBLinphoneChatMessage\fP *message, const \fBLinphoneContent\fP *content, size_t offset, size_t total)"
+.br
+.RI "File transfer progress indication callback prototype\&. "
+.ti -1c
+.RI "typedef struct _LinphoneChatMessage \fBLinphoneChatMessage\fP"
+.br
+.RI "A chat room message to hold content to be sent\&. "
+.ti -1c
+.RI "typedef struct _LinphoneChatMessageCbs \fBLinphoneChatMessageCbs\fP"
+.br
+.RI "An object to handle the callbacks for the handling a LinphoneChatMessage objects\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneChatMessageState\fP \fBLinphoneChatMessageState\fP"
+.br
+.RI "LinphoneChatMessageState is used to notify if messages have been succesfully delivered or not\&. "
+.ti -1c
+.RI "typedef struct _LinphoneChatRoom \fBLinphoneChatRoom\fP"
+.br
+.RI "A chat room is the place where text messages are exchanged\&. "
+.ti -1c
+.RI "typedef struct _LinphoneImNotifPolicy \fBLinphoneImNotifPolicy\fP"
+.br
+.RI "Policy to use to send/receive instant messaging composing/delivery/display notifications\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_LinphoneChatMessageState\fP { \fBLinphoneChatMessageStateIdle\fP, \fBLinphoneChatMessageStateInProgress\fP, \fBLinphoneChatMessageStateDelivered\fP, \fBLinphoneChatMessageStateNotDelivered\fP, \fBLinphoneChatMessageStateFileTransferError\fP, \fBLinphoneChatMessageStateFileTransferDone\fP, \fBLinphoneChatMessageStateDeliveredToUser\fP, \fBLinphoneChatMessageStateDisplayed\fP }
+.RI "LinphoneChatMessageState is used to notify if messages have been succesfully delivered or not\&. ""
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_chat_room_destroy\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Destroy a LinphoneChatRoom\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessage\fP * \fBlinphone_chat_room_create_message\fP (\fBLinphoneChatRoom\fP *cr, const char *message)"
+.br
+.RI "Create a message attached to a dedicated chat room;\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessage\fP * \fBlinphone_chat_room_create_message_2\fP (\fBLinphoneChatRoom\fP *cr, const char *message, const char *external_body_url, \fBLinphoneChatMessageState\fP state, time_t time, bool_t is_read, bool_t is_incoming)"
+.br
+.RI "Create a message attached to a dedicated chat room;\&. "
+.ti -1c
+.RI "\fBLinphoneChatRoom\fP * \fBlinphone_chat_room_ref\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Acquire a reference to the chat room\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_room_unref\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Release reference to the chat room\&. "
+.ti -1c
+.RI "void * \fBlinphone_chat_room_get_user_data\fP (const \fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Retrieve the user pointer associated with the chat room\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_room_set_user_data\fP (\fBLinphoneChatRoom\fP *cr, void *ud)"
+.br
+.RI "Assign a user pointer to the chat room\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessage\fP * \fBlinphone_chat_room_create_file_transfer_message\fP (\fBLinphoneChatRoom\fP *cr, const \fBLinphoneContent\fP *initial_content)"
+.br
+.RI "Create a message attached to a dedicated chat room with a particular content\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_chat_room_get_peer_address\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "get peer address \fBassociated to \fP this \fBLinphoneChatRoom\fP "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_chat_room_send_message\fP (\fBLinphoneChatRoom\fP *cr, const char *msg)"
+.br
+.RI "Send a message to peer member of this chat room\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_chat_room_send_message2\fP (\fBLinphoneChatRoom\fP *cr, \fBLinphoneChatMessage\fP *msg, \fBLinphoneChatMessageStateChangedCb\fP status_cb, void *ud)"
+.br
+.RI "Send a message to peer member of this chat room\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_room_send_chat_message\fP (\fBLinphoneChatRoom\fP *cr, \fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Send a message to peer member of this chat room\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_room_mark_as_read\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Mark all messages of the conversation as read\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_room_delete_message\fP (\fBLinphoneChatRoom\fP *cr, \fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Delete a message from the chat room history\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_room_delete_history\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Delete all messages from the history\&. "
+.ti -1c
+.RI "int \fBlinphone_chat_room_get_history_size\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Gets the number of messages in a chat room\&. "
+.ti -1c
+.RI "bctbx_list_t * \fBlinphone_chat_room_get_history\fP (\fBLinphoneChatRoom\fP *cr, int nb_message)"
+.br
+.RI "Gets nb_message most recent messages from cr chat room, sorted from oldest to most recent\&. "
+.ti -1c
+.RI "bctbx_list_t * \fBlinphone_chat_room_get_history_range\fP (\fBLinphoneChatRoom\fP *cr, int begin, int end)"
+.br
+.RI "Gets the partial list of messages in the given range, sorted from oldest to most recent\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessage\fP * \fBlinphone_chat_room_find_message\fP (\fBLinphoneChatRoom\fP *cr, const char *message_id)"
+.br
+.ti -1c
+.RI "void \fBlinphone_chat_room_compose\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Notifies the destination of the chat message being composed that the user is typing a new message\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_chat_room_is_remote_composing\fP (const \fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Tells whether the remote is currently composing a message\&. "
+.ti -1c
+.RI "int \fBlinphone_chat_room_get_unread_messages_count\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Gets the number of unread messages in the chatroom\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneCore\fP * \fBlinphone_chat_room_get_lc\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Returns back pointer to \fBLinphoneCore\fP object\&. "
+.ti -1c
+.RI "\fBLinphoneCore\fP * \fBlinphone_chat_room_get_core\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Returns back pointer to \fBLinphoneCore\fP object\&. "
+.ti -1c
+.RI "uint32_t \fBlinphone_chat_room_get_char\fP (const \fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "When realtime text is enabled \fBlinphone_call_params_realtime_text_enabled\fP, \fBLinphoneCoreIsComposingReceivedCb\fP is call everytime a char is received from peer\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_chat_room_lime_available\fP (\fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Returns true if lime is available for given peer\&. "
+.ti -1c
+.RI "const bctbx_list_t * \fBlinphone_core_get_chat_rooms\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Returns an list of chat rooms\&. "
+.ti -1c
+.RI "unsigned int \fBlinphone_chat_message_store\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.ti -1c
+.RI "\fBLinphoneChatMessageState\fP \fBlinphone_chat_message_get_state\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Get the state of the message\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessage\fP * \fBlinphone_chat_message_clone\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Duplicate a LinphoneChatMessage\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessage\fP * \fBlinphone_chat_message_ref\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Acquire a reference to the chat message\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_unref\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Release reference to the chat message\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_destroy\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Destroys a LinphoneChatMessage\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_set_from_address\fP (\fBLinphoneChatMessage\fP *message, const \fBLinphoneAddress\fP *from)"
+.br
+.RI "Set origin of the message\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_chat_message_get_from_address\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Get origin of the message\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_set_to_address\fP (\fBLinphoneChatMessage\fP *message, const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Set destination of the message\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_chat_message_get_to_address\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Get destination of the message\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_chat_message_is_secured\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Get if the message was encrypted when transfered\&. "
+.ti -1c
+.RI "const char * \fBlinphone_chat_message_get_external_body_url\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Linphone message can carry external body as defined by rfc2017\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_set_external_body_url\fP (\fBLinphoneChatMessage\fP *message, const char *url)"
+.br
+.RI "Linphone message can carry external body as defined by rfc2017\&. "
+.ti -1c
+.RI "const \fBLinphoneContent\fP * \fBlinphone_chat_message_get_file_transfer_information\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Get the file_transfer_information (used by call backs to recover informations during a rcs file transfer) "
+.ti -1c
+.RI "const char * \fBlinphone_chat_message_get_content_type\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Get the content type of a chat message\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_set_content_type\fP (\fBLinphoneChatMessage\fP *message, const char *content_type)"
+.br
+.RI "Set the content type of a chat message\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_chat_message_is_file_transfer\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Return whether or not a chat message is a file tranfer\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_chat_message_is_text\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Return whether or not a chat message is a text\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_chat_message_get_to_be_stored\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Get if a chat message is to be stored\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_set_to_be_stored\fP (\fBLinphoneChatMessage\fP *message, bool_t to_be_stored)"
+.br
+.RI "Set if a chat message is to be stored\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_chat_message_start_file_download\fP (\fBLinphoneChatMessage\fP *message, \fBLinphoneChatMessageStateChangedCb\fP status_cb, void *ud)"
+.br
+.RI "Start the download of the file from remote server\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_chat_message_download_file\fP (\fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Start the download of the file referenced in a LinphoneChatMessage from remote server\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_cancel_file_transfer\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Cancel an ongoing file transfer attached to this message\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_resend\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Resend a chat message if it is in the 'not delivered' state for whatever reason\&. "
+.ti -1c
+.RI "const char * \fBlinphone_chat_message_get_appdata\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Linphone message has an app-specific field that can store a text\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_set_appdata\fP (\fBLinphoneChatMessage\fP *message, const char *data)"
+.br
+.RI "Linphone message has an app-specific field that can store a text\&. "
+.ti -1c
+.RI "const char * \fBlinphone_chat_message_get_text\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Get text part of this message\&. "
+.ti -1c
+.RI "time_t \fBlinphone_chat_message_get_time\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Get the time the message was sent\&. "
+.ti -1c
+.RI "void * \fBlinphone_chat_message_get_user_data\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "User pointer get function\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_set_user_data\fP (\fBLinphoneChatMessage\fP *message, void *)"
+.br
+.RI "User pointer set function\&. "
+.ti -1c
+.RI "\fBLinphoneChatRoom\fP * \fBlinphone_chat_message_get_chat_room\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Returns the chatroom this message belongs to\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_chat_message_get_peer_address\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.ti -1c
+.RI "\fBLinphoneAddress\fP * \fBlinphone_chat_message_get_local_address\fP (const \fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Returns the origin address of a message if it was a outgoing message, or the destination address if it was an incoming message\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_add_custom_header\fP (\fBLinphoneChatMessage\fP *message, const char *header_name, const char *header_value)"
+.br
+.RI "Add custom headers to the message\&. "
+.ti -1c
+.RI "const char * \fBlinphone_chat_message_get_custom_header\fP (\fBLinphoneChatMessage\fP *message, const char *header_name)"
+.br
+.RI "Retrieve a custom header value given its name\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_remove_custom_header\fP (\fBLinphoneChatMessage\fP *msg, const char *header_name)"
+.br
+.RI "Removes a custom header from the message\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_chat_message_is_read\fP (\fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Returns TRUE if the message has been read, otherwise returns FALSE\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_chat_message_is_outgoing\fP (\fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Returns TRUE if the message has been sent, returns FALSE if the message has been received\&. "
+.ti -1c
+.RI "unsigned int \fBlinphone_chat_message_get_storage_id\fP (\fBLinphoneChatMessage\fP *message)"
+.br
+.RI "Returns the id used to identify this message in the storage database\&. "
+.ti -1c
+.RI "\fBLinphoneReason\fP \fBlinphone_chat_message_get_reason\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.ti -1c
+.RI "const \fBLinphoneErrorInfo\fP * \fBlinphone_chat_message_get_error_info\fP (const \fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Get full details about delivery error of a chat message\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_set_file_transfer_filepath\fP (\fBLinphoneChatMessage\fP *msg, const char *filepath)"
+.br
+.RI "Set the path to the file to read from or write to during the file transfer\&. "
+.ti -1c
+.RI "const char * \fBlinphone_chat_message_get_file_transfer_filepath\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Get the path to the file to read from or write to during the file transfer\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_chat_message_put_char\fP (\fBLinphoneChatMessage\fP *msg, uint32_t character)"
+.br
+.RI "Fulfill a chat message char by char\&. "
+.ti -1c
+.RI "const char * \fBlinphone_chat_message_get_message_id\fP (const \fBLinphoneChatMessage\fP *cm)"
+.br
+.RI "Get the message identifier\&. "
+.ti -1c
+.RI "\fBLinphoneCall\fP * \fBlinphone_chat_room_get_call\fP (const \fBLinphoneChatRoom\fP *room)"
+.br
+.RI "get Curent Call associated to this chatroom if any To commit a message, use \fBlinphone_chat_room_send_message\fP "
+.ti -1c
+.RI "\fBLinphoneChatMessageCbs\fP * \fBlinphone_chat_message_get_callbacks\fP (const \fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Get the LinphoneChatMessageCbs object associated with the LinphoneChatMessage\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessageCbs\fP * \fBlinphone_chat_message_cbs_ref\fP (\fBLinphoneChatMessageCbs\fP *cbs)"
+.br
+.RI "Acquire a reference to the LinphoneChatMessageCbs object\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_cbs_unref\fP (\fBLinphoneChatMessageCbs\fP *cbs)"
+.br
+.RI "Release reference to the LinphoneChatMessageCbs object\&. "
+.ti -1c
+.RI "void * \fBlinphone_chat_message_cbs_get_user_data\fP (const \fBLinphoneChatMessageCbs\fP *cbs)"
+.br
+.RI "Retrieve the user pointer associated with the LinphoneChatMessageCbs object\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_cbs_set_user_data\fP (\fBLinphoneChatMessageCbs\fP *cbs, void *ud)"
+.br
+.RI "Assign a user pointer to the LinphoneChatMessageCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessageCbsMsgStateChangedCb\fP \fBlinphone_chat_message_cbs_get_msg_state_changed\fP (const \fBLinphoneChatMessageCbs\fP *cbs)"
+.br
+.RI "Get the message state changed callback\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_cbs_set_msg_state_changed\fP (\fBLinphoneChatMessageCbs\fP *cbs, \fBLinphoneChatMessageCbsMsgStateChangedCb\fP cb)"
+.br
+.RI "Set the message state changed callback\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessageCbsFileTransferRecvCb\fP \fBlinphone_chat_message_cbs_get_file_transfer_recv\fP (const \fBLinphoneChatMessageCbs\fP *cbs)"
+.br
+.RI "Get the file transfer receive callback\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_cbs_set_file_transfer_recv\fP (\fBLinphoneChatMessageCbs\fP *cbs, \fBLinphoneChatMessageCbsFileTransferRecvCb\fP cb)"
+.br
+.RI "Set the file transfer receive callback\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessageCbsFileTransferSendCb\fP \fBlinphone_chat_message_cbs_get_file_transfer_send\fP (const \fBLinphoneChatMessageCbs\fP *cbs)"
+.br
+.RI "Get the file transfer send callback\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_cbs_set_file_transfer_send\fP (\fBLinphoneChatMessageCbs\fP *cbs, \fBLinphoneChatMessageCbsFileTransferSendCb\fP cb)"
+.br
+.RI "Set the file transfer send callback\&. "
+.ti -1c
+.RI "\fBLinphoneChatMessageCbsFileTransferProgressIndicationCb\fP \fBlinphone_chat_message_cbs_get_file_transfer_progress_indication\fP (const \fBLinphoneChatMessageCbs\fP *cbs)"
+.br
+.RI "Get the file transfer progress indication callback\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_cbs_set_file_transfer_progress_indication\fP (\fBLinphoneChatMessageCbs\fP *cbs, \fBLinphoneChatMessageCbsFileTransferProgressIndicationCb\fP cb)"
+.br
+.RI "Set the file transfer progress indication callback\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_im_encryption_engine\fP (\fBLinphoneCore\fP *lc, \fBLinphoneImEncryptionEngine\fP *imee)"
+.br
+.RI "Sets an IM Encryption Engine in the core\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngine\fP * \fBlinphone_core_get_im_encryption_engine\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the IM Encryption Engine in the core if possible\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_chat_database_path\fP (\fBLinphoneCore\fP *lc, const char *path)"
+.br
+.RI "Set the chat database path\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_chat_database_path\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get path to the database file used for storing chat messages\&. "
+.ti -1c
+.RI "\fBLinphoneChatRoom\fP * \fBlinphone_core_get_chat_room\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Get a chat room whose peer is the supplied address\&. "
+.ti -1c
+.RI "\fBLinphoneChatRoom\fP * \fBlinphone_core_get_chat_room_from_uri\fP (\fBLinphoneCore\fP *lc, const char *to)"
+.br
+.RI "Get a chat room for messaging from a sip uri like sip:joe@sip.linphone.org\&. "
+.ti -1c
+.RI "void \fBlinphone_core_delete_chat_room\fP (\fBLinphoneCore\fP *lc, \fBLinphoneChatRoom\fP *cr)"
+.br
+.RI "Removes a chatroom including all message history from the LinphoneCore\&. "
+.ti -1c
+.RI "void \fBlinphone_core_disable_chat\fP (\fBLinphoneCore\fP *lc, \fBLinphoneReason\fP deny_reason)"
+.br
+.RI "Inconditionnaly disable incoming chat messages\&. "
+.ti -1c
+.RI "void \fBlinphone_core_enable_chat\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Enable reception of incoming chat messages\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_chat_enabled\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Returns whether chat is enabled\&. "
+.ti -1c
+.RI "\fBLinphoneImNotifPolicy\fP * \fBlinphone_core_get_im_notif_policy\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the LinphoneImNotifPolicy object controlling the instant messaging notifications\&. "
+.ti -1c
+.RI "\fBLinphoneImNotifPolicy\fP * \fBlinphone_im_notif_policy_ref\fP (\fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Acquire a reference to the LinphoneImNotifPolicy object\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_unref\fP (\fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Release reference to the LinphoneImNotifPolicy object\&. "
+.ti -1c
+.RI "void * \fBlinphone_im_notif_policy_get_user_data\fP (const \fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Retrieve the user pointer associated with the LinphoneImNotifPolicy object\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_set_user_data\fP (\fBLinphoneImNotifPolicy\fP *policy, void *ud)"
+.br
+.RI "Assign a user pointer to the LinphoneImNotifPolicy object\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_clear\fP (\fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Clear an IM notif policy (deactivate all receiving and sending of notifications)\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_enable_all\fP (\fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Enable all receiving and sending of notifications\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_im_notif_policy_get_send_is_composing\fP (const \fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Tell whether is_composing notifications are being sent\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_set_send_is_composing\fP (\fBLinphoneImNotifPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable is_composing notifications sending\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_im_notif_policy_get_recv_is_composing\fP (const \fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Tell whether is_composing notifications are being notified when received\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_set_recv_is_composing\fP (\fBLinphoneImNotifPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable is_composing notifications receiving\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_im_notif_policy_get_send_imdn_delivered\fP (const \fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Tell whether imdn delivered notifications are being sent\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_set_send_imdn_delivered\fP (\fBLinphoneImNotifPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable imdn delivered notifications sending\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_im_notif_policy_get_recv_imdn_delivered\fP (const \fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Tell whether imdn delivered notifications are being notified when received\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_set_recv_imdn_delivered\fP (\fBLinphoneImNotifPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable imdn delivered notifications receiving\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_im_notif_policy_get_send_imdn_displayed\fP (const \fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Tell whether imdn displayed notifications are being sent\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_set_send_imdn_displayed\fP (\fBLinphoneImNotifPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable imdn displayed notifications sending\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_im_notif_policy_get_recv_imdn_displayed\fP (const \fBLinphoneImNotifPolicy\fP *policy)"
+.br
+.RI "Tell whether imdn displayed notifications are being notified when received\&. "
+.ti -1c
+.RI "void \fBlinphone_im_notif_policy_set_recv_imdn_displayed\fP (\fBLinphoneImNotifPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable imdn displayed notifications receiving\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Chat room and Messaging\&. 
+
+\fB Exchanging text messages\fP 
+.br
+ Messages are sent using \fBLinphoneChatRoom\fP object\&. First step is to create a \fBchat room \fP from a peer sip uri\&. 
+.PP
+.nf
+LinphoneChatRoom* chat_room = linphone_core_get_chat_room(lc,"sip:joe@sip\&.linphone\&.org");
+
+.fi
+.PP
+.PP
+
+.br
+Once created, messages are sent using function \fBlinphone_chat_room_send_message()\fP\&. 
+.PP
+.nf
+linphone_chat_room_send_message(chat_room,"Hello world"); /*sending message*/
+
+.fi
+.PP
+ 
+.br
+Incoming message are received from call back \fBLinphoneCoreVTable\&.text_received\fP 
+.PP
+.nf
+void text_received(LinphoneCore *lc, LinphoneChatRoom *room, const LinphoneAddress *from, const char *message) {
+        printf(" Message [%s] received from [%s] \n",message,linphone_address_as_string (from));
+}
+
+.fi
+.PP
+ 
+.br
+ A complete tutorial can be found at : \fBChat room tutorial\fP 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define linphone_chat_message_get_from(msg)   \fBlinphone_chat_message_get_from_address\fP(msg)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_chat_message_get_from_address()\fP instead\&.
+.RE
+.PP
+
+.SS "#define linphone_chat_message_get_to(msg)   \fBlinphone_chat_message_get_to_address\fP(msg)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_chat_message_get_to_address()\fP instead\&.
+.RE
+.PP
+
+.SS "#define linphone_chat_message_set_from(msg, addr)   \fBlinphone_chat_message_set_from_address\fP(msg, addr)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_chat_message_set_from_address()\fP instead\&.
+.RE
+.PP
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct _LinphoneChatMessage \fBLinphoneChatMessage\fP"
+
+.PP
+A chat room message to hold content to be sent\&. Can be created by \fBlinphone_chat_room_create_message()\fP\&. 
+.SS "typedef void(* LinphoneChatMessageCbsFileTransferProgressIndicationCb) (\fBLinphoneChatMessage\fP *message, const \fBLinphoneContent\fP *content, size_t offset, size_t total)"
+
+.PP
+File transfer progress indication callback prototype\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP message from which the body is received\&. 
+.br
+\fIcontent\fP \fBLinphoneContent\fP incoming content information 
+.br
+\fIoffset\fP The number of bytes sent/received since the beginning of the transfer\&. 
+.br
+\fItotal\fP The total number of bytes to be sent/received\&. 
+.RE
+.PP
+
+.SS "typedef void(* LinphoneChatMessageCbsFileTransferRecvCb) (\fBLinphoneChatMessage\fP *message, const \fBLinphoneContent\fP *content, const \fBLinphoneBuffer\fP *buffer)"
+
+.PP
+File transfer receive callback prototype\&. This function is called by the core upon an incoming File transfer is started\&. This function may be call several time for the same file in case of large file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP message from which the body is received\&. 
+.br
+\fIcontent\fP \fBLinphoneContent\fP incoming content information 
+.br
+\fIbuffer\fP \fBLinphoneBuffer\fP holding the received data\&. Empty buffer means end of file\&. 
+.RE
+.PP
+
+.SS "typedef \fBLinphoneBuffer\fP*(* LinphoneChatMessageCbsFileTransferSendCb) (\fBLinphoneChatMessage\fP *message, const \fBLinphoneContent\fP *content, size_t offset, size_t size)"
+
+.PP
+File transfer send callback prototype\&. This function is called by the core when an outgoing file transfer is started\&. This function is called until size is set to 0\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP message from which the body is received\&. 
+.br
+\fIcontent\fP \fBLinphoneContent\fP outgoing content 
+.br
+\fIoffset\fP the offset in the file from where to get the data to be sent 
+.br
+\fIsize\fP the number of bytes expected by the framework 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphoneBuffer object holding the data written by the application\&. An empty buffer means end of file\&. 
+.RE
+.PP
+
+.SS "typedef void(* LinphoneChatMessageCbsMsgStateChangedCb) (\fBLinphoneChatMessage\fP *msg, \fBLinphoneChatMessageState\fP state)"
+
+.PP
+Call back used to notify message delivery status\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP \fBLinphoneChatMessage\fP object 
+.br
+\fIstatus\fP LinphoneChatMessageState 
+.RE
+.PP
+
+.SS "typedef void(* LinphoneChatMessageStateChangedCb) (\fBLinphoneChatMessage\fP *msg, \fBLinphoneChatMessageState\fP state, void *ud)"
+
+.PP
+Call back used to notify message delivery status\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP \fBLinphoneChatMessage\fP object 
+.br
+\fIstatus\fP LinphoneChatMessageState 
+.br
+\fIud\fP application user data 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use LinphoneChatMessageCbsMsgStateChangedCb instead\&.  
+.RE
+.PP
+
+.SS "typedef struct _LinphoneChatRoom \fBLinphoneChatRoom\fP"
+
+.PP
+A chat room is the place where text messages are exchanged\&. Can be created by linphone_core_create_chat_room()\&. 
+.SS "typedef struct _LinphoneImNotifPolicy \fBLinphoneImNotifPolicy\fP"
+
+.PP
+Policy to use to send/receive instant messaging composing/delivery/display notifications\&. The sending of this information is done as in the RFCs 3994 (is_composing) and 5438 (imdn delivered/displayed)\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_LinphoneChatMessageState\fP"
+
+.PP
+LinphoneChatMessageState is used to notify if messages have been succesfully delivered or not\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneChatMessageStateIdle \fP\fP
+Initial state\&. 
+.TP
+\fB\fILinphoneChatMessageStateInProgress \fP\fP
+Delivery in progress\&. 
+.TP
+\fB\fILinphoneChatMessageStateDelivered \fP\fP
+Message successfully delivered and acknowledged by server\&. 
+.TP
+\fB\fILinphoneChatMessageStateNotDelivered \fP\fP
+Message was not delivered\&. 
+.TP
+\fB\fILinphoneChatMessageStateFileTransferError \fP\fP
+Message was received(and acknowledged) but cannot get file from server\&. 
+.TP
+\fB\fILinphoneChatMessageStateFileTransferDone \fP\fP
+File transfer has been completed successfully\&. 
+.TP
+\fB\fILinphoneChatMessageStateDeliveredToUser \fP\fP
+Message successfully delivered and acknowledged to destination\&. 
+.TP
+\fB\fILinphoneChatMessageStateDisplayed \fP\fP
+Message displayed to the remote user\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void linphone_chat_message_add_custom_header (\fBLinphoneChatMessage\fP * message, const char * header_name, const char * header_value)"
+
+.PP
+Add custom headers to the message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP the message 
+.br
+\fIheader_name\fP name of the header 
+.br
+\fIheader_value\fP header value 
+.RE
+.PP
+
+.SS "void linphone_chat_message_cancel_file_transfer (\fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Cancel an ongoing file transfer attached to this message\&. (upload or download) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP \fBLinphoneChatMessage\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessageCbsFileTransferProgressIndicationCb\fP linphone_chat_message_cbs_get_file_transfer_progress_indication (const \fBLinphoneChatMessageCbs\fP * cbs)"
+
+.PP
+Get the file transfer progress indication callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current file transfer progress indication callback\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessageCbsFileTransferRecvCb\fP linphone_chat_message_cbs_get_file_transfer_recv (const \fBLinphoneChatMessageCbs\fP * cbs)"
+
+.PP
+Get the file transfer receive callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current file transfer receive callback\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessageCbsFileTransferSendCb\fP linphone_chat_message_cbs_get_file_transfer_send (const \fBLinphoneChatMessageCbs\fP * cbs)"
+
+.PP
+Get the file transfer send callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current file transfer send callback\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessageCbsMsgStateChangedCb\fP linphone_chat_message_cbs_get_msg_state_changed (const \fBLinphoneChatMessageCbs\fP * cbs)"
+
+.PP
+Get the message state changed callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current message state changed callback\&. 
+.RE
+.PP
+
+.SS "void* linphone_chat_message_cbs_get_user_data (const \fBLinphoneChatMessageCbs\fP * cbs)"
+
+.PP
+Retrieve the user pointer associated with the LinphoneChatMessageCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessageCbs\fP* linphone_chat_message_cbs_ref (\fBLinphoneChatMessageCbs\fP * cbs)"
+
+.PP
+Acquire a reference to the LinphoneChatMessageCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_message_cbs_set_file_transfer_progress_indication (\fBLinphoneChatMessageCbs\fP * cbs, \fBLinphoneChatMessageCbsFileTransferProgressIndicationCb\fP cb)"
+
+.PP
+Set the file transfer progress indication callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.br
+\fIcb\fP The file transfer progress indication callback to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_message_cbs_set_file_transfer_recv (\fBLinphoneChatMessageCbs\fP * cbs, \fBLinphoneChatMessageCbsFileTransferRecvCb\fP cb)"
+
+.PP
+Set the file transfer receive callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.br
+\fIcb\fP The file transfer receive callback to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_message_cbs_set_file_transfer_send (\fBLinphoneChatMessageCbs\fP * cbs, \fBLinphoneChatMessageCbsFileTransferSendCb\fP cb)"
+
+.PP
+Set the file transfer send callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.br
+\fIcb\fP The file transfer send callback to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_message_cbs_set_msg_state_changed (\fBLinphoneChatMessageCbs\fP * cbs, \fBLinphoneChatMessageCbsMsgStateChangedCb\fP cb)"
+
+.PP
+Set the message state changed callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.br
+\fIcb\fP The message state changed callback to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_message_cbs_set_user_data (\fBLinphoneChatMessageCbs\fP * cbs, void * ud)"
+
+.PP
+Assign a user pointer to the LinphoneChatMessageCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.br
+\fIud\fP The user pointer to associate with the LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_message_cbs_unref (\fBLinphoneChatMessageCbs\fP * cbs)"
+
+.PP
+Release reference to the LinphoneChatMessageCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneChatMessageCbs object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_chat_message_download_file (\fBLinphoneChatMessage\fP * message)"
+
+.PP
+Start the download of the file referenced in a LinphoneChatMessage from remote server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP LinphoneChatMessage object\&. 
+.RE
+.PP
+
+.SS "const char* linphone_chat_message_get_appdata (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Linphone message has an app-specific field that can store a text\&. The application might want to use it for keeping data over restarts, like thumbnail image path\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the application-specific data or NULL if none has been stored\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessageCbs\fP* linphone_chat_message_get_callbacks (const \fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Get the LinphoneChatMessageCbs object associated with the LinphoneChatMessage\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP LinphoneChatMessage object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The LinphoneChatMessageCbs object associated with the LinphoneChatMessage\&. 
+.RE
+.PP
+
+.SS "const char* linphone_chat_message_get_content_type (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Get the content type of a chat message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP LinphoneChatMessage object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The content type of the chat message 
+.RE
+.PP
+
+.SS "const char* linphone_chat_message_get_custom_header (\fBLinphoneChatMessage\fP * message, const char * header_name)"
+
+.PP
+Retrieve a custom header value given its name\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP the message 
+.br
+\fIheader_name\fP header name searched 
+.RE
+.PP
+
+.SS "const \fBLinphoneErrorInfo\fP* linphone_chat_message_get_error_info (const \fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Get full details about delivery error of a chat message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP a LinphoneChatMessage 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a LinphoneErrorInfo describing the details\&. 
+.RE
+.PP
+
+.SS "const char* linphone_chat_message_get_external_body_url (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Linphone message can carry external body as defined by rfc2017\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+external body url or NULL if not present\&. 
+.RE
+.PP
+
+.SS "const char* linphone_chat_message_get_file_transfer_filepath (\fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Get the path to the file to read from or write to during the file transfer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP LinphoneChatMessage object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The path to the file to use for the file transfer\&. 
+.RE
+.PP
+
+.SS "const \fBLinphoneContent\fP* linphone_chat_message_get_file_transfer_information (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Get the file_transfer_information (used by call backs to recover informations during a rcs file transfer) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a pointer to the LinphoneContent structure or NULL if not present\&. 
+.RE
+.PP
+
+.SS "const \fBLinphoneAddress\fP* linphone_chat_message_get_from_address (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Get origin of the message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP obj 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneAddress\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneAddress\fP* linphone_chat_message_get_local_address (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Returns the origin address of a message if it was a outgoing message, or the destination address if it was an incoming message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP obj 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneAddress\fP 
+.RE
+.PP
+
+.SS "const char* linphone_chat_message_get_message_id (const \fBLinphoneChatMessage\fP * cm)"
+
+.PP
+Get the message identifier\&. It is used to identify a message so that it can be notified as delivered and/or displayed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcm\fP LinphoneChatMessage object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The message identifier\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessageState\fP linphone_chat_message_get_state (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Get the state of the message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP obj 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneChatMessageState\fP 
+.RE
+.PP
+
+.SS "unsigned int linphone_chat_message_get_storage_id (\fBLinphoneChatMessage\fP * message)"
+
+.PP
+Returns the id used to identify this message in the storage database\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP the message 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the id 
+.RE
+.PP
+
+.SS "const char* linphone_chat_message_get_text (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Get text part of this message\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+text or NULL if no text\&. 
+.RE
+.PP
+
+.SS "const \fBLinphoneAddress\fP* linphone_chat_message_get_to_address (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Get destination of the message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP obj 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneAddress\fP 
+.RE
+.PP
+
+.SS "bool_t linphone_chat_message_get_to_be_stored (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Get if a chat message is to be stored\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP LinphoneChatMessage object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Whether or not the message is to be stored 
+.RE
+.PP
+
+.SS "bool_t linphone_chat_message_is_file_transfer (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Return whether or not a chat message is a file tranfer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP LinphoneChatMessage object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Whether or not the message is a file tranfer 
+.RE
+.PP
+
+.SS "bool_t linphone_chat_message_is_outgoing (\fBLinphoneChatMessage\fP * message)"
+
+.PP
+Returns TRUE if the message has been sent, returns FALSE if the message has been received\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP the message 
+.RE
+.PP
+
+.SS "bool_t linphone_chat_message_is_read (\fBLinphoneChatMessage\fP * message)"
+
+.PP
+Returns TRUE if the message has been read, otherwise returns FALSE\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP the message 
+.RE
+.PP
+
+.SS "bool_t linphone_chat_message_is_secured (\fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Get if the message was encrypted when transfered\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP obj 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+whether the message was encrypted when transfered or not 
+.RE
+.PP
+
+.SS "bool_t linphone_chat_message_is_text (const \fBLinphoneChatMessage\fP * message)"
+
+.PP
+Return whether or not a chat message is a text\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP LinphoneChatMessage object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Whether or not the message is a text 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_chat_message_put_char (\fBLinphoneChatMessage\fP * msg, uint32_t character)"
+
+.PP
+Fulfill a chat message char by char\&. Message linked to a Real Time Text Call send char in realtime following RFC 4103/T\&.140 To commit a message, use \fBlinphone_chat_room_send_message\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP LinphoneChatMessage 
+.br
+\fIcharacter\fP T\&.140 char 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if succeed\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessage\fP* linphone_chat_message_ref (\fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Acquire a reference to the chat message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP the chat message 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the same chat message 
+.RE
+.PP
+
+.SS "void linphone_chat_message_remove_custom_header (\fBLinphoneChatMessage\fP * msg, const char * header_name)"
+
+.PP
+Removes a custom header from the message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP the message 
+.br
+\fIheader_name\fP name of the header to remove 
+.RE
+.PP
+
+.SS "void linphone_chat_message_resend (\fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Resend a chat message if it is in the 'not delivered' state for whatever reason\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP LinphoneChatMessage object  
+.RE
+.PP
+
+.SS "void linphone_chat_message_set_appdata (\fBLinphoneChatMessage\fP * message, const char * data)"
+
+.PP
+Linphone message has an app-specific field that can store a text\&. The application might want to use it for keeping data over restarts, like thumbnail image path\&.
+.PP
+Invoking this function will attempt to update the message storage to reflect the changeif it is enabled\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP 
+.br
+\fIdata\fP the data to store into the message 
+.RE
+.PP
+
+.SS "void linphone_chat_message_set_content_type (\fBLinphoneChatMessage\fP * message, const char * content_type)"
+
+.PP
+Set the content type of a chat message\&. This content type must match a content that is text representable, such as text/plain, text/html or image/svg+xml\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP LinphoneChatMessage object 
+.br
+\fIcontent_type\fP The new content type of the chat message 
+.RE
+.PP
+
+.SS "void linphone_chat_message_set_external_body_url (\fBLinphoneChatMessage\fP * message, const char * url)"
+
+.PP
+Linphone message can carry external body as defined by rfc2017\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP a LinphoneChatMessage 
+.br
+\fIurl\fP ex: access-type=URL; URL='http://www\&.foo\&.com/file' 
+.RE
+.PP
+
+.SS "void linphone_chat_message_set_file_transfer_filepath (\fBLinphoneChatMessage\fP * msg, const char * filepath)"
+
+.PP
+Set the path to the file to read from or write to during the file transfer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP LinphoneChatMessage object 
+.br
+\fIfilepath\fP The path to the file to use for the file transfer\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_message_set_from_address (\fBLinphoneChatMessage\fP * message, const \fBLinphoneAddress\fP * from)"
+
+.PP
+Set origin of the message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP obj 
+.br
+\fIfrom\fP \fBLinphoneAddress\fP origin of this message (copied) 
+.RE
+.PP
+
+.SS "void linphone_chat_message_set_to_address (\fBLinphoneChatMessage\fP * message, const \fBLinphoneAddress\fP * addr)"
+
+.PP
+Set destination of the message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP obj 
+.br
+\fIaddr\fP \fBLinphoneAddress\fP destination of this message (copied) 
+.RE
+.PP
+
+.SS "void linphone_chat_message_set_to_be_stored (\fBLinphoneChatMessage\fP * message, bool_t to_be_stored)"
+
+.PP
+Set if a chat message is to be stored\&. This content type must match a content that is text representable, such as text/plain, text/html or image/svg+xml\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP LinphoneChatMessage object 
+.br
+\fIto_be_stored\fP Whether or not the chat message is to be stored 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_chat_message_start_file_download (\fBLinphoneChatMessage\fP * message, \fBLinphoneChatMessageStateChangedCb\fP status_cb, void * ud)"
+
+.PP
+Start the download of the file from remote server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImessage\fP \fBLinphoneChatMessage\fP 
+.br
+\fIstatus_cb\fP LinphoneChatMessageStateChangeCb status callback invoked when file is downloaded or could not be downloaded 
+.br
+\fIud\fP user data 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_chat_message_download_file()\fP instead\&.  
+.RE
+.PP
+
+.SS "void linphone_chat_message_unref (\fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Release reference to the chat message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP the chat message\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_room_compose (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Notifies the destination of the chat message being composed that the user is typing a new message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The \fBLinphoneChatRoom\fP object corresponding to the conversation for which a new message is being typed\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessage\fP* linphone_chat_room_create_file_transfer_message (\fBLinphoneChatRoom\fP * cr, const \fBLinphoneContent\fP * initial_content)"
+
+.PP
+Create a message attached to a dedicated chat room with a particular content\&. Use \fBlinphone_chat_room_send_message\fP to initiate the transfer 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP the chat room\&. 
+.br
+\fIinitial_content\fP \fBLinphoneContent\fP initial content\&. \fBLinphoneCoreVTable\&.file_transfer_send\fP is invoked later to notify file transfer progress and collect next chunk of the message if LinphoneContent\&.data is NULL\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new \fBLinphoneChatMessage\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessage\fP* linphone_chat_room_create_message (\fBLinphoneChatRoom\fP * cr, const char * message)"
+
+.PP
+Create a message attached to a dedicated chat room;\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP the chat room\&. 
+.br
+\fImessage\fP text message, NULL if absent\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new \fBLinphoneChatMessage\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneChatMessage\fP* linphone_chat_room_create_message_2 (\fBLinphoneChatRoom\fP * cr, const char * message, const char * external_body_url, \fBLinphoneChatMessageState\fP state, time_t time, bool_t is_read, bool_t is_incoming)"
+
+.PP
+Create a message attached to a dedicated chat room;\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP the chat room\&. 
+.br
+\fImessage\fP text message, NULL if absent\&. 
+.br
+\fIexternal_body_url\fP the URL given in external body or NULL\&. 
+.br
+\fIstate\fP the LinphoneChatMessage\&.State of the message\&. 
+.br
+\fItime\fP the time_t at which the message has been received/sent\&. 
+.br
+\fIis_read\fP TRUE if the message should be flagged as read, FALSE otherwise\&. 
+.br
+\fIis_incoming\fP TRUE if the message has been received, FALSE otherwise\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new \fBLinphoneChatMessage\fP 
+.RE
+.PP
+
+.SS "void linphone_chat_room_delete_history (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Delete all messages from the history\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The \fBLinphoneChatRoom\fP object corresponding to the conversation\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_room_delete_message (\fBLinphoneChatRoom\fP * cr, \fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Delete a message from the chat room history\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The \fBLinphoneChatRoom\fP object corresponding to the conversation\&. 
+.br
+\fImsg\fP The \fBLinphoneChatMessage\fP object to remove\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_chat_room_destroy (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Destroy a LinphoneChatRoom\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP \fBLinphoneChatRoom\fP object 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_chat_room_unref()\fP instead\&.  
+.RE
+.PP
+
+.SS "\fBLinphoneCall\fP* linphone_chat_room_get_call (const \fBLinphoneChatRoom\fP * room)"
+
+.PP
+get Curent Call associated to this chatroom if any To commit a message, use \fBlinphone_chat_room_send_message\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIroom\fP LinphoneChatRomm 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneCall or NULL\&. 
+.RE
+.PP
+
+.SS "uint32_t linphone_chat_room_get_char (const \fBLinphoneChatRoom\fP * cr)"
+
+.PP
+When realtime text is enabled \fBlinphone_call_params_realtime_text_enabled\fP, \fBLinphoneCoreIsComposingReceivedCb\fP is call everytime a char is received from peer\&. At the end of remote typing a regular \fBLinphoneChatMessage\fP is received with committed data from \fBLinphoneCoreMessageReceivedCb\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP \fBLinphoneChatRoom\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+RFC 4103/T\&.140 char 
+.RE
+.PP
+
+.SS "bctbx_list_t* linphone_chat_room_get_history (\fBLinphoneChatRoom\fP * cr, int nb_message)"
+
+.PP
+Gets nb_message most recent messages from cr chat room, sorted from oldest to most recent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The \fBLinphoneChatRoom\fP object corresponding to the conversation for which messages should be retrieved 
+.br
+\fInb_message\fP Number of message to retrieve\&. 0 means everything\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBLinphoneChatMessage\fP objects\&. 
+.RE
+.PP
+
+.SS "bctbx_list_t* linphone_chat_room_get_history_range (\fBLinphoneChatRoom\fP * cr, int begin, int end)"
+
+.PP
+Gets the partial list of messages in the given range, sorted from oldest to most recent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The \fBLinphoneChatRoom\fP object corresponding to the conversation for which messages should be retrieved 
+.br
+\fIbegin\fP The first message of the range to be retrieved\&. History most recent message has index 0\&. 
+.br
+\fIend\fP The last message of the range to be retrieved\&. History oldest message has index of history size - 1 (use \fBlinphone_chat_room_get_history_size\fP to retrieve history size) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBLinphoneChatMessage\fP objects\&. 
+.RE
+.PP
+
+.SS "int linphone_chat_room_get_history_size (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Gets the number of messages in a chat room\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The \fBLinphoneChatRoom\fP object corresponding to the conversation for which size has to be computed 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of messages\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneCore\fP* linphone_chat_room_get_lc (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Returns back pointer to \fBLinphoneCore\fP object\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_chat_room_get_core()\fP  
+.RE
+.PP
+
+.SS "const \fBLinphoneAddress\fP* linphone_chat_room_get_peer_address (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+get peer address \fBassociated to \fP this \fBLinphoneChatRoom\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP \fBLinphoneChatRoom\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneAddress\fP peer address 
+.RE
+.PP
+
+.SS "int linphone_chat_room_get_unread_messages_count (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Gets the number of unread messages in the chatroom\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The \fBLinphoneChatRoom\fP object corresponding to the conversation\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of unread messages\&. 
+.RE
+.PP
+
+.SS "void* linphone_chat_room_get_user_data (const \fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Retrieve the user pointer associated with the chat room\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The chat room\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the chat room\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_chat_room_is_remote_composing (const \fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Tells whether the remote is currently composing a message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The \fBLinphoneChatRoom\fP object corresponding to the conversation\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if the remote is currently composing a message, FALSE otherwise\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_chat_room_lime_available (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Returns true if lime is available for given peer\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+true if zrtp secrets have already been shared and ready to use 
+.RE
+.PP
+
+.SS "void linphone_chat_room_mark_as_read (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Mark all messages of the conversation as read\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The \fBLinphoneChatRoom\fP object corresponding to the conversation\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatRoom\fP* linphone_chat_room_ref (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Acquire a reference to the chat room\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The chat room\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same chat room\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_room_send_chat_message (\fBLinphoneChatRoom\fP * cr, \fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Send a message to peer member of this chat room\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP LinphoneChatRoom object 
+.br
+\fImsg\fP LinphoneChatMessage object The state of the message sending will be notified via the callbacks defined in the LinphoneChatMessageCbs object that can be obtained by calling \fBlinphone_chat_message_get_callbacks()\fP\&. The LinphoneChatMessage reference is transfered to the function and thus doesn't need to be unref'd by the application\&.  
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_chat_room_send_message (\fBLinphoneChatRoom\fP * cr, const char * msg)"
+
+.PP
+Send a message to peer member of this chat room\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_chat_room_send_chat_message()\fP instead\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP \fBLinphoneChatRoom\fP object 
+.br
+\fImsg\fP message to be sent  
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_chat_room_send_message2 (\fBLinphoneChatRoom\fP * cr, \fBLinphoneChatMessage\fP * msg, \fBLinphoneChatMessageStateChangedCb\fP status_cb, void * ud)"
+
+.PP
+Send a message to peer member of this chat room\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP \fBLinphoneChatRoom\fP object 
+.br
+\fImsg\fP \fBLinphoneChatMessage\fP message to be sent 
+.br
+\fIstatus_cb\fP LinphoneChatMessageStateChangeCb status callback invoked when message is delivered or could not be delivered\&. May be NULL 
+.br
+\fIud\fP user data for the status cb\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_chat_room_send_chat_message()\fP instead\&. 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+The LinphoneChatMessage must not be destroyed until the the callback is called\&. The LinphoneChatMessage reference is transfered to the function and thus doesn't need to be unref'd by the application\&.  
+.RE
+.PP
+
+.SS "void linphone_chat_room_set_user_data (\fBLinphoneChatRoom\fP * cr, void * ud)"
+
+.PP
+Assign a user pointer to the chat room\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The chat room\&. 
+.br
+\fIud\fP The user pointer to associate with the chat room\&. 
+.RE
+.PP
+
+.SS "void linphone_chat_room_unref (\fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Release reference to the chat room\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP The chat room\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_core_chat_enabled (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Returns whether chat is enabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP A \fBLinphoneCore\fP object 
+.RE
+.PP
+
+.SS "void linphone_core_delete_chat_room (\fBLinphoneCore\fP * lc, \fBLinphoneChatRoom\fP * cr)"
+
+.PP
+Removes a chatroom including all message history from the LinphoneCore\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP A \fBLinphoneCore\fP object 
+.br
+\fIcr\fP A \fBLinphoneChatRoom\fP object 
+.RE
+.PP
+
+.SS "void linphone_core_disable_chat (\fBLinphoneCore\fP * lc, \fBLinphoneReason\fP deny_reason)"
+
+.PP
+Inconditionnaly disable incoming chat messages\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP A \fBLinphoneCore\fP object 
+.br
+\fIdeny_reason\fP the deny reason (\fBLinphoneReasonNone\fP has no effect)\&. 
+.RE
+.PP
+
+.SS "void linphone_core_enable_chat (\fBLinphoneCore\fP * lc)"
+
+.PP
+Enable reception of incoming chat messages\&. By default it is enabled but it can be disabled with \fBlinphone_core_disable_chat()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP A \fBLinphoneCore\fP object 
+.RE
+.PP
+
+.SS "const char* linphone_core_get_chat_database_path (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get path to the database file used for storing chat messages\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the linphone core 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+file path or NULL if not exist 
+.RE
+.PP
+
+.SS "\fBLinphoneChatRoom\fP* linphone_core_get_chat_room (\fBLinphoneCore\fP * lc, const \fBLinphoneAddress\fP * addr)"
+
+.PP
+Get a chat room whose peer is the supplied address\&. If it does not exist yet, it will be created\&. No reference is transfered to the application\&. The LinphoneCore keeps a reference on the chat room\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the linphone core 
+.br
+\fIaddr\fP a linphone address\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneChatRoom\fP where messaging can take place\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneChatRoom\fP* linphone_core_get_chat_room_from_uri (\fBLinphoneCore\fP * lc, const char * to)"
+
+.PP
+Get a chat room for messaging from a sip uri like sip:joe@sip.linphone.org\&. If it does not exist yet, it will be created\&. No reference is transfered to the application\&. The LinphoneCore keeps a reference on the chat room\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP A \fBLinphoneCore\fP object 
+.br
+\fIto\fP The destination address for messages\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneChatRoom\fP where messaging can take place\&. 
+.RE
+.PP
+
+.SS "const bctbx_list_t* linphone_core_get_chat_rooms (\fBLinphoneCore\fP * lc)"
+
+.PP
+Returns an list of chat rooms\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBLinphoneChatRoom\fP objects\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngine\fP* linphone_core_get_im_encryption_engine (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the IM Encryption Engine in the core if possible\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the IM Encryption Engine in the core or NULL 
+.RE
+.PP
+
+.SS "\fBLinphoneImNotifPolicy\fP* linphone_core_get_im_notif_policy (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the LinphoneImNotifPolicy object controlling the instant messaging notifications\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphoneImNotifPolicy object\&. 
+.RE
+.PP
+
+.SS "void linphone_core_set_chat_database_path (\fBLinphoneCore\fP * lc, const char * path)"
+
+.PP
+Set the chat database path\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the linphone core 
+.br
+\fIpath\fP the database path 
+.RE
+.PP
+
+.SS "void linphone_core_set_im_encryption_engine (\fBLinphoneCore\fP * lc, \fBLinphoneImEncryptionEngine\fP * imee)"
+
+.PP
+Sets an IM Encryption Engine in the core\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIimee\fP LinphoneImEncryptionEngine object 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_clear (\fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Clear an IM notif policy (deactivate all receiving and sending of notifications)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object\&. 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_enable_all (\fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Enable all receiving and sending of notifications\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_im_notif_policy_get_recv_imdn_delivered (const \fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Tell whether imdn delivered notifications are being notified when received\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether imdn delivered notifications are being notified when received\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_im_notif_policy_get_recv_imdn_displayed (const \fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Tell whether imdn displayed notifications are being notified when received\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether imdn displayed notifications are being notified when received\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_im_notif_policy_get_recv_is_composing (const \fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Tell whether is_composing notifications are being notified when received\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether is_composing notifications are being notified when received\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_im_notif_policy_get_send_imdn_delivered (const \fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Tell whether imdn delivered notifications are being sent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether imdn delivered notifications are being sent\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_im_notif_policy_get_send_imdn_displayed (const \fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Tell whether imdn displayed notifications are being sent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether imdn displayed notifications are being sent\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_im_notif_policy_get_send_is_composing (const \fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Tell whether is_composing notifications are being sent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether is_composing notifications are being sent\&. 
+.RE
+.PP
+
+.SS "void* linphone_im_notif_policy_get_user_data (const \fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Retrieve the user pointer associated with the LinphoneImNotifPolicy object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the LinphoneImNotifPolicy object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneImNotifPolicy\fP* linphone_im_notif_policy_ref (\fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Acquire a reference to the LinphoneImNotifPolicy object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneImNotifPolicy object\&. 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_set_recv_imdn_delivered (\fBLinphoneImNotifPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable imdn delivered notifications receiving\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to notify received imdn delivered notifications\&. 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_set_recv_imdn_displayed (\fBLinphoneImNotifPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable imdn displayed notifications receiving\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to notify received imdn displayed notifications\&. 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_set_recv_is_composing (\fBLinphoneImNotifPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable is_composing notifications receiving\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to notify received is_composing notifications\&. 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_set_send_imdn_delivered (\fBLinphoneImNotifPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable imdn delivered notifications sending\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to send imdn delivered notifications\&. 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_set_send_imdn_displayed (\fBLinphoneImNotifPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable imdn displayed notifications sending\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to send imdn displayed notifications\&. 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_set_send_is_composing (\fBLinphoneImNotifPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable is_composing notifications sending\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to send is_composing notifications\&. 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_set_user_data (\fBLinphoneImNotifPolicy\fP * policy, void * ud)"
+
+.PP
+Assign a user pointer to the LinphoneImNotifPolicy object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object\&. 
+.br
+\fIud\fP The user pointer to associate with the LinphoneImNotifPolicy object\&. 
+.RE
+.PP
+
+.SS "void linphone_im_notif_policy_unref (\fBLinphoneImNotifPolicy\fP * policy)"
+
+.PP
+Release reference to the LinphoneImNotifPolicy object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneImNotifPolicy object\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

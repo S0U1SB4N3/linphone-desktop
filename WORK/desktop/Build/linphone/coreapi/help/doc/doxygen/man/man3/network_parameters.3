@@ -1,0 +1,1889 @@
+.TH "network_parameters" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+network_parameters \- Controlling network parameters (ports, mtu\&.\&.\&.)\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fB_LinphoneAuthMethod\fP \fBLinphoneAuthMethod\fP"
+.br
+.RI "Enum describing the authentication methods\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneFirewallPolicy\fP \fBLinphoneFirewallPolicy\fP"
+.br
+.RI "Policy to use to pass through firewalls\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneLimeState\fP \fBLinphoneLimeState\fP"
+.br
+.ti -1c
+.RI "typedef struct _LinphoneNatPolicy \fBLinphoneNatPolicy\fP"
+.br
+.RI "Policy to use to pass through NATs/firewalls\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_LinphoneAuthMethod\fP { \fBLinphoneAuthHttpDigest\fP, \fBLinphoneAuthTls\fP }
+.RI "Enum describing the authentication methods\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneFirewallPolicy\fP { \fBLinphonePolicyNoFirewall\fP, \fBLinphonePolicyUseNatAddress\fP, \fBLinphonePolicyUseStun\fP, \fBLinphonePolicyUseIce\fP, \fBLinphonePolicyUseUpnp\fP }
+.RI "Policy to use to pass through firewalls\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneLimeState\fP { \fBLinphoneLimeDisabled\fP, \fBLinphoneLimeMandatory\fP, \fBLinphoneLimePreferred\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlinphone_core_enable_lime\fP (\fBLinphoneCore\fP *lc, LinphoneLimeState val)"
+.br
+.RI "Tells to LinphoneCore to use Linphone Instant Messaging encryption\&. "
+.ti -1c
+.RI "LinphoneLimeState \fBlinphone_core_lime_enabled\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Returns the lime state\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_lime_available\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Tells if lime is available\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_ipv6_enabled\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Tells whether IPv6 is enabled or not\&. "
+.ti -1c
+.RI "void \fBlinphone_core_enable_ipv6\fP (\fBLinphoneCore\fP *lc, bool_t val)"
+.br
+.RI "Turns IPv6 support on or off\&. "
+.ti -1c
+.RI "int \fBlinphone_core_get_audio_port\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the UDP port used for audio streaming\&. "
+.ti -1c
+.RI "void \fBlinphone_core_get_audio_port_range\fP (const \fBLinphoneCore\fP *lc, int *min_port, int *max_port)"
+.br
+.RI "Get the audio port range from which is randomly chosen the UDP port used for audio streaming\&. "
+.ti -1c
+.RI "\fBLinphoneRange\fP * \fBlinphone_core_get_audio_ports_range\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the audio port range from which is randomly chosen the UDP port used for audio streaming\&. "
+.ti -1c
+.RI "int \fBlinphone_core_get_video_port\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the UDP port used for video streaming\&. "
+.ti -1c
+.RI "void \fBlinphone_core_get_video_port_range\fP (const \fBLinphoneCore\fP *lc, int *min_port, int *max_port)"
+.br
+.RI "Get the video port range from which is randomly chosen the UDP port used for video streaming\&. "
+.ti -1c
+.RI "\fBLinphoneRange\fP * \fBlinphone_core_get_video_ports_range\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the video port range from which is randomly chosen the UDP port used for video streaming\&. "
+.ti -1c
+.RI "int \fBlinphone_core_get_text_port\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the UDP port used for text streaming\&. "
+.ti -1c
+.RI "void \fBlinphone_core_get_text_port_range\fP (const \fBLinphoneCore\fP *lc, int *min_port, int *max_port)"
+.br
+.RI "Get the video port range from which is randomly chosen the UDP port used for text streaming\&. "
+.ti -1c
+.RI "\fBLinphoneRange\fP * \fBlinphone_core_get_text_ports_range\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the text port range from which is randomly chosen the UDP port used for text streaming\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_audio_port\fP (\fBLinphoneCore\fP *lc, int port)"
+.br
+.RI "Sets the UDP port used for audio streaming\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_video_port\fP (\fBLinphoneCore\fP *lc, int port)"
+.br
+.RI "Sets the UDP port used for video streaming\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_text_port\fP (\fBLinphoneCore\fP *lc, int port)"
+.br
+.RI "Sets the UDP port used for text streaming\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_core_set_sip_port\fP (\fBLinphoneCore\fP *lc, int port)"
+.br
+.RI "Sets the UDP port to be used by SIP\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED int \fBlinphone_core_get_sip_port\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the UDP port used by SIP\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_core_set_sip_transports\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneSipTransports\fP *transports)"
+.br
+.RI "Sets the ports to be used for each of transport (UDP or TCP) A zero value port for a given transport means the transport is not used\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_core_get_sip_transports\fP (\fBLinphoneCore\fP *lc, \fBLinphoneSipTransports\fP *transports)"
+.br
+.RI "Retrieves the port configuration used for each transport (udp, tcp, tls)\&. "
+.ti -1c
+.RI "void \fBlinphone_core_get_sip_transports_used\fP (\fBLinphoneCore\fP *lc, \fBLinphoneSipTransports\fP *tr)"
+.br
+.RI "Retrieves the real port number assigned for each sip transport (udp, tcp, tls)\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_core_set_transports\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneTransports\fP *transports)"
+.br
+.RI "Sets the ports to be used for each of transport (UDP or TCP) A zero value port for a given transport means the transport is not used\&. "
+.ti -1c
+.RI "\fBLinphoneTransports\fP * \fBlinphone_core_get_transports\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Retrieves the port configuration used for each transport (udp, tcp, tls)\&. "
+.ti -1c
+.RI "\fBLinphoneTransports\fP * \fBlinphone_core_get_transports_used\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Retrieves the real port number assigned for each sip transport (udp, tcp, tls)\&. "
+.ti -1c
+.RI "\fBLinphoneTransports\fP * \fBlinphone_transports_ref\fP (\fBLinphoneTransports\fP *transports)"
+.br
+.RI "Increment refcount\&. "
+.ti -1c
+.RI "void \fBlinphone_transports_unref\fP (\fBLinphoneTransports\fP *transports)"
+.br
+.RI "Decrement refcount and possibly free the object\&. "
+.ti -1c
+.RI "void * \fBlinphone_transports_get_user_data\fP (const \fBLinphoneTransports\fP *transports)"
+.br
+.RI "Gets the user data in the LinphoneTransports object\&. "
+.ti -1c
+.RI "void \fBlinphone_transports_set_user_data\fP (\fBLinphoneTransports\fP *transports, void *data)"
+.br
+.RI "Sets the user data in the LinphoneTransports object\&. "
+.ti -1c
+.RI "int \fBlinphone_transports_get_udp_port\fP (const \fBLinphoneTransports\fP *transports)"
+.br
+.RI "Gets the UDP port in the LinphoneTransports object\&. "
+.ti -1c
+.RI "int \fBlinphone_transports_get_tcp_port\fP (const \fBLinphoneTransports\fP *transports)"
+.br
+.RI "Gets the TCP port in the LinphoneTransports object\&. "
+.ti -1c
+.RI "int \fBlinphone_transports_get_tls_port\fP (const \fBLinphoneTransports\fP *transports)"
+.br
+.RI "Gets the TLS port in the LinphoneTransports object\&. "
+.ti -1c
+.RI "int \fBlinphone_transports_get_dtls_port\fP (const \fBLinphoneTransports\fP *transports)"
+.br
+.RI "Gets the DTLS port in the LinphoneTransports object\&. "
+.ti -1c
+.RI "void \fBlinphone_transports_set_udp_port\fP (\fBLinphoneTransports\fP *transports, int port)"
+.br
+.RI "Sets the UDP port in the LinphoneTransports object\&. "
+.ti -1c
+.RI "void \fBlinphone_transports_set_tcp_port\fP (\fBLinphoneTransports\fP *transports, int port)"
+.br
+.RI "Sets the TCP port in the LinphoneTransports object\&. "
+.ti -1c
+.RI "void \fBlinphone_transports_set_tls_port\fP (\fBLinphoneTransports\fP *transports, int port)"
+.br
+.RI "Sets the TLS port in the LinphoneTransports object\&. "
+.ti -1c
+.RI "void \fBlinphone_transports_set_dtls_port\fP (\fBLinphoneTransports\fP *transports, int port)"
+.br
+.RI "Sets the DTLS port in the LinphoneTransports object\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_stun_server\fP (\fBLinphoneCore\fP *lc, const char *server)"
+.br
+.RI "Set the STUN server address to use when the firewall policy is set to STUN\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_stun_server\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the STUN server address being used\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_upnp_available\fP (void)"
+.br
+.RI "Return the availability of uPnP\&. "
+.ti -1c
+.RI "\fBLinphoneUpnpState\fP \fBlinphone_core_get_upnp_state\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Return the internal state of uPnP\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_upnp_external_ipaddress\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Return the external ip address of router\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_nat_address\fP (\fBLinphoneCore\fP *lc, const char *addr)"
+.br
+.RI "Set the public IP address of NAT when using the firewall policy is set to use NAT\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_nat_address\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the public IP address of NAT being used\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_core_set_firewall_policy\fP (\fBLinphoneCore\fP *lc, \fBLinphoneFirewallPolicy\fP pol)"
+.br
+.RI "Set the policy to use to pass through firewalls\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneFirewallPolicy\fP \fBlinphone_core_get_firewall_policy\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the policy that is used to pass through firewalls\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_nat_policy\fP (\fBLinphoneCore\fP *lc, \fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Set the policy to use to pass through NATs/firewalls\&. "
+.ti -1c
+.RI "\fBLinphoneNatPolicy\fP * \fBlinphone_core_get_nat_policy\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get The policy that is used to pass through NATs/firewalls\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_network_reachable\fP (\fBLinphoneCore\fP *lc, bool_t value)"
+.br
+.RI "This method is called by the application to notify the linphone core library when network is reachable\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_is_network_reachable\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "return network state either as positioned by the application or by linphone itself\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_sip_network_reachable\fP (\fBLinphoneCore\fP *lc, bool_t value)"
+.br
+.RI "This method is called by the application to notify the linphone core library when the SIP network is reachable\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_media_network_reachable\fP (\fBLinphoneCore\fP *lc, bool_t value)"
+.br
+.RI "This method is called by the application to notify the linphone core library when the media (RTP) network is reachable\&. "
+.ti -1c
+.RI "void \fBlinphone_core_enable_keep_alive\fP (\fBLinphoneCore\fP *lc, bool_t enable)"
+.br
+.RI "Enables signaling keep alive, small udp packet sent periodically to keep udp NAT association\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_keep_alive_enabled\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Is signaling keep alive enabled\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_sip_dscp\fP (\fBLinphoneCore\fP *lc, int dscp)"
+.br
+.RI "Set the DSCP field for SIP signaling channel\&. "
+.ti -1c
+.RI "int \fBlinphone_core_get_sip_dscp\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the DSCP field for SIP signaling channel\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_audio_dscp\fP (\fBLinphoneCore\fP *lc, int dscp)"
+.br
+.RI "Set the DSCP field for outgoing audio streams\&. "
+.ti -1c
+.RI "int \fBlinphone_core_get_audio_dscp\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the DSCP field for outgoing audio streams\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_video_dscp\fP (\fBLinphoneCore\fP *lc, int dscp)"
+.br
+.RI "Set the DSCP field for outgoing video streams\&. "
+.ti -1c
+.RI "int \fBlinphone_core_get_video_dscp\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get the DSCP field for outgoing video streams\&. "
+.ti -1c
+.RI "void \fBlinphone_core_enable_sdp_200_ack\fP (\fBLinphoneCore\fP *lc, bool_t enable)"
+.br
+.RI "Control when media offer is sent in SIP INVITE\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_sdp_200_ack_enabled\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Media offer control param for SIP INVITE\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_http_proxy_host\fP (\fBLinphoneCore\fP *lc, const char *host)"
+.br
+.RI "Set http proxy address to be used for signaling during next channel connection\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_http_proxy_port\fP (\fBLinphoneCore\fP *lc, int port)"
+.br
+.RI "Set http proxy port to be used for signaling\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_http_proxy_host\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get http proxy address to be used for signaling\&. "
+.ti -1c
+.RI "int \fBlinphone_core_get_http_proxy_port\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Get http proxy port to be used for signaling\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_tls_cert\fP (\fBLinphoneCore\fP *lc, const char *tls_cert)"
+.br
+.RI "Sets a TLS certificate used for TLS authentication The certificate won't be stored, you have to set it after each LinphoneCore startup\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_tls_key\fP (\fBLinphoneCore\fP *lc, const char *tls_key)"
+.br
+.RI "Sets a TLS key used for TLS authentication The key won't be stored, you have to set it after each LinphoneCore startup\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_tls_cert_path\fP (\fBLinphoneCore\fP *lc, const char *tls_cert_path)"
+.br
+.RI "Sets a TLS certificate path used for TLS authentication The path will be stored in the rc file and automatically restored on startup\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_tls_key_path\fP (\fBLinphoneCore\fP *lc, const char *tls_key_path)"
+.br
+.RI "Sets a TLS key path used for TLS authentication The path will be stored in the rc file and automatically restored on startup\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_tls_cert\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the TLS certificate\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_tls_key\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the TLS key\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_tls_cert_path\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the path to the TLS certificate file\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_tls_key_path\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the path to the TLS key file\&. "
+.ti -1c
+.RI "\fBLinphoneNatPolicy\fP * \fBlinphone_core_create_nat_policy\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Create a new LinphoneNatPolicy object with every policies being disabled\&. "
+.ti -1c
+.RI "\fBLinphoneNatPolicy\fP * \fBlinphone_core_create_nat_policy_from_config\fP (\fBLinphoneCore\fP *lc, const char *ref)"
+.br
+.RI "Create a new LinphoneNatPolicy by reading the config of a LinphoneCore according to the passed ref\&. "
+.ti -1c
+.RI "\fBLinphoneNatPolicy\fP * \fBlinphone_nat_policy_ref\fP (\fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Acquire a reference to the LinphoneNatPolicy object\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_unref\fP (\fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Release reference to the LinphoneNatPolicy object\&. "
+.ti -1c
+.RI "void * \fBlinphone_nat_policy_get_user_data\fP (const \fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Retrieve the user pointer associated with the LinphoneNatPolicy object\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_set_user_data\fP (\fBLinphoneNatPolicy\fP *policy, void *ud)"
+.br
+.RI "Assign a user pointer to the LinphoneNatPolicy object\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_clear\fP (\fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Clear a NAT policy (deactivate all protocols and unset the STUN server)\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_nat_policy_stun_enabled\fP (const \fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Tell whether STUN is enabled\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_enable_stun\fP (\fBLinphoneNatPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable STUN\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_nat_policy_turn_enabled\fP (const \fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Tell whether TURN is enabled\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_enable_turn\fP (\fBLinphoneNatPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable TURN\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_nat_policy_ice_enabled\fP (const \fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Tell whether ICE is enabled\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_enable_ice\fP (\fBLinphoneNatPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable ICE\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_nat_policy_upnp_enabled\fP (const \fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Tell whether uPnP is enabled\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_enable_upnp\fP (\fBLinphoneNatPolicy\fP *policy, bool_t enable)"
+.br
+.RI "Enable uPnP\&. "
+.ti -1c
+.RI "const char * \fBlinphone_nat_policy_get_stun_server\fP (const \fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Get the STUN/TURN server to use with this NAT policy\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_set_stun_server\fP (\fBLinphoneNatPolicy\fP *policy, const char *stun_server)"
+.br
+.RI "Set the STUN/TURN server to use with this NAT policy\&. "
+.ti -1c
+.RI "const char * \fBlinphone_nat_policy_get_stun_server_username\fP (const \fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Get the username used to authenticate with the STUN/TURN server\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_set_stun_server_username\fP (\fBLinphoneNatPolicy\fP *policy, const char *username)"
+.br
+.RI "Set the username used to authenticate with the STUN/TURN server\&. "
+.ti -1c
+.RI "void \fBlinphone_nat_policy_resolve_stun_server\fP (\fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Start a STUN server DNS resolution\&. "
+.ti -1c
+.RI "const struct addrinfo * \fBlinphone_nat_policy_get_stun_server_addrinfo\fP (\fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Get the addrinfo representation of the STUN server address\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Controlling network parameters (ports, mtu\&.\&.\&.)\&. 
+
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef enum \fB_LinphoneFirewallPolicy\fP  \fBLinphoneFirewallPolicy\fP"
+
+.PP
+Policy to use to pass through firewalls\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBLinphoneNatPolicy\fP instead\&.  
+.RE
+.PP
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_LinphoneAuthMethod\fP"
+
+.PP
+Enum describing the authentication methods\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneAuthHttpDigest \fP\fP
+Digest authentication requested\&. 
+.TP
+\fB\fILinphoneAuthTls \fP\fP
+Client certificate requested\&. 
+.SS "enum \fB_LinphoneFirewallPolicy\fP"
+
+.PP
+Policy to use to pass through firewalls\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBLinphoneNatPolicy\fP instead\&.  
+.RE
+.PP
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphonePolicyNoFirewall \fP\fP
+Do not use any mechanism to pass through firewalls\&. 
+.TP
+\fB\fILinphonePolicyUseNatAddress \fP\fP
+Use the specified public adress\&. 
+.TP
+\fB\fILinphonePolicyUseStun \fP\fP
+Use a STUN server to get the public address\&. 
+.TP
+\fB\fILinphonePolicyUseIce \fP\fP
+Use the ICE protocol\&. 
+.TP
+\fB\fILinphonePolicyUseUpnp \fP\fP
+Use the uPnP protocol\&. 
+.SS "enum \fB_LinphoneLimeState\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneLimeDisabled \fP\fP
+Lime is not used at all\&. 
+.TP
+\fB\fILinphoneLimeMandatory \fP\fP
+Lime is always used\&. 
+.TP
+\fB\fILinphoneLimePreferred \fP\fP
+Lime is used only if we already shared a secret with remote\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBLinphoneNatPolicy\fP* linphone_core_create_nat_policy (\fBLinphoneCore\fP * lc)"
+
+.PP
+Create a new LinphoneNatPolicy object with every policies being disabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A new LinphoneNatPolicy object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneNatPolicy\fP* linphone_core_create_nat_policy_from_config (\fBLinphoneCore\fP * lc, const char * ref)"
+
+.PP
+Create a new LinphoneNatPolicy by reading the config of a LinphoneCore according to the passed ref\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIref\fP The reference of a NAT policy in the config of the LinphoneCore 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A new LinphoneNatPolicy object\&. 
+.RE
+.PP
+
+.SS "void linphone_core_enable_ipv6 (\fBLinphoneCore\fP * lc, bool_t val)"
+
+.PP
+Turns IPv6 support on or off\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIval\fP A boolean value telling whether to enable IPv6 support 
+.RE
+.PP
+
+.SS "void linphone_core_enable_keep_alive (\fBLinphoneCore\fP * lc, bool_t enable)"
+
+.PP
+Enables signaling keep alive, small udp packet sent periodically to keep udp NAT association\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIenable\fP A boolean value telling whether signaling keep alive is to be enabled 
+.RE
+.PP
+
+.SS "void linphone_core_enable_lime (\fBLinphoneCore\fP * lc, LinphoneLimeState val)"
+
+.PP
+Tells to LinphoneCore to use Linphone Instant Messaging encryption\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIval\fP The new lime state 
+.RE
+.PP
+
+.SS "void linphone_core_enable_sdp_200_ack (\fBLinphoneCore\fP * lc, bool_t enable)"
+
+.PP
+Control when media offer is sent in SIP INVITE\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the linphone core 
+.br
+\fIenable\fP true if INVITE has to be sent whitout SDP\&. 
+.RE
+.PP
+
+.SS "int linphone_core_get_audio_dscp (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the DSCP field for outgoing audio streams\&. The DSCP defines the quality of service in IP packets\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current DSCP value 
+.RE
+.PP
+
+.SS "int linphone_core_get_audio_port (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the UDP port used for audio streaming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The UDP port used for audio streaming 
+.RE
+.PP
+
+.SS "void linphone_core_get_audio_port_range (const \fBLinphoneCore\fP * lc, int * min_port, int * max_port)"
+
+.PP
+Get the audio port range from which is randomly chosen the UDP port used for audio streaming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fImin_port\fP The lower bound of the audio port range being used 
+.br
+\fImax_port\fP The upper bound of the audio port range being used
+.RE
+.PP
+ 
+.SS "\fBLinphoneRange\fP* linphone_core_get_audio_ports_range (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the audio port range from which is randomly chosen the UDP port used for audio streaming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a LinphoneRange object 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneFirewallPolicy\fP linphone_core_get_firewall_policy (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the policy that is used to pass through firewalls\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphoneFirewallPolicy\fP that is being used\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_core_get_nat_policy()\fP instead  
+.RE
+.PP
+
+.SS "const char* linphone_core_get_http_proxy_host (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get http proxy address to be used for signaling\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+hostname of IP adress of the http proxy (can be NULL to disable)\&. 
+.RE
+.PP
+
+.SS "int linphone_core_get_http_proxy_port (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get http proxy port to be used for signaling\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+port of the http proxy\&. 
+.RE
+.PP
+
+.SS "const char* linphone_core_get_nat_address (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the public IP address of NAT being used\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The public IP address of NAT being used\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneNatPolicy\fP* linphone_core_get_nat_policy (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get The policy that is used to pass through NATs/firewalls\&. It may be overridden by a NAT policy for a specific proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneNatPolicy object in use\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_proxy_config_get_nat_policy()\fP 
+.RE
+.PP
+
+.SS "int linphone_core_get_sip_dscp (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the DSCP field for SIP signaling channel\&. The DSCP defines the quality of service in IP packets\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current DSCP value 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED int linphone_core_get_sip_port (\fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the UDP port used by SIP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The UDP port used by SIP
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_core_get_sip_transports()\fP instead\&.  
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_core_get_sip_transports (\fBLinphoneCore\fP * lc, \fBLinphoneSipTransports\fP * transports)"
+
+.PP
+Retrieves the port configuration used for each transport (udp, tcp, tls)\&. A zero value port for a given transport means the transport is not used\&. A value of LC_SIP_TRANSPORT_RANDOM (-1) means the port is to be chosen randomly by the system\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fItransports\fP A #LinphoneSipTransports structure that will receive the configured ports 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+ 
+.RE
+.PP
+
+.SS "void linphone_core_get_sip_transports_used (\fBLinphoneCore\fP * lc, \fBLinphoneSipTransports\fP * tr)"
+
+.PP
+Retrieves the real port number assigned for each sip transport (udp, tcp, tls)\&. A zero value means that the transport is not activated\&. If LC_SIP_TRANSPORT_RANDOM was passed to \fBlinphone_core_set_sip_transports()\fP, the random port choosed by the system is returned\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fItr\fP A #LinphoneSipTransports structure that will receive the ports being used
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use linphone_core_get_transports_used instead  
+.RE
+.PP
+
+.SS "const char* linphone_core_get_stun_server (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the STUN server address being used\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The STUN server address being used\&. 
+.RE
+.PP
+
+.SS "int linphone_core_get_text_port (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the UDP port used for text streaming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The UDP port used for text streaming 
+.RE
+.PP
+
+.SS "void linphone_core_get_text_port_range (const \fBLinphoneCore\fP * lc, int * min_port, int * max_port)"
+
+.PP
+Get the video port range from which is randomly chosen the UDP port used for text streaming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fImin_port\fP The lower bound of the text port range being used 
+.br
+\fImax_port\fP The upper bound of the text port range being used
+.RE
+.PP
+ 
+.SS "\fBLinphoneRange\fP* linphone_core_get_text_ports_range (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the text port range from which is randomly chosen the UDP port used for text streaming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a LinphoneRange object 
+.RE
+.PP
+
+.SS "const char* linphone_core_get_tls_cert (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the TLS certificate\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the TLS certificate or NULL if not set yet 
+.RE
+.PP
+
+.SS "const char* linphone_core_get_tls_cert_path (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the path to the TLS certificate file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the TLS certificate path or NULL if not set yet 
+.RE
+.PP
+
+.SS "const char* linphone_core_get_tls_key (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the TLS key\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the TLS key or NULL if not set yet 
+.RE
+.PP
+
+.SS "const char* linphone_core_get_tls_key_path (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the path to the TLS key file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the TLS key path or NULL if not set yet 
+.RE
+.PP
+
+.SS "\fBLinphoneTransports\fP* linphone_core_get_transports (\fBLinphoneCore\fP * lc)"
+
+.PP
+Retrieves the port configuration used for each transport (udp, tcp, tls)\&. A zero value port for a given transport means the transport is not used\&. A value of LC_SIP_TRANSPORT_RANDOM (-1) means the port is to be chosen randomly by the system\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBLinphoneTransports\fP structure with the configured ports 
+.RE
+.PP
+
+.SS "\fBLinphoneTransports\fP* linphone_core_get_transports_used (\fBLinphoneCore\fP * lc)"
+
+.PP
+Retrieves the real port number assigned for each sip transport (udp, tcp, tls)\&. A zero value means that the transport is not activated\&. If LC_SIP_TRANSPORT_RANDOM was passed to \fBlinphone_core_set_sip_transports()\fP, the random port choosed by the system is returned\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBLinphoneTransports\fP structure with the ports being used 
+.RE
+.PP
+
+.SS "const char* linphone_core_get_upnp_external_ipaddress (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Return the external ip address of router\&. In some cases the uPnP can have an external ip address but not a usable uPnP (state different of Ok)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a null terminated string containing the external ip address\&. If the the external ip address is not available return null\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneUpnpState\fP linphone_core_get_upnp_state (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Return the internal state of uPnP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+an LinphoneUpnpState\&. 
+.RE
+.PP
+
+.SS "int linphone_core_get_video_dscp (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the DSCP field for outgoing video streams\&. The DSCP defines the quality of service in IP packets\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current DSCP value 
+.RE
+.PP
+
+.SS "int linphone_core_get_video_port (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the UDP port used for video streaming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The UDP port used for video streaming 
+.RE
+.PP
+
+.SS "void linphone_core_get_video_port_range (const \fBLinphoneCore\fP * lc, int * min_port, int * max_port)"
+
+.PP
+Get the video port range from which is randomly chosen the UDP port used for video streaming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fImin_port\fP The lower bound of the video port range being used 
+.br
+\fImax_port\fP The upper bound of the video port range being used
+.RE
+.PP
+ 
+.SS "\fBLinphoneRange\fP* linphone_core_get_video_ports_range (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Get the video port range from which is randomly chosen the UDP port used for video streaming\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a LinphoneRange object 
+.RE
+.PP
+
+.SS "bool_t linphone_core_ipv6_enabled (\fBLinphoneCore\fP * lc)"
+
+.PP
+Tells whether IPv6 is enabled or not\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A boolean value telling whether IPv6 is enabled or not
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_core_enable_ipv6()\fP for more details on how IPv6 is supported in liblinphone\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_core_keep_alive_enabled (\fBLinphoneCore\fP * lc)"
+
+.PP
+Is signaling keep alive enabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A boolean value telling whether signaling keep alive is enabled 
+.RE
+.PP
+
+.SS "bool_t linphone_core_lime_available (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Tells if lime is available\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+
+.SS "LinphoneLimeState linphone_core_lime_enabled (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Returns the lime state\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current lime state 
+.RE
+.PP
+
+.SS "bool_t linphone_core_sdp_200_ack_enabled (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Media offer control param for SIP INVITE\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+true if INVITE has to be sent whitout SDP\&. 
+.RE
+.PP
+
+.SS "void linphone_core_set_audio_dscp (\fBLinphoneCore\fP * lc, int dscp)"
+
+.PP
+Set the DSCP field for outgoing audio streams\&. The DSCP defines the quality of service in IP packets\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIdscp\fP The DSCP value to set 
+.RE
+.PP
+
+.SS "void linphone_core_set_audio_port (\fBLinphoneCore\fP * lc, int port)"
+
+.PP
+Sets the UDP port used for audio streaming\&. A value of -1 will request the system to allocate the local port randomly\&. This is recommended in order to avoid firewall warnings\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIport\fP The UDP port to use for audio streaming 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_core_set_firewall_policy (\fBLinphoneCore\fP * lc, \fBLinphoneFirewallPolicy\fP pol)"
+
+.PP
+Set the policy to use to pass through firewalls\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIpol\fP The \fBLinphoneFirewallPolicy\fP to use\&.
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_core_set_nat_policy()\fP instead\&.  
+.RE
+.PP
+
+.SS "void linphone_core_set_http_proxy_host (\fBLinphoneCore\fP * lc, const char * host)"
+
+.PP
+Set http proxy address to be used for signaling during next channel connection\&. Use \fBlinphone_core_set_network_reachable\fP FASLE/TRUE to force channel restart\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIhost\fP Hostname of IP adress of the http proxy (can be NULL to disable)\&. 
+.RE
+.PP
+
+.SS "void linphone_core_set_http_proxy_port (\fBLinphoneCore\fP * lc, int port)"
+
+.PP
+Set http proxy port to be used for signaling\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIport\fP of the http proxy\&. 
+.RE
+.PP
+
+.SS "void linphone_core_set_media_network_reachable (\fBLinphoneCore\fP * lc, bool_t value)"
+
+.PP
+This method is called by the application to notify the linphone core library when the media (RTP) network is reachable\&. This is for advanced usage, when SIP and RTP layers are required to use different interfaces\&. Most applications just need \fBlinphone_core_set_network_reachable()\fP\&. 
+.SS "void linphone_core_set_nat_address (\fBLinphoneCore\fP * lc, const char * addr)"
+
+.PP
+Set the public IP address of NAT when using the firewall policy is set to use NAT\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object\&. 
+.br
+\fIaddr\fP The public IP address of NAT to use\&. 
+.RE
+.PP
+
+.SS "void linphone_core_set_nat_policy (\fBLinphoneCore\fP * lc, \fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Set the policy to use to pass through NATs/firewalls\&. It may be overridden by a NAT policy for a specific proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIpolicy\fP LinphoneNatPolicy object
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_proxy_config_set_nat_policy()\fP 
+.RE
+.PP
+
+.SS "void linphone_core_set_network_reachable (\fBLinphoneCore\fP * lc, bool_t value)"
+
+.PP
+This method is called by the application to notify the linphone core library when network is reachable\&. Calling this method with true trigger linphone to initiate a registration process for all proxies\&. Calling this method disables the automatic network detection mode\&. It means you must call this method after each network state changes\&. 
+.SS "void linphone_core_set_sip_dscp (\fBLinphoneCore\fP * lc, int dscp)"
+
+.PP
+Set the DSCP field for SIP signaling channel\&. The DSCP defines the quality of service in IP packets\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIdscp\fP The DSCP value to set 
+.RE
+.PP
+
+.SS "void linphone_core_set_sip_network_reachable (\fBLinphoneCore\fP * lc, bool_t value)"
+
+.PP
+This method is called by the application to notify the linphone core library when the SIP network is reachable\&. This is for advanced usage, when SIP and RTP layers are required to use different interfaces\&. Most applications just need \fBlinphone_core_set_network_reachable()\fP\&. 
+.SS "LINPHONE_DEPRECATED void linphone_core_set_sip_port (\fBLinphoneCore\fP * lc, int port)"
+
+.PP
+Sets the UDP port to be used by SIP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIport\fP The UDP port to be used by SIP
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_core_set_sip_transports()\fP instead\&.  
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_core_set_sip_transports (\fBLinphoneCore\fP * lc, const \fBLinphoneSipTransports\fP * transports)"
+
+.PP
+Sets the ports to be used for each of transport (UDP or TCP) A zero value port for a given transport means the transport is not used\&. A value of LC_SIP_TRANSPORT_RANDOM (-1) means the port is to be choosen randomly by the system\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fItransports\fP A LinphoneSipTransports structure giving the ports to use 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use linphone_core_set_transports instead  
+.RE
+.PP
+
+.SS "void linphone_core_set_stun_server (\fBLinphoneCore\fP * lc, const char * server)"
+
+.PP
+Set the STUN server address to use when the firewall policy is set to STUN\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIserver\fP The STUN server address to use\&. 
+.RE
+.PP
+
+.SS "void linphone_core_set_text_port (\fBLinphoneCore\fP * lc, int port)"
+
+.PP
+Sets the UDP port used for text streaming\&. A value if -1 will request the system to allocate the local port randomly\&. This is recommended in order to avoid firewall warnings\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIport\fP The UDP port to use for text streaming 
+.RE
+.PP
+
+.SS "void linphone_core_set_tls_cert (\fBLinphoneCore\fP * lc, const char * tls_cert)"
+
+.PP
+Sets a TLS certificate used for TLS authentication The certificate won't be stored, you have to set it after each LinphoneCore startup\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fItls_cert\fP the TLS certificate 
+.RE
+.PP
+
+.SS "void linphone_core_set_tls_cert_path (\fBLinphoneCore\fP * lc, const char * tls_cert_path)"
+
+.PP
+Sets a TLS certificate path used for TLS authentication The path will be stored in the rc file and automatically restored on startup\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fItls_cert_path\fP path to the TLS certificate 
+.RE
+.PP
+
+.SS "void linphone_core_set_tls_key (\fBLinphoneCore\fP * lc, const char * tls_key)"
+
+.PP
+Sets a TLS key used for TLS authentication The key won't be stored, you have to set it after each LinphoneCore startup\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fItls_key\fP the TLS key 
+.RE
+.PP
+
+.SS "void linphone_core_set_tls_key_path (\fBLinphoneCore\fP * lc, const char * tls_key_path)"
+
+.PP
+Sets a TLS key path used for TLS authentication The path will be stored in the rc file and automatically restored on startup\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fItls_key_path\fP path to the TLS key 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_core_set_transports (\fBLinphoneCore\fP * lc, const \fBLinphoneTransports\fP * transports)"
+
+.PP
+Sets the ports to be used for each of transport (UDP or TCP) A zero value port for a given transport means the transport is not used\&. A value of LC_SIP_TRANSPORT_RANDOM (-1) means the port is to be choosen randomly by the system\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fItransports\fP A LinphoneSipTransports structure giving the ports to use 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 
+.RE
+.PP
+
+.SS "void linphone_core_set_video_dscp (\fBLinphoneCore\fP * lc, int dscp)"
+
+.PP
+Set the DSCP field for outgoing video streams\&. The DSCP defines the quality of service in IP packets\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIdscp\fP The DSCP value to set 
+.RE
+.PP
+
+.SS "void linphone_core_set_video_port (\fBLinphoneCore\fP * lc, int port)"
+
+.PP
+Sets the UDP port used for video streaming\&. A value of -1 will request the system to allocate the local port randomly\&. This is recommended in order to avoid firewall warnings\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIport\fP The UDP port to use for video streaming 
+.RE
+.PP
+
+.SS "bool_t linphone_core_upnp_available (void)"
+
+.PP
+Return the availability of uPnP\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+true if uPnP is available otherwise return false\&. 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_clear (\fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Clear a NAT policy (deactivate all protocols and unset the STUN server)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object\&. 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_enable_ice (\fBLinphoneNatPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable ICE\&. ICE can be enabled without STUN/TURN, in which case only the local candidates will be used\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to enable ICE\&. 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_enable_stun (\fBLinphoneNatPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable STUN\&. If TURN is also enabled, TURN will be used instead of STUN\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to enable STUN\&. 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_enable_turn (\fBLinphoneNatPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable TURN\&. If STUN is also enabled, it is ignored and TURN is used\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to enable TURN\&. 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_enable_upnp (\fBLinphoneNatPolicy\fP * policy, bool_t enable)"
+
+.PP
+Enable uPnP\&. This has the effect to disable every other policies (ICE, STUN and TURN)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.br
+\fIenable\fP Boolean value telling whether to enable uPnP\&. 
+.RE
+.PP
+
+.SS "const char* linphone_nat_policy_get_stun_server (const \fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Get the STUN/TURN server to use with this NAT policy\&. Used when STUN or TURN are enabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The STUN server used by this NAT policy\&. 
+.RE
+.PP
+
+.SS "const struct addrinfo* linphone_nat_policy_get_stun_server_addrinfo (\fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Get the addrinfo representation of the STUN server address\&. WARNING: This function may block for up to 1 second\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+addrinfo representation of the STUN server address\&. 
+.RE
+.PP
+
+.SS "const char* linphone_nat_policy_get_stun_server_username (const \fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Get the username used to authenticate with the STUN/TURN server\&. The authentication will search for a LinphoneAuthInfo with this username\&. If it is not set the username of the currently used LinphoneProxyConfig is used to search for a LinphoneAuthInfo\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The username used to authenticate with the STUN/TURN server\&. 
+.RE
+.PP
+
+.SS "void* linphone_nat_policy_get_user_data (const \fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Retrieve the user pointer associated with the LinphoneNatPolicy object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the LinphoneNatPolicy object\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_nat_policy_ice_enabled (const \fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Tell whether ICE is enabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether ICE is enabled\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneNatPolicy\fP* linphone_nat_policy_ref (\fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Acquire a reference to the LinphoneNatPolicy object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneNatPolicy object\&. 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_resolve_stun_server (\fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Start a STUN server DNS resolution\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_set_stun_server (\fBLinphoneNatPolicy\fP * policy, const char * stun_server)"
+
+.PP
+Set the STUN/TURN server to use with this NAT policy\&. Used when STUN or TURN are enabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.br
+\fIstun_server\fP The STUN server to use with this NAT policy\&. 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_set_stun_server_username (\fBLinphoneNatPolicy\fP * policy, const char * username)"
+
+.PP
+Set the username used to authenticate with the STUN/TURN server\&. The authentication will search for a LinphoneAuthInfo with this username\&. If it is not set the username of the currently used LinphoneProxyConfig is used to search for a LinphoneAuthInfo\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.br
+\fIusername\fP The username used to authenticate with the STUN/TURN server\&. 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_set_user_data (\fBLinphoneNatPolicy\fP * policy, void * ud)"
+
+.PP
+Assign a user pointer to the LinphoneNatPolicy object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object\&. 
+.br
+\fIud\fP The user pointer to associate with the LinphoneNatPolicy object\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_nat_policy_stun_enabled (const \fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Tell whether STUN is enabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether STUN is enabled\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_nat_policy_turn_enabled (const \fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Tell whether TURN is enabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether TURN is enabled\&. 
+.RE
+.PP
+
+.SS "void linphone_nat_policy_unref (\fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Release reference to the LinphoneNatPolicy object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_nat_policy_upnp_enabled (const \fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Tell whether uPnP is enabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIpolicy\fP LinphoneNatPolicy object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling whether uPnP is enabled\&. 
+.RE
+.PP
+
+.SS "int linphone_transports_get_dtls_port (const \fBLinphoneTransports\fP * transports)"
+
+.PP
+Gets the DTLS port in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the DTLS port 
+.RE
+.PP
+
+.SS "int linphone_transports_get_tcp_port (const \fBLinphoneTransports\fP * transports)"
+
+.PP
+Gets the TCP port in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the TCP port 
+.RE
+.PP
+
+.SS "int linphone_transports_get_tls_port (const \fBLinphoneTransports\fP * transports)"
+
+.PP
+Gets the TLS port in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the TLS port 
+.RE
+.PP
+
+.SS "int linphone_transports_get_udp_port (const \fBLinphoneTransports\fP * transports)"
+
+.PP
+Gets the UDP port in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the UDP port 
+.RE
+.PP
+
+.SS "void* linphone_transports_get_user_data (const \fBLinphoneTransports\fP * transports)"
+
+.PP
+Gets the user data in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the user data 
+.RE
+.PP
+
+.SS "\fBLinphoneTransports\fP* linphone_transports_ref (\fBLinphoneTransports\fP * transports)"
+
+.PP
+Increment refcount\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP LinphoneTransports object 
+.RE
+.PP
+
+.SS "void linphone_transports_set_dtls_port (\fBLinphoneTransports\fP * transports, int port)"
+
+.PP
+Sets the DTLS port in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports object 
+.br
+\fIport\fP the DTLS port 
+.RE
+.PP
+
+.SS "void linphone_transports_set_tcp_port (\fBLinphoneTransports\fP * transports, int port)"
+
+.PP
+Sets the TCP port in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports object 
+.br
+\fIport\fP the TCP port 
+.RE
+.PP
+
+.SS "void linphone_transports_set_tls_port (\fBLinphoneTransports\fP * transports, int port)"
+
+.PP
+Sets the TLS port in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports object 
+.br
+\fIport\fP the TLS port 
+.RE
+.PP
+
+.SS "void linphone_transports_set_udp_port (\fBLinphoneTransports\fP * transports, int port)"
+
+.PP
+Sets the UDP port in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports object 
+.br
+\fIport\fP the UDP port 
+.RE
+.PP
+
+.SS "void linphone_transports_set_user_data (\fBLinphoneTransports\fP * transports, void * data)"
+
+.PP
+Sets the user data in the LinphoneTransports object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP the LinphoneTransports object 
+.br
+\fIdata\fP the user data 
+.RE
+.PP
+
+.SS "void linphone_transports_unref (\fBLinphoneTransports\fP * transports)"
+
+.PP
+Decrement refcount and possibly free the object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransports\fP LinphoneTransports object 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

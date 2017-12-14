@@ -1,0 +1,46 @@
+.TH "OrtpLossRateEstimator" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+OrtpLossRateEstimator
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBmin_packet_count_interval\fP"
+.br
+.ti -1c
+.RI "uint64_t \fBmin_time_ms_interval\fP"
+.br
+.ti -1c
+.RI "uint64_t \fBlast_estimate_time_ms\fP"
+.br
+.ti -1c
+.RI "int32_t \fBlast_cum_loss\fP"
+.br
+.ti -1c
+.RI "int32_t \fBlast_ext_seq\fP"
+.br
+.ti -1c
+.RI "float \fBloss_rate\fP"
+.br
+.ti -1c
+.RI "int64_t \fBlast_dup_packet_sent_count\fP"
+.br
+.ti -1c
+.RI "int64_t \fBlast_packet_sent_count\fP"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "int64_t OrtpLossRateEstimator::last_dup_packet_sent_count"
+Total number of outgoing duplicate packets on last ortp_loss_rate_estimator_process_report_block iteration\&. 
+.SS "int64_t OrtpLossRateEstimator::last_packet_sent_count"
+Total number of outgoing unique packets on last ortp_loss_rate_estimator_process_report_block iteration\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

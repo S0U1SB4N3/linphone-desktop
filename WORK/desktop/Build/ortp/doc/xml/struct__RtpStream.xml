@@ -1,0 +1,828 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__RtpStream" kind="struct" language="C++" prot="public">
+    <compoundname>_RtpStream</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__RtpStream_1a05d553645d22770ce9c56f345e7c47a9" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__OrtpStream" kindref="compound">OrtpStream</ref></type>
+        <definition>OrtpStream _RtpStream::gs</definition>
+        <argsstring></argsstring>
+        <name>gs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="320" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="320" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a7acc1dd91a64c7d5dbf5bde512f841d9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpStream::time_jump</definition>
+        <argsstring></argsstring>
+        <name>time_jump</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="321" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="321" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a271de87373b4de23ad47e4a9b870d1a4" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::ts_jump</definition>
+        <argsstring></argsstring>
+        <name>ts_jump</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="322" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="322" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1ab57ee13b7733b5cf49d31e5ebbbcb504" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__queue" kindref="compound">queue_t</ref></type>
+        <definition>queue_t _RtpStream::rq</definition>
+        <argsstring></argsstring>
+        <name>rq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="323" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="323" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1ada87974ccf5884c34b7a04110a144d28" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__queue" kindref="compound">queue_t</ref></type>
+        <definition>queue_t _RtpStream::tev_rq</definition>
+        <argsstring></argsstring>
+        <name>tev_rq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="324" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="324" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1ac3fc7af632bcd3af6dd7451efa2ab77c" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* _RtpStream::QoSHandle</definition>
+        <argsstring></argsstring>
+        <name>QoSHandle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="325" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="325" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a37512e40db1bcf5255b74803b2bfd7c9" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long _RtpStream::QoSFlowID</definition>
+        <argsstring></argsstring>
+        <name>QoSFlowID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="326" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="326" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a3b039fd2ee3ce676a9cefb32b1a93022" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__JitterControl" kindref="compound">JitterControl</ref></type>
+        <definition>JitterControl _RtpStream::jittctl</definition>
+        <argsstring></argsstring>
+        <name>jittctl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="327" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="327" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a2eebd059f4f3910cfa378132ede85da1" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::snd_time_offset</definition>
+        <argsstring></argsstring>
+        <name>snd_time_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="328" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="328" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1aa3a7cdac46b8c818598e15cd78eec11c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::snd_ts_offset</definition>
+        <argsstring></argsstring>
+        <name>snd_ts_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="329" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="329" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a758bf0a21191e13ebbb50eea38236e08" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::snd_rand_offset</definition>
+        <argsstring></argsstring>
+        <name>snd_rand_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="330" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1ac8b44e94973af102fcd0ff72d6b6f948" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::snd_last_ts</definition>
+        <argsstring></argsstring>
+        <name>snd_last_ts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="331" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="331" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a601041ec92986121324a9688602d2fcc" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::rcv_time_offset</definition>
+        <argsstring></argsstring>
+        <name>rcv_time_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="332" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="332" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a6eef843dc46010f5fb2a0de7a6c65e6e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::rcv_ts_offset</definition>
+        <argsstring></argsstring>
+        <name>rcv_ts_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="333" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="333" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a221a8f7c224d27f4398b517a7cf3241f" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::rcv_query_ts_offset</definition>
+        <argsstring></argsstring>
+        <name>rcv_query_ts_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="334" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="334" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a2b3178cfab529fbe94321ad42e17dc39" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::rcv_last_ts</definition>
+        <argsstring></argsstring>
+        <name>rcv_last_ts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="335" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1ada59d9aac414afd48ffe286cae0a75ea" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t _RtpStream::rcv_last_seq</definition>
+        <argsstring></argsstring>
+        <name>rcv_last_seq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="336" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a860bdd128fa6fae88457644c2df14ab6" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t _RtpStream::pad</definition>
+        <argsstring></argsstring>
+        <name>pad</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="337" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1aaef25994c22b8088503efa5aa0695857" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::rcv_last_app_ts</definition>
+        <argsstring></argsstring>
+        <name>rcv_last_app_ts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="338" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1ae3c66d24d2c0f23980bd7cb34781aad5" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::rcv_last_ret_ts</definition>
+        <argsstring></argsstring>
+        <name>rcv_last_ret_ts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="339" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="339" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a7f3e1c39dc3273afae3e2559d9b92555" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::hwrcv_extseq</definition>
+        <argsstring></argsstring>
+        <name>hwrcv_extseq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="340" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="340" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1aa31ae10dc550165eaf59582a93f27fae" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::hwrcv_seq_at_last_SR</definition>
+        <argsstring></argsstring>
+        <name>hwrcv_seq_at_last_SR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="341" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="341" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1ad99c412bfacad393ad9f85f8addfd8c8" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::hwrcv_since_last_SR</definition>
+        <argsstring></argsstring>
+        <name>hwrcv_since_last_SR</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="342" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="342" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1ad4c0748cb9dc1e0fdecb727b6b861d34" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::last_rcv_SR_ts</definition>
+        <argsstring></argsstring>
+        <name>last_rcv_SR_ts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="343" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="343" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a985c3197bbf6b3ea344716fc85d0ba73" prot="public" static="no" mutable="no">
+        <type>struct timeval</type>
+        <definition>struct timeval _RtpStream::last_rcv_SR_time</definition>
+        <argsstring></argsstring>
+        <name>last_rcv_SR_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="343" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="344" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1aac3a7d2d9c33988b7fd47aabcbf71167" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t _RtpStream::snd_seq</definition>
+        <argsstring></argsstring>
+        <name>snd_seq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="345" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="345" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a9c71d6fab69b21e78eff345e997df337" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::last_rtcp_packet_count</definition>
+        <argsstring></argsstring>
+        <name>last_rtcp_packet_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="346" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a17e44929de4e0a1bc613c07bc570eed7" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpStream::sent_payload_bytes</definition>
+        <argsstring></argsstring>
+        <name>sent_payload_bytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="347" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a4c77c4929a01d92168b42c890ef409f9" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpStream::recv_errno</definition>
+        <argsstring></argsstring>
+        <name>recv_errno</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="348" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a90d53ddb6ec2e58e4887285643fab3fe" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpStream::send_errno</definition>
+        <argsstring></argsstring>
+        <name>send_errno</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="349" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1aafd0c0ae9e6e80b1ccdd7ccab996b480" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpStream::snd_socket_size</definition>
+        <argsstring></argsstring>
+        <name>snd_socket_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="350" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a5fd3587db51a3360389c2e42824125a0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpStream::rcv_socket_size</definition>
+        <argsstring></argsstring>
+        <name>rcv_socket_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="351" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="351" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a9ede5d0113ef70ac01fd8286d53bada0" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpStream::ssrc_changed_thres</definition>
+        <argsstring></argsstring>
+        <name>ssrc_changed_thres</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="352" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="352" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a8a1df0e231e5ae2190502f69743bd5a4" prot="public" static="no" mutable="no">
+        <type><ref refid="structjitter__stats" kindref="compound">jitter_stats_t</ref></type>
+        <definition>jitter_stats_t _RtpStream::jitter_stats</definition>
+        <argsstring></argsstring>
+        <name>jitter_stats</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="353" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="353" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1ad3ee934b3a0fb64a8f86465386d0aa85" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct__OrtpCongestionDetector" kindref="compound">_OrtpCongestionDetector</ref> *</type>
+        <definition>struct _OrtpCongestionDetector* _RtpStream::congdetect</definition>
+        <argsstring></argsstring>
+        <name>congdetect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="354" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="354" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpStream_1a22a7f6c4cfd83b3180f2e9bae807408c" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">_OrtpVideoBandwidthEstimator</ref> *</type>
+        <definition>struct _OrtpVideoBandwidthEstimator* _RtpStream::video_bw_estimator</definition>
+        <argsstring></argsstring>
+        <name>video_bw_estimator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="355" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="355" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="384">
+        <label>_JBParameters</label>
+        <link refid="struct__JBParameters"/>
+      </node>
+      <node id="386">
+        <label>_OrtpCongestionDetector</label>
+        <link refid="struct__OrtpCongestionDetector"/>
+        <childnode refid="383" relation="usage">
+          <edgelabel>rls</edgelabel>
+        </childnode>
+        <childnode refid="355" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="370">
+        <label>OrtpRtcpXrConfiguration</label>
+        <link refid="structOrtpRtcpXrConfiguration"/>
+      </node>
+      <node id="377">
+        <label>_OrtpPayloadType</label>
+        <link refid="struct__OrtpPayloadType"/>
+        <childnode refid="378" relation="usage">
+          <edgelabel>avpf</edgelabel>
+        </childnode>
+      </node>
+      <node id="368">
+        <label>OrtpRtcpXrMediaCallbacks</label>
+        <link refid="structOrtpRtcpXrMediaCallbacks"/>
+      </node>
+      <node id="385">
+        <label>_OrtpExtremum</label>
+        <link refid="struct__OrtpExtremum"/>
+      </node>
+      <node id="365">
+        <label>_SessionSet</label>
+        <link refid="struct__SessionSet"/>
+      </node>
+      <node id="360">
+        <label>ortp_recv_addr</label>
+        <link refid="structortp__recv__addr"/>
+      </node>
+      <node id="362">
+        <label>_queue</label>
+        <link refid="struct__queue"/>
+        <childnode refid="358" relation="usage">
+          <edgelabel>_q_stopper</edgelabel>
+        </childnode>
+      </node>
+      <node id="357">
+        <label>rtp_stats</label>
+        <link refid="structrtp__stats"/>
+      </node>
+      <node id="366">
+        <label>_RtcpStream</label>
+        <link refid="struct__RtcpStream"/>
+        <childnode refid="367" relation="usage">
+          <edgelabel>tmmbr_info</edgelabel>
+        </childnode>
+        <childnode refid="368" relation="usage">
+          <edgelabel>xr_media_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="369" relation="usage">
+          <edgelabel>send_algo</edgelabel>
+        </childnode>
+        <childnode refid="370" relation="usage">
+          <edgelabel>xr_conf</edgelabel>
+        </childnode>
+        <childnode refid="371" relation="usage">
+          <edgelabel>gs</edgelabel>
+        </childnode>
+      </node>
+      <node id="381">
+        <label>jitter_stats</label>
+        <link refid="structjitter__stats"/>
+      </node>
+      <node id="364">
+        <label>_RtpTimer</label>
+        <link refid="struct__RtpTimer"/>
+      </node>
+      <node id="371">
+        <label>_OrtpStream</label>
+        <link refid="struct__OrtpStream"/>
+        <childnode refid="372" relation="usage">
+          <edgelabel>allocator</edgelabel>
+        </childnode>
+        <childnode refid="373" relation="usage">
+          <edgelabel>recv_bw_estimator</edgelabel>
+        </childnode>
+        <childnode refid="374" relation="usage">
+          <edgelabel>tr</edgelabel>
+        </childnode>
+      </node>
+      <node id="383">
+        <label>_OrtpKalmanRLS</label>
+        <link refid="struct__OrtpKalmanRLS"/>
+      </node>
+      <node id="358">
+        <label>msgb</label>
+        <link refid="structmsgb"/>
+        <childnode refid="359" relation="usage">
+          <edgelabel>b_datap</edgelabel>
+        </childnode>
+        <childnode refid="358" relation="usage">
+          <edgelabel>b_next</edgelabel>
+          <edgelabel>b_cont</edgelabel>
+          <edgelabel>b_prev</edgelabel>
+        </childnode>
+        <childnode refid="360" relation="usage">
+          <edgelabel>recv_addr</edgelabel>
+        </childnode>
+      </node>
+      <node id="373">
+        <label>_OrtpBwEstimator</label>
+        <link refid="struct__OrtpBwEstimator"/>
+      </node>
+      <node id="353">
+        <label>_OrtpVideoBandwidthEstimator</label>
+        <link refid="struct__OrtpVideoBandwidthEstimator"/>
+        <childnode refid="354" relation="usage">
+          <edgelabel>last_packet</edgelabel>
+        </childnode>
+        <childnode refid="355" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="367">
+        <label>OrtpRtcpTmmbrInfo</label>
+        <link refid="structOrtpRtcpTmmbrInfo"/>
+        <childnode refid="358" relation="usage">
+          <edgelabel>received</edgelabel>
+          <edgelabel>sent</edgelabel>
+        </childnode>
+      </node>
+      <node id="372">
+        <label>_msgb_allocator</label>
+        <link refid="struct__msgb__allocator"/>
+        <childnode refid="362" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="354">
+        <label>_OrtpVideoBandwidthEstimatorPacket</label>
+        <link refid="struct__OrtpVideoBandwidthEstimatorPacket"/>
+      </node>
+      <node id="378">
+        <label>_PayloadTypeAvpfParams</label>
+        <link refid="struct__PayloadTypeAvpfParams"/>
+      </node>
+      <node id="374">
+        <label>_RtpTransport</label>
+        <link refid="struct__RtpTransport"/>
+        <childnode refid="355" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="380">
+        <label>_OrtpNetworkSimulatorParams</label>
+        <link refid="struct__OrtpNetworkSimulatorParams"/>
+      </node>
+      <node id="369">
+        <label>OrtpRtcpSendAlgorithm</label>
+        <link refid="structOrtpRtcpSendAlgorithm"/>
+        <childnode refid="358" relation="usage">
+          <edgelabel>fb_packets</edgelabel>
+        </childnode>
+      </node>
+      <node id="382">
+        <label>_JitterControl</label>
+        <link refid="struct__JitterControl"/>
+        <childnode refid="383" relation="usage">
+          <edgelabel>kalman_rls</edgelabel>
+        </childnode>
+        <childnode refid="384" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+        <childnode refid="385" relation="usage">
+          <edgelabel>max_ts_deviation</edgelabel>
+        </childnode>
+      </node>
+      <node id="363">
+        <label>_RtpScheduler</label>
+        <link refid="struct__RtpScheduler"/>
+        <childnode refid="364" relation="usage">
+          <edgelabel>timer</edgelabel>
+        </childnode>
+        <childnode refid="365" relation="usage">
+          <edgelabel>r_sessions</edgelabel>
+          <edgelabel>e_sessions</edgelabel>
+          <edgelabel>w_sessions</edgelabel>
+          <edgelabel>all_sessions</edgelabel>
+        </childnode>
+        <childnode refid="355" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+      </node>
+      <node id="352">
+        <label>_RtpStream</label>
+        <link refid="struct__RtpStream"/>
+        <childnode refid="353" relation="usage">
+          <edgelabel>video_bw_estimator</edgelabel>
+        </childnode>
+        <childnode refid="381" relation="usage">
+          <edgelabel>jitter_stats</edgelabel>
+        </childnode>
+        <childnode refid="362" relation="usage">
+          <edgelabel>tev_rq</edgelabel>
+          <edgelabel>rq</edgelabel>
+        </childnode>
+        <childnode refid="382" relation="usage">
+          <edgelabel>jittctl</edgelabel>
+        </childnode>
+        <childnode refid="386" relation="usage">
+          <edgelabel>congdetect</edgelabel>
+        </childnode>
+        <childnode refid="371" relation="usage">
+          <edgelabel>gs</edgelabel>
+        </childnode>
+      </node>
+      <node id="355">
+        <label>_RtpSession</label>
+        <link refid="struct__RtpSession"/>
+        <childnode refid="356" relation="usage">
+          <edgelabel>rtcp_xr_stats</edgelabel>
+        </childnode>
+        <childnode refid="357" relation="usage">
+          <edgelabel>stats</edgelabel>
+        </childnode>
+        <childnode refid="358" relation="usage">
+          <edgelabel>full_sdes</edgelabel>
+          <edgelabel>minimal_sdes</edgelabel>
+          <edgelabel>current_tev</edgelabel>
+          <edgelabel>pending</edgelabel>
+        </childnode>
+        <childnode refid="361" relation="usage">
+          <edgelabel>wp</edgelabel>
+        </childnode>
+        <childnode refid="362" relation="usage">
+          <edgelabel>contributing_sources</edgelabel>
+        </childnode>
+        <childnode refid="363" relation="usage">
+          <edgelabel>sched</edgelabel>
+        </childnode>
+        <childnode refid="366" relation="usage">
+          <edgelabel>rtcp</edgelabel>
+        </childnode>
+        <childnode refid="375" relation="usage">
+          <edgelabel>on_timestamp_jump</edgelabel>
+          <edgelabel>on_payload_type_changed</edgelabel>
+          <edgelabel>on_telephone_event_packet</edgelabel>
+          <edgelabel>on_ssrc_changed</edgelabel>
+          <edgelabel>on_network_error</edgelabel>
+          <edgelabel>on_rtcp_bye</edgelabel>
+          <edgelabel>on_telephone_event</edgelabel>
+        </childnode>
+        <childnode refid="376" relation="usage">
+          <edgelabel>profile</edgelabel>
+        </childnode>
+        <childnode refid="379" relation="usage">
+          <edgelabel>net_sim_ctx</edgelabel>
+        </childnode>
+        <childnode refid="355" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>spliced_session</edgelabel>
+        </childnode>
+        <childnode refid="352" relation="usage">
+          <edgelabel>rtp</edgelabel>
+        </childnode>
+      </node>
+      <node id="379">
+        <label>_OrtpNetworkSimulatorCtx</label>
+        <link refid="struct__OrtpNetworkSimulatorCtx"/>
+        <childnode refid="362" relation="usage">
+          <edgelabel>latency_q</edgelabel>
+          <edgelabel>send_q</edgelabel>
+          <edgelabel>q</edgelabel>
+        </childnode>
+        <childnode refid="380" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+      </node>
+      <node id="376">
+        <label>_RtpProfile</label>
+        <link refid="struct__RtpProfile"/>
+        <childnode refid="377" relation="usage">
+          <edgelabel>payload</edgelabel>
+        </childnode>
+      </node>
+      <node id="375">
+        <label>_RtpSignalTable</label>
+        <link refid="struct__RtpSignalTable"/>
+        <childnode refid="355" relation="usage">
+          <edgelabel>session</edgelabel>
+          <edgelabel>callback</edgelabel>
+        </childnode>
+      </node>
+      <node id="359">
+        <label>datab</label>
+        <link refid="structdatab"/>
+      </node>
+      <node id="361">
+        <label>_WaitPoint</label>
+        <link refid="struct__WaitPoint"/>
+      </node>
+      <node id="356">
+        <label>OrtpRtcpXrStats</label>
+        <link refid="structOrtpRtcpXrStats"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="319" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="318" bodyend="356"/>
+    <listofallmembers>
+      <member refid="struct__RtpStream_1ad3ee934b3a0fb64a8f86465386d0aa85" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>congdetect</name></member>
+      <member refid="struct__RtpStream_1a05d553645d22770ce9c56f345e7c47a9" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>gs</name></member>
+      <member refid="struct__RtpStream_1a7f3e1c39dc3273afae3e2559d9b92555" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>hwrcv_extseq</name></member>
+      <member refid="struct__RtpStream_1aa31ae10dc550165eaf59582a93f27fae" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>hwrcv_seq_at_last_SR</name></member>
+      <member refid="struct__RtpStream_1ad99c412bfacad393ad9f85f8addfd8c8" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>hwrcv_since_last_SR</name></member>
+      <member refid="struct__RtpStream_1a3b039fd2ee3ce676a9cefb32b1a93022" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>jittctl</name></member>
+      <member refid="struct__RtpStream_1a8a1df0e231e5ae2190502f69743bd5a4" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>jitter_stats</name></member>
+      <member refid="struct__RtpStream_1a985c3197bbf6b3ea344716fc85d0ba73" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>last_rcv_SR_time</name></member>
+      <member refid="struct__RtpStream_1ad4c0748cb9dc1e0fdecb727b6b861d34" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>last_rcv_SR_ts</name></member>
+      <member refid="struct__RtpStream_1a9c71d6fab69b21e78eff345e997df337" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>last_rtcp_packet_count</name></member>
+      <member refid="struct__RtpStream_1a860bdd128fa6fae88457644c2df14ab6" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>pad</name></member>
+      <member refid="struct__RtpStream_1a37512e40db1bcf5255b74803b2bfd7c9" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>QoSFlowID</name></member>
+      <member refid="struct__RtpStream_1ac3fc7af632bcd3af6dd7451efa2ab77c" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>QoSHandle</name></member>
+      <member refid="struct__RtpStream_1aaef25994c22b8088503efa5aa0695857" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>rcv_last_app_ts</name></member>
+      <member refid="struct__RtpStream_1ae3c66d24d2c0f23980bd7cb34781aad5" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>rcv_last_ret_ts</name></member>
+      <member refid="struct__RtpStream_1ada59d9aac414afd48ffe286cae0a75ea" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>rcv_last_seq</name></member>
+      <member refid="struct__RtpStream_1a2b3178cfab529fbe94321ad42e17dc39" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>rcv_last_ts</name></member>
+      <member refid="struct__RtpStream_1a221a8f7c224d27f4398b517a7cf3241f" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>rcv_query_ts_offset</name></member>
+      <member refid="struct__RtpStream_1a5fd3587db51a3360389c2e42824125a0" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>rcv_socket_size</name></member>
+      <member refid="struct__RtpStream_1a601041ec92986121324a9688602d2fcc" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>rcv_time_offset</name></member>
+      <member refid="struct__RtpStream_1a6eef843dc46010f5fb2a0de7a6c65e6e" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>rcv_ts_offset</name></member>
+      <member refid="struct__RtpStream_1a4c77c4929a01d92168b42c890ef409f9" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>recv_errno</name></member>
+      <member refid="struct__RtpStream_1ab57ee13b7733b5cf49d31e5ebbbcb504" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>rq</name></member>
+      <member refid="struct__RtpStream_1a90d53ddb6ec2e58e4887285643fab3fe" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>send_errno</name></member>
+      <member refid="struct__RtpStream_1a17e44929de4e0a1bc613c07bc570eed7" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>sent_payload_bytes</name></member>
+      <member refid="struct__RtpStream_1ac8b44e94973af102fcd0ff72d6b6f948" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>snd_last_ts</name></member>
+      <member refid="struct__RtpStream_1a758bf0a21191e13ebbb50eea38236e08" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>snd_rand_offset</name></member>
+      <member refid="struct__RtpStream_1aac3a7d2d9c33988b7fd47aabcbf71167" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>snd_seq</name></member>
+      <member refid="struct__RtpStream_1aafd0c0ae9e6e80b1ccdd7ccab996b480" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>snd_socket_size</name></member>
+      <member refid="struct__RtpStream_1a2eebd059f4f3910cfa378132ede85da1" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>snd_time_offset</name></member>
+      <member refid="struct__RtpStream_1aa3a7cdac46b8c818598e15cd78eec11c" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>snd_ts_offset</name></member>
+      <member refid="struct__RtpStream_1a9ede5d0113ef70ac01fd8286d53bada0" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>ssrc_changed_thres</name></member>
+      <member refid="struct__RtpStream_1ada87974ccf5884c34b7a04110a144d28" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>tev_rq</name></member>
+      <member refid="struct__RtpStream_1a7acc1dd91a64c7d5dbf5bde512f841d9" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>time_jump</name></member>
+      <member refid="struct__RtpStream_1a271de87373b4de23ad47e4a9b870d1a4" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>ts_jump</name></member>
+      <member refid="struct__RtpStream_1a22a7f6c4cfd83b3180f2e9bae807408c" prot="public" virt="non-virtual"><scope>_RtpStream</scope><name>video_bw_estimator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

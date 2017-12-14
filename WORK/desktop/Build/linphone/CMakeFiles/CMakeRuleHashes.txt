@@ -1,0 +1,7 @@
+# Hashes of file build rules.
+ca1dbc894863f27693c90f6903ea117a coreapi/CMakeFiles/liblinphone-git-version
+6eb6c5faedc15b178a1da7b86c6706c7 coreapi/help/doc/doxygen/CMakeFiles/linphone-doc
+a3e8b01f988ecdfe9dfa6bebe7c82b44 coreapi/help/doc/doxygen/html/index.html
+e39830a48264a9cec2b062e47698eafd share/CMakeFiles/rootca
+99a1ba67197b9a3d6b7df453eeb1e6d7 share/rootca.pem
+fa0cb0d97d1af9d21bb18e7c7e8489a8 wrappers/cpp/include/linphone++/linphone.hh

@@ -1,0 +1,45 @@
+Determining if the include file byteswap.h exists failed with the following output:
+Change Dir: /Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/srtp/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f5f38/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_f5f38.dir/build.make CMakeFiles/cmTC_f5f38.dir/build
+Building C object CMakeFiles/cmTC_f5f38.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.13   -o CMakeFiles/cmTC_f5f38.dir/CheckIncludeFile.c.o   -c /Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/srtp/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/srtp/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'byteswap.h' file not found
+#include <byteswap.h>
+         ^~~~~~~~~~~~
+1 error generated.
+make[5]: *** [CMakeFiles/cmTC_f5f38.dir/CheckIncludeFile.c.o] Error 1
+make[4]: *** [cmTC_f5f38/fast] Error 2
+
+
+Determining if the include file sys/int_types.h exists failed with the following output:
+Change Dir: /Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/srtp/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_41f2d/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_41f2d.dir/build.make CMakeFiles/cmTC_41f2d.dir/build
+Building C object CMakeFiles/cmTC_41f2d.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.13   -o CMakeFiles/cmTC_41f2d.dir/CheckIncludeFile.c.o   -c /Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/srtp/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/srtp/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'sys/int_types.h' file not found
+#include <sys/int_types.h>
+         ^~~~~~~~~~~~~~~~~
+1 error generated.
+make[5]: *** [CMakeFiles/cmTC_41f2d.dir/CheckIncludeFile.c.o] Error 1
+make[4]: *** [cmTC_41f2d/fast] Error 2
+
+
+Determining if the include file windows.h exists failed with the following output:
+Change Dir: /Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/srtp/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cae45/fast"
+/Applications/Xcode.app/Contents/Developer/usr/bin/make -f CMakeFiles/cmTC_cae45.dir/build.make CMakeFiles/cmTC_cae45.dir/build
+Building C object CMakeFiles/cmTC_cae45.dir/CheckIncludeFile.c.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc   -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk -mmacosx-version-min=10.13   -o CMakeFiles/cmTC_cae45.dir/CheckIncludeFile.c.o   -c /Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/srtp/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/srtp/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:10: fatal error: 'windows.h' file not found
+#include <windows.h>
+         ^~~~~~~~~~~
+1 error generated.
+make[5]: *** [CMakeFiles/cmTC_cae45.dir/CheckIncludeFile.c.o] Error 1
+make[4]: *** [cmTC_cae45/fast] Error 2
+
+

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__OrtpVideoBandwidthEstimatorPacket" kind="struct" language="C++" prot="public">
+    <compoundname>_OrtpVideoBandwidthEstimatorPacket</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorPacket_1ad4aeac42336412a736e6bb09d06bc107" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _OrtpVideoBandwidthEstimatorPacket::sent_timestamp</definition>
+        <argsstring></argsstring>
+        <name>sent_timestamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="29" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorPacket_1af310c214671debb648f8486e4c5ef152" prot="public" static="no" mutable="no">
+        <type>struct timeval</type>
+        <definition>struct timeval _OrtpVideoBandwidthEstimatorPacket::recv_first_timestamp</definition>
+        <argsstring></argsstring>
+        <name>recv_first_timestamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="29" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorPacket_1a7e28ae8485e3f871d3034eb4e0f5bac5" prot="public" static="no" mutable="no">
+        <type>struct timeval</type>
+        <definition>struct timeval _OrtpVideoBandwidthEstimatorPacket::recv_last_timestamp</definition>
+        <argsstring></argsstring>
+        <name>recv_last_timestamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="29" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorPacket_1a014e9a11042dd640d7f53853a7891d42" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _OrtpVideoBandwidthEstimatorPacket::bytes</definition>
+        <argsstring></argsstring>
+        <name>bytes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="32" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorPacket_1a09747cb94e6bc16639eac570007eb2cf" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _OrtpVideoBandwidthEstimatorPacket::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="33" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorPacket_1aa94db934b2e6a8d93549c02a9cb8bcaa" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float _OrtpVideoBandwidthEstimatorPacket::bitrate</definition>
+        <argsstring></argsstring>
+        <name>bitrate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="34" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="28" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" bodystart="28" bodyend="35"/>
+    <listofallmembers>
+      <member refid="struct__OrtpVideoBandwidthEstimatorPacket_1aa94db934b2e6a8d93549c02a9cb8bcaa" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorPacket</scope><name>bitrate</name></member>
+      <member refid="struct__OrtpVideoBandwidthEstimatorPacket_1a014e9a11042dd640d7f53853a7891d42" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorPacket</scope><name>bytes</name></member>
+      <member refid="struct__OrtpVideoBandwidthEstimatorPacket_1a09747cb94e6bc16639eac570007eb2cf" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorPacket</scope><name>count</name></member>
+      <member refid="struct__OrtpVideoBandwidthEstimatorPacket_1af310c214671debb648f8486e4c5ef152" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorPacket</scope><name>recv_first_timestamp</name></member>
+      <member refid="struct__OrtpVideoBandwidthEstimatorPacket_1a7e28ae8485e3f871d3034eb4e0f5bac5" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorPacket</scope><name>recv_last_timestamp</name></member>
+      <member refid="struct__OrtpVideoBandwidthEstimatorPacket_1ad4aeac42336412a736e6bb09d06bc107" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorPacket</scope><name>sent_timestamp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

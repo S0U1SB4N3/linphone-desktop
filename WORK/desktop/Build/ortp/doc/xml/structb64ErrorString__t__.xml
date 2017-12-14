@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structb64ErrorString__t__" kind="struct" language="C++" prot="public">
+    <compoundname>b64ErrorString_t_</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structb64ErrorString__t___1abc14a7cbc65d71311340950a9b300944" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int b64ErrorString_t_::code</definition>
+        <argsstring></argsstring>
+        <name>code</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The error code. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" line="525" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="525" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb64ErrorString__t___1aa6eecf23d29debb42e999c6909a056e6" prot="public" static="no" mutable="no">
+        <type>char const  *</type>
+        <definition>char const* b64ErrorString_t_::str</definition>
+        <argsstring></argsstring>
+        <name>str</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The string. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" line="526" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="526" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structb64ErrorString__t___1a2c99a921d225217da271a97114ce2658" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t b64ErrorString_t_::len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The string length. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" line="527" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="527" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" line="524" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="522" bodyend="528"/>
+    <listofallmembers>
+      <member refid="structb64ErrorString__t___1abc14a7cbc65d71311340950a9b300944" prot="public" virt="non-virtual"><scope>b64ErrorString_t_</scope><name>code</name></member>
+      <member refid="structb64ErrorString__t___1a2c99a921d225217da271a97114ce2658" prot="public" virt="non-virtual"><scope>b64ErrorString_t_</scope><name>len</name></member>
+      <member refid="structb64ErrorString__t___1aa6eecf23d29debb42e999c6909a056e6" prot="public" virt="non-virtual"><scope>b64ErrorString_t_</scope><name>str</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

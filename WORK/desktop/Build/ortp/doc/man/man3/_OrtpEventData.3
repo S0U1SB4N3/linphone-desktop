@@ -1,0 +1,79 @@
+.TH "_OrtpEventData" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_OrtpEventData
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBmblk_t\fP * \fBpacket\fP"
+.br
+.ti -1c
+.RI "struct sockaddr_storage \fBsource_addr\fP"
+.br
+.ti -1c
+.RI "socklen_t \fBsource_addrlen\fP"
+.br
+.ti -1c
+.RI "\fBortpTimeSpec\fP \fBts\fP"
+.br
+.ti -1c
+.RI "union {"
+.br
+.ti -1c
+.RI "   int \fBtelephone_event\fP"
+.br
+.ti -1c
+.RI "   int \fBpayload_type\fP"
+.br
+.ti -1c
+.RI "   bool_t \fBdtls_stream_encrypted\fP"
+.br
+.ti -1c
+.RI "   bool_t \fBzrtp_stream_encrypted\fP"
+.br
+.ti -1c
+.RI "   bool_t \fBice_processing_successful\fP"
+.br
+.ti -1c
+.RI "   struct \fB_ZrtpInfo\fP {"
+.br
+.ti -1c
+.RI "      char \fBsas\fP [32]"
+.br
+.ti -1c
+.RI "      bool_t \fBverified\fP"
+.br
+.ti -1c
+.RI "      bool_t \fBcache_mismatch\fP"
+.br
+.ti -1c
+.RI "      bool_t \fBpad\fP [2]"
+.br
+.ti -1c
+.RI "   } \fBzrtp_info\fP"
+.br
+.ti -1c
+.RI "   OrtpSocketType \fBsocket_type\fP"
+.br
+.ti -1c
+.RI "   uint32_t \fBreceived_rtt_character\fP"
+.br
+.ti -1c
+.RI "   bool_t \fBcongestion_detected\fP"
+.br
+.ti -1c
+.RI "   float \fBvideo_bandwidth_available\fP"
+.br
+.ti -1c
+.RI "} \fBinfo\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

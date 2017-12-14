@@ -1,0 +1,61 @@
+.TH "_JBParameters" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_JBParameters
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <rtpsession\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBmin_size\fP"
+.br
+.ti -1c
+.RI "int \fBnom_size\fP"
+.br
+.ti -1c
+.RI "int \fBmax_size\fP"
+.br
+.ti -1c
+.RI "bool_t \fBadaptive\fP"
+.br
+.ti -1c
+.RI "bool_t \fBenabled\fP"
+.br
+.ti -1c
+.RI "bool_t \fBpad\fP [2]"
+.br
+.ti -1c
+.RI "int \fBmax_packets\fP"
+.br
+.ti -1c
+.RI "OrtpJitterBufferAlgorithm \fBbuffer_algorithm\fP"
+.br
+.ti -1c
+.RI "int \fBrefresh_ms\fP"
+.br
+.ti -1c
+.RI "int \fBramp_threshold\fP"
+.br
+.ti -1c
+.RI "int \fBramp_step_ms\fP"
+.br
+.ti -1c
+.RI "int \fBramp_refresh_ms\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Jitter buffer parameters 
+.SH "Field Documentation"
+.PP 
+.SS "OrtpJitterBufferAlgorithm _JBParameters::buffer_algorithm"
+max number of packets allowed to be queued in the jitter buffer 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

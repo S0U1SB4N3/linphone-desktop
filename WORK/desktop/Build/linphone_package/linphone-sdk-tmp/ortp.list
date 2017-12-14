@@ -1,0 +1,6 @@
+lib/libortp*.dylib
+include/ortp/*
+lib/ortp*.lib
+lib/pkgconfig/ortp.pc
+share/doc/oRTP-*
+share/oRTP/cmake/*

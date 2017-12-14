@@ -1,0 +1,1193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__RtpSession" kind="struct" language="C++" prot="public">
+    <compoundname>_RtpSession</compoundname>
+    <includes local="no">rtpsession.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__RtpSession_1a6b1399c564ac89a3217ef4218c96fa27" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpSession" kindref="compound">RtpSession</ref> *</type>
+        <definition>RtpSession* _RtpSession::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="384" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="384" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ab72219a85559c508ab9526cabcadb171" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::mask_pos</definition>
+        <argsstring></argsstring>
+        <name>mask_pos</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="385" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="385" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ac9a748ff6007c3213c1cc0b942b71f70" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+        <definition>RtpProfile* _RtpSession::profile</definition>
+        <argsstring></argsstring>
+        <name>profile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="387" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="387" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1aacd1f1f30081cf71c4104fcf631a6af7" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::pt</definition>
+        <argsstring></argsstring>
+        <name>pt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="388" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="388" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a29e5c3382d3a41d0cc37564f8e4b8ee5" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _RtpSession::ssrc</definition>
+        <argsstring></argsstring>
+        <name>ssrc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="389" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="389" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a3f2a796cecb863bd6a1d6dd6d83c251f" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__WaitPoint" kindref="compound">WaitPoint</ref></type>
+        <definition>WaitPoint _RtpSession::wp</definition>
+        <argsstring></argsstring>
+        <name>wp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="390" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="390" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a02906526222e842169e209dfefba9313" prot="public" static="no" mutable="no">
+        <type>struct _RtpSession::@1</type>
+        <definition>struct _RtpSession::@1  _RtpSession::snd</definition>
+        <argsstring></argsstring>
+        <name>snd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="391" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a1e045ace4bcaa9b4f550efac20a0e942" prot="public" static="no" mutable="no">
+        <type>struct _RtpSession::@1</type>
+        <definition>struct _RtpSession::@1 _RtpSession::rcv</definition>
+        <argsstring></argsstring>
+        <name>rcv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="391" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1acef5f7ad1d6ef887ce85084f2e935fa1" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _RtpSession::inc_ssrc_candidate</definition>
+        <argsstring></argsstring>
+        <name>inc_ssrc_candidate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="392" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a009cc1a100546470badce7615f9ea54e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::inc_same_ssrc_count</definition>
+        <argsstring></argsstring>
+        <name>inc_same_ssrc_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="393" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="393" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a39c90947a1471aa0fcaf79a9e9cd22a3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::hw_recv_pt</definition>
+        <argsstring></argsstring>
+        <name>hw_recv_pt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="394" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="394" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a35224fa6de29685bd09192242ba91346" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::recv_buf_size</definition>
+        <argsstring></argsstring>
+        <name>recv_buf_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="395" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a0daf8e1128981ca6e415f87af86153a3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::target_upload_bandwidth</definition>
+        <argsstring></argsstring>
+        <name>target_upload_bandwidth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="396" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="396" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a8e3b02123c1d4e420e94d611237d0bd9" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpSignalTable" kindref="compound">RtpSignalTable</ref></type>
+        <definition>RtpSignalTable _RtpSession::on_ssrc_changed</definition>
+        <argsstring></argsstring>
+        <name>on_ssrc_changed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="397" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ae7e1888dc483887ca1ca518bb1295f80" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpSignalTable" kindref="compound">RtpSignalTable</ref></type>
+        <definition>RtpSignalTable _RtpSession::on_payload_type_changed</definition>
+        <argsstring></argsstring>
+        <name>on_payload_type_changed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="398" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="398" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a7ce03164514eb1d3b8bb4e42b9d806dd" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpSignalTable" kindref="compound">RtpSignalTable</ref></type>
+        <definition>RtpSignalTable _RtpSession::on_telephone_event_packet</definition>
+        <argsstring></argsstring>
+        <name>on_telephone_event_packet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="399" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="399" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1aea7589d032b769a2893d0a9d881e03f6" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpSignalTable" kindref="compound">RtpSignalTable</ref></type>
+        <definition>RtpSignalTable _RtpSession::on_telephone_event</definition>
+        <argsstring></argsstring>
+        <name>on_telephone_event</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="400" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="400" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1aa239f28f1d1e143bc236b741d6205b76" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpSignalTable" kindref="compound">RtpSignalTable</ref></type>
+        <definition>RtpSignalTable _RtpSession::on_timestamp_jump</definition>
+        <argsstring></argsstring>
+        <name>on_timestamp_jump</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="401" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="401" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a64162b14de7440eaea29844a057c0f22" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpSignalTable" kindref="compound">RtpSignalTable</ref></type>
+        <definition>RtpSignalTable _RtpSession::on_network_error</definition>
+        <argsstring></argsstring>
+        <name>on_network_error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="402" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="402" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ab57f76cbb09b49bc2d98175bb03ef337" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpSignalTable" kindref="compound">RtpSignalTable</ref></type>
+        <definition>RtpSignalTable _RtpSession::on_rtcp_bye</definition>
+        <argsstring></argsstring>
+        <name>on_rtcp_bye</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="403" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="403" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ace6656c6b2d39ca7274b6565208b72ce" prot="public" static="no" mutable="no">
+        <type>bctbx_list_t *</type>
+        <definition>bctbx_list_t* _RtpSession::signal_tables</definition>
+        <argsstring></argsstring>
+        <name>signal_tables</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="404" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="404" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a99b066ef1aad8b45dd849240371233a9" prot="public" static="no" mutable="no">
+        <type>bctbx_list_t *</type>
+        <definition>bctbx_list_t* _RtpSession::eventqs</definition>
+        <argsstring></argsstring>
+        <name>eventqs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="405" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="405" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ac0ac7703e01f0624ecb11cc833bca49e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpStream" kindref="compound">RtpStream</ref></type>
+        <definition>RtpStream _RtpSession::rtp</definition>
+        <argsstring></argsstring>
+        <name>rtp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="406" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="406" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a9fac1b3781bb5a97909c76236d73b94e" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtcpStream" kindref="compound">RtcpStream</ref></type>
+        <definition>RtcpStream _RtpSession::rtcp</definition>
+        <argsstring></argsstring>
+        <name>rtcp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="407" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="407" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ac62a1f4842529dbb65ffb8e0cae3b1b6" prot="public" static="no" mutable="no">
+        <type><ref refid="structOrtpRtcpXrStats" kindref="compound">OrtpRtcpXrStats</ref></type>
+        <definition>OrtpRtcpXrStats _RtpSession::rtcp_xr_stats</definition>
+        <argsstring></argsstring>
+        <name>rtcp_xr_stats</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="408" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="408" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a2d66c29b65656185ff13446187b215f7" prot="public" static="no" mutable="no">
+        <type>RtpSessionMode</type>
+        <definition>RtpSessionMode _RtpSession::mode</definition>
+        <argsstring></argsstring>
+        <name>mode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="409" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="409" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1afd1e941d3806a4f92708c2f33311b389" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct__RtpScheduler" kindref="compound">_RtpScheduler</ref> *</type>
+        <definition>struct _RtpScheduler* _RtpSession::sched</definition>
+        <argsstring></argsstring>
+        <name>sched</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="410" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="410" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1acfa3a2ba5ca10f21e96872d7ec035195" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpSession::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="411" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="411" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1aedafcf4cc566a8335ba78582cfb80366" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::dscp</definition>
+        <argsstring></argsstring>
+        <name>dscp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="412" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="412" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ac3ff164940f934cab2e9e0fb44d1ee6e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::multicast_ttl</definition>
+        <argsstring></argsstring>
+        <name>multicast_ttl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="413" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="413" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ae1cdba8dba6e9bfa5dbdadab7aa73139" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::multicast_loopback</definition>
+        <argsstring></argsstring>
+        <name>multicast_loopback</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="414" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="414" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a6bfb88a4dbbbf0e56e69147f3454acd6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float _RtpSession::duplication_ratio</definition>
+        <argsstring></argsstring>
+        <name>duplication_ratio</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="415" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="415" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a0c1ad25f6323faae09149fff32a62acb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float _RtpSession::duplication_left</definition>
+        <argsstring></argsstring>
+        <name>duplication_left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="416" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="416" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a9c2f9f00e6733bd384499ab8d9762d4b" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* _RtpSession::user_data</definition>
+        <argsstring></argsstring>
+        <name>user_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="417" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="417" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1aec9fbf1f7284424a1102597bab355c8f" prot="public" static="no" mutable="no">
+        <type>struct timeval</type>
+        <definition>struct timeval _RtpSession::last_recv_time</definition>
+        <argsstring></argsstring>
+        <name>last_recv_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="417" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="419" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1abd80f49e848cfc18905e66888ef2ef09" prot="public" static="no" mutable="no">
+        <type><ref refid="structmsgb" kindref="compound">mblk_t</ref> *</type>
+        <definition>mblk_t* _RtpSession::pending</definition>
+        <argsstring></argsstring>
+        <name>pending</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="420" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="420" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ac7d92cfbac540b7df25e8db92f13ce33" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::tev_send_pt</definition>
+        <argsstring></argsstring>
+        <name>tev_send_pt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="422" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="422" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ace578dcf10bbed982f13acee262979f3" prot="public" static="no" mutable="no">
+        <type><ref refid="structmsgb" kindref="compound">mblk_t</ref> *</type>
+        <definition>mblk_t* _RtpSession::current_tev</definition>
+        <argsstring></argsstring>
+        <name>current_tev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="423" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="423" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a0c8b57737a5add9e7c67abeeb0555029" prot="public" static="no" mutable="no">
+        <type><ref refid="structmsgb" kindref="compound">mblk_t</ref> *</type>
+        <definition>mblk_t* _RtpSession::minimal_sdes</definition>
+        <argsstring></argsstring>
+        <name>minimal_sdes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="424" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="424" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a7cd8c5c2b529efeec6af2095de996d8a" prot="public" static="no" mutable="no">
+        <type><ref refid="structmsgb" kindref="compound">mblk_t</ref> *</type>
+        <definition>mblk_t* _RtpSession::full_sdes</definition>
+        <argsstring></argsstring>
+        <name>full_sdes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="425" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="425" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a7ec507ecb2aad39696fdd274f8c7054a" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__queue" kindref="compound">queue_t</ref></type>
+        <definition>queue_t _RtpSession::contributing_sources</definition>
+        <argsstring></argsstring>
+        <name>contributing_sources</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="426" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="426" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ab96404b00b2350e52234e9a602430f5b" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::lost_packets_test_vector</definition>
+        <argsstring></argsstring>
+        <name>lost_packets_test_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="427" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="427" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a414baeb4675a6de4a04ef6bfdcbd6558" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _RtpSession::interarrival_jitter_test_vector</definition>
+        <argsstring></argsstring>
+        <name>interarrival_jitter_test_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="428" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="428" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a7df9f513a893272ae977e6265782d1e1" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _RtpSession::delay_test_vector</definition>
+        <argsstring></argsstring>
+        <name>delay_test_vector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="429" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="429" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a19892f0fee3053259bc0a1d5f01d16a1" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float _RtpSession::rtt</definition>
+        <argsstring></argsstring>
+        <name>rtt</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="430" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="430" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a4753cae386cd36564c8c271b6b855b00" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _RtpSession::cum_loss</definition>
+        <argsstring></argsstring>
+        <name>cum_loss</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="431" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="431" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ae52228bcb95092183602e80876b94b0f" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__OrtpNetworkSimulatorCtx" kindref="compound">OrtpNetworkSimulatorCtx</ref> *</type>
+        <definition>OrtpNetworkSimulatorCtx* _RtpSession::net_sim_ctx</definition>
+        <argsstring></argsstring>
+        <name>net_sim_ctx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="432" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="432" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1ac37e043ed1b20bb009263728f0975ae5" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__RtpSession" kindref="compound">RtpSession</ref> *</type>
+        <definition>RtpSession* _RtpSession::spliced_session</definition>
+        <argsstring></argsstring>
+        <name>spliced_session</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="433" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="433" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a91f4e5609dccecbd3bf6059bdff9863c" prot="public" static="no" mutable="no">
+        <type><ref refid="structrtp__stats" kindref="compound">rtp_stats_t</ref></type>
+        <definition>rtp_stats_t _RtpSession::stats</definition>
+        <argsstring></argsstring>
+        <name>stats</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="434" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="434" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1aee3bb36671f9789ecc6923933dbc98d8" prot="public" static="no" mutable="no">
+        <type>bctbx_list_t *</type>
+        <definition>bctbx_list_t* _RtpSession::recv_addr_map</definition>
+        <argsstring></argsstring>
+        <name>recv_addr_map</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="435" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="435" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1addb4c3cbbec7c09f98136517516ae311" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _RtpSession::send_ts_offset</definition>
+        <argsstring></argsstring>
+        <name>send_ts_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="436" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="436" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a6fe00de5a38287596658b9c9cfc12c7f" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::symmetric_rtp</definition>
+        <argsstring></argsstring>
+        <name>symmetric_rtp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="437" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="437" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a842f07c64492fa1adfa1e0e2c8265b6c" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::permissive</definition>
+        <argsstring></argsstring>
+        <name>permissive</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="438" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="438" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a607489d68b5f6e470c300acb17a9bde7" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::use_connect</definition>
+        <argsstring></argsstring>
+        <name>use_connect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="439" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="439" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a1558b178e0443c7856a4a1abba5fabde" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::ssrc_set</definition>
+        <argsstring></argsstring>
+        <name>ssrc_set</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="440" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="440" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a482e4126148c688eb7999098bb8e710a" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::reuseaddr</definition>
+        <argsstring></argsstring>
+        <name>reuseaddr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="442" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="442" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a7fa5bd12423894972ae51fdcba70e1de" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::rtcp_mux</definition>
+        <argsstring></argsstring>
+        <name>rtcp_mux</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="443" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="443" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a037dc588472fb580586959a3eb534def" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char _RtpSession::avpf_features</definition>
+        <argsstring></argsstring>
+        <name>avpf_features</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A bitmask of ORTP_AVPF_FEATURE_* macros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="444" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="444" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1adf814181727eef338092e24008c0f4f7" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::use_pktinfo</definition>
+        <argsstring></argsstring>
+        <name>use_pktinfo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="445" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="445" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a2ddb860fe8fa376522ba619430b6855e" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::is_spliced</definition>
+        <argsstring></argsstring>
+        <name>is_spliced</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="447" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="447" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a78f1fa74937e35e70f87c3f7d902d58d" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::congestion_detector_enabled</definition>
+        <argsstring></argsstring>
+        <name>congestion_detector_enabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="448" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="448" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpSession_1a0d5f3189b2d2d9e709a4f1c56de8a329" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _RtpSession::video_bandwidth_estimator_enabled</definition>
+        <argsstring></argsstring>
+        <name>video_bandwidth_estimator_enabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="449" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="449" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>An object representing a bi-directional RTP session. It holds sockets, jitter buffer, various counters (timestamp, sequence numbers...) Applications SHOULD NOT try to read things within the RtpSession object but use instead its public API (the rtp_session_* methods) where RtpSession is used as a pointer. <ref refid="rtpsession_8h_1a0fa068a78f69d25603baf8801cd352b7" kindref="member">rtp_session_new()</ref> allocates and initialize a RtpSession. </para>    </detaileddescription>
+    <collaborationgraph>
+      <node id="312">
+        <label>_JBParameters</label>
+        <link refid="struct__JBParameters"/>
+      </node>
+      <node id="314">
+        <label>_OrtpCongestionDetector</label>
+        <link refid="struct__OrtpCongestionDetector"/>
+        <childnode refid="311" relation="usage">
+          <edgelabel>rls</edgelabel>
+        </childnode>
+        <childnode refid="280" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="295">
+        <label>OrtpRtcpXrConfiguration</label>
+        <link refid="structOrtpRtcpXrConfiguration"/>
+      </node>
+      <node id="302">
+        <label>_OrtpPayloadType</label>
+        <link refid="struct__OrtpPayloadType"/>
+        <childnode refid="303" relation="usage">
+          <edgelabel>avpf</edgelabel>
+        </childnode>
+      </node>
+      <node id="293">
+        <label>OrtpRtcpXrMediaCallbacks</label>
+        <link refid="structOrtpRtcpXrMediaCallbacks"/>
+      </node>
+      <node id="313">
+        <label>_OrtpExtremum</label>
+        <link refid="struct__OrtpExtremum"/>
+      </node>
+      <node id="290">
+        <label>_SessionSet</label>
+        <link refid="struct__SessionSet"/>
+      </node>
+      <node id="285">
+        <label>ortp_recv_addr</label>
+        <link refid="structortp__recv__addr"/>
+      </node>
+      <node id="287">
+        <label>_queue</label>
+        <link refid="struct__queue"/>
+        <childnode refid="283" relation="usage">
+          <edgelabel>_q_stopper</edgelabel>
+        </childnode>
+      </node>
+      <node id="282">
+        <label>rtp_stats</label>
+        <link refid="structrtp__stats"/>
+      </node>
+      <node id="291">
+        <label>_RtcpStream</label>
+        <link refid="struct__RtcpStream"/>
+        <childnode refid="292" relation="usage">
+          <edgelabel>tmmbr_info</edgelabel>
+        </childnode>
+        <childnode refid="293" relation="usage">
+          <edgelabel>xr_media_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="294" relation="usage">
+          <edgelabel>send_algo</edgelabel>
+        </childnode>
+        <childnode refid="295" relation="usage">
+          <edgelabel>xr_conf</edgelabel>
+        </childnode>
+        <childnode refid="296" relation="usage">
+          <edgelabel>gs</edgelabel>
+        </childnode>
+      </node>
+      <node id="309">
+        <label>jitter_stats</label>
+        <link refid="structjitter__stats"/>
+      </node>
+      <node id="289">
+        <label>_RtpTimer</label>
+        <link refid="struct__RtpTimer"/>
+      </node>
+      <node id="296">
+        <label>_OrtpStream</label>
+        <link refid="struct__OrtpStream"/>
+        <childnode refid="297" relation="usage">
+          <edgelabel>allocator</edgelabel>
+        </childnode>
+        <childnode refid="298" relation="usage">
+          <edgelabel>recv_bw_estimator</edgelabel>
+        </childnode>
+        <childnode refid="299" relation="usage">
+          <edgelabel>tr</edgelabel>
+        </childnode>
+      </node>
+      <node id="311">
+        <label>_OrtpKalmanRLS</label>
+        <link refid="struct__OrtpKalmanRLS"/>
+      </node>
+      <node id="283">
+        <label>msgb</label>
+        <link refid="structmsgb"/>
+        <childnode refid="284" relation="usage">
+          <edgelabel>b_datap</edgelabel>
+        </childnode>
+        <childnode refid="283" relation="usage">
+          <edgelabel>b_next</edgelabel>
+          <edgelabel>b_cont</edgelabel>
+          <edgelabel>b_prev</edgelabel>
+        </childnode>
+        <childnode refid="285" relation="usage">
+          <edgelabel>recv_addr</edgelabel>
+        </childnode>
+      </node>
+      <node id="298">
+        <label>_OrtpBwEstimator</label>
+        <link refid="struct__OrtpBwEstimator"/>
+      </node>
+      <node id="307">
+        <label>_OrtpVideoBandwidthEstimator</label>
+        <link refid="struct__OrtpVideoBandwidthEstimator"/>
+        <childnode refid="308" relation="usage">
+          <edgelabel>last_packet</edgelabel>
+        </childnode>
+        <childnode refid="280" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="292">
+        <label>OrtpRtcpTmmbrInfo</label>
+        <link refid="structOrtpRtcpTmmbrInfo"/>
+        <childnode refid="283" relation="usage">
+          <edgelabel>received</edgelabel>
+          <edgelabel>sent</edgelabel>
+        </childnode>
+      </node>
+      <node id="297">
+        <label>_msgb_allocator</label>
+        <link refid="struct__msgb__allocator"/>
+        <childnode refid="287" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="308">
+        <label>_OrtpVideoBandwidthEstimatorPacket</label>
+        <link refid="struct__OrtpVideoBandwidthEstimatorPacket"/>
+      </node>
+      <node id="303">
+        <label>_PayloadTypeAvpfParams</label>
+        <link refid="struct__PayloadTypeAvpfParams"/>
+      </node>
+      <node id="299">
+        <label>_RtpTransport</label>
+        <link refid="struct__RtpTransport"/>
+        <childnode refid="280" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="305">
+        <label>_OrtpNetworkSimulatorParams</label>
+        <link refid="struct__OrtpNetworkSimulatorParams"/>
+      </node>
+      <node id="294">
+        <label>OrtpRtcpSendAlgorithm</label>
+        <link refid="structOrtpRtcpSendAlgorithm"/>
+        <childnode refid="283" relation="usage">
+          <edgelabel>fb_packets</edgelabel>
+        </childnode>
+      </node>
+      <node id="310">
+        <label>_JitterControl</label>
+        <link refid="struct__JitterControl"/>
+        <childnode refid="311" relation="usage">
+          <edgelabel>kalman_rls</edgelabel>
+        </childnode>
+        <childnode refid="312" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+        <childnode refid="313" relation="usage">
+          <edgelabel>max_ts_deviation</edgelabel>
+        </childnode>
+      </node>
+      <node id="288">
+        <label>_RtpScheduler</label>
+        <link refid="struct__RtpScheduler"/>
+        <childnode refid="289" relation="usage">
+          <edgelabel>timer</edgelabel>
+        </childnode>
+        <childnode refid="290" relation="usage">
+          <edgelabel>r_sessions</edgelabel>
+          <edgelabel>e_sessions</edgelabel>
+          <edgelabel>w_sessions</edgelabel>
+          <edgelabel>all_sessions</edgelabel>
+        </childnode>
+        <childnode refid="280" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+      </node>
+      <node id="306">
+        <label>_RtpStream</label>
+        <link refid="struct__RtpStream"/>
+        <childnode refid="307" relation="usage">
+          <edgelabel>video_bw_estimator</edgelabel>
+        </childnode>
+        <childnode refid="309" relation="usage">
+          <edgelabel>jitter_stats</edgelabel>
+        </childnode>
+        <childnode refid="287" relation="usage">
+          <edgelabel>tev_rq</edgelabel>
+          <edgelabel>rq</edgelabel>
+        </childnode>
+        <childnode refid="310" relation="usage">
+          <edgelabel>jittctl</edgelabel>
+        </childnode>
+        <childnode refid="314" relation="usage">
+          <edgelabel>congdetect</edgelabel>
+        </childnode>
+        <childnode refid="296" relation="usage">
+          <edgelabel>gs</edgelabel>
+        </childnode>
+      </node>
+      <node id="280">
+        <label>_RtpSession</label>
+        <link refid="struct__RtpSession"/>
+        <childnode refid="281" relation="usage">
+          <edgelabel>rtcp_xr_stats</edgelabel>
+        </childnode>
+        <childnode refid="282" relation="usage">
+          <edgelabel>stats</edgelabel>
+        </childnode>
+        <childnode refid="283" relation="usage">
+          <edgelabel>full_sdes</edgelabel>
+          <edgelabel>minimal_sdes</edgelabel>
+          <edgelabel>current_tev</edgelabel>
+          <edgelabel>pending</edgelabel>
+        </childnode>
+        <childnode refid="286" relation="usage">
+          <edgelabel>wp</edgelabel>
+        </childnode>
+        <childnode refid="287" relation="usage">
+          <edgelabel>contributing_sources</edgelabel>
+        </childnode>
+        <childnode refid="288" relation="usage">
+          <edgelabel>sched</edgelabel>
+        </childnode>
+        <childnode refid="291" relation="usage">
+          <edgelabel>rtcp</edgelabel>
+        </childnode>
+        <childnode refid="300" relation="usage">
+          <edgelabel>on_timestamp_jump</edgelabel>
+          <edgelabel>on_payload_type_changed</edgelabel>
+          <edgelabel>on_telephone_event_packet</edgelabel>
+          <edgelabel>on_ssrc_changed</edgelabel>
+          <edgelabel>on_network_error</edgelabel>
+          <edgelabel>on_rtcp_bye</edgelabel>
+          <edgelabel>on_telephone_event</edgelabel>
+        </childnode>
+        <childnode refid="301" relation="usage">
+          <edgelabel>profile</edgelabel>
+        </childnode>
+        <childnode refid="304" relation="usage">
+          <edgelabel>net_sim_ctx</edgelabel>
+        </childnode>
+        <childnode refid="280" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>spliced_session</edgelabel>
+        </childnode>
+        <childnode refid="306" relation="usage">
+          <edgelabel>rtp</edgelabel>
+        </childnode>
+      </node>
+      <node id="304">
+        <label>_OrtpNetworkSimulatorCtx</label>
+        <link refid="struct__OrtpNetworkSimulatorCtx"/>
+        <childnode refid="287" relation="usage">
+          <edgelabel>latency_q</edgelabel>
+          <edgelabel>send_q</edgelabel>
+          <edgelabel>q</edgelabel>
+        </childnode>
+        <childnode refid="305" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+      </node>
+      <node id="301">
+        <label>_RtpProfile</label>
+        <link refid="struct__RtpProfile"/>
+        <childnode refid="302" relation="usage">
+          <edgelabel>payload</edgelabel>
+        </childnode>
+      </node>
+      <node id="300">
+        <label>_RtpSignalTable</label>
+        <link refid="struct__RtpSignalTable"/>
+        <childnode refid="280" relation="usage">
+          <edgelabel>session</edgelabel>
+          <edgelabel>callback</edgelabel>
+        </childnode>
+      </node>
+      <node id="284">
+        <label>datab</label>
+        <link refid="structdatab"/>
+      </node>
+      <node id="286">
+        <label>_WaitPoint</label>
+        <link refid="struct__WaitPoint"/>
+      </node>
+      <node id="281">
+        <label>OrtpRtcpXrStats</label>
+        <link refid="structOrtpRtcpXrStats"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="383" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="382" bodyend="450"/>
+    <listofallmembers>
+      <member refid="struct__RtpSession_1a037dc588472fb580586959a3eb534def" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>avpf_features</name></member>
+      <member refid="struct__RtpSession_1a78f1fa74937e35e70f87c3f7d902d58d" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>congestion_detector_enabled</name></member>
+      <member refid="struct__RtpSession_1a7ec507ecb2aad39696fdd274f8c7054a" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>contributing_sources</name></member>
+      <member refid="struct__RtpSession_1a4753cae386cd36564c8c271b6b855b00" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>cum_loss</name></member>
+      <member refid="struct__RtpSession_1ace578dcf10bbed982f13acee262979f3" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>current_tev</name></member>
+      <member refid="struct__RtpSession_1a7df9f513a893272ae977e6265782d1e1" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>delay_test_vector</name></member>
+      <member refid="struct__RtpSession_1aedafcf4cc566a8335ba78582cfb80366" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>dscp</name></member>
+      <member refid="struct__RtpSession_1a0c1ad25f6323faae09149fff32a62acb" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>duplication_left</name></member>
+      <member refid="struct__RtpSession_1a6bfb88a4dbbbf0e56e69147f3454acd6" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>duplication_ratio</name></member>
+      <member refid="struct__RtpSession_1a99b066ef1aad8b45dd849240371233a9" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>eventqs</name></member>
+      <member refid="struct__RtpSession_1acfa3a2ba5ca10f21e96872d7ec035195" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>flags</name></member>
+      <member refid="struct__RtpSession_1a7cd8c5c2b529efeec6af2095de996d8a" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>full_sdes</name></member>
+      <member refid="struct__RtpSession_1a39c90947a1471aa0fcaf79a9e9cd22a3" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>hw_recv_pt</name></member>
+      <member refid="struct__RtpSession_1a009cc1a100546470badce7615f9ea54e" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>inc_same_ssrc_count</name></member>
+      <member refid="struct__RtpSession_1acef5f7ad1d6ef887ce85084f2e935fa1" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>inc_ssrc_candidate</name></member>
+      <member refid="struct__RtpSession_1a414baeb4675a6de4a04ef6bfdcbd6558" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>interarrival_jitter_test_vector</name></member>
+      <member refid="struct__RtpSession_1a2ddb860fe8fa376522ba619430b6855e" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>is_spliced</name></member>
+      <member refid="struct__RtpSession_1aec9fbf1f7284424a1102597bab355c8f" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>last_recv_time</name></member>
+      <member refid="struct__RtpSession_1ab96404b00b2350e52234e9a602430f5b" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>lost_packets_test_vector</name></member>
+      <member refid="struct__RtpSession_1ab72219a85559c508ab9526cabcadb171" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>mask_pos</name></member>
+      <member refid="struct__RtpSession_1a0c8b57737a5add9e7c67abeeb0555029" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>minimal_sdes</name></member>
+      <member refid="struct__RtpSession_1a2d66c29b65656185ff13446187b215f7" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>mode</name></member>
+      <member refid="struct__RtpSession_1ae1cdba8dba6e9bfa5dbdadab7aa73139" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>multicast_loopback</name></member>
+      <member refid="struct__RtpSession_1ac3ff164940f934cab2e9e0fb44d1ee6e" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>multicast_ttl</name></member>
+      <member refid="struct__RtpSession_1ae52228bcb95092183602e80876b94b0f" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>net_sim_ctx</name></member>
+      <member refid="struct__RtpSession_1a6b1399c564ac89a3217ef4218c96fa27" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>next</name></member>
+      <member refid="struct__RtpSession_1a64162b14de7440eaea29844a057c0f22" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>on_network_error</name></member>
+      <member refid="struct__RtpSession_1ae7e1888dc483887ca1ca518bb1295f80" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>on_payload_type_changed</name></member>
+      <member refid="struct__RtpSession_1ab57f76cbb09b49bc2d98175bb03ef337" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>on_rtcp_bye</name></member>
+      <member refid="struct__RtpSession_1a8e3b02123c1d4e420e94d611237d0bd9" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>on_ssrc_changed</name></member>
+      <member refid="struct__RtpSession_1aea7589d032b769a2893d0a9d881e03f6" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>on_telephone_event</name></member>
+      <member refid="struct__RtpSession_1a7ce03164514eb1d3b8bb4e42b9d806dd" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>on_telephone_event_packet</name></member>
+      <member refid="struct__RtpSession_1aa239f28f1d1e143bc236b741d6205b76" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>on_timestamp_jump</name></member>
+      <member refid="struct__RtpSession_1abd80f49e848cfc18905e66888ef2ef09" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>pending</name></member>
+      <member refid="struct__RtpSession_1a842f07c64492fa1adfa1e0e2c8265b6c" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>permissive</name></member>
+      <member refid="struct__RtpSession_1ac9a748ff6007c3213c1cc0b942b71f70" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>profile</name></member>
+      <member refid="struct__RtpSession_1aacd1f1f30081cf71c4104fcf631a6af7" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>pt</name></member>
+      <member refid="struct__RtpSession_1a1e045ace4bcaa9b4f550efac20a0e942" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>rcv</name></member>
+      <member refid="struct__RtpSession_1aee3bb36671f9789ecc6923933dbc98d8" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>recv_addr_map</name></member>
+      <member refid="struct__RtpSession_1a35224fa6de29685bd09192242ba91346" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>recv_buf_size</name></member>
+      <member refid="struct__RtpSession_1a482e4126148c688eb7999098bb8e710a" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>reuseaddr</name></member>
+      <member refid="struct__RtpSession_1a9fac1b3781bb5a97909c76236d73b94e" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>rtcp</name></member>
+      <member refid="struct__RtpSession_1a7fa5bd12423894972ae51fdcba70e1de" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>rtcp_mux</name></member>
+      <member refid="struct__RtpSession_1ac62a1f4842529dbb65ffb8e0cae3b1b6" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>rtcp_xr_stats</name></member>
+      <member refid="struct__RtpSession_1ac0ac7703e01f0624ecb11cc833bca49e" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>rtp</name></member>
+      <member refid="struct__RtpSession_1a19892f0fee3053259bc0a1d5f01d16a1" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>rtt</name></member>
+      <member refid="struct__RtpSession_1afd1e941d3806a4f92708c2f33311b389" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>sched</name></member>
+      <member refid="struct__RtpSession_1addb4c3cbbec7c09f98136517516ae311" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>send_ts_offset</name></member>
+      <member refid="struct__RtpSession_1ace6656c6b2d39ca7274b6565208b72ce" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>signal_tables</name></member>
+      <member refid="struct__RtpSession_1a02906526222e842169e209dfefba9313" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>snd</name></member>
+      <member refid="struct__RtpSession_1ac37e043ed1b20bb009263728f0975ae5" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>spliced_session</name></member>
+      <member refid="struct__RtpSession_1a29e5c3382d3a41d0cc37564f8e4b8ee5" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>ssrc</name></member>
+      <member refid="struct__RtpSession_1a1558b178e0443c7856a4a1abba5fabde" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>ssrc_set</name></member>
+      <member refid="struct__RtpSession_1a91f4e5609dccecbd3bf6059bdff9863c" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>stats</name></member>
+      <member refid="struct__RtpSession_1a6fe00de5a38287596658b9c9cfc12c7f" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>symmetric_rtp</name></member>
+      <member refid="struct__RtpSession_1a0daf8e1128981ca6e415f87af86153a3" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>target_upload_bandwidth</name></member>
+      <member refid="struct__RtpSession_1ac7d92cfbac540b7df25e8db92f13ce33" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>tev_send_pt</name></member>
+      <member refid="struct__RtpSession_1a607489d68b5f6e470c300acb17a9bde7" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>use_connect</name></member>
+      <member refid="struct__RtpSession_1adf814181727eef338092e24008c0f4f7" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>use_pktinfo</name></member>
+      <member refid="struct__RtpSession_1a9c2f9f00e6733bd384499ab8d9762d4b" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>user_data</name></member>
+      <member refid="struct__RtpSession_1a0d5f3189b2d2d9e709a4f1c56de8a329" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>video_bandwidth_estimator_enabled</name></member>
+      <member refid="struct__RtpSession_1a3f2a796cecb863bd6a1d6dd6d83c251f" prot="public" virt="non-virtual"><scope>_RtpSession</scope><name>wp</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

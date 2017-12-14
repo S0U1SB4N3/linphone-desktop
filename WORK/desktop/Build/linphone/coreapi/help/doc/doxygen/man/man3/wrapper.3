@@ -1,0 +1,69 @@
+.TH "wrapper" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+wrapper \- Wrapper utilities\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBlinphone_chat_room_send_chat_message_2\fP (\fBLinphoneChatRoom\fP *cr, \fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Send a message to peer member of this chat room\&. "
+.ti -1c
+.RI "void \fBlinphone_chat_message_resend_2\fP (\fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Resend a chat message if it is in the 'not delivered' state for whatever reason\&. "
+.ti -1c
+.RI "void * \fBlinphone_vcard_get_belcard\fP (\fBLinphoneVcard\fP *vcard)"
+.br
+.RI "Accessor for the shared_ptr<BelCard> stored by a \fBLinphoneVcard\fP\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Wrapper utilities\&. 
+
+These functions are used by automatic API wrapper generators and should not be used by C API users\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void linphone_chat_message_resend_2 (\fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Resend a chat message if it is in the 'not delivered' state for whatever reason\&. 
+.PP
+\fBNote:\fP
+.RS 4
+Unlike \fBlinphone_chat_message_resend()\fP, that function only takes a reference on the \fBLinphoneChatMessage\fP instead of totaly takes ownership on it\&. Thus, the \fBLinphoneChatMessage\fP object must be released by the API user after calling that function\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP LinphoneChatMessage object 
+.RE
+.PP
+
+.SS "void linphone_chat_room_send_chat_message_2 (\fBLinphoneChatRoom\fP * cr, \fBLinphoneChatMessage\fP * msg)"
+
+.PP
+Send a message to peer member of this chat room\&. The state of the sending message will be notified via the callbacks defined in the \fBLinphoneChatMessageCbs\fP object that can be obtained by calling \fBlinphone_chat_message_get_callbacks()\fP\&. 
+.PP
+\fBNote:\fP
+.RS 4
+Unlike \fBlinphone_chat_room_send_chat_message()\fP, that function only takes a reference on the \fBLinphoneChatMessage\fP instead of totaly takes ownership on it\&. Thus, the \fBLinphoneChatMessage\fP object must be released by the API user after calling that function\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcr\fP A chat room\&. 
+.br
+\fImsg\fP The message to send\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

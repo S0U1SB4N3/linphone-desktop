@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__OrtpVideoBandwidthEstimatorParams" kind="struct" language="C++" prot="public">
+    <compoundname>_OrtpVideoBandwidthEstimatorParams</compoundname>
+    <includes local="no">rtpsession.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorParams_1adcf2c3227059d43f44ccd5bc0052cc97" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _OrtpVideoBandwidthEstimatorParams::enabled</definition>
+        <argsstring></argsstring>
+        <name>enabled</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Whether estimator is enabled or off. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="456" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="456" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorParams_1a0ce1cb5c2c03abf5e213bacf2469bbc3" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _OrtpVideoBandwidthEstimatorParams::packet_count_min</definition>
+        <argsstring></argsstring>
+        <name>packet_count_min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="457" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="457" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorParams_1af0bf9b6423061166ac079a5c7020336f" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _OrtpVideoBandwidthEstimatorParams::packets_size_max</definition>
+        <argsstring></argsstring>
+        <name>packets_size_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>minimum number of packets with the same sent timestamp to be processed continuously before being used </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="458" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="458" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpVideoBandwidthEstimatorParams_1a2b25af1580c889143d028327171f8b12" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _OrtpVideoBandwidthEstimatorParams::trust_percentage</definition>
+        <argsstring></argsstring>
+        <name>trust_percentage</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of packets needed to compute the available video bandwidth </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="459" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="459" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Structure describing the video bandwidth estimator parameters </para>    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="455" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="455" bodyend="460"/>
+    <listofallmembers>
+      <member refid="struct__OrtpVideoBandwidthEstimatorParams_1adcf2c3227059d43f44ccd5bc0052cc97" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorParams</scope><name>enabled</name></member>
+      <member refid="struct__OrtpVideoBandwidthEstimatorParams_1a0ce1cb5c2c03abf5e213bacf2469bbc3" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorParams</scope><name>packet_count_min</name></member>
+      <member refid="struct__OrtpVideoBandwidthEstimatorParams_1af0bf9b6423061166ac079a5c7020336f" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorParams</scope><name>packets_size_max</name></member>
+      <member refid="struct__OrtpVideoBandwidthEstimatorParams_1a2b25af1580c889143d028327171f8b12" prot="public" virt="non-virtual"><scope>_OrtpVideoBandwidthEstimatorParams</scope><name>trust_percentage</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

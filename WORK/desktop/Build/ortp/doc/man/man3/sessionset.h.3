@@ -1,0 +1,160 @@
+.TH "sessionset.h" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sessionset.h \- Sending and receiving multiple streams together with only one thread\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ortp/rtpsession\&.h>\fP
+.br
+\fC#include <sys/time\&.h>\fP
+.br
+\fC#include <sys/types\&.h>\fP
+.br
+\fC#include <unistd\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_SessionSet\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBORTP_FD_SET\fP(d,  s)   FD_SET(d, s)"
+.br
+.ti -1c
+.RI "#define \fBORTP_FD_CLR\fP(d,  s)   FD_CLR(d, s)"
+.br
+.ti -1c
+.RI "#define \fBORTP_FD_ISSET\fP(d,  s)   FD_ISSET(d, s)"
+.br
+.ti -1c
+.RI "#define \fBORTP_FD_ZERO\fP(s)   FD_ZERO(s)"
+.br
+.ti -1c
+.RI "#define \fBsession_set_init\fP(ss)   ORTP_FD_ZERO(&(ss)\->rtpset)"
+.br
+.ti -1c
+.RI "#define \fBsession_set_set\fP(ss,  rtpsession)   ORTP_FD_SET((rtpsession)\->mask_pos,&(ss)\->rtpset)"
+.br
+.ti -1c
+.RI "#define \fBsession_set_is_set\fP(ss,  rtpsession)   ORTP_FD_ISSET((rtpsession)\->mask_pos,&(ss)\->rtpset)"
+.br
+.ti -1c
+.RI "#define \fBsession_set_clr\fP(ss,  rtpsession)   ORTP_FD_CLR((rtpsession)\->mask_pos,&(ss)\->rtpset)"
+.br
+.ti -1c
+.RI "#define \fBsession_set_copy\fP(dest,  src)   memcpy(&(dest)\->rtpset,&(src)\->rtpset,sizeof(ortp_fd_set))"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef fd_set \fBortp_fd_set\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_SessionSet\fP \fBSessionSet\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSessionSet\fP * \fBsession_set_new\fP (void)"
+.br
+.ti -1c
+.RI "void \fBsession_set_destroy\fP (\fBSessionSet\fP *set)"
+.br
+.ti -1c
+.RI "int \fBsession_set_select\fP (\fBSessionSet\fP *recvs, \fBSessionSet\fP *sends, \fBSessionSet\fP *errors)"
+.br
+.ti -1c
+.RI "int \fBsession_set_timedselect\fP (\fBSessionSet\fP *recvs, \fBSessionSet\fP *sends, \fBSessionSet\fP *errors, struct timeval *timeout)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Sending and receiving multiple streams together with only one thread\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define session_set_clr(ss, rtpsession)   ORTP_FD_CLR((rtpsession)\->mask_pos,&(ss)\->rtpset)"
+Removes the session from the set\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIss\fP a set of sessions\&. 
+.br
+\fIrtpsession\fP a rtp session\&. 
+.RE
+.PP
+
+.SS "#define session_set_is_set(ss, rtpsession)   ORTP_FD_ISSET((rtpsession)\->mask_pos,&(ss)\->rtpset)"
+This macro tests if the session is part of the set\&. 1 is returned if true, 0 else\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIss\fP a set 
+.br
+\fIrtpsession\fP a rtp session 
+.RE
+.PP
+
+.SS "#define session_set_set(ss, rtpsession)   ORTP_FD_SET((rtpsession)\->mask_pos,&(ss)\->rtpset)"
+This macro adds the rtp session to the set\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIss\fP a set (SessionSet object) 
+.br
+\fIrtpsession\fP a RtpSession 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void session_set_destroy (\fBSessionSet\fP * set)"
+Frees a SessionSet\&.
+.PP
+Destroys a session set\&. 
+.SS "\fBSessionSet\fP* session_set_new (void)"
+Allocates and initialize a new empty session set\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the empty session set\&. 
+.RE
+.PP
+
+.SS "int session_set_select (\fBSessionSet\fP * recvs, \fBSessionSet\fP * sends, \fBSessionSet\fP * errors)"
+This function performs similarly as libc select() function, but performs on RtpSession instead of file descriptors\&. \fBsession_set_select()\fP suspends the calling process until some events arrive on one of the three sets passed in argument\&. Two of the sets can be NULL\&. The first set \fIrecvs\fP is interpreted as a set of RtpSession waiting for receive events: a new buffer (perhaps empty) is availlable on one or more sessions of the set, or the last receive operation with \fBrtp_session_recv_with_ts()\fP would have finished if it were in blocking mode\&. The second set is interpreted as a set of RtpSession waiting for send events, i\&.e\&. the last \fBrtp_session_send_with_ts()\fP call on a session would have finished if it were in blocking mode\&.
+.PP
+When some events arrived on some of sets, then the function returns and sets are changed to indicate the sessions where events happened\&. Sessions can be added to sets using \fBsession_set_set()\fP, a session has to be tested to be part of a set using \fBsession_set_is_set()\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrecvs\fP a set of rtp sessions to be watched for read events 
+.br
+\fIsends\fP a set of rtp sessions to be watched for write events 
+.br
+\fIerrors\fP a set of rtp sessions to be watched for errors 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: the number of sessions on which the selected events happened\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

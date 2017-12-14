@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structmsgb" kind="struct" language="C++" prot="public">
+    <compoundname>msgb</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structmsgb_1ae4ee42093f65d113f225c2f19c7102cf" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structmsgb" kindref="compound">msgb</ref> *</type>
+        <definition>struct msgb* msgb::b_prev</definition>
+        <argsstring></argsstring>
+        <name>b_prev</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="58" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a53545481a0c29276c5342fe0f2dca524" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structmsgb" kindref="compound">msgb</ref> *</type>
+        <definition>struct msgb* msgb::b_next</definition>
+        <argsstring></argsstring>
+        <name>b_next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="59" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a1cbafb4e20ab6c0892b45bdcf8f223ff" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structmsgb" kindref="compound">msgb</ref> *</type>
+        <definition>struct msgb* msgb::b_cont</definition>
+        <argsstring></argsstring>
+        <name>b_cont</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="60" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a1a1c393d5ff9c40a3da749bc42963cb8" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="structdatab" kindref="compound">datab</ref> *</type>
+        <definition>struct datab* msgb::b_datap</definition>
+        <argsstring></argsstring>
+        <name>b_datap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="61" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a45f2607c0243b32392e98ec8c3c0fde7" prot="public" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* msgb::b_rptr</definition>
+        <argsstring></argsstring>
+        <name>b_rptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="62" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a3ad6017602a797398fd3f5fab67f12c1" prot="public" static="no" mutable="no">
+        <type>unsigned char *</type>
+        <definition>unsigned char* msgb::b_wptr</definition>
+        <argsstring></argsstring>
+        <name>b_wptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="63" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a64e2ea85bf39e837fa27905c90ab3d3f" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t msgb::reserved1</definition>
+        <argsstring></argsstring>
+        <name>reserved1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="64" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a6cc037dd99297546c03971a3499e233c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t msgb::reserved2</definition>
+        <argsstring></argsstring>
+        <name>reserved2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="65" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="65" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1afef9f7e36e1793f4df807400f6dd8033" prot="public" static="no" mutable="no">
+        <type>struct timeval</type>
+        <definition>struct timeval msgb::timestamp</definition>
+        <argsstring></argsstring>
+        <name>timestamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="65" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a2874218158d243778fab9a4b8bc993d0" prot="public" static="no" mutable="no">
+        <type><ref refid="structortp__recv__addr" kindref="compound">ortp_recv_addr_t</ref></type>
+        <definition>ortp_recv_addr_t msgb::recv_addr</definition>
+        <argsstring></argsstring>
+        <name>recv_addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="67" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a0f0468005b691e5bdf7d4dfbb139403f" prot="public" static="no" mutable="no">
+        <type>struct sockaddr_storage</type>
+        <definition>struct sockaddr_storage msgb::net_addr</definition>
+        <argsstring></argsstring>
+        <name>net_addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="67" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a0963c34e24fe0b92abc7db24b537a8fa" prot="public" static="no" mutable="no">
+        <type>socklen_t</type>
+        <definition>socklen_t msgb::net_addrlen</definition>
+        <argsstring></argsstring>
+        <name>net_addrlen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="69" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structmsgb_1a20861d711f215c580ea4491c15c93fb4" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t msgb::ttl_or_hl</definition>
+        <argsstring></argsstring>
+        <name>ttl_or_hl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="70" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="477">
+        <label>ortp_recv_addr</label>
+        <link refid="structortp__recv__addr"/>
+      </node>
+      <node id="475">
+        <label>msgb</label>
+        <link refid="structmsgb"/>
+        <childnode refid="476" relation="usage">
+          <edgelabel>b_datap</edgelabel>
+        </childnode>
+        <childnode refid="475" relation="usage">
+          <edgelabel>b_next</edgelabel>
+          <edgelabel>b_cont</edgelabel>
+          <edgelabel>b_prev</edgelabel>
+        </childnode>
+        <childnode refid="477" relation="usage">
+          <edgelabel>recv_addr</edgelabel>
+        </childnode>
+      </node>
+      <node id="476">
+        <label>datab</label>
+        <link refid="structdatab"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="57" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="56" bodyend="71"/>
+    <listofallmembers>
+      <member refid="structmsgb_1a1cbafb4e20ab6c0892b45bdcf8f223ff" prot="public" virt="non-virtual"><scope>msgb</scope><name>b_cont</name></member>
+      <member refid="structmsgb_1a1a1c393d5ff9c40a3da749bc42963cb8" prot="public" virt="non-virtual"><scope>msgb</scope><name>b_datap</name></member>
+      <member refid="structmsgb_1a53545481a0c29276c5342fe0f2dca524" prot="public" virt="non-virtual"><scope>msgb</scope><name>b_next</name></member>
+      <member refid="structmsgb_1ae4ee42093f65d113f225c2f19c7102cf" prot="public" virt="non-virtual"><scope>msgb</scope><name>b_prev</name></member>
+      <member refid="structmsgb_1a45f2607c0243b32392e98ec8c3c0fde7" prot="public" virt="non-virtual"><scope>msgb</scope><name>b_rptr</name></member>
+      <member refid="structmsgb_1a3ad6017602a797398fd3f5fab67f12c1" prot="public" virt="non-virtual"><scope>msgb</scope><name>b_wptr</name></member>
+      <member refid="structmsgb_1a0f0468005b691e5bdf7d4dfbb139403f" prot="public" virt="non-virtual"><scope>msgb</scope><name>net_addr</name></member>
+      <member refid="structmsgb_1a0963c34e24fe0b92abc7db24b537a8fa" prot="public" virt="non-virtual"><scope>msgb</scope><name>net_addrlen</name></member>
+      <member refid="structmsgb_1a2874218158d243778fab9a4b8bc993d0" prot="public" virt="non-virtual"><scope>msgb</scope><name>recv_addr</name></member>
+      <member refid="structmsgb_1a64e2ea85bf39e837fa27905c90ab3d3f" prot="public" virt="non-virtual"><scope>msgb</scope><name>reserved1</name></member>
+      <member refid="structmsgb_1a6cc037dd99297546c03971a3499e233c" prot="public" virt="non-virtual"><scope>msgb</scope><name>reserved2</name></member>
+      <member refid="structmsgb_1afef9f7e36e1793f4df807400f6dd8033" prot="public" virt="non-virtual"><scope>msgb</scope><name>timestamp</name></member>
+      <member refid="structmsgb_1a20861d711f215c580ea4491c15c93fb4" prot="public" virt="non-virtual"><scope>msgb</scope><name>ttl_or_hl</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

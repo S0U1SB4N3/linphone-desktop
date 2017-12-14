@@ -1,0 +1,350 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrtcp__xr__voip__metrics__report__block" kind="struct" language="C++" prot="public">
+    <compoundname>rtcp_xr_voip_metrics_report_block</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1af273aa72ab0199812d4509ef5c72d822" prot="public" static="no" mutable="no">
+        <type><ref refid="structrtcp__xr__generic__block__header" kindref="compound">rtcp_xr_generic_block_header_t</ref></type>
+        <definition>rtcp_xr_generic_block_header_t rtcp_xr_voip_metrics_report_block::bh</definition>
+        <argsstring></argsstring>
+        <name>bh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="270" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="270" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1afe8288ca230b3a71ec7276b4dfd2be1e" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_voip_metrics_report_block::ssrc</definition>
+        <argsstring></argsstring>
+        <name>ssrc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="271" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="271" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a1592cccd7b1074336c1b3e1a90be1400" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::loss_rate</definition>
+        <argsstring></argsstring>
+        <name>loss_rate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="272" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="272" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1af60aee4ea88ca7df4c43d0f422f36253" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::discard_rate</definition>
+        <argsstring></argsstring>
+        <name>discard_rate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="273" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="273" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a54dabc219ac14b03cf009ac250f48d4a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::burst_density</definition>
+        <argsstring></argsstring>
+        <name>burst_density</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="274" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="274" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a37d9d28e65c9566cdb69d8f83e44b4fa" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::gap_density</definition>
+        <argsstring></argsstring>
+        <name>gap_density</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="275" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="275" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1aeb469347967ae6db6db7817a924fd804" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_xr_voip_metrics_report_block::burst_duration</definition>
+        <argsstring></argsstring>
+        <name>burst_duration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="276" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="276" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a9dc854bac950e4f6701f32f634cc57d0" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_xr_voip_metrics_report_block::gap_duration</definition>
+        <argsstring></argsstring>
+        <name>gap_duration</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="277" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="277" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1af43a2b601f3b2bc10a58a39007c79616" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_xr_voip_metrics_report_block::round_trip_delay</definition>
+        <argsstring></argsstring>
+        <name>round_trip_delay</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="278" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="278" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a2ff932cd6a1d9eae6fd811b3010ff635" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_xr_voip_metrics_report_block::end_system_delay</definition>
+        <argsstring></argsstring>
+        <name>end_system_delay</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="279" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="279" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a40740f7487e9b9ba71d17bf6ab461df1" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::signal_level</definition>
+        <argsstring></argsstring>
+        <name>signal_level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="280" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="280" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a6b2963bd5447dfddf8432ba56293a480" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::noise_level</definition>
+        <argsstring></argsstring>
+        <name>noise_level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="281" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a70714c668749ae16a89500399d5b93e5" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::rerl</definition>
+        <argsstring></argsstring>
+        <name>rerl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="282" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="282" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1aeb81ada01dcae55878cf3f0b2dd032f7" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::gmin</definition>
+        <argsstring></argsstring>
+        <name>gmin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="283" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="283" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a900f98cc749e94e404e43276767cd3ad" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::r_factor</definition>
+        <argsstring></argsstring>
+        <name>r_factor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="284" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1aa1dba8d837317cc720ad7e98472c601d" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::ext_r_factor</definition>
+        <argsstring></argsstring>
+        <name>ext_r_factor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="285" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="285" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1ab0287887ef5f1a9769eceffd7ce5b9dd" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::mos_lq</definition>
+        <argsstring></argsstring>
+        <name>mos_lq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="286" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="286" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1abd64eb340fe7288c37ba1c840d33cf92" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::mos_cq</definition>
+        <argsstring></argsstring>
+        <name>mos_cq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="287" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a4f977f294d2180ad049aa409dbea296a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::rx_config</definition>
+        <argsstring></argsstring>
+        <name>rx_config</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="288" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="288" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a3a9b617f5673be1103c4ec4069e8141a" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_voip_metrics_report_block::reserved2</definition>
+        <argsstring></argsstring>
+        <name>reserved2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="289" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="289" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a6d6b47b8eeb9b1ad3fe292f6ade0b4ca" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_xr_voip_metrics_report_block::jb_nominal</definition>
+        <argsstring></argsstring>
+        <name>jb_nominal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="290" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a92b43b557b6a108bbbb62cf85b43427c" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_xr_voip_metrics_report_block::jb_maximum</definition>
+        <argsstring></argsstring>
+        <name>jb_maximum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="291" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="291" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__voip__metrics__report__block_1a1f2cea45e5a4dd6487cee9c48ce5b193" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_xr_voip_metrics_report_block::jb_abs_max</definition>
+        <argsstring></argsstring>
+        <name>jb_abs_max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="292" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="292" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="614">
+        <label>rtcp_xr_voip_metrics_report_block</label>
+        <link refid="structrtcp__xr__voip__metrics__report__block"/>
+        <childnode refid="615" relation="usage">
+          <edgelabel>bh</edgelabel>
+        </childnode>
+      </node>
+      <node id="615">
+        <label>rtcp_xr_generic_block_header</label>
+        <link refid="structrtcp__xr__generic__block__header"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="269" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="269" bodyend="293"/>
+    <listofallmembers>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1af273aa72ab0199812d4509ef5c72d822" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>bh</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a54dabc219ac14b03cf009ac250f48d4a" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>burst_density</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1aeb469347967ae6db6db7817a924fd804" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>burst_duration</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1af60aee4ea88ca7df4c43d0f422f36253" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>discard_rate</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a2ff932cd6a1d9eae6fd811b3010ff635" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>end_system_delay</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1aa1dba8d837317cc720ad7e98472c601d" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>ext_r_factor</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a37d9d28e65c9566cdb69d8f83e44b4fa" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>gap_density</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a9dc854bac950e4f6701f32f634cc57d0" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>gap_duration</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1aeb81ada01dcae55878cf3f0b2dd032f7" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>gmin</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a1f2cea45e5a4dd6487cee9c48ce5b193" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>jb_abs_max</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a92b43b557b6a108bbbb62cf85b43427c" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>jb_maximum</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a6d6b47b8eeb9b1ad3fe292f6ade0b4ca" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>jb_nominal</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a1592cccd7b1074336c1b3e1a90be1400" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>loss_rate</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1abd64eb340fe7288c37ba1c840d33cf92" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>mos_cq</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1ab0287887ef5f1a9769eceffd7ce5b9dd" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>mos_lq</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a6b2963bd5447dfddf8432ba56293a480" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>noise_level</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a900f98cc749e94e404e43276767cd3ad" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>r_factor</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a70714c668749ae16a89500399d5b93e5" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>rerl</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a3a9b617f5673be1103c4ec4069e8141a" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>reserved2</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1af43a2b601f3b2bc10a58a39007c79616" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>round_trip_delay</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a4f977f294d2180ad049aa409dbea296a" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>rx_config</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1a40740f7487e9b9ba71d17bf6ab461df1" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>signal_level</name></member>
+      <member refid="structrtcp__xr__voip__metrics__report__block_1afe8288ca230b3a71ec7276b4dfd2be1e" prot="public" virt="non-virtual"><scope>rtcp_xr_voip_metrics_report_block</scope><name>ssrc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

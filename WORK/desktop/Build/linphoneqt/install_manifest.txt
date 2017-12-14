@@ -1,0 +1,8 @@
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/bin/linphone
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/bin/linphone-tester
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/share/applications/linphone.desktop
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/share/icons/hicolor/scalable/apps/linphone.svg
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/share/linphone/linphonerc-factory
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/share/linphone/assistant/use-other-sip-account.rc
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/share/linphone/assistant/create-linphone-sip-account.rc
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/share/linphone/assistant/use-linphone-sip-account.rc

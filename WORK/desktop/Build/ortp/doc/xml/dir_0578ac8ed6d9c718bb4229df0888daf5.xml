@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_0578ac8ed6d9c718bb4229df0888daf5" kind="dir">
+    <compoundname>src</compoundname>
+    <innerfile refid="avprofile_8c">avprofile.c</innerfile>
+    <innerfile refid="b64_8c">b64.c</innerfile>
+    <innerfile refid="congestiondetector_8c">congestiondetector.c</innerfile>
+    <innerfile refid="congestiondetector_8h">congestiondetector.h</innerfile>
+    <innerfile refid="dll__entry_8c">dll_entry.c</innerfile>
+    <innerfile refid="event_8c">event.c</innerfile>
+    <innerfile refid="extremum_8c">extremum.c</innerfile>
+    <innerfile refid="jitterctl_8c">jitterctl.c</innerfile>
+    <innerfile refid="jitterctl_8h">jitterctl.h</innerfile>
+    <innerfile refid="kalmanrls_8c">kalmanrls.c</innerfile>
+    <innerfile refid="logging_8c">logging.c</innerfile>
+    <innerfile refid="netsim_8c">netsim.c</innerfile>
+    <innerfile refid="ortp_8c">ortp.c</innerfile>
+    <innerfile refid="payloadtype_8c">payloadtype.c</innerfile>
+    <innerfile refid="port_8c">port.c</innerfile>
+    <innerfile refid="posixtimer_8c">posixtimer.c</innerfile>
+    <innerfile refid="rtcp_8c">rtcp.c</innerfile>
+    <innerfile refid="rtcp__fb_8c">rtcp_fb.c</innerfile>
+    <innerfile refid="rtcp__xr_8c">rtcp_xr.c</innerfile>
+    <innerfile refid="rtcpparse_8c">rtcpparse.c</innerfile>
+    <innerfile refid="rtpparse_8c">rtpparse.c</innerfile>
+    <innerfile refid="rtpprofile_8c">rtpprofile.c</innerfile>
+    <innerfile refid="rtpsession_8c">rtpsession.c</innerfile>
+    <innerfile refid="rtpsession__inet_8c">rtpsession_inet.c</innerfile>
+    <innerfile refid="rtpsession__priv_8h">rtpsession_priv.h</innerfile>
+    <innerfile refid="rtpsignaltable_8c">rtpsignaltable.c</innerfile>
+    <innerfile refid="rtptimer_8c">rtptimer.c</innerfile>
+    <innerfile refid="rtptimer_8h">rtptimer.h</innerfile>
+    <innerfile refid="scheduler_8c">scheduler.c</innerfile>
+    <innerfile refid="scheduler_8h">scheduler.h</innerfile>
+    <innerfile refid="sessionset_8c">sessionset.c</innerfile>
+    <innerfile refid="str__utils_8c">str_utils.c</innerfile>
+    <innerfile refid="telephonyevents_8c">telephonyevents.c</innerfile>
+    <innerfile refid="utils_8c">utils.c</innerfile>
+    <innerfile refid="src_2utils_8h">src/utils.h</innerfile>
+    <innerfile refid="videobandwidthestimator_8c">videobandwidthestimator.c</innerfile>
+    <innerfile refid="videobandwidthestimator_8h">videobandwidthestimator.h</innerfile>
+    <innerfile refid="winrttimer_8h">winrttimer.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/"/>
+  </compounddef>
+</doxygen>

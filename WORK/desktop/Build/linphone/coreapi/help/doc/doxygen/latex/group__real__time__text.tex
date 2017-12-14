@@ -1,0 +1,164 @@
+\section{Real Time Text Receiver}
+\label{group__real__time__text}\index{Real Time Text Receiver@{Real Time Text Receiver}}
+
+
+This program is able to receive chat message in real time on port 5060.  
+
+
+This program is able to receive chat message in real time on port 5060. 
+
+Use realtimetext\+\_\+sender to generate chat message usage\+: ./realtimetext\+\_\+receiver
+
+
+\begin{DoxyCodeInclude}
+
+\textcolor{comment}{/*}
+\textcolor{comment}{linphone}
+\textcolor{comment}{Copyright (C) 2015  Belledonne Communications SARL}
+\textcolor{comment}{}
+\textcolor{comment}{This program is free software; you can redistribute it and/or}
+\textcolor{comment}{modify it under the terms of the GNU General Public License}
+\textcolor{comment}{as published by the Free Software Foundation; either version 2}
+\textcolor{comment}{of the License, or (at your option) any later version.}
+\textcolor{comment}{}
+\textcolor{comment}{This program is distributed in the hope that it will be useful,}
+\textcolor{comment}{but WITHOUT ANY WARRANTY; without even the implied warranty of}
+\textcolor{comment}{MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the}
+\textcolor{comment}{GNU General Public License for more details.}
+\textcolor{comment}{}
+\textcolor{comment}{You should have received a copy of the GNU General Public License}
+\textcolor{comment}{along with this program; if not, write to the Free Software}
+\textcolor{comment}{Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.}
+\textcolor{comment}{*/}
+
+\textcolor{preprocessor}{#include "linphone/core.h"}
+
+\textcolor{preprocessor}{#include <signal.h>}
+
+\textcolor{keyword}{static} bool\_t running=TRUE;
+
+\textcolor{keyword}{static} \textcolor{keywordtype}{void} stop(\textcolor{keywordtype}{int} signum)\{
+        running=FALSE;
+\}
+
+
+
+\textcolor{keywordtype}{int} main(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char} *argv[])\{
+        LinphoneCoreVTable vtable=\{0\};
+        LinphoneCore *lc;
+        LinphoneCall *call=NULL;
+        LinphoneChatRoom *chat\_room;
+        LinphoneChatMessage *chat\_message=NULL;
+        \textcolor{keyword}{const} \textcolor{keywordtype}{char} *dest=NULL;
+        LCSipTransports tp;
+        tp.udp\_port=LC_SIP_TRANSPORT_RANDOM;
+        tp.tcp\_port=LC_SIP_TRANSPORT_RANDOM;
+        tp.tls\_port=LC_SIP_TRANSPORT_RANDOM;
+
+        \textcolor{comment}{/* take the destination sip uri from the command line arguments */}
+        \textcolor{keywordflow}{if} (argc>1)\{
+                dest=argv[1];
+        \}
+
+        signal(SIGINT,stop);
+
+\textcolor{preprocessor}{#ifdef DEBUG}
+        linphone_core_enable_logs(NULL); \textcolor{comment}{/*enable liblinphone logs.*/}
+\textcolor{preprocessor}{#endif}
+
+        \textcolor{comment}{/*}
+\textcolor{comment}{         Instanciate a LinphoneCore object given the LinphoneCoreVTable}
+\textcolor{comment}{        */}
+        lc=linphone_core_new(&vtable,NULL,NULL,NULL);
+
+
+        linphone_core_set_sip_transports(lc,&tp); \textcolor{comment}{/*to avoid port colliding with receiver*/}
+        \textcolor{keywordflow}{if} (dest)\{
+                \textcolor{comment}{/*}
+\textcolor{comment}{                 Place an outgoing call with rtt enabled}
+\textcolor{comment}{                */}
+                LinphoneCallParams *cp = linphone_core_create_call_params(lc, NULL);
+                linphone_call_params_enable_realtime_text(cp,TRUE); \textcolor{comment}{/*enable real time text*/}
+                call=linphone_core_invite_with_params(lc,dest,cp);
+                linphone_call_params_unref(cp);
+                \textcolor{keywordflow}{if} (call==NULL)\{
+                        printf(\textcolor{stringliteral}{"Could not place call to %s\(\backslash\)n"},dest);
+                        \textcolor{keywordflow}{goto} end;
+                \}\textcolor{keywordflow}{else} printf(\textcolor{stringliteral}{"Call to %s is in progress..."},dest);
+                linphone_call_ref(call);
+
+        \}
+        \textcolor{comment}{/*wait for call to be established*/}
+        \textcolor{keywordflow}{while}   (running && (linphone_call_get_state(call) == 
+      LinphoneCallOutgoingProgress
+                                                || linphone_call_get_state(call) == 
+      LinphoneCallOutgoingInit)) \{
+                linphone_core_iterate(lc);
+                ms\_usleep(50000);
+        \}
+        \textcolor{comment}{/*check if call is established*/}
+        \textcolor{keywordflow}{switch} (linphone_call_get_state(call)) \{
+        \textcolor{keywordflow}{case} LinphoneCallError:
+        \textcolor{keywordflow}{case} LinphoneCallReleased:
+        \textcolor{keywordflow}{case} LinphoneCallEnd:
+                printf(\textcolor{stringliteral}{"Could not place call to %s\(\backslash\)n"},dest);
+                \textcolor{keywordflow}{goto} end;
+                \textcolor{keywordflow}{break};
+        \textcolor{keywordflow}{default}:
+                \textcolor{keywordflow}{break};
+                \textcolor{comment}{/*continue*/}
+        \}
+
+        chat\_room=linphone_call_get_chat_room(call); \textcolor{comment}{/*create a chat room associated to this call*/}
+
+        \textcolor{comment}{/* main loop for sending message and doing background linphonecore work: */}
+        \textcolor{keywordflow}{while}(running)\{
+                \textcolor{keywordtype}{int} character;
+                \textcolor{comment}{/*to disable terminal buffering*/}
+                \textcolor{keywordflow}{if} (system (\textcolor{stringliteral}{"/bin/stty raw"}) == -1)\{
+                        ms\_error(\textcolor{stringliteral}{"/bin/stty error"});
+                \}
+                character = getchar();
+                \textcolor{keywordflow}{if} (system(\textcolor{stringliteral}{"/bin/stty cooked"}) == -1)\{
+                        ms\_error(\textcolor{stringliteral}{"/bin/stty error"});
+                \}
+                \textcolor{keywordflow}{if} (character==0x03) \{\textcolor{comment}{/*CTRL C*/}
+                        running=0;
+                        \textcolor{keywordflow}{break};
+                \}
+                \textcolor{keywordflow}{if} (character != EOF) \{
+                        \textcolor{comment}{/* user has typed something*/}
+                        \textcolor{keywordflow}{if} (chat\_message == NULL) \{
+                                \textcolor{comment}{/*create a new message*/}
+                                chat\_message = linphone_chat_room_create_message(chat\_room,\textcolor{stringliteral}{""}); \textcolor{comment}{/*create an
+       empty message*/}
+                        \}
+                        \textcolor{keywordflow}{if} (character == \textcolor{charliteral}{'\(\backslash\)r'}) \{
+                                \textcolor{comment}{/*new line, committing message*/}
+                                linphone_chat_room_send_chat_message(chat\_room,chat\_message);
+                                chat\_message = NULL; \textcolor{comment}{/*reset message*/}
+                        \} \textcolor{keywordflow}{else} \{
+                                linphone_chat_message_put_char(chat\_message,character); \textcolor{comment}{/*send char in
+       realtime*/}
+                        \}
+                \}
+                linphone_core_iterate(lc);
+                ms\_usleep(50000);
+        \}
+        \textcolor{keywordflow}{if} (call && linphone_call_get_state(call)!=LinphoneCallEnd)\{
+                \textcolor{comment}{/* terminate the call */}
+                printf(\textcolor{stringliteral}{"Terminating the call...\(\backslash\)n"});
+                linphone_core_terminate_call(lc,call);
+                \textcolor{comment}{/*at this stage we don't need the call object */}
+                linphone_call_unref(call);
+        \}
+
+end:
+        printf(\textcolor{stringliteral}{"Shutting down...\(\backslash\)n"});
+        linphone_core_destroy(lc);
+        printf(\textcolor{stringliteral}{"Exited\(\backslash\)n"});
+        \textcolor{keywordflow}{return} 0;
+\}
+
+\end{DoxyCodeInclude}
+ 

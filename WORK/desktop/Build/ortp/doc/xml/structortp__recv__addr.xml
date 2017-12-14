@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structortp__recv__addr" kind="struct" language="C++" prot="public">
+    <compoundname>ortp_recv_addr</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structortp__recv__addr_1a4b56f849b61aa1c3139b1a6a1ec7ec14" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ortp_recv_addr::family</definition>
+        <argsstring></argsstring>
+        <name>family</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="42" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structortp__recv__addr_1a7f6366348ec688c57546a5efb0d26c99" prot="public" static="no" mutable="no">
+        <type>struct in_addr</type>
+        <definition>struct in_addr ortp_recv_addr::ipi_addr</definition>
+        <argsstring></argsstring>
+        <name>ipi_addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="47" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structortp__recv__addr_1a721bd4195aa998345b6b23adab59a6b5" prot="public" static="no" mutable="no">
+        <type>struct in6_addr</type>
+        <definition>struct in6_addr ortp_recv_addr::ipi6_addr</definition>
+        <argsstring></argsstring>
+        <name>ipi6_addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="47" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structortp__recv__addr_1af389524373f9fffb9b29b6234a523a0b" prot="public" static="no" mutable="no">
+        <type>union ortp_recv_addr::@2</type>
+        <definition>union ortp_recv_addr::@2  ortp_recv_addr::addr</definition>
+        <argsstring></argsstring>
+        <name>addr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="46" column="1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structortp__recv__addr_1a0e22fa05ebd7cc4e90de312007e1166c" prot="public" static="no" mutable="no">
+        <type>unsigned short</type>
+        <definition>unsigned short ortp_recv_addr::port</definition>
+        <argsstring></argsstring>
+        <name>port</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="47" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="41" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="41" bodyend="48"/>
+    <listofallmembers>
+      <member refid="structortp__recv__addr_1af389524373f9fffb9b29b6234a523a0b" prot="public" virt="non-virtual"><scope>ortp_recv_addr</scope><name>addr</name></member>
+      <member refid="structortp__recv__addr_1a4b56f849b61aa1c3139b1a6a1ec7ec14" prot="public" virt="non-virtual"><scope>ortp_recv_addr</scope><name>family</name></member>
+      <member refid="structortp__recv__addr_1a721bd4195aa998345b6b23adab59a6b5" prot="public" virt="non-virtual"><scope>ortp_recv_addr</scope><name>ipi6_addr</name></member>
+      <member refid="structortp__recv__addr_1a7f6366348ec688c57546a5efb0d26c99" prot="public" virt="non-virtual"><scope>ortp_recv_addr</scope><name>ipi_addr</name></member>
+      <member refid="structortp__recv__addr_1a0e22fa05ebd7cc4e90de312007e1166c" prot="public" virt="non-virtual"><scope>ortp_recv_addr</scope><name>port</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

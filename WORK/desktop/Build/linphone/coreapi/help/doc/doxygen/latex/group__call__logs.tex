@@ -1,0 +1,753 @@
+\section{Call logs}
+\label{group__call__logs}\index{Call logs@{Call logs}}
+
+
+Managing call logs.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from}(cl)~\textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address}(cl)
+\item 
+\#define \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to}(cl)~\textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address}(cl)
+\item 
+\#define \textbf{ linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+pointer}(cl,  ud)~\textbf{ linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data}(cl, ud)
+\item 
+\#define \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+pointer}(cl)~\textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data}(cl)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{group__call__logs_ga1034661c7fea264b5e01b72f39987b77}} 
+typedef enum \textbf{ \+\_\+\+Linphone\+Call\+Dir} \textbf{ Linphone\+Call\+Dir}
+\begin{DoxyCompactList}\small\item\em Enum representing the direction of a call. \end{DoxyCompactList}\item 
+\mbox{\label{group__call__logs_gab700f6646681d1f4614a049892bc764a}} 
+typedef struct \+\_\+\+Linphone\+Call\+Log \textbf{ Linphone\+Call\+Log}
+\begin{DoxyCompactList}\small\item\em Structure representing a call log. \end{DoxyCompactList}\item 
+\mbox{\label{group__call__logs_gafd125fb704d3254856f4a826a6e60a11}} 
+typedef enum \textbf{ \+\_\+\+Linphone\+Call\+Status} \textbf{ Linphone\+Call\+Status}
+\begin{DoxyCompactList}\small\item\em Enum representing the status of a call. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ \+\_\+\+Linphone\+Call\+Dir} \{ \newline
+\textbf{ Linphone\+Call\+Outgoing}, 
+\newline
+\textbf{ Linphone\+Call\+Incoming}
+ \}\begin{DoxyCompactList}\small\item\em Enum representing the direction of a call. \end{DoxyCompactList}
+\item 
+enum \textbf{ \+\_\+\+Linphone\+Call\+Status} \{ \newline
+\textbf{ Linphone\+Call\+Success}, 
+\newline
+\textbf{ Linphone\+Call\+Aborted}, 
+\newline
+\textbf{ Linphone\+Call\+Missed}, 
+\newline
+\textbf{ Linphone\+Call\+Declined}, 
+\newline
+\textbf{ Linphone\+Call\+Early\+Aborted}
+ \}\begin{DoxyCompactList}\small\item\em Enum representing the status of a call. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+call\+\_\+id} (const \textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the call ID used by the call. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Call\+Dir} \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+dir} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the direction of the call. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+duration} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the duration of the call since connected. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the origin address (ie from) of the call. \end{DoxyCompactList}\item 
+const rtp\+\_\+stats\+\_\+t $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+local\+\_\+stats} (const \textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the R\+TP statistics computed locally regarding the call. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+quality} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the overall quality indication of the call. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+ref\+\_\+key} (const \textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the persistent reference key associated to the call log. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+address} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the remote address (that is from or to depending on call direction). \end{DoxyCompactList}\item 
+const rtp\+\_\+stats\+\_\+t $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+stats} (const \textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the R\+TP statistics computed by the remote end and sent back via R\+T\+CP. \end{DoxyCompactList}\item 
+time\+\_\+t \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+start\+\_\+date} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the start date of the call. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Call\+Status} \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+status} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the status of the call. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the destination address (ie to) of the call. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+ref\+\_\+key} (\textbf{ Linphone\+Call\+Log} $\ast$cl, const char $\ast$refkey)
+\begin{DoxyCompactList}\small\item\em Associate a persistent reference key to the call log. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+call\+\_\+log\+\_\+video\+\_\+enabled} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Tell whether video was enabled at the end of the call or not. \end{DoxyCompactList}\item 
+char $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+to\+\_\+str} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get a human readable string describing the call. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+call\+\_\+log\+\_\+was\+\_\+conference} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Tells whether that call was a call to a conference server. \end{DoxyCompactList}\item 
+const \textbf{ Linphone\+Error\+Info} $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+error\+\_\+info} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em When the call was failed, return an object describing the failure. \end{DoxyCompactList}\item 
+void $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data} (const \textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Get the user data associated with the call log. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data} (\textbf{ Linphone\+Call\+Log} $\ast$cl, void $\ast$ud)
+\begin{DoxyCompactList}\small\item\em Assign a user data to the call log. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Call\+Log} $\ast$ \textbf{ linphone\+\_\+call\+\_\+log\+\_\+ref} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Acquire a reference to the call log. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+call\+\_\+log\+\_\+unref} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Release a reference to the call log. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+call\+\_\+log\+\_\+destroy} (\textbf{ Linphone\+Call\+Log} $\ast$cl)
+\begin{DoxyCompactList}\small\item\em Destroy a Linphone\+Call\+Log. \end{DoxyCompactList}\item 
+const bctbx\+\_\+list\+\_\+t $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+logs} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Get the list of call logs (past calls). \end{DoxyCompactList}\item 
+bctbx\+\_\+list\+\_\+t $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+history\+\_\+for\+\_\+address} (\textbf{ Linphone\+Core} $\ast$lc, const \textbf{ Linphone\+Address} $\ast$addr)
+\begin{DoxyCompactList}\small\item\em Get the list of call logs (past calls) that matches the given \doxyref{Linphone\+Address}{p.}{group__linphone__address_ga5af5a516ac253e3cda4f51b599a5385b}. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Call\+Log} $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+last\+\_\+outgoing\+\_\+call\+\_\+log} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Get the latest outgoing call log. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Call\+Log} $\ast$ \textbf{ linphone\+\_\+core\+\_\+find\+\_\+call\+\_\+log\+\_\+from\+\_\+call\+\_\+id} (\textbf{ Linphone\+Core} $\ast$lc, const char $\ast$call\+\_\+id)
+\begin{DoxyCompactList}\small\item\em Get the call log matching the call id, or N\+U\+LL if can\textquotesingle{}t be found. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+clear\+\_\+call\+\_\+logs} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Erase the call log. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+core\+\_\+get\+\_\+missed\+\_\+calls\+\_\+count} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Get the number of missed calls. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+reset\+\_\+missed\+\_\+calls\+\_\+count} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Reset the counter of missed calls. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+remove\+\_\+call\+\_\+log} (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Call\+Log} $\ast$call\+\_\+log)
+\begin{DoxyCompactList}\small\item\em Remove a specific call log from call history list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Managing call logs. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{group__call__logs_gab84bce839e6c7301d2af4350d32ec976}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from}
+{\footnotesize\ttfamily \#define linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from(\begin{DoxyParamCaption}\item[{}]{cl }\end{DoxyParamCaption})~\textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address}(cl)}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address()}{p.}{group__call__logs_gaaafe867bd6bc91436b0064be70813151} instead.\end{DoxyRefDesc}
+\mbox{\label{group__call__logs_gae26bf43ec4e4961f3a3be5e55cb80086}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to}
+{\footnotesize\ttfamily \#define linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to(\begin{DoxyParamCaption}\item[{}]{cl }\end{DoxyParamCaption})~\textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address}(cl)}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address()}{p.}{group__call__logs_ga0105f29d6ade6835acd1cf6ae570ca91} instead.\end{DoxyRefDesc}
+\mbox{\label{group__call__logs_ga5a92ec7e1a015fb0d6f80abf736b5c4e}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+pointer@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+pointer}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+pointer@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+pointer}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+pointer}
+{\footnotesize\ttfamily \#define linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+pointer(\begin{DoxyParamCaption}\item[{}]{cl }\end{DoxyParamCaption})~\textbf{ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data}(cl)}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data()}{p.}{group__call__logs_ga7739aef07704316d9d92d50262ddd767} instead.\end{DoxyRefDesc}
+\mbox{\label{group__call__logs_ga8d3b12ad3b8f4d4783e40a78c23dd9a0}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+pointer@{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+pointer}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+pointer@{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+pointer}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+pointer}
+{\footnotesize\ttfamily \#define linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+pointer(\begin{DoxyParamCaption}\item[{}]{cl,  }\item[{}]{ud }\end{DoxyParamCaption})~\textbf{ linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data}(cl, ud)}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data()}{p.}{group__call__logs_gadb77bcb2b2beb031bcbf6f0bcc62652a} instead.\end{DoxyRefDesc}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{group__call__logs_gaa3077de7d4214529094998ce441f61e1}} 
+\index{Call logs@{Call logs}!\+\_\+\+Linphone\+Call\+Dir@{\+\_\+\+Linphone\+Call\+Dir}}
+\index{\+\_\+\+Linphone\+Call\+Dir@{\+\_\+\+Linphone\+Call\+Dir}!Call logs@{Call logs}}
+\subsubsection{\+\_\+\+Linphone\+Call\+Dir}
+{\footnotesize\ttfamily enum \textbf{ \+\_\+\+Linphone\+Call\+Dir}}
+
+
+
+Enum representing the direction of a call. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Call\+Outgoing@{Linphone\+Call\+Outgoing}!Call logs@{Call logs}}\index{Call logs@{Call logs}!Linphone\+Call\+Outgoing@{Linphone\+Call\+Outgoing}}}\mbox{\label{group__call__logs_ggaa3077de7d4214529094998ce441f61e1a4856091c25d200b11669efdbc6abb4ed}} 
+Linphone\+Call\+Outgoing&outgoing calls \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Call\+Incoming@{Linphone\+Call\+Incoming}!Call logs@{Call logs}}\index{Call logs@{Call logs}!Linphone\+Call\+Incoming@{Linphone\+Call\+Incoming}}}\mbox{\label{group__call__logs_ggaa3077de7d4214529094998ce441f61e1aa4030176bbddea10e361ce320946e202}} 
+Linphone\+Call\+Incoming&incoming calls \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{group__call__logs_ga0896daf3cb167a43e357c3955ab33f3f}} 
+\index{Call logs@{Call logs}!\+\_\+\+Linphone\+Call\+Status@{\+\_\+\+Linphone\+Call\+Status}}
+\index{\+\_\+\+Linphone\+Call\+Status@{\+\_\+\+Linphone\+Call\+Status}!Call logs@{Call logs}}
+\subsubsection{\+\_\+\+Linphone\+Call\+Status}
+{\footnotesize\ttfamily enum \textbf{ \+\_\+\+Linphone\+Call\+Status}}
+
+
+
+Enum representing the status of a call. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Call\+Success@{Linphone\+Call\+Success}!Call logs@{Call logs}}\index{Call logs@{Call logs}!Linphone\+Call\+Success@{Linphone\+Call\+Success}}}\mbox{\label{group__call__logs_gga0896daf3cb167a43e357c3955ab33f3fa998fe35d090ed76fb89b23b3a8dfb0ff}} 
+Linphone\+Call\+Success&The call was sucessful. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Call\+Aborted@{Linphone\+Call\+Aborted}!Call logs@{Call logs}}\index{Call logs@{Call logs}!Linphone\+Call\+Aborted@{Linphone\+Call\+Aborted}}}\mbox{\label{group__call__logs_gga0896daf3cb167a43e357c3955ab33f3faeff436dddb49d4bf17d2e05a94b5bd59}} 
+Linphone\+Call\+Aborted&The call was aborted. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Call\+Missed@{Linphone\+Call\+Missed}!Call logs@{Call logs}}\index{Call logs@{Call logs}!Linphone\+Call\+Missed@{Linphone\+Call\+Missed}}}\mbox{\label{group__call__logs_gga0896daf3cb167a43e357c3955ab33f3fad26e9035dad755590a5a724c7ba69656}} 
+Linphone\+Call\+Missed&The call was missed (unanswered) \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Call\+Declined@{Linphone\+Call\+Declined}!Call logs@{Call logs}}\index{Call logs@{Call logs}!Linphone\+Call\+Declined@{Linphone\+Call\+Declined}}}\mbox{\label{group__call__logs_gga0896daf3cb167a43e357c3955ab33f3fad6711031d964a7d56f10c07ac239a102}} 
+Linphone\+Call\+Declined&The call was declined, either locally or by remote end. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Call\+Early\+Aborted@{Linphone\+Call\+Early\+Aborted}!Call logs@{Call logs}}\index{Call logs@{Call logs}!Linphone\+Call\+Early\+Aborted@{Linphone\+Call\+Early\+Aborted}}}\mbox{\label{group__call__logs_gga0896daf3cb167a43e357c3955ab33f3fa3a9783965291ff7ec0bfa35442f8170c}} 
+Linphone\+Call\+Early\+Aborted&The call was aborted before being advertised to the application -\/ for protocol reasons. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\label{group__call__logs_ga1140dfe4b51ba832f42984a3c438995c}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+destroy@{linphone\+\_\+call\+\_\+log\+\_\+destroy}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+destroy@{linphone\+\_\+call\+\_\+log\+\_\+destroy}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+destroy()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+call\+\_\+log\+\_\+destroy (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Destroy a Linphone\+Call\+Log. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+call\+\_\+log\+\_\+unref()}{p.}{group__call__logs_ga802bbd28cc29824d80a70ad33e5b8ea6} instead.  \end{DoxyRefDesc}
+\mbox{\label{group__call__logs_gae2a190bb030970e723f0c8d8505b83a7}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+call\+\_\+id@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+call\+\_\+id}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+call\+\_\+id@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+call\+\_\+id}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+call\+\_\+id()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+call\+\_\+id (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the call ID used by the call. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The call ID used by the call as a string. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga847aa4ed07183ce7fdd69814683de953}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+dir@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+dir}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+dir@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+dir}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+dir()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Call\+Dir} linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+dir (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the direction of the call. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The direction of the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gad44b7d604092e48ab3b329d651176a09}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+duration@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+duration}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+duration@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+duration}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+duration()}
+{\footnotesize\ttfamily int linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+duration (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the duration of the call since connected. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The duration of the call in seconds. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gaa49834b6b92a905bf05cfd6fb9a939ac}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+error\+\_\+info@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+error\+\_\+info}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+error\+\_\+info@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+error\+\_\+info}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+error\+\_\+info()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Error\+Info}$\ast$ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+error\+\_\+info (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+When the call was failed, return an object describing the failure. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & \doxyref{Linphone\+Call\+Log}{p.}{group__call__logs_gab700f6646681d1f4614a049892bc764a} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+information about the error encountered by the call associated with this call log. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gaaafe867bd6bc91436b0064be70813151}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Address}$\ast$ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+from\+\_\+address (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the origin address (ie from) of the call. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The origin address (ie from) of the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gafc32d586c890fb39c5486586366376e7}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+local\+\_\+stats@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+local\+\_\+stats}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+local\+\_\+stats@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+local\+\_\+stats}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+local\+\_\+stats()}
+{\footnotesize\ttfamily const rtp\+\_\+stats\+\_\+t$\ast$ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+local\+\_\+stats (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the R\+TP statistics computed locally regarding the call. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The R\+TP statistics that have been computed locally for the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga9ddfd1fbcf4d04ec845ea60fd3bec40c}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+quality@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+quality}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+quality@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+quality}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+quality()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+quality (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the overall quality indication of the call. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The overall quality indication of the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga5f7543296ee65b188d1fbf8b534ebff3}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+ref\+\_\+key@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+ref\+\_\+key}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+ref\+\_\+key@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+ref\+\_\+key}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+ref\+\_\+key()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+ref\+\_\+key (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the persistent reference key associated to the call log. 
+
+The reference key can be for example an id to an external database. It is stored in the config file, thus can survive to process exits/restarts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reference key string that has been associated to the call log, or N\+U\+LL if none has been associated. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga6c4eaeeb10d59d7a63fcc6e6be42a5c8}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+address@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+address}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+address@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+address}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+address()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Address}$\ast$ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+address (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the remote address (that is from or to depending on call direction). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The remote address of the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gaebb6a63bab5d3271107227acae94d531}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+stats@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+stats}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+stats@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+stats}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+stats()}
+{\footnotesize\ttfamily const rtp\+\_\+stats\+\_\+t$\ast$ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+remote\+\_\+stats (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the R\+TP statistics computed by the remote end and sent back via R\+T\+CP. 
+
+\begin{DoxyNote}{Note}
+Not implemented yet. 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The R\+TP statistics that have been computed by the remote end for the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gadc9c4a4551352805dcf2b187541db22b}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+start\+\_\+date@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+start\+\_\+date}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+start\+\_\+date@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+start\+\_\+date}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+start\+\_\+date()}
+{\footnotesize\ttfamily time\+\_\+t linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+start\+\_\+date (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the start date of the call. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The date of the beginning of the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga09169074d242befc7b1739c6a975aad8}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+status@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+status}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+status@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+status}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+status()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Call\+Status} linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+status (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the status of the call. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga0105f29d6ade6835acd1cf6ae570ca91}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Address}$\ast$ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+to\+\_\+address (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the destination address (ie to) of the call. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The destination address (ie to) of the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga7739aef07704316d9d92d50262ddd767}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void$\ast$ linphone\+\_\+call\+\_\+log\+\_\+get\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get the user data associated with the call log. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The user data associated with the call log. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga2f3af8bb19866a4bbeebefa17bf2b806}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+ref@{linphone\+\_\+call\+\_\+log\+\_\+ref}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+ref@{linphone\+\_\+call\+\_\+log\+\_\+ref}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+ref()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Call\+Log}$\ast$ linphone\+\_\+call\+\_\+log\+\_\+ref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Acquire a reference to the call log. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The same Linphone\+Call\+Log object 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gac12aee1a611bcb6a899582a8d4705be1}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+ref\+\_\+key@{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+ref\+\_\+key}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+ref\+\_\+key@{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+ref\+\_\+key}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+ref\+\_\+key()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+ref\+\_\+key (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl,  }\item[{const char $\ast$}]{refkey }\end{DoxyParamCaption})}
+
+
+
+Associate a persistent reference key to the call log. 
+
+The reference key can be for example an id to an external database. It is stored in the config file, thus can survive to process exits/restarts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\mbox{\tt in}  & {\em refkey} & The reference key string to associate to the call log. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__logs_gadb77bcb2b2beb031bcbf6f0bcc62652a}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+log\+\_\+set\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl,  }\item[{void $\ast$}]{ud }\end{DoxyParamCaption})}
+
+
+
+Assign a user data to the call log. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\mbox{\tt in}  & {\em ud} & The user data to associate with the call log. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__logs_ga0710ace4194a6a8923014922c5f93b3d}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+to\+\_\+str@{linphone\+\_\+call\+\_\+log\+\_\+to\+\_\+str}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+to\+\_\+str@{linphone\+\_\+call\+\_\+log\+\_\+to\+\_\+str}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+to\+\_\+str()}
+{\footnotesize\ttfamily char$\ast$ linphone\+\_\+call\+\_\+log\+\_\+to\+\_\+str (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Get a human readable string describing the call. 
+
+\begin{DoxyNote}{Note}
+\+: the returned string must be freed by the application (use ms\+\_\+free()). 
+\end{DoxyNote}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A human readable string describing the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga802bbd28cc29824d80a70ad33e5b8ea6}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+unref@{linphone\+\_\+call\+\_\+log\+\_\+unref}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+unref@{linphone\+\_\+call\+\_\+log\+\_\+unref}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+unref()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+log\+\_\+unref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Release a reference to the call log. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__logs_ga5787f07ce7705433f11f571809ba8066}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+video\+\_\+enabled@{linphone\+\_\+call\+\_\+log\+\_\+video\+\_\+enabled}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+video\+\_\+enabled@{linphone\+\_\+call\+\_\+log\+\_\+video\+\_\+enabled}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+video\+\_\+enabled()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+call\+\_\+log\+\_\+video\+\_\+enabled (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Tell whether video was enabled at the end of the call or not. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & Linphone\+Call\+Log object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean value telling whether video was enabled at the end of the call. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gae5d1980d1e48b5f3e8fc156424fb2dda}} 
+\index{Call logs@{Call logs}!linphone\+\_\+call\+\_\+log\+\_\+was\+\_\+conference@{linphone\+\_\+call\+\_\+log\+\_\+was\+\_\+conference}}
+\index{linphone\+\_\+call\+\_\+log\+\_\+was\+\_\+conference@{linphone\+\_\+call\+\_\+log\+\_\+was\+\_\+conference}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+call\+\_\+log\+\_\+was\+\_\+conference()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+call\+\_\+log\+\_\+was\+\_\+conference (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{cl }\end{DoxyParamCaption})}
+
+
+
+Tells whether that call was a call to a conference server. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cl} & \doxyref{Linphone\+Call\+Log}{p.}{group__call__logs_gab700f6646681d1f4614a049892bc764a} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the call was a call to a conference server 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga76fb517665122b63136ccc673d431b34}} 
+\index{Call logs@{Call logs}!linphone\+\_\+core\+\_\+clear\+\_\+call\+\_\+logs@{linphone\+\_\+core\+\_\+clear\+\_\+call\+\_\+logs}}
+\index{linphone\+\_\+core\+\_\+clear\+\_\+call\+\_\+logs@{linphone\+\_\+core\+\_\+clear\+\_\+call\+\_\+logs}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+core\+\_\+clear\+\_\+call\+\_\+logs()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+clear\+\_\+call\+\_\+logs (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Erase the call log. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & Linphone\+Core object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__logs_ga3ca6061857fa87f606e26d9b4f57c81e}} 
+\index{Call logs@{Call logs}!linphone\+\_\+core\+\_\+find\+\_\+call\+\_\+log\+\_\+from\+\_\+call\+\_\+id@{linphone\+\_\+core\+\_\+find\+\_\+call\+\_\+log\+\_\+from\+\_\+call\+\_\+id}}
+\index{linphone\+\_\+core\+\_\+find\+\_\+call\+\_\+log\+\_\+from\+\_\+call\+\_\+id@{linphone\+\_\+core\+\_\+find\+\_\+call\+\_\+log\+\_\+from\+\_\+call\+\_\+id}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+core\+\_\+find\+\_\+call\+\_\+log\+\_\+from\+\_\+call\+\_\+id()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Call\+Log}$\ast$ linphone\+\_\+core\+\_\+find\+\_\+call\+\_\+log\+\_\+from\+\_\+call\+\_\+id (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const char $\ast$}]{call\+\_\+id }\end{DoxyParamCaption})}
+
+
+
+Get the call log matching the call id, or N\+U\+LL if can\textquotesingle{}t be found. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & Linphone\+Core object \\
+\hline
+\mbox{\tt in}  & {\em call\+\_\+id} & Call id of the call log to find \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Linphone\+Call\+Log\} 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga9ed1cce25f0f908051a458ed9176a6e2}} 
+\index{Call logs@{Call logs}!linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+history\+\_\+for\+\_\+address@{linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+history\+\_\+for\+\_\+address}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+history\+\_\+for\+\_\+address@{linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+history\+\_\+for\+\_\+address}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+history\+\_\+for\+\_\+address()}
+{\footnotesize\ttfamily bctbx\+\_\+list\+\_\+t$\ast$ linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+history\+\_\+for\+\_\+address (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{addr }\end{DoxyParamCaption})}
+
+
+
+Get the list of call logs (past calls) that matches the given \doxyref{Linphone\+Address}{p.}{group__linphone__address_ga5af5a516ac253e3cda4f51b599a5385b}. 
+
+At the contrary of linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+logs, it is your responsibility to unref the logs and free this list once you are done using it. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & Linphone\+Core object \\
+\hline
+\mbox{\tt in}  & {\em addr} & Linphone\+Address object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of \doxyref{Linphone\+Call\+Log}{p.}{group__call__logs_gab700f6646681d1f4614a049892bc764a} objects. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga0ee6bdca57422da5b78446ea10da19f1}} 
+\index{Call logs@{Call logs}!linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+logs@{linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+logs}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+logs@{linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+logs}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+logs()}
+{\footnotesize\ttfamily const bctbx\+\_\+list\+\_\+t$\ast$ linphone\+\_\+core\+\_\+get\+\_\+call\+\_\+logs (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Get the list of call logs (past calls). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & Linphone\+Core object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of \doxyref{Linphone\+Call\+Log}{p.}{group__call__logs_gab700f6646681d1f4614a049892bc764a} objects. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_ga60dfe039e374675b32f78859909d0a4f}} 
+\index{Call logs@{Call logs}!linphone\+\_\+core\+\_\+get\+\_\+last\+\_\+outgoing\+\_\+call\+\_\+log@{linphone\+\_\+core\+\_\+get\+\_\+last\+\_\+outgoing\+\_\+call\+\_\+log}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+last\+\_\+outgoing\+\_\+call\+\_\+log@{linphone\+\_\+core\+\_\+get\+\_\+last\+\_\+outgoing\+\_\+call\+\_\+log}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+last\+\_\+outgoing\+\_\+call\+\_\+log()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Call\+Log}$\ast$ linphone\+\_\+core\+\_\+get\+\_\+last\+\_\+outgoing\+\_\+call\+\_\+log (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Get the latest outgoing call log. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & Linphone\+Core object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Linphone\+Call\+Log\} 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gae0b13195a295a5d3e0a53fe11cfec644}} 
+\index{Call logs@{Call logs}!linphone\+\_\+core\+\_\+get\+\_\+missed\+\_\+calls\+\_\+count@{linphone\+\_\+core\+\_\+get\+\_\+missed\+\_\+calls\+\_\+count}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+missed\+\_\+calls\+\_\+count@{linphone\+\_\+core\+\_\+get\+\_\+missed\+\_\+calls\+\_\+count}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+missed\+\_\+calls\+\_\+count()}
+{\footnotesize\ttfamily int linphone\+\_\+core\+\_\+get\+\_\+missed\+\_\+calls\+\_\+count (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Get the number of missed calls. 
+
+Once checked, this counter can be reset with \doxyref{linphone\+\_\+core\+\_\+reset\+\_\+missed\+\_\+calls\+\_\+count()}{p.}{group__call__logs_ga8b01457c0ba5b24ae92bd167a79313fd}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of missed calls. 
+\end{DoxyReturn}
+\mbox{\label{group__call__logs_gadce35b7ded361556ea4e9831f594680a}} 
+\index{Call logs@{Call logs}!linphone\+\_\+core\+\_\+remove\+\_\+call\+\_\+log@{linphone\+\_\+core\+\_\+remove\+\_\+call\+\_\+log}}
+\index{linphone\+\_\+core\+\_\+remove\+\_\+call\+\_\+log@{linphone\+\_\+core\+\_\+remove\+\_\+call\+\_\+log}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+core\+\_\+remove\+\_\+call\+\_\+log()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+remove\+\_\+call\+\_\+log (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{\textbf{ Linphone\+Call\+Log} $\ast$}]{call\+\_\+log }\end{DoxyParamCaption})}
+
+
+
+Remove a specific call log from call history list. 
+
+This function destroys the call log object. It must not be accessed anymore by the application after calling this function. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\mbox{\tt in}  & {\em call\+\_\+log} & \doxyref{Linphone\+Call\+Log}{p.}{group__call__logs_gab700f6646681d1f4614a049892bc764a} object to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__logs_ga8b01457c0ba5b24ae92bd167a79313fd}} 
+\index{Call logs@{Call logs}!linphone\+\_\+core\+\_\+reset\+\_\+missed\+\_\+calls\+\_\+count@{linphone\+\_\+core\+\_\+reset\+\_\+missed\+\_\+calls\+\_\+count}}
+\index{linphone\+\_\+core\+\_\+reset\+\_\+missed\+\_\+calls\+\_\+count@{linphone\+\_\+core\+\_\+reset\+\_\+missed\+\_\+calls\+\_\+count}!Call logs@{Call logs}}
+\subsubsection{linphone\+\_\+core\+\_\+reset\+\_\+missed\+\_\+calls\+\_\+count()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+reset\+\_\+missed\+\_\+calls\+\_\+count (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Reset the counter of missed calls. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object. \\
+\hline
+\end{DoxyParams}

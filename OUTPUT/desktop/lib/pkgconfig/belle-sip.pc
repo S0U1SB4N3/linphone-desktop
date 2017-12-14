@@ -1,0 +1,13 @@
+# This is a comment
+prefix=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop
+exec_prefix=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/bin
+includedir=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include
+
+Name: belle-sip 
+Description: A c based implementation of the SIP (RFC 3261)  telephony protocol 
+Requires: bctoolbox
+Requires.private:  z 
+Version: 1.6.3
+Libs: -L/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/lib -lbellesip
+Libs.private: -L/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/lib -lantlr3c -L -lbctoolbox -ldl
+Cflags: -I/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include 

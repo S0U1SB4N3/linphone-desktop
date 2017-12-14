@@ -1,0 +1,718 @@
+.TH "call_misc" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+call_misc \- Obtaining information about a running call: sound volumes, quality indicators\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLINPHONE_CALL_STATS_AUDIO\fP   ((int)LinphoneStreamTypeAudio)"
+.br
+.ti -1c
+.RI "#define \fBLINPHONE_CALL_STATS_VIDEO\fP   ((int)LinphoneStreamTypeVideo)"
+.br
+.ti -1c
+.RI "#define \fBLINPHONE_CALL_STATS_TEXT\fP   ((int)LinphoneStreamTypeText)"
+.br
+.ti -1c
+.RI "#define \fBLINPHONE_CALL_STATS_RECEIVED_RTCP_UPDATE\fP   (1 << 0)"
+.br
+.RI "received_rtcp field of LinphoneCallStats object has been updated "
+.ti -1c
+.RI "#define \fBLINPHONE_CALL_STATS_SENT_RTCP_UPDATE\fP   (1 << 1)"
+.br
+.RI "sent_rtcp field of LinphoneCallStats object has been updated "
+.ti -1c
+.RI "#define \fBLINPHONE_CALL_STATS_PERIODICAL_UPDATE\fP   (1 << 2)"
+.br
+.RI "Every seconds LinphoneCallStats object has been updated\&. "
+.ti -1c
+.RI "#define \fBLINPHONE_VOLUME_DB_LOWEST\fP   (\-120) /* WARNING: keep this in sync with mediastreamer2/msvolume\&.h */"
+.br
+.RI "Lowest volume measurement that can be returned by \fBlinphone_call_get_play_volume()\fP or \fBlinphone_call_get_record_volume()\fP, corresponding to pure silence\&. "
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct _LinphoneCallStats \fBLinphoneCallStats\fP"
+.br
+.RI "The LinphoneCallStats objects carries various statistic informations regarding quality of audio or video streams\&. "
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLinphoneChatRoom\fP * \fBlinphone_call_get_chat_room\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Create a new chat room for messaging from a call if not already existing, else return existing one\&. "
+.ti -1c
+.RI "float \fBlinphone_call_get_play_volume\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Get the mesured playback volume level (received from remote) in dbm0\&. "
+.ti -1c
+.RI "float \fBlinphone_call_get_record_volume\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Get the mesured record volume level (sent to remote) in dbm0\&. "
+.ti -1c
+.RI "float \fBlinphone_call_get_speaker_volume_gain\fP (const \fBLinphoneCall\fP *call)"
+.br
+.RI "Get speaker volume gain\&. "
+.ti -1c
+.RI "void \fBlinphone_call_set_speaker_volume_gain\fP (\fBLinphoneCall\fP *call, float volume)"
+.br
+.RI "Set speaker volume gain\&. "
+.ti -1c
+.RI "float \fBlinphone_call_get_microphone_volume_gain\fP (const \fBLinphoneCall\fP *call)"
+.br
+.RI "Get microphone volume gain\&. "
+.ti -1c
+.RI "void \fBlinphone_call_set_microphone_volume_gain\fP (\fBLinphoneCall\fP *call, float volume)"
+.br
+.RI "Set microphone volume gain\&. "
+.ti -1c
+.RI "float \fBlinphone_call_get_current_quality\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Obtain real-time quality rating of the call\&. "
+.ti -1c
+.RI "float \fBlinphone_call_get_average_quality\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Returns call quality averaged over all the duration of the call\&. "
+.ti -1c
+.RI "void \fBlinphone_call_start_recording\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Start call recording\&. "
+.ti -1c
+.RI "void \fBlinphone_call_stop_recording\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Stop call recording\&. "
+.ti -1c
+.RI "\fBLinphonePlayer\fP * \fBlinphone_call_get_player\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Get a player associated with the call to play a local file and stream it to the remote peer\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_call_media_in_progress\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Indicates whether an operation is in progress at the media side\&. "
+.ti -1c
+.RI "void \fBlinphone_call_ogl_render\fP (const \fBLinphoneCall\fP *call)"
+.br
+.RI "Call generic OpenGL render for a given call\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_call_send_info_message\fP (\fBLinphoneCall\fP *call, const \fBLinphoneInfoMessage\fP *info)"
+.br
+.RI "Send a LinphoneInfoMessage through an established call\&. "
+.ti -1c
+.RI "\fBLinphoneCallStats\fP * \fBlinphone_call_get_stats\fP (\fBLinphoneCall\fP *call, \fBLinphoneStreamType\fP type)"
+.br
+.RI "Return a copy of the call statistics for a particular stream type\&. "
+.ti -1c
+.RI "\fBLinphoneCallStats\fP * \fBlinphone_call_get_audio_stats\fP (\fBLinphoneCall\fP *call)"
+.br
+.ti -1c
+.RI "\fBLinphoneCallStats\fP * \fBlinphone_call_get_video_stats\fP (\fBLinphoneCall\fP *call)"
+.br
+.ti -1c
+.RI "\fBLinphoneCallStats\fP * \fBlinphone_call_get_text_stats\fP (\fBLinphoneCall\fP *call)"
+.br
+.ti -1c
+.RI "void \fBlinphone_call_add_callbacks\fP (\fBLinphoneCall\fP *call, \fBLinphoneCallCbs\fP *cbs)"
+.br
+.RI "Add a listener in order to be notified of LinphoneCall events\&. "
+.ti -1c
+.RI "void \fBlinphone_call_remove_callbacks\fP (\fBLinphoneCall\fP *call, \fBLinphoneCallCbs\fP *cbs)"
+.br
+.RI "Remove a listener from a LinphoneCall\&. "
+.ti -1c
+.RI "\fBLinphoneCallCbs\fP * \fBlinphone_call_get_current_callbacks\fP (const \fBLinphoneCall\fP *call)"
+.br
+.RI "Gets the current LinphoneCallCbs\&. "
+.ti -1c
+.RI "void \fBlinphone_call_set_params\fP (\fBLinphoneCall\fP *call, const \fBLinphoneCallParams\fP *params)"
+.br
+.RI "Set call parameters - advanced and not recommended feature - use with caution\&. "
+.ti -1c
+.RI "const \fBLinphoneCallParams\fP * \fBlinphone_call_get_params\fP (\fBLinphoneCall\fP *call)"
+.br
+.RI "Returns local parameters associated with the call\&. "
+.ti -1c
+.RI "\fBLinphoneStreamType\fP \fBlinphone_call_stats_get_type\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the type of the stream the stats refer to\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_sender_loss_rate\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the local loss rate since last report\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_receiver_loss_rate\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Gets the remote reported loss rate since last report\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_local_loss_rate\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the local loss rate since last report\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_local_late_rate\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Gets the local late rate since last report\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_sender_interarrival_jitter\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Gets the local interarrival jitter\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_receiver_interarrival_jitter\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Gets the remote reported interarrival jitter\&. "
+.ti -1c
+.RI "const rtp_stats_t * \fBlinphone_call_stats_get_rtp_stats\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.ti -1c
+.RI "uint64_t \fBlinphone_call_stats_get_late_packets_cumulative_number\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Gets the cumulative number of late packets\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_download_bandwidth\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the bandwidth measurement of the received stream, expressed in kbit/s, including IP/UDP/RTP headers\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_upload_bandwidth\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the bandwidth measurement of the sent stream, expressed in kbit/s, including IP/UDP/RTP headers\&. "
+.ti -1c
+.RI "\fBLinphoneIceState\fP \fBlinphone_call_stats_get_ice_state\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the state of ICE processing\&. "
+.ti -1c
+.RI "\fBLinphoneUpnpState\fP \fBlinphone_call_stats_get_upnp_state\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the state of uPnP processing\&. "
+.ti -1c
+.RI "\fBLinphoneAddressFamily\fP \fBlinphone_call_stats_get_ip_family_of_remote\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the IP address family of the remote peer\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_jitter_buffer_size_ms\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the jitter buffer size in ms\&. "
+.ti -1c
+.RI "float \fBlinphone_call_stats_get_round_trip_delay\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Get the round trip delay in s\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Obtaining information about a running call: sound volumes, quality indicators\&. 
+
+When a call is running, it is possible to retrieve in real time current measured volumes and quality indicator\&. 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct _LinphoneCallStats \fBLinphoneCallStats\fP"
+
+.PP
+The LinphoneCallStats objects carries various statistic informations regarding quality of audio or video streams\&. To receive these informations periodically and as soon as they are computed, the application is invited to place a \fBLinphoneCoreCallStatsUpdatedCb\fP callback in the LinphoneCoreVTable structure it passes for instanciating the LinphoneCore object (see \fBlinphone_core_new()\fP )\&.
+.PP
+At any time, the application can access last computed statistics using linphone_call_get_audio_stats() or linphone_call_get_video_stats()\&. 
+.SH "Function Documentation"
+.PP 
+.SS "void linphone_call_add_callbacks (\fBLinphoneCall\fP * call, \fBLinphoneCallCbs\fP * cbs)"
+
+.PP
+Add a listener in order to be notified of LinphoneCall events\&. Once an event is received, registred LinphoneCallCbs are invoked sequencially\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP LinphoneCall object to monitor\&. 
+.br
+\fIcbs\fP A LinphoneCallCbs object holding the callbacks you need\&. A reference is taken by the LinphoneCall until you invoke \fBlinphone_call_remove_callbacks()\fP\&. 
+.RE
+.PP
+
+.SS "float linphone_call_get_average_quality (\fBLinphoneCall\fP * call)"
+
+.PP
+Returns call quality averaged over all the duration of the call\&. See \fBlinphone_call_get_current_quality()\fP for more details about quality measurement\&. 
+.SS "\fBLinphoneChatRoom\fP* linphone_call_get_chat_room (\fBLinphoneCall\fP * call)"
+
+.PP
+Create a new chat room for messaging from a call if not already existing, else return existing one\&. No reference is given to the caller: the chat room will be deleted when the call is ended\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP \fBLinphoneCall\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneChatRoom\fP where messaging can take place\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneCallCbs\fP* linphone_call_get_current_callbacks (const \fBLinphoneCall\fP * call)"
+
+.PP
+Gets the current LinphoneCallCbs\&. This is meant only to be called from a callback to be able to get the user_data associated with the LinphoneCallCbs that is calling the callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP LinphoneCall object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The LinphoneCallCbs that has called the last callback 
+.RE
+.PP
+
+.SS "float linphone_call_get_current_quality (\fBLinphoneCall\fP * call)"
+
+.PP
+Obtain real-time quality rating of the call\&. Based on local RTP statistics and RTCP feedback, a quality rating is computed and updated during all the duration of the call\&. This function returns its value at the time of the function call\&. It is expected that the rating is updated at least every 5 seconds or so\&. The rating is a floating point number comprised between 0 and 5\&.
+.PP
+4-5 = good quality 
+.br
+ 3-4 = average quality 
+.br
+ 2-3 = poor quality 
+.br
+ 1-2 = very poor quality 
+.br
+ 0-1 = can't be worse, mostly unusable 
+.br
+.PP
+\fBReturns:\fP
+.RS 4
+The function returns -1 if no quality measurement is available, for example if no active audio stream exist\&. Otherwise it returns the quality rating\&. 
+.RE
+.PP
+
+.SS "float linphone_call_get_microphone_volume_gain (const \fBLinphoneCall\fP * call)"
+
+.PP
+Get microphone volume gain\&. If the sound backend supports it, the returned gain is equal to the gain set with the system mixer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP The call\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+double Percenatge of the max supported volume gain\&. Valid values are in [ 0\&.0 : 1\&.0 ]\&. In case of failure, a negative value is returned 
+.RE
+.PP
+
+.SS "const \fBLinphoneCallParams\fP* linphone_call_get_params (\fBLinphoneCall\fP * call)"
+
+.PP
+Returns local parameters associated with the call\&. This is typically the parameters passed at call initiation to \fBlinphone_core_invite_address_with_params()\fP or \fBlinphone_call_accept_with_params()\fP, or some default parameters if no LinphoneCallParams was explicitely passed during call initiation\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP the LinphoneCall object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the call's local parameters\&. 
+.RE
+.PP
+
+.SS "float linphone_call_get_play_volume (\fBLinphoneCall\fP * call)"
+
+.PP
+Get the mesured playback volume level (received from remote) in dbm0\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP The call\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+float Volume level in percentage\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePlayer\fP* linphone_call_get_player (\fBLinphoneCall\fP * call)"
+
+.PP
+Get a player associated with the call to play a local file and stream it to the remote peer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP LinphoneCall object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphonePlayer object 
+.RE
+.PP
+
+.SS "float linphone_call_get_record_volume (\fBLinphoneCall\fP * call)"
+
+.PP
+Get the mesured record volume level (sent to remote) in dbm0\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP The call\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+float Volume level in percentage\&. 
+.RE
+.PP
+
+.SS "float linphone_call_get_speaker_volume_gain (const \fBLinphoneCall\fP * call)"
+
+.PP
+Get speaker volume gain\&. If the sound backend supports it, the returned gain is equal to the gain set with the system mixer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP The call\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Percenatge of the max supported volume gain\&. Valid values are in [ 0\&.0 : 1\&.0 ]\&. In case of failure, a negative value is returned 
+.RE
+.PP
+
+.SS "\fBLinphoneCallStats\fP* linphone_call_get_stats (\fBLinphoneCall\fP * call, \fBLinphoneStreamType\fP type)"
+
+.PP
+Return a copy of the call statistics for a particular stream type\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP the call 
+.br
+\fItype\fP the stream type 
+.RE
+.PP
+
+.SS "bool_t linphone_call_media_in_progress (\fBLinphoneCall\fP * call)"
+
+.PP
+Indicates whether an operation is in progress at the media side\&. It can be a bad idea to initiate signaling operations (adding video, pausing the call, removing video, changing video parameters) while the media is busy in establishing the connection (typically ICE connectivity checks)\&. It can result in failures generating loss of time in future operations in the call\&. Applications are invited to check this function after each call state change to decide whether certain operations are permitted or not\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP the call 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if media is busy in establishing the connection, FALSE otherwise\&. 
+.RE
+.PP
+
+.SS "void linphone_call_ogl_render (const \fBLinphoneCall\fP * call)"
+
+.PP
+Call generic OpenGL render for a given call\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP The call\&. 
+.RE
+.PP
+
+.SS "void linphone_call_remove_callbacks (\fBLinphoneCall\fP * call, \fBLinphoneCallCbs\fP * cbs)"
+
+.PP
+Remove a listener from a LinphoneCall\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP LinphoneCall object 
+.br
+\fIcbs\fP LinphoneCallCbs object to remove\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_call_send_info_message (\fBLinphoneCall\fP * call, const \fBLinphoneInfoMessage\fP * info)"
+
+.PP
+Send a LinphoneInfoMessage through an established call\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP the call 
+.br
+\fIinfo\fP the info message 
+.RE
+.PP
+
+.SS "void linphone_call_set_microphone_volume_gain (\fBLinphoneCall\fP * call, float volume)"
+
+.PP
+Set microphone volume gain\&. If the sound backend supports it, the new gain will synchronized with the system mixer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP The call\&. 
+.br
+\fIvolume\fP Percentage of the max supported gain\&. Valid values are in [ 0\&.0 : 1\&.0 ]\&. 
+.RE
+.PP
+
+.SS "void linphone_call_set_params (\fBLinphoneCall\fP * call, const \fBLinphoneCallParams\fP * params)"
+
+.PP
+Set call parameters - advanced and not recommended feature - use with caution\&. Local call parameters applicable to an outgoing or incoming shall usually be passed to \fBlinphone_core_invite_address_with_params()\fP or \fBlinphone_call_accept_with_params()\fP\&. However, in some cases it might be desirable from a software design standpoint to modify local parameters outside of the application layer, typically in the purpose of implementing a custom logic including special headers in INVITE or 200Ok requests, driven by a call_state_changed listener method\&. This function accepts to assign a new LinphoneCallParams only in LinphoneCallOutgoingInit and LinphoneCallIncomingReceived states\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP the LinphoneCall object 
+.RE
+.PP
+
+.SS "void linphone_call_set_speaker_volume_gain (\fBLinphoneCall\fP * call, float volume)"
+
+.PP
+Set speaker volume gain\&. If the sound backend supports it, the new gain will synchronized with the system mixer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcall\fP The call\&. 
+.br
+\fIvolume\fP Percentage of the max supported gain\&. Valid values are in [ 0\&.0 : 1\&.0 ]\&. 
+.RE
+.PP
+
+.SS "void linphone_call_start_recording (\fBLinphoneCall\fP * call)"
+
+.PP
+Start call recording\&. The output file where audio is recorded must be previously specified with \fBlinphone_call_params_set_record_file()\fP\&. 
+.SS "float linphone_call_stats_get_download_bandwidth (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the bandwidth measurement of the received stream, expressed in kbit/s, including IP/UDP/RTP headers\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The bandwidth measurement of the received stream in kbit/s\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneIceState\fP linphone_call_stats_get_ice_state (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the state of ICE processing\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The state of ICE processing\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAddressFamily\fP linphone_call_stats_get_ip_family_of_remote (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the IP address family of the remote peer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The IP address family of the remote peer\&. 
+.RE
+.PP
+
+.SS "float linphone_call_stats_get_jitter_buffer_size_ms (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the jitter buffer size in ms\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The jitter buffer size in ms\&. 
+.RE
+.PP
+
+.SS "uint64_t linphone_call_stats_get_late_packets_cumulative_number (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Gets the cumulative number of late packets\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The cumulative number of late packets 
+.RE
+.PP
+
+.SS "float linphone_call_stats_get_local_late_rate (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Gets the local late rate since last report\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The local late rate 
+.RE
+.PP
+
+.SS "float linphone_call_stats_get_local_loss_rate (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the local loss rate since last report\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The local loss rate 
+.RE
+.PP
+
+.SS "float linphone_call_stats_get_receiver_interarrival_jitter (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Gets the remote reported interarrival jitter\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The interarrival jitter at last received receiver report 
+.RE
+.PP
+
+.SS "float linphone_call_stats_get_receiver_loss_rate (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Gets the remote reported loss rate since last report\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The receiver loss rate 
+.RE
+.PP
+
+.SS "float linphone_call_stats_get_round_trip_delay (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the round trip delay in s\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The round trip delay in s\&. 
+.RE
+.PP
+
+.SS "float linphone_call_stats_get_sender_interarrival_jitter (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Gets the local interarrival jitter\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The interarrival jitter at last emitted sender report 
+.RE
+.PP
+
+.SS "float linphone_call_stats_get_sender_loss_rate (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the local loss rate since last report\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The sender loss rate 
+.RE
+.PP
+
+.SS "\fBLinphoneStreamType\fP linphone_call_stats_get_type (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the type of the stream the stats refer to\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The type of the stream the stats refer to 
+.RE
+.PP
+
+.SS "float linphone_call_stats_get_upload_bandwidth (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the bandwidth measurement of the sent stream, expressed in kbit/s, including IP/UDP/RTP headers\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The bandwidth measurement of the sent stream in kbit/s\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneUpnpState\fP linphone_call_stats_get_upnp_state (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Get the state of uPnP processing\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The state of uPnP processing\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

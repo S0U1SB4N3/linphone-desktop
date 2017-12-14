@@ -1,0 +1,3793 @@
+.TH "misc" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+misc \- Miscenalleous: logs, version strings, config storage\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBLINPHONE_CONFIG\fP(obj)   BELLE_SIP_CAST(obj, \fBLinphoneConfig\fP);"
+.br
+.RI "Safely downcast a belle_sip_object into LinphoneConfig\&. "
+.ti -1c
+.RI "#define \fBlp_config_new\fP   \fBlinphone_config_new\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_new_from_buffer\fP   \fBlinphone_config_new_from_buffer\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_new_with_factory\fP   \fBlinphone_config_new_with_factory\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_read_file\fP   \fBlinphone_config_read_file\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_string\fP   \fBlinphone_config_get_string\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_string_list\fP   \fBlinphone_config_get_string_list\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_range\fP   \fBlinphone_config_get_range\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_int\fP   \fBlinphone_config_get_int\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_int64\fP   \fBlinphone_config_get_int64\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_float\fP   \fBlinphone_config_get_float\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_string\fP   \fBlinphone_config_set_string\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_string_list\fP   \fBlinphone_config_set_string_list\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_range\fP   \fBlinphone_config_set_range\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_int\fP   \fBlinphone_config_set_int\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_int_hex\fP   \fBlinphone_config_set_int_hex\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_int64\fP   \fBlinphone_config_set_int64\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_float\fP   \fBlinphone_config_set_float\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_sync\fP   \fBlinphone_config_sync\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_has_section\fP   \fBlinphone_config_has_section\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_clean_section\fP   \fBlinphone_config_clean_section\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_has_entry\fP   \fBlinphone_config_has_entry\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_clean_entry\fP   \fBlinphone_config_clean_entry\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_sections_names\fP   \fBlinphone_config_get_sections_names\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_for_each_section\fP   \fBlinphone_config_for_each_section\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_for_each_entry\fP   \fBlinphone_config_for_each_entry\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_needs_commit\fP   linphone_config_needs_commit"
+.br
+.ti -1c
+.RI "#define \fBlp_config_destroy\fP   linphone_config_destroy"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_default_int\fP   \fBlinphone_config_get_default_int\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_default_int64\fP   \fBlinphone_config_get_default_int64\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_default_float\fP   \fBlinphone_config_get_default_float\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_default_string\fP   \fBlinphone_config_get_default_string\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_section_param_string\fP   \fBlinphone_config_get_section_param_string\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_ref\fP   \fBlinphone_config_ref\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_unref\fP   \fBlinphone_config_unref\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_write_relative_file\fP   \fBlinphone_config_write_relative_file\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_read_relative_file\fP   \fBlinphone_config_read_relative_file\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_relative_file_exists\fP   \fBlinphone_config_relative_file_exists\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_dump_as_xml\fP   \fBlinphone_config_dump_as_xml\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_dump\fP   \fBlinphone_config_dump\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_overwrite_flag_for_entry\fP   \fBlinphone_config_get_overwrite_flag_for_entry\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_overwrite_flag_for_entry\fP   \fBlinphone_config_set_overwrite_flag_for_entry\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_overwrite_flag_for_section\fP   \fBlinphone_config_get_overwrite_flag_for_section\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_overwrite_flag_for_section\fP   \fBlinphone_config_set_overwrite_flag_for_section\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_skip_flag_for_entry\fP   \fBlinphone_config_get_skip_flag_for_entry\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_skip_flag_for_entry\fP   \fBlinphone_config_set_skip_flag_for_entry\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_get_skip_flag_for_section\fP   \fBlinphone_config_get_skip_flag_for_section\fP"
+.br
+.ti -1c
+.RI "#define \fBlp_config_set_skip_flag_for_section\fP   \fBlinphone_config_set_skip_flag_for_section\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef int(* \fBLinphoneImEncryptionEngineCbsIncomingMessageCb\fP) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatRoom\fP *room, \fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Callback to decrypt incoming LinphoneChatMessage\&. "
+.ti -1c
+.RI "typedef int(* \fBLinphoneImEncryptionEngineCbsOutgoingMessageCb\fP) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatRoom\fP *room, \fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Callback to encrypt outgoing LinphoneChatMessage\&. "
+.ti -1c
+.RI "typedef bool_t(* \fBLinphoneImEncryptionEngineCbsIsEncryptionEnabledForFileTransferCb\fP) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatRoom\fP *room)"
+.br
+.RI "Callback to know whether or not the engine will encrypt files before uploading them\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneImEncryptionEngineCbsGenerateFileTransferKeyCb\fP) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatRoom\fP *room, \fBLinphoneChatMessage\fP *msg)"
+.br
+.RI "Callback to generate the key used to encrypt the files before uploading them Key can be stored in the LinphoneContent object inside the LinphoneChatMessage using linphone_content_set_key\&. "
+.ti -1c
+.RI "typedef int(* \fBLinphoneImEncryptionEngineCbsDownloadingFileCb\fP) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatMessage\fP *msg, size_t offset, const uint8_t *buffer, size_t size, uint8_t *decrypted_buffer)"
+.br
+.RI "Callback to decrypt downloading file\&. "
+.ti -1c
+.RI "typedef int(* \fBLinphoneImEncryptionEngineCbsUploadingFileCb\fP) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatMessage\fP *msg, size_t offset, const uint8_t *buffer, size_t *size, uint8_t *encrypted_buffer)"
+.br
+.RI "Callback to encrypt uploading file\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneXmlRpcRequestCbsResponseCb\fP) (\fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Callback used to notify the response to an XML-RPC request\&. "
+.ti -1c
+.RI "typedef struct _LinphoneBuffer \fBLinphoneBuffer\fP"
+.br
+.RI "The LinphoneContent object representing a data buffer\&. "
+.ti -1c
+.RI "typedef struct _LpConfig \fBLinphoneConfig\fP"
+.br
+.RI "The LinphoneConfig object is used to manipulate a configuration file\&. "
+.ti -1c
+.RI "typedef struct _LinphoneContent \fBLinphoneContent\fP"
+.br
+.RI "The LinphoneContent object holds data that can be embedded in a signaling message\&. "
+.ti -1c
+.RI "typedef struct _LinphoneErrorInfo \fBLinphoneErrorInfo\fP"
+.br
+.RI "Object representing full details about a signaling error or status\&. "
+.ti -1c
+.RI "typedef struct _LinphoneImEncryptionEngine \fBLinphoneImEncryptionEngine\fP"
+.br
+.RI "IM encryption engine\&. "
+.ti -1c
+.RI "typedef struct _LinphoneImEncryptionEngineCbs \fBLinphoneImEncryptionEngineCbs\fP"
+.br
+.RI "An object to handle the callbacks for the handling a LinphoneImEncryptionEngine object\&. "
+.ti -1c
+.RI "typedef struct _LinphoneInfoMessage \fBLinphoneInfoMessage\fP"
+.br
+.RI "The LinphoneInfoMessage is an object representing an informational message sent or received by the core\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneReason\fP \fBLinphoneReason\fP"
+.br
+.RI "Enum describing various failure reasons or contextual information for some events\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneToneID\fP \fBLinphoneToneID\fP"
+.br
+.RI "Enum listing frequent telephony tones\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneVersionUpdateCheckResult\fP \fBLinphoneVersionUpdateCheckResult\fP"
+.br
+.RI "Enum describing the result of a version update check\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneXmlRpcArgType\fP \fBLinphoneXmlRpcArgType\fP"
+.br
+.RI "Enum describing the types of argument for LinphoneXmlRpcRequest\&. "
+.ti -1c
+.RI "typedef struct _LinphoneXmlRpcRequest \fBLinphoneXmlRpcRequest\fP"
+.br
+.RI "The LinphoneXmlRpcRequest object representing a XML-RPC request to be sent\&. "
+.ti -1c
+.RI "typedef struct _LinphoneXmlRpcRequestCbs \fBLinphoneXmlRpcRequestCbs\fP"
+.br
+.RI "An object to handle the callbacks for handling the LinphoneXmlRpcRequest operations\&. "
+.ti -1c
+.RI "typedef struct _LinphoneXmlRpcSession \fBLinphoneXmlRpcSession\fP"
+.br
+.RI "The LinphoneXmlRpcSession object used to send XML-RPC requests and handle their responses\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneXmlRpcStatus\fP \fBLinphoneXmlRpcStatus\fP"
+.br
+.RI "Enum describing the status of a LinphoneXmlRpcRequest\&. "
+.ti -1c
+.RI "typedef struct _LinphoneRange \fBLinphoneRange\fP"
+.br
+.RI "Structure describing a range of integers\&. "
+.ti -1c
+.RI "typedef int \fBLinphoneStatus\fP"
+.br
+.RI "Status code returned by some functions to notify whether the execution has been succesfully done or not\&. "
+.ti -1c
+.RI "typedef struct _LinphoneHeaders \fBLinphoneHeaders\fP"
+.br
+.RI "Object representing a chain of protocol headers\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_LinphoneReason\fP { \fBLinphoneReasonNone\fP, \fBLinphoneReasonNoResponse\fP, \fBLinphoneReasonForbidden\fP, \fBLinphoneReasonDeclined\fP, \fBLinphoneReasonNotFound\fP, \fBLinphoneReasonNotAnswered\fP, \fBLinphoneReasonBusy\fP, \fBLinphoneReasonUnsupportedContent\fP, \fBLinphoneReasonIOError\fP, \fBLinphoneReasonDoNotDisturb\fP, \fBLinphoneReasonUnauthorized\fP, \fBLinphoneReasonNotAcceptable\fP, \fBLinphoneReasonNoMatch\fP, \fBLinphoneReasonMovedPermanently\fP, \fBLinphoneReasonGone\fP, \fBLinphoneReasonTemporarilyUnavailable\fP, \fBLinphoneReasonAddressIncomplete\fP, \fBLinphoneReasonNotImplemented\fP, \fBLinphoneReasonBadGateway\fP, \fBLinphoneReasonServerTimeout\fP, \fBLinphoneReasonUnknown\fP }
+.RI "Enum describing various failure reasons or contextual information for some events\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneToneID\fP { \fBLinphoneToneUndefined\fP, \fBLinphoneToneBusy\fP, \fBLinphoneToneCallWaiting\fP, \fBLinphoneToneCallOnHold\fP, \fBLinphoneToneCallLost\fP }
+.RI "Enum listing frequent telephony tones\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneVersionUpdateCheckResult\fP { \fBLinphoneVersionUpdateCheckUpToDate\fP, \fBLinphoneVersionUpdateCheckNewVersionAvailable\fP, \fBLinphoneVersionUpdateCheckError\fP }
+.RI "Enum describing the result of a version update check\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneXmlRpcArgType\fP { \fBLinphoneXmlRpcArgNone\fP, \fBLinphoneXmlRpcArgInt\fP, \fBLinphoneXmlRpcArgString\fP }
+.RI "Enum describing the types of argument for LinphoneXmlRpcRequest\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneXmlRpcStatus\fP { \fBLinphoneXmlRpcStatusPending\fP, \fBLinphoneXmlRpcStatusOk\fP, \fBLinphoneXmlRpcStatusFailed\fP }
+.RI "Enum describing the status of a LinphoneXmlRpcRequest\&. ""
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLinphoneBuffer\fP * \fBlinphone_buffer_new\fP (void)"
+.br
+.RI "Create a new empty LinphoneBuffer object\&. "
+.ti -1c
+.RI "\fBLinphoneBuffer\fP * \fBlinphone_buffer_new_from_data\fP (const uint8_t *data, size_t size)"
+.br
+.RI "Create a new LinphoneBuffer object from existing data\&. "
+.ti -1c
+.RI "\fBLinphoneBuffer\fP * \fBlinphone_buffer_new_from_string\fP (const char *data)"
+.br
+.RI "Create a new LinphoneBuffer object from a string\&. "
+.ti -1c
+.RI "\fBLinphoneBuffer\fP * \fBlinphone_buffer_ref\fP (\fBLinphoneBuffer\fP *buffer)"
+.br
+.RI "Acquire a reference to the buffer\&. "
+.ti -1c
+.RI "void \fBlinphone_buffer_unref\fP (\fBLinphoneBuffer\fP *buffer)"
+.br
+.RI "Release reference to the buffer\&. "
+.ti -1c
+.RI "void * \fBlinphone_buffer_get_user_data\fP (const \fBLinphoneBuffer\fP *buffer)"
+.br
+.RI "Retrieve the user pointer associated with the buffer\&. "
+.ti -1c
+.RI "void \fBlinphone_buffer_set_user_data\fP (\fBLinphoneBuffer\fP *buffer, void *ud)"
+.br
+.RI "Assign a user pointer to the buffer\&. "
+.ti -1c
+.RI "const uint8_t * \fBlinphone_buffer_get_content\fP (const \fBLinphoneBuffer\fP *buffer)"
+.br
+.RI "Get the content of the data buffer\&. "
+.ti -1c
+.RI "void \fBlinphone_buffer_set_content\fP (\fBLinphoneBuffer\fP *buffer, const uint8_t *content, size_t size)"
+.br
+.RI "Set the content of the data buffer\&. "
+.ti -1c
+.RI "const char * \fBlinphone_buffer_get_string_content\fP (const \fBLinphoneBuffer\fP *buffer)"
+.br
+.RI "Get the string content of the data buffer\&. "
+.ti -1c
+.RI "void \fBlinphone_buffer_set_string_content\fP (\fBLinphoneBuffer\fP *buffer, const char *content)"
+.br
+.RI "Set the string content of the data buffer\&. "
+.ti -1c
+.RI "size_t \fBlinphone_buffer_get_size\fP (const \fBLinphoneBuffer\fP *buffer)"
+.br
+.RI "Get the size of the content of the data buffer\&. "
+.ti -1c
+.RI "void \fBlinphone_buffer_set_size\fP (\fBLinphoneBuffer\fP *buffer, size_t size)"
+.br
+.RI "Set the size of the content of the data buffer\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_buffer_is_empty\fP (const \fBLinphoneBuffer\fP *buffer)"
+.br
+.RI "Tell whether the LinphoneBuffer is empty\&. "
+.ti -1c
+.RI "\fBLinphoneCallStats\fP * \fBlinphone_call_stats_ref\fP (\fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Increment refcount\&. "
+.ti -1c
+.RI "void \fBlinphone_call_stats_unref\fP (\fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Decrement refcount and possibly free the object\&. "
+.ti -1c
+.RI "void * \fBlinphone_call_stats_get_user_data\fP (const \fBLinphoneCallStats\fP *stats)"
+.br
+.RI "Gets the user data in the LinphoneCallStats object\&. "
+.ti -1c
+.RI "void \fBlinphone_call_stats_set_user_data\fP (\fBLinphoneCallStats\fP *stats, void *data)"
+.br
+.RI "Sets the user data in the LinphoneCallStats object\&. "
+.ti -1c
+.RI "\fBLinphoneContent\fP * \fBlinphone_content_ref\fP (\fBLinphoneContent\fP *content)"
+.br
+.RI "Acquire a reference to the content\&. "
+.ti -1c
+.RI "void \fBlinphone_content_unref\fP (\fBLinphoneContent\fP *content)"
+.br
+.RI "Release reference to the content\&. "
+.ti -1c
+.RI "void * \fBlinphone_content_get_user_data\fP (const \fBLinphoneContent\fP *content)"
+.br
+.RI "Retrieve the user pointer associated with the content\&. "
+.ti -1c
+.RI "void \fBlinphone_content_set_user_data\fP (\fBLinphoneContent\fP *content, void *ud)"
+.br
+.RI "Assign a user pointer to the content\&. "
+.ti -1c
+.RI "const char * \fBlinphone_content_get_type\fP (const \fBLinphoneContent\fP *content)"
+.br
+.RI "Get the mime type of the content data\&. "
+.ti -1c
+.RI "void \fBlinphone_content_set_type\fP (\fBLinphoneContent\fP *content, const char *type)"
+.br
+.RI "Set the mime type of the content data\&. "
+.ti -1c
+.RI "const char * \fBlinphone_content_get_subtype\fP (const \fBLinphoneContent\fP *content)"
+.br
+.RI "Get the mime subtype of the content data\&. "
+.ti -1c
+.RI "void \fBlinphone_content_set_subtype\fP (\fBLinphoneContent\fP *content, const char *subtype)"
+.br
+.RI "Set the mime subtype of the content data\&. "
+.ti -1c
+.RI "void * \fBlinphone_content_get_buffer\fP (const \fBLinphoneContent\fP *content)"
+.br
+.RI "Get the content data buffer, usually a string\&. "
+.ti -1c
+.RI "void \fBlinphone_content_set_buffer\fP (\fBLinphoneContent\fP *content, const void *buffer, size_t size)"
+.br
+.RI "Set the content data buffer, usually a string\&. "
+.ti -1c
+.RI "const char * \fBlinphone_content_get_string_buffer\fP (const \fBLinphoneContent\fP *content)"
+.br
+.RI "Get the string content data buffer\&. "
+.ti -1c
+.RI "void \fBlinphone_content_set_string_buffer\fP (\fBLinphoneContent\fP *content, const char *buffer)"
+.br
+.RI "Set the string content data buffer\&. "
+.ti -1c
+.RI "size_t \fBlinphone_content_get_size\fP (const \fBLinphoneContent\fP *content)"
+.br
+.RI "Get the content data buffer size, excluding null character despite null character is always set for convenience\&. "
+.ti -1c
+.RI "void \fBlinphone_content_set_size\fP (\fBLinphoneContent\fP *content, size_t size)"
+.br
+.RI "Set the content data size, excluding null character despite null character is always set for convenience\&. "
+.ti -1c
+.RI "const char * \fBlinphone_content_get_encoding\fP (const \fBLinphoneContent\fP *content)"
+.br
+.RI "Get the encoding of the data buffer, for example 'gzip'\&. "
+.ti -1c
+.RI "void \fBlinphone_content_set_encoding\fP (\fBLinphoneContent\fP *content, const char *encoding)"
+.br
+.RI "Set the encoding of the data buffer, for example 'gzip'\&. "
+.ti -1c
+.RI "const char * \fBlinphone_content_get_name\fP (const \fBLinphoneContent\fP *content)"
+.br
+.RI "Get the name associated with a RCS file transfer message\&. "
+.ti -1c
+.RI "void \fBlinphone_content_set_name\fP (\fBLinphoneContent\fP *content, const char *name)"
+.br
+.RI "Set the name associated with a RCS file transfer message\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_content_is_multipart\fP (const \fBLinphoneContent\fP *content)"
+.br
+.RI "Tell whether a content is a multipart content\&. "
+.ti -1c
+.RI "\fBLinphoneContent\fP * \fBlinphone_content_get_part\fP (const \fBLinphoneContent\fP *content, int idx)"
+.br
+.RI "Get a part from a multipart content according to its index\&. "
+.ti -1c
+.RI "\fBLinphoneContent\fP * \fBlinphone_content_find_part_by_header\fP (const \fBLinphoneContent\fP *content, const char *header_name, const char *header_value)"
+.br
+.RI "Find a part from a multipart content looking for a part header with a specified value\&. "
+.ti -1c
+.RI "const char * \fBlinphone_content_get_custom_header\fP (const \fBLinphoneContent\fP *content, const char *header_name)"
+.br
+.RI "Get a custom header value of a content\&. "
+.ti -1c
+.RI "\fBLinphonePlayer\fP * \fBlinphone_core_create_local_player\fP (\fBLinphoneCore\fP *lc, const char *sound_card_name, const char *video_display_name, void *window_id)"
+.br
+.RI "Create an independent media file player\&. "
+.ti -1c
+.RI "\fBLinphoneInfoMessage\fP * \fBlinphone_core_create_info_message\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Creates an empty info message\&. "
+.ti -1c
+.RI "void \fBlinphone_core_check_for_update\fP (\fBLinphoneCore\fP *lc, const char *current_version)"
+.br
+.RI "Checks if a new version of the application is available\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_user_agent\fP (\fBLinphoneCore\fP *lc, const char *ua_name, const char *version)"
+.br
+.RI "Sets the user agent string used in SIP messages, ideally called just after \fBlinphone_core_new()\fP or linphone_core_init()\&. "
+.ti -1c
+.RI "\fBLinphoneAddress\fP * \fBlinphone_core_interpret_url\fP (\fBLinphoneCore\fP *lc, const char *url)"
+.br
+.RI "See linphone_proxy_config_normalize_sip_uri for documentation\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_core_play_local\fP (\fBLinphoneCore\fP *lc, const char *audiofile)"
+.br
+.RI "Plays an audio file to the local user\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_vcard_supported\fP (void)"
+.br
+.RI "Tells whether VCARD support is builtin\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_video_supported\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Test if video is supported\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_core_take_preview_snapshot\fP (\fBLinphoneCore\fP *lc, const char *file)"
+.br
+.RI "Take a photo of currently from capture device and write it into a jpeg file\&. "
+.ti -1c
+.RI "\fBLinphoneConfig\fP * \fBlinphone_core_get_config\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Returns the LpConfig object used to manage the storage (config) file\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneConfig\fP * \fBlinphone_core_create_lp_config\fP (\fBLinphoneCore\fP *lc, const char *filename)"
+.br
+.RI "Create a LpConfig object from a user config file\&. "
+.ti -1c
+.RI "\fBLinphoneConfig\fP * \fBlinphone_core_create_config\fP (\fBLinphoneCore\fP *lc, const char *filename)"
+.br
+.RI "Create a \fBLinphoneConfig\fP object from a user config file\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_call_error_tone\fP (\fBLinphoneCore\fP *lc, \fBLinphoneReason\fP reason, const char *audiofile)"
+.br
+.RI "Assign an audio file to be played locally upon call failure, for a given reason\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_file_transfer_server\fP (\fBLinphoneCore\fP *core, const char *server_url)"
+.br
+.RI "Globaly set an http file transfer server to be used for content type application/vnd\&.gsma\&.rcs-ft-http+xml\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_file_transfer_server\fP (\fBLinphoneCore\fP *core)"
+.br
+.RI "Get the globaly set http file transfer server to be used for content type application/vnd\&.gsma\&.rcs-ft-http+xml\&. "
+.ti -1c
+.RI "\fBLinphoneContent\fP * \fBlinphone_core_create_content\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Create a content with default values from Linphone core\&. "
+.ti -1c
+.RI "int \fBlinphone_dial_plan_lookup_ccc_from_iso\fP (const char *iso)"
+.br
+.RI "Function to get call country code from ISO 3166-1 alpha-2 code, ex: FR returns 33\&. "
+.ti -1c
+.RI "int \fBlinphone_dial_plan_lookup_ccc_from_e164\fP (const char *e164)"
+.br
+.RI "Function to get call country code from an e164 number, ex: +33952650121 will return 33\&. "
+.ti -1c
+.RI "\fBLinphoneErrorInfo\fP * \fBlinphone_error_info_new\fP (void)"
+.br
+.RI "Create an empty LinphoneErrorInfo object\&. "
+.ti -1c
+.RI "\fBLinphoneErrorInfo\fP * \fBlinphone_error_info_ref\fP (\fBLinphoneErrorInfo\fP *ei)"
+.br
+.RI "Increment refcount\&. "
+.ti -1c
+.RI "void \fBlinphone_error_info_unref\fP (\fBLinphoneErrorInfo\fP *ei)"
+.br
+.RI "Decrement refcount and possibly free the object\&. "
+.ti -1c
+.RI "\fBLinphoneReason\fP \fBlinphone_error_info_get_reason\fP (const \fBLinphoneErrorInfo\fP *ei)"
+.br
+.RI "Get reason code from the error info\&. "
+.ti -1c
+.RI "\fBLinphoneErrorInfo\fP * \fBlinphone_error_info_get_sub_error_info\fP (const \fBLinphoneErrorInfo\fP *ei)"
+.br
+.RI "Get pointer to chained LinphoneErrorInfo set in sub_ei\&. "
+.ti -1c
+.RI "const char * \fBlinphone_error_info_get_phrase\fP (const \fBLinphoneErrorInfo\fP *ei)"
+.br
+.RI "Get textual phrase from the error info\&. "
+.ti -1c
+.RI "const char * \fBlinphone_error_info_get_protocol\fP (const \fBLinphoneErrorInfo\fP *ei)"
+.br
+.RI "Get protocol from the error info\&. "
+.ti -1c
+.RI "const char * \fBlinphone_error_info_get_warnings\fP (const \fBLinphoneErrorInfo\fP *ei)"
+.br
+.RI "Provides additional information regarding the failure\&. "
+.ti -1c
+.RI "int \fBlinphone_error_info_get_protocol_code\fP (const \fBLinphoneErrorInfo\fP *ei)"
+.br
+.RI "Get the status code from the low level protocol (ex a SIP status code)\&. "
+.ti -1c
+.RI "void \fBlinphone_error_info_set\fP (\fBLinphoneErrorInfo\fP *ei, const char *protocol, \fBLinphoneReason\fP reason, int code, const char *status_string, const char *warning)"
+.br
+.RI "Assign information to a LinphoneErrorInfo object\&. "
+.ti -1c
+.RI "void \fBlinphone_error_info_set_sub_error_info\fP (\fBLinphoneErrorInfo\fP *ei, \fBLinphoneErrorInfo\fP *appended_ei)"
+.br
+.RI "Set the sub_ei in LinphoneErrorInfo to another LinphoneErrorInfo\&. "
+.ti -1c
+.RI "void \fBlinphone_error_info_set_reason\fP (\fBLinphoneErrorInfo\fP *ei, \fBLinphoneReason\fP reason)"
+.br
+.RI "Assign reason LinphoneReason to a LinphoneErrorInfo object\&. "
+.ti -1c
+.RI "void \fBlinphone_error_info_set_protocol\fP (\fBLinphoneErrorInfo\fP *ei, const char *proto)"
+.br
+.RI "Assign protocol name to a LinphoneErrorInfo object\&. "
+.ti -1c
+.RI "void \fBlinphone_error_info_set_protocol_code\fP (\fBLinphoneErrorInfo\fP *ei, int code)"
+.br
+.RI "Assign protocol code to a LinphoneErrorInfo object\&. "
+.ti -1c
+.RI "void \fBlinphone_error_info_set_phrase\fP (\fBLinphoneErrorInfo\fP *ei, const char *phrase)"
+.br
+.RI "Assign phrase to a LinphoneErrorInfo object\&. "
+.ti -1c
+.RI "void \fBlinphone_error_info_set_warnings\fP (\fBLinphoneErrorInfo\fP *ei, const char *warnings)"
+.br
+.RI "Assign warnings to a LinphoneErrorInfo object\&. "
+.ti -1c
+.RI "\fBLinphoneHeaders\fP * \fBlinphone_headers_ref\fP (\fBLinphoneHeaders\fP *obj)"
+.br
+.RI "Increments ref count\&. "
+.ti -1c
+.RI "void \fBlinphone_headers_unref\fP (\fBLinphoneHeaders\fP *obj)"
+.br
+.RI "Decrements ref count\&. "
+.ti -1c
+.RI "const char * \fBlinphone_headers_get_value\fP (\fBLinphoneHeaders\fP *obj, const char *header_name)"
+.br
+.RI "Search for a given header name and return its value\&. "
+.ti -1c
+.RI "void \fBlinphone_headers_add\fP (\fBLinphoneHeaders\fP *obj, const char *name, const char *value)"
+.br
+.RI "Add given header name and corresponding value\&. "
+.ti -1c
+.RI "void \fBlinphone_headers_remove\fP (\fBLinphoneHeaders\fP *obj, const char *name)"
+.br
+.RI "Add given header name and corresponding value\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngineCbs\fP * \fBlinphone_im_encryption_engine_cbs_ref\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs)"
+.br
+.RI "Acquire a reference to the LinphoneImEncryptionEngineCbs\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_cbs_unref\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs)"
+.br
+.RI "Release reference to the LinphoneImEncryptionEngineCbs\&. "
+.ti -1c
+.RI "void * \fBlinphone_im_encryption_engine_cbs_get_user_data\fP (const \fBLinphoneImEncryptionEngineCbs\fP *cbs)"
+.br
+.RI "Gets the user data in the LinphoneImEncryptionEngineCbs object\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_cbs_set_user_data\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs, void *data)"
+.br
+.RI "Sets the user data in the LinphoneImEncryptionEngineCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngine\fP * \fBlinphone_im_encryption_engine_ref\fP (\fBLinphoneImEncryptionEngine\fP *imee)"
+.br
+.RI "Acquire a reference to the LinphoneImEncryptionEngine\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_unref\fP (\fBLinphoneImEncryptionEngine\fP *imee)"
+.br
+.RI "Release reference to the LinphoneImEncryptionEngine\&. "
+.ti -1c
+.RI "void * \fBlinphone_im_encryption_engine_get_user_data\fP (const \fBLinphoneImEncryptionEngine\fP *imee)"
+.br
+.RI "Gets the user data in the LinphoneImEncryptionEngine object\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_set_user_data\fP (\fBLinphoneImEncryptionEngine\fP *imee, void *data)"
+.br
+.RI "Sets the user data in the LinphoneImEncryptionEngine object\&. "
+.ti -1c
+.RI "\fBLinphoneCore\fP * \fBlinphone_im_encryption_engine_get_core\fP (\fBLinphoneImEncryptionEngine\fP *imee)"
+.br
+.RI "Gets the LinphoneCore object that created the IM encryption engine\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngineCbs\fP * \fBlinphone_im_encryption_engine_get_callbacks\fP (const \fBLinphoneImEncryptionEngine\fP *imee)"
+.br
+.RI "Gets the LinphoneImEncryptionEngineCbs object that holds the callbacks\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngineCbsIncomingMessageCb\fP \fBlinphone_im_encryption_engine_cbs_get_process_incoming_message\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs)"
+.br
+.RI "Gets the callback that will decrypt the chat messages upon reception\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_cbs_set_process_incoming_message\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs, \fBLinphoneImEncryptionEngineCbsIncomingMessageCb\fP cb)"
+.br
+.RI "Sets the callback that will decrypt the chat messages upon reception\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngineCbsOutgoingMessageCb\fP \fBlinphone_im_encryption_engine_cbs_get_process_outgoing_message\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs)"
+.br
+.RI "Gets the callback that will encrypt the chat messages before sending them\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_cbs_set_process_outgoing_message\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs, \fBLinphoneImEncryptionEngineCbsOutgoingMessageCb\fP cb)"
+.br
+.RI "Sets the callback that will encrypt the chat messages before sending them\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngineCbsDownloadingFileCb\fP \fBlinphone_im_encryption_engine_cbs_get_process_downloading_file\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs)"
+.br
+.RI "Gets the callback that will decrypt the files while downloading them\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_cbs_set_process_downloading_file\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs, \fBLinphoneImEncryptionEngineCbsDownloadingFileCb\fP cb)"
+.br
+.RI "Sets the callback that will decrypt the files while downloading them\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngineCbsUploadingFileCb\fP \fBlinphone_im_encryption_engine_cbs_get_process_uploading_file\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs)"
+.br
+.RI "Gets the callback that will will encrypt the files while uploading them\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_cbs_set_process_uploading_file\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs, \fBLinphoneImEncryptionEngineCbsUploadingFileCb\fP cb)"
+.br
+.RI "Sets the callback that will encrypt the files while uploading them\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngineCbsIsEncryptionEnabledForFileTransferCb\fP \fBlinphone_im_encryption_engine_cbs_get_is_encryption_enabled_for_file_transfer\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs)"
+.br
+.RI "Gets the callback telling wheter or not to encrypt the files\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_cbs_set_is_encryption_enabled_for_file_transfer\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs, \fBLinphoneImEncryptionEngineCbsIsEncryptionEnabledForFileTransferCb\fP cb)"
+.br
+.RI "Sets the callback telling wheter or not to encrypt the files\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngineCbsGenerateFileTransferKeyCb\fP \fBlinphone_im_encryption_engine_cbs_get_generate_file_transfer_key\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs)"
+.br
+.RI "Gets the callback that will generate the key to encrypt the file before uploading it\&. "
+.ti -1c
+.RI "void \fBlinphone_im_encryption_engine_cbs_set_generate_file_transfer_key\fP (\fBLinphoneImEncryptionEngineCbs\fP *cbs, \fBLinphoneImEncryptionEngineCbsGenerateFileTransferKeyCb\fP cb)"
+.br
+.RI "Sets the callback that will generate the key to encrypt the file before uploading it\&. "
+.ti -1c
+.RI "int \fBlinphone_chat_message_set_text\fP (\fBLinphoneChatMessage\fP *msg, const char *text)"
+.br
+.RI "Set a chat message text to be sent by \fBlinphone_chat_room_send_message\fP\&. "
+.ti -1c
+.RI "\fBLinphoneImEncryptionEngine\fP * \fBlinphone_im_encryption_engine_new\fP (void)"
+.br
+.RI "Create the IM encryption engine\&. "
+.ti -1c
+.RI "void \fBlinphone_info_message_add_header\fP (\fBLinphoneInfoMessage\fP *im, const char *name, const char *value)"
+.br
+.RI "Add a header to an info message to be sent\&. "
+.ti -1c
+.RI "const char * \fBlinphone_info_message_get_header\fP (const \fBLinphoneInfoMessage\fP *im, const char *name)"
+.br
+.RI "Obtain a header value from a received info message\&. "
+.ti -1c
+.RI "void \fBlinphone_info_message_set_content\fP (\fBLinphoneInfoMessage\fP *im, const \fBLinphoneContent\fP *content)"
+.br
+.RI "Assign a content to the info message\&. "
+.ti -1c
+.RI "const \fBLinphoneContent\fP * \fBlinphone_info_message_get_content\fP (const \fBLinphoneInfoMessage\fP *im)"
+.br
+.RI "Returns the info message's content as a \fBLinphoneContent\fP structure\&. "
+.ti -1c
+.RI "\fBLinphoneInfoMessage\fP * \fBlinphone_info_message_ref\fP (\fBLinphoneInfoMessage\fP *im)"
+.br
+.RI "Take a reference on a \fBLinphoneInfoMessage\fP\&. "
+.ti -1c
+.RI "void \fBlinphone_info_message_unref\fP (\fBLinphoneInfoMessage\fP *im)"
+.br
+.RI "Release a reference on a \fBLinphoneInfoMessage\fP\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_info_message_destroy\fP (\fBLinphoneInfoMessage\fP *im)"
+.br
+.RI "Destroy a LinphoneInfoMessage\&. "
+.ti -1c
+.RI "\fBLinphoneInfoMessage\fP * \fBlinphone_info_message_copy\fP (const \fBLinphoneInfoMessage\fP *orig)"
+.br
+.ti -1c
+.RI "\fBLinphoneConfig\fP * \fBlinphone_config_new\fP (const char *filename)"
+.br
+.RI "Instantiates a LinphoneConfig object from a user config file\&. "
+.ti -1c
+.RI "\fBLinphoneConfig\fP * \fBlinphone_config_new_from_buffer\fP (const char *buffer)"
+.br
+.RI "Instantiates a LinphoneConfig object from a user provided buffer\&. "
+.ti -1c
+.RI "\fBLinphoneConfig\fP * \fBlinphone_config_new_with_factory\fP (const char *config_filename, const char *factory_config_filename)"
+.br
+.RI "Instantiates a LinphoneConfig object from a user config file and a factory config file\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_config_read_file\fP (\fBLinphoneConfig\fP *lpconfig, const char *filename)"
+.br
+.RI "Reads a user config file and fill the LinphoneConfig with the read config values\&. "
+.ti -1c
+.RI "const char * \fBlinphone_config_load_from_xml_file\fP (\fBLinphoneConfig\fP *lpc, const char *filename)"
+.br
+.RI "Reads a xml config file and fill the LinphoneConfig with the read config dynamic values\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_config_load_from_xml_string\fP (LpConfig *lpc, const char *buffer)"
+.br
+.RI "Reads a xml config string and fill the LinphoneConfig with the read config dynamic values\&. "
+.ti -1c
+.RI "const char * \fBlinphone_config_get_string\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, const char *default_string)"
+.br
+.RI "Retrieves a configuration item as a string, given its section, key, and default value\&. "
+.ti -1c
+.RI "bctbx_list_t * \fBlinphone_config_get_string_list\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, bctbx_list_t *default_list)"
+.br
+.RI "Retrieves a configuration item as a list of strings, given its section, key, and default value\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_config_get_range\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, int *min, int *max, int default_min, int default_max)"
+.br
+.RI "Retrieves a configuration item as a range, given its section, key, and default min and max values\&. "
+.ti -1c
+.RI "int \fBlinphone_config_get_int\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, int default_value)"
+.br
+.RI "Retrieves a configuration item as an integer, given its section, key, and default value\&. "
+.ti -1c
+.RI "int64_t \fBlinphone_config_get_int64\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, int64_t default_value)"
+.br
+.RI "Retrieves a configuration item as a 64 bit integer, given its section, key, and default value\&. "
+.ti -1c
+.RI "float \fBlinphone_config_get_float\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, float default_value)"
+.br
+.RI "Retrieves a configuration item as a float, given its section, key, and default value\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_string\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, const char *value)"
+.br
+.RI "Sets a string config item\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_string_list\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, const bctbx_list_t *value)"
+.br
+.RI "Sets a string list config item\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_range\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, int min_value, int max_value)"
+.br
+.RI "Sets a range config item\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_int\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, int value)"
+.br
+.RI "Sets an integer config item\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_int_hex\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, int value)"
+.br
+.RI "Sets an integer config item, but store it as hexadecimal\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_int64\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, int64_t value)"
+.br
+.RI "Sets a 64 bits integer config item\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_float\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, float value)"
+.br
+.RI "Sets a float config item\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_config_sync\fP (\fBLinphoneConfig\fP *lpconfig)"
+.br
+.RI "Writes the config file to disk\&. "
+.ti -1c
+.RI "int \fBlinphone_config_has_section\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section)"
+.br
+.RI "Returns 1 if a given section is present in the configuration\&. "
+.ti -1c
+.RI "void \fBlinphone_config_clean_section\fP (\fBLinphoneConfig\fP *lpconfig, const char *section)"
+.br
+.RI "Removes every pair of key,value in a section and remove the section\&. "
+.ti -1c
+.RI "int \fBlinphone_config_has_entry\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key)"
+.br
+.RI "Returns 1 if a given section with a given key is present in the configuration\&. "
+.ti -1c
+.RI "void \fBlinphone_config_clean_entry\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key)"
+.br
+.RI "Removes entries for key,value in a section\&. "
+.ti -1c
+.RI "const char ** \fBlinphone_config_get_sections_names\fP (\fBLinphoneConfig\fP *lpconfig)"
+.br
+.RI "Returns the list of sections' names in the LinphoneConfig\&. "
+.ti -1c
+.RI "void \fBlinphone_config_for_each_section\fP (const \fBLinphoneConfig\fP *lpconfig, void(*callback)(const char *section, void *ctx), void *ctx)"
+.br
+.RI "Call a function for each section present in the configuration\&. "
+.ti -1c
+.RI "void \fBlinphone_config_for_each_entry\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, void(*callback)(const char *entry, void *ctx), void *ctx)"
+.br
+.RI "Call a function for each entry present in a section configuration\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_config_needs_commit\fP (const \fBLinphoneConfig\fP *lpconfig)"
+.br
+.ti -1c
+.RI "void \fBlinphone_config_destroy\fP (\fBLinphoneConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "int \fBlinphone_config_get_default_int\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, int default_value)"
+.br
+.RI "Retrieves a default configuration item as an integer, given its section, key, and default value\&. "
+.ti -1c
+.RI "int64_t \fBlinphone_config_get_default_int64\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, int64_t default_value)"
+.br
+.RI "Retrieves a default configuration item as a 64 bit integer, given its section, key, and default value\&. "
+.ti -1c
+.RI "float \fBlinphone_config_get_default_float\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, float default_value)"
+.br
+.RI "Retrieves a default configuration item as a float, given its section, key, and default value\&. "
+.ti -1c
+.RI "const char * \fBlinphone_config_get_default_string\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, const char *default_value)"
+.br
+.RI "Retrieves a default configuration item as a string, given its section, key, and default value\&. "
+.ti -1c
+.RI "const char * \fBlinphone_config_get_section_param_string\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, const char *default_value)"
+.br
+.RI "Retrieves a section parameter item as a string, given its section and key\&. "
+.ti -1c
+.RI "\fBLinphoneConfig\fP * \fBlinphone_config_ref\fP (\fBLinphoneConfig\fP *lpconfig)"
+.br
+.RI "increment reference count "
+.ti -1c
+.RI "void \fBlinphone_config_unref\fP (\fBLinphoneConfig\fP *lpconfig)"
+.br
+.RI "Decrement reference count, which will eventually free the object\&. "
+.ti -1c
+.RI "void \fBlinphone_config_write_relative_file\fP (const \fBLinphoneConfig\fP *lpconfig, const char *filename, const char *data)"
+.br
+.RI "Write a string in a file placed relatively with the Linphone configuration file\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_config_read_relative_file\fP (const \fBLinphoneConfig\fP *lpconfig, const char *filename, char *data, size_t max_length)"
+.br
+.RI "Read a string from a file placed beside the Linphone configuration file\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_config_relative_file_exists\fP (const \fBLinphoneConfig\fP *lpconfig, const char *filename)"
+.br
+.ti -1c
+.RI "char * \fBlinphone_config_dump_as_xml\fP (const \fBLinphoneConfig\fP *lpconfig)"
+.br
+.RI "Dumps the LinphoneConfig as XML into a buffer\&. "
+.ti -1c
+.RI "char * \fBlinphone_config_dump\fP (const \fBLinphoneConfig\fP *lpconfig)"
+.br
+.RI "Dumps the LinphoneConfig as INI into a buffer\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_config_get_overwrite_flag_for_entry\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key)"
+.br
+.RI "Retrieves the overwrite flag for a config item\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_overwrite_flag_for_entry\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, bool_t value)"
+.br
+.RI "Sets the overwrite flag for a config item (used when dumping config as xml) "
+.ti -1c
+.RI "bool_t \fBlinphone_config_get_overwrite_flag_for_section\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section)"
+.br
+.RI "Retrieves the overwrite flag for a config section\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_overwrite_flag_for_section\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, bool_t value)"
+.br
+.RI "Sets the overwrite flag for a config section (used when dumping config as xml) "
+.ti -1c
+.RI "bool_t \fBlinphone_config_get_skip_flag_for_entry\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section, const char *key)"
+.br
+.RI "Retrieves the skip flag for a config item\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_skip_flag_for_entry\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, const char *key, bool_t value)"
+.br
+.RI "Sets the skip flag for a config item (used when dumping config as xml) "
+.ti -1c
+.RI "bool_t \fBlinphone_config_get_skip_flag_for_section\fP (const \fBLinphoneConfig\fP *lpconfig, const char *section)"
+.br
+.RI "Retrieves the skip flag for a config section\&. "
+.ti -1c
+.RI "void \fBlinphone_config_set_skip_flag_for_section\fP (\fBLinphoneConfig\fP *lpconfig, const char *section, bool_t value)"
+.br
+.RI "Sets the skip flag for a config section (used when dumping config as xml) "
+.ti -1c
+.RI "LinphoneDictionary * \fBlp_config_section_to_dict\fP (const LpConfig *lpconfig, const char *section)"
+.br
+.RI "Converts a config section into a dictionary\&. "
+.ti -1c
+.RI "void \fBlp_config_load_dict_to_section\fP (LpConfig *lpconfig, const char *section, const LinphoneDictionary *dict)"
+.br
+.RI "Loads a dictionary into a section of the lpconfig\&. "
+.ti -1c
+.RI "const char * \fBlinphone_configuring_state_to_string\fP (\fBLinphoneConfiguringState\fP cs)"
+.br
+.RI "Converts a _LinphoneConfiguringState enum to a string\&. "
+.ti -1c
+.RI "const char * \fBlinphone_reason_to_string\fP (\fBLinphoneReason\fP err)"
+.br
+.RI "Converts a LinphoneReason enum to a string\&. "
+.ti -1c
+.RI "const char * \fBlinphone_transport_to_string\fP (\fBLinphoneTransportType\fP transport)"
+.br
+.RI "Converts a LinphoneTransportType enum to a lowercase string\&. "
+.ti -1c
+.RI "\fBLinphoneTransportType\fP \fBlinphone_transport_parse\fP (const char *transport)"
+.br
+.RI "Converts a lowercase string to a LinphoneTransportType enum\&. "
+.ti -1c
+.RI "\fBLinphoneReason\fP \fBlinphone_error_code_to_reason\fP (int err)"
+.br
+.RI "Converts an error code to a LinphoneReason\&. "
+.ti -1c
+.RI "int \fBlinphone_reason_to_error_code\fP (\fBLinphoneReason\fP reason)"
+.br
+.RI "Converts a LinphoneReason to an error code\&. "
+.ti -1c
+.RI "\fBLinphoneRange\fP * \fBlinphone_range_ref\fP (\fBLinphoneRange\fP *range)"
+.br
+.RI "Increment refcount\&. "
+.ti -1c
+.RI "void \fBlinphone_range_unref\fP (\fBLinphoneRange\fP *range)"
+.br
+.RI "Decrement refcount and possibly free the object\&. "
+.ti -1c
+.RI "void * \fBlinphone_range_get_user_data\fP (const \fBLinphoneRange\fP *range)"
+.br
+.RI "Gets the user data in the LinphoneRange object\&. "
+.ti -1c
+.RI "void \fBlinphone_range_set_user_data\fP (\fBLinphoneRange\fP *range, void *data)"
+.br
+.RI "Sets the user data in the LinphoneRange object\&. "
+.ti -1c
+.RI "int \fBlinphone_range_get_min\fP (const \fBLinphoneRange\fP *range)"
+.br
+.RI "Gets the lower value of the range\&. "
+.ti -1c
+.RI "int \fBlinphone_range_get_max\fP (const \fBLinphoneRange\fP *range)"
+.br
+.RI "Gets the higher value of the range\&. "
+.ti -1c
+.RI "void \fBlinphone_range_set_min\fP (\fBLinphoneRange\fP *range, int min)"
+.br
+.RI "Sets the lower value of the range\&. "
+.ti -1c
+.RI "void \fBlinphone_range_set_max\fP (\fBLinphoneRange\fP *range, int max)"
+.br
+.RI "Sets the higher value of the range\&. "
+.ti -1c
+.RI "\fBLinphoneXmlRpcRequest\fP * \fBlinphone_xml_rpc_request_new\fP (\fBLinphoneXmlRpcArgType\fP return_type, const char *method)"
+.br
+.RI "Create a new LinphoneXmlRpcRequest object\&. "
+.ti -1c
+.RI "\fBLinphoneXmlRpcRequest\fP * \fBlinphone_xml_rpc_request_new_with_args\fP (\fBLinphoneXmlRpcArgType\fP return_type, const char *method,\&.\&.\&.)"
+.br
+.RI "Create a new LinphoneXmlRpcRequest object giving the arguments to the method call\&. "
+.ti -1c
+.RI "\fBLinphoneXmlRpcRequest\fP * \fBlinphone_xml_rpc_request_ref\fP (\fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Acquire a reference to the XML-RPC request\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_request_unref\fP (\fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Release reference to the XML-RPC request\&. "
+.ti -1c
+.RI "void * \fBlinphone_xml_rpc_request_get_user_data\fP (const \fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Retrieve the user pointer associated with the XML-RPC request\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_request_set_user_data\fP (\fBLinphoneXmlRpcRequest\fP *request, void *ud)"
+.br
+.RI "Assign a user pointer to the XML-RPC request\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_request_add_int_arg\fP (\fBLinphoneXmlRpcRequest\fP *request, int value)"
+.br
+.RI "Add an integer argument to an XML-RPC request\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_request_add_string_arg\fP (\fBLinphoneXmlRpcRequest\fP *request, const char *value)"
+.br
+.RI "Add a string argument to an XML-RPC request\&. "
+.ti -1c
+.RI "\fBLinphoneXmlRpcRequestCbs\fP * \fBlinphone_xml_rpc_request_get_callbacks\fP (const \fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Get the LinphoneXmlRpcRequestCbs object associated with a LinphoneXmlRpcRequest\&. "
+.ti -1c
+.RI "const char * \fBlinphone_xml_rpc_request_get_content\fP (const \fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Get the content of the XML-RPC request\&. "
+.ti -1c
+.RI "\fBLinphoneXmlRpcStatus\fP \fBlinphone_xml_rpc_request_get_status\fP (const \fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Get the status of the XML-RPC request\&. "
+.ti -1c
+.RI "int \fBlinphone_xml_rpc_request_get_int_response\fP (const \fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Get the response to an XML-RPC request sent with \fBlinphone_xml_rpc_session_send_request()\fP and returning an integer response\&. "
+.ti -1c
+.RI "const char * \fBlinphone_xml_rpc_request_get_string_response\fP (const \fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Get the response to an XML-RPC request sent with \fBlinphone_xml_rpc_session_send_request()\fP and returning a string response\&. "
+.ti -1c
+.RI "\fBLinphoneXmlRpcSession\fP * \fBlinphone_xml_rpc_session_new\fP (\fBLinphoneCore\fP *core, const char *url)"
+.br
+.RI "Create a new LinphoneXmlRpcSession object\&. "
+.ti -1c
+.RI "\fBLinphoneXmlRpcSession\fP * \fBlinphone_xml_rpc_session_ref\fP (\fBLinphoneXmlRpcSession\fP *session)"
+.br
+.RI "Acquire a reference to the XML-RPC session\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_session_unref\fP (\fBLinphoneXmlRpcSession\fP *session)"
+.br
+.RI "Release reference to the XML-RPC session\&. "
+.ti -1c
+.RI "void * \fBlinphone_xml_rpc_session_get_user_data\fP (const \fBLinphoneXmlRpcSession\fP *session)"
+.br
+.RI "Retrieve the user pointer associated with the XML-RPC session\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_session_set_user_data\fP (\fBLinphoneXmlRpcSession\fP *session, void *ud)"
+.br
+.RI "Assign a user pointer to the XML-RPC session\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_session_send_request\fP (\fBLinphoneXmlRpcSession\fP *session, \fBLinphoneXmlRpcRequest\fP *request)"
+.br
+.RI "Send an XML-RPC request\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_session_release\fP (\fBLinphoneXmlRpcSession\fP *session)"
+.br
+.RI "Stop and unref an XML rpc session\&. "
+.ti -1c
+.RI "\fBLinphoneXmlRpcRequestCbs\fP * \fBlinphone_xml_rpc_request_cbs_ref\fP (\fBLinphoneXmlRpcRequestCbs\fP *cbs)"
+.br
+.RI "Acquire a reference to a LinphoneXmlRpcRequestCbs object\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_request_cbs_unref\fP (\fBLinphoneXmlRpcRequestCbs\fP *cbs)"
+.br
+.RI "Release a reference to a LinphoneXmlRpcRequestCbs object\&. "
+.ti -1c
+.RI "void * \fBlinphone_xml_rpc_request_cbs_get_user_data\fP (const \fBLinphoneXmlRpcRequestCbs\fP *cbs)"
+.br
+.RI "Retrieve the user pointer associated with a LinphoneXmlRpcRequestCbs object\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_request_cbs_set_user_data\fP (\fBLinphoneXmlRpcRequestCbs\fP *cbs, void *ud)"
+.br
+.RI "Assign a user pointer to a LinphoneXmlRpcRequestCbs object\&. "
+.ti -1c
+.RI "\fBLinphoneXmlRpcRequestCbsResponseCb\fP \fBlinphone_xml_rpc_request_cbs_get_response\fP (const \fBLinphoneXmlRpcRequestCbs\fP *cbs)"
+.br
+.RI "Get the response callback\&. "
+.ti -1c
+.RI "void \fBlinphone_xml_rpc_request_cbs_set_response\fP (\fBLinphoneXmlRpcRequestCbs\fP *cbs, \fBLinphoneXmlRpcRequestCbsResponseCb\fP cb)"
+.br
+.RI "Set the response callback\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Miscenalleous: logs, version strings, config storage\&. 
+
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct _LpConfig \fBLinphoneConfig\fP"
+
+.PP
+The LinphoneConfig object is used to manipulate a configuration file\&. The format of the configuration file is a \&.ini like format:
+.IP "\(bu" 2
+sections are defined in []
+.IP "\(bu" 2
+each section contains a sequence of key=value pairs\&.
+.PP
+.PP
+Example: 
+.PP
+.nf
+[sound]
+echocanceler=1
+playback_dev=ALSA: Default device
+
+[video]
+enabled=1
+
+.fi
+.PP
+ 
+.SS "typedef struct _LinphoneErrorInfo \fBLinphoneErrorInfo\fP"
+
+.PP
+Object representing full details about a signaling error or status\&. All LinphoneErrorInfo object returned by the liblinphone API are readonly and transcients\&. For safety they must be used immediately after obtaining them\&. Any other function call to the liblinphone may change their content or invalidate the pointer\&. 
+.SS "typedef struct _LinphoneHeaders \fBLinphoneHeaders\fP"
+
+.PP
+Object representing a chain of protocol headers\&. It provides read/write access to the headers of the underlying protocol\&. 
+.SS "typedef int(* LinphoneImEncryptionEngineCbsDownloadingFileCb) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatMessage\fP *msg, size_t offset, const uint8_t *buffer, size_t size, uint8_t *decrypted_buffer)"
+
+.PP
+Callback to decrypt downloading file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIengine\fP LinphoneImEncryptionEngine object 
+.br
+\fImsg\fP LinphoneChatMessage object 
+.br
+\fIoffset\fP The current offset of the upload 
+.br
+\fIbuffer\fP Encrypted data buffer 
+.br
+\fIsize\fP Size of the encrypted data buffer and maximum size of the decrypted data buffer 
+.br
+\fIdecrypted_buffer\fP Buffer in which to write the decrypted data which maximum size is size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+-1 if nothing to be done, 0 on success or an integer > 0 for error 
+.RE
+.PP
+
+.SS "typedef void(* LinphoneImEncryptionEngineCbsGenerateFileTransferKeyCb) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatRoom\fP *room, \fBLinphoneChatMessage\fP *msg)"
+
+.PP
+Callback to generate the key used to encrypt the files before uploading them Key can be stored in the LinphoneContent object inside the LinphoneChatMessage using linphone_content_set_key\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIengine\fP LinphoneImEncryptionEngine object 
+.br
+\fIroom\fP LinphoneChatRoom object 
+.br
+\fImsg\fP LinphoneChatMessage object 
+.RE
+.PP
+
+.SS "typedef int(* LinphoneImEncryptionEngineCbsIncomingMessageCb) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatRoom\fP *room, \fBLinphoneChatMessage\fP *msg)"
+
+.PP
+Callback to decrypt incoming LinphoneChatMessage\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIengine\fP ImEncryptionEngine object 
+.br
+\fIroom\fP LinphoneChatRoom object 
+.br
+\fImsg\fP LinphoneChatMessage object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+-1 if nothing to be done, 0 on success or an integer > 0 for error 
+.RE
+.PP
+
+.SS "typedef bool_t(* LinphoneImEncryptionEngineCbsIsEncryptionEnabledForFileTransferCb) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatRoom\fP *room)"
+
+.PP
+Callback to know whether or not the engine will encrypt files before uploading them\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIengine\fP LinphoneImEncryptionEngine object 
+.br
+\fIroom\fP LinphoneChatRoom object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if files will be encrypted, FALSE otherwise 
+.RE
+.PP
+
+.SS "typedef int(* LinphoneImEncryptionEngineCbsOutgoingMessageCb) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatRoom\fP *room, \fBLinphoneChatMessage\fP *msg)"
+
+.PP
+Callback to encrypt outgoing LinphoneChatMessage\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIengine\fP LinphoneImEncryptionEngine object 
+.br
+\fIroom\fP LinphoneChatRoom object 
+.br
+\fImsg\fP LinphoneChatMessage object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+-1 if nothing to be done, 0 on success or an integer > 0 for error 
+.RE
+.PP
+
+.SS "typedef int(* LinphoneImEncryptionEngineCbsUploadingFileCb) (\fBLinphoneImEncryptionEngine\fP *engine, \fBLinphoneChatMessage\fP *msg, size_t offset, const uint8_t *buffer, size_t *size, uint8_t *encrypted_buffer)"
+
+.PP
+Callback to encrypt uploading file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIengine\fP LinphoneImEncryptionEngine object 
+.br
+\fImsg\fP LinphoneChatMessage object 
+.br
+\fIoffset\fP The current offset of the upload 
+.br
+\fIbuffer\fP Encrypted data buffer 
+.br
+\fIsize\fP Size of the plain data buffer and the size of the encrypted data buffer once encryption is done 
+.br
+\fIencrypted_buffer\fP Buffer in which to write the encrypted data which maxmimum size is size 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+-1 if nothing to be done, 0 on success or an integer > 0 for error 
+.RE
+.PP
+
+.SS "typedef enum \fB_LinphoneReason\fP  \fBLinphoneReason\fP"
+
+.PP
+Enum describing various failure reasons or contextual information for some events\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_call_get_reason()\fP 
+.PP
+\fBlinphone_proxy_config_get_error()\fP 
+.PP
+\fBlinphone_error_info_get_reason()\fP 
+.RE
+.PP
+
+.SS "typedef void(* LinphoneXmlRpcRequestCbsResponseCb) (\fBLinphoneXmlRpcRequest\fP *request)"
+
+.PP
+Callback used to notify the response to an XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object 
+.RE
+.PP
+
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_LinphoneReason\fP"
+
+.PP
+Enum describing various failure reasons or contextual information for some events\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_call_get_reason()\fP 
+.PP
+\fBlinphone_proxy_config_get_error()\fP 
+.PP
+\fBlinphone_error_info_get_reason()\fP 
+.RE
+.PP
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneReasonNone \fP\fP
+No reason has been set by the core\&. 
+.TP
+\fB\fILinphoneReasonNoResponse \fP\fP
+No response received from remote\&. 
+.TP
+\fB\fILinphoneReasonForbidden \fP\fP
+Authentication failed due to bad credentials or resource forbidden\&. 
+.TP
+\fB\fILinphoneReasonDeclined \fP\fP
+The call has been declined\&. 
+.TP
+\fB\fILinphoneReasonNotFound \fP\fP
+Destination of the call was not found\&. 
+.TP
+\fB\fILinphoneReasonNotAnswered \fP\fP
+The call was not answered in time (request timeout) 
+.TP
+\fB\fILinphoneReasonBusy \fP\fP
+Phone line was busy\&. 
+.TP
+\fB\fILinphoneReasonUnsupportedContent \fP\fP
+Unsupported content\&. 
+.TP
+\fB\fILinphoneReasonIOError \fP\fP
+Transport error: connection failures, disconnections etc\&.\&.\&. 
+.TP
+\fB\fILinphoneReasonDoNotDisturb \fP\fP
+Do not disturb reason\&. 
+.TP
+\fB\fILinphoneReasonUnauthorized \fP\fP
+Operation is unauthorized because missing credential\&. 
+.TP
+\fB\fILinphoneReasonNotAcceptable \fP\fP
+Operation is rejected due to incompatible or unsupported media parameters\&. 
+.TP
+\fB\fILinphoneReasonNoMatch \fP\fP
+Operation could not be executed by server or remote client because it didn't have any context for it\&. 
+.TP
+\fB\fILinphoneReasonMovedPermanently \fP\fP
+Resource moved permanently\&. 
+.TP
+\fB\fILinphoneReasonGone \fP\fP
+Resource no longer exists\&. 
+.TP
+\fB\fILinphoneReasonTemporarilyUnavailable \fP\fP
+Temporarily unavailable\&. 
+.TP
+\fB\fILinphoneReasonAddressIncomplete \fP\fP
+Address incomplete\&. 
+.TP
+\fB\fILinphoneReasonNotImplemented \fP\fP
+Not implemented\&. 
+.TP
+\fB\fILinphoneReasonBadGateway \fP\fP
+Bad gateway\&. 
+.TP
+\fB\fILinphoneReasonServerTimeout \fP\fP
+Server timeout\&. 
+.TP
+\fB\fILinphoneReasonUnknown \fP\fP
+Unknown reason\&. 
+.SS "enum \fB_LinphoneToneID\fP"
+
+.PP
+Enum listing frequent telephony tones\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneToneUndefined \fP\fP
+Not a tone\&. 
+.TP
+\fB\fILinphoneToneBusy \fP\fP
+Busy tone\&. 
+.TP
+\fB\fILinphoneToneCallOnHold \fP\fP
+Call waiting tone\&. 
+.TP
+\fB\fILinphoneToneCallLost \fP\fP
+Call on hold tone\&. Tone played when call is abruptly disconnected (media lost) 
+.SH "Function Documentation"
+.PP 
+.SS "const uint8_t* linphone_buffer_get_content (const \fBLinphoneBuffer\fP * buffer)"
+
+.PP
+Get the content of the data buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The content of the data buffer\&. 
+.RE
+.PP
+
+.SS "size_t linphone_buffer_get_size (const \fBLinphoneBuffer\fP * buffer)"
+
+.PP
+Get the size of the content of the data buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The size of the content of the data buffer\&. 
+.RE
+.PP
+
+.SS "const char* linphone_buffer_get_string_content (const \fBLinphoneBuffer\fP * buffer)"
+
+.PP
+Get the string content of the data buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The string content of the data buffer\&. 
+.RE
+.PP
+
+.SS "void* linphone_buffer_get_user_data (const \fBLinphoneBuffer\fP * buffer)"
+
+.PP
+Retrieve the user pointer associated with the buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the buffer\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_buffer_is_empty (const \fBLinphoneBuffer\fP * buffer)"
+
+.PP
+Tell whether the LinphoneBuffer is empty\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A boolean value telling whether the LinphoneBuffer is empty or not\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneBuffer\fP* linphone_buffer_new (void)"
+
+.PP
+Create a new empty LinphoneBuffer object\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+A new LinphoneBuffer object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneBuffer\fP* linphone_buffer_new_from_data (const uint8_t * data, size_t size)"
+
+.PP
+Create a new LinphoneBuffer object from existing data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP The initial data to store in the LinphoneBuffer\&. 
+.br
+\fIsize\fP The size of the initial data to stroe in the LinphoneBuffer\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A new LinphoneBuffer object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneBuffer\fP* linphone_buffer_new_from_string (const char * data)"
+
+.PP
+Create a new LinphoneBuffer object from a string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdata\fP The initial string content of the LinphoneBuffer\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A new LinphoneBuffer object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneBuffer\fP* linphone_buffer_ref (\fBLinphoneBuffer\fP * buffer)"
+
+.PP
+Acquire a reference to the buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneBuffer object\&. 
+.RE
+.PP
+
+.SS "void linphone_buffer_set_content (\fBLinphoneBuffer\fP * buffer, const uint8_t * content, size_t size)"
+
+.PP
+Set the content of the data buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object\&. 
+.br
+\fIcontent\fP The content of the data buffer\&. 
+.br
+\fIsize\fP The size of the content of the data buffer\&. 
+.RE
+.PP
+
+.SS "void linphone_buffer_set_size (\fBLinphoneBuffer\fP * buffer, size_t size)"
+
+.PP
+Set the size of the content of the data buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object 
+.br
+\fIsize\fP The size of the content of the data buffer\&. 
+.RE
+.PP
+
+.SS "void linphone_buffer_set_string_content (\fBLinphoneBuffer\fP * buffer, const char * content)"
+
+.PP
+Set the string content of the data buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object\&. 
+.br
+\fIcontent\fP The string content of the data buffer\&. 
+.RE
+.PP
+
+.SS "void linphone_buffer_set_user_data (\fBLinphoneBuffer\fP * buffer, void * ud)"
+
+.PP
+Assign a user pointer to the buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object\&. 
+.br
+\fIud\fP The user pointer to associate with the buffer\&. 
+.RE
+.PP
+
+.SS "void linphone_buffer_unref (\fBLinphoneBuffer\fP * buffer)"
+
+.PP
+Release reference to the buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP LinphoneBuffer object\&. 
+.RE
+.PP
+
+.SS "void* linphone_call_stats_get_user_data (const \fBLinphoneCallStats\fP * stats)"
+
+.PP
+Gets the user data in the LinphoneCallStats object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP the LinphoneCallStats 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the user data 
+.RE
+.PP
+
+.SS "\fBLinphoneCallStats\fP* linphone_call_stats_ref (\fBLinphoneCallStats\fP * stats)"
+
+.PP
+Increment refcount\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+
+.SS "void linphone_call_stats_set_user_data (\fBLinphoneCallStats\fP * stats, void * data)"
+
+.PP
+Sets the user data in the LinphoneCallStats object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP the LinphoneCallStats object 
+.br
+\fIdata\fP the user data 
+.RE
+.PP
+
+.SS "void linphone_call_stats_unref (\fBLinphoneCallStats\fP * stats)"
+
+.PP
+Decrement refcount and possibly free the object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstats\fP LinphoneCallStats object 
+.RE
+.PP
+
+.SS "int linphone_chat_message_set_text (\fBLinphoneChatMessage\fP * msg, const char * text)"
+
+.PP
+Set a chat message text to be sent by \fBlinphone_chat_room_send_message\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImsg\fP LinphoneChatMessage 
+.br
+\fItext\fP Const char * 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if succeed\&. 
+.RE
+.PP
+
+.SS "void linphone_config_clean_entry (\fBLinphoneConfig\fP * lpconfig, const char * section, const char * key)"
+
+.PP
+Removes entries for key,value in a section\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP The LinphoneConfig object 
+.br
+\fIsection\fP 
+.br
+\fIkey\fP 
+.RE
+.PP
+
+.SS "char* linphone_config_dump (const \fBLinphoneConfig\fP * lpconfig)"
+
+.PP
+Dumps the LinphoneConfig as INI into a buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP The LinphoneConfig object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The buffer that contains the config dump 
+.RE
+.PP
+
+.SS "char* linphone_config_dump_as_xml (const \fBLinphoneConfig\fP * lpconfig)"
+
+.PP
+Dumps the LinphoneConfig as XML into a buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP The LinphoneConfig object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The buffer that contains the XML dump 
+.RE
+.PP
+
+.SS "float linphone_config_get_default_float (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, float default_value)"
+
+.PP
+Retrieves a default configuration item as a float, given its section, key, and default value\&. The default float value is returned if the config item isn't found\&. 
+.SS "int linphone_config_get_default_int (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, int default_value)"
+
+.PP
+Retrieves a default configuration item as an integer, given its section, key, and default value\&. The default integer value is returned if the config item isn't found\&. 
+.SS "int64_t linphone_config_get_default_int64 (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, int64_t default_value)"
+
+.PP
+Retrieves a default configuration item as a 64 bit integer, given its section, key, and default value\&. The default integer value is returned if the config item isn't found\&. 
+.SS "const char* linphone_config_get_default_string (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, const char * default_value)"
+
+.PP
+Retrieves a default configuration item as a string, given its section, key, and default value\&. The default value string is returned if the config item isn't found\&. 
+.SS "float linphone_config_get_float (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, float default_value)"
+
+.PP
+Retrieves a configuration item as a float, given its section, key, and default value\&. The default float value is returned if the config item isn't found\&. 
+.SS "int linphone_config_get_int (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, int default_value)"
+
+.PP
+Retrieves a configuration item as an integer, given its section, key, and default value\&. The default integer value is returned if the config item isn't found\&. 
+.SS "int64_t linphone_config_get_int64 (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, int64_t default_value)"
+
+.PP
+Retrieves a configuration item as a 64 bit integer, given its section, key, and default value\&. The default integer value is returned if the config item isn't found\&. 
+.SS "bool_t linphone_config_get_range (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, int * min, int * max, int default_min, int default_max)"
+
+.PP
+Retrieves a configuration item as a range, given its section, key, and default min and max values\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if the value is successfully parsed as a range, FALSE otherwise\&. If FALSE is returned, min and max are filled respectively with default_min and default_max values\&. 
+.RE
+.PP
+
+.SS "const char* linphone_config_get_section_param_string (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, const char * default_value)"
+
+.PP
+Retrieves a section parameter item as a string, given its section and key\&. The default value string is returned if the config item isn't found\&. 
+.SS "const char** linphone_config_get_sections_names (\fBLinphoneConfig\fP * lpconfig)"
+
+.PP
+Returns the list of sections' names in the LinphoneConfig\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP The LinphoneConfig object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a null terminated static array of strings 
+.RE
+.PP
+
+.SS "const char* linphone_config_get_string (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, const char * default_string)"
+
+.PP
+Retrieves a configuration item as a string, given its section, key, and default value\&. The default value string is returned if the config item isn't found\&. 
+.SS "bctbx_list_t* linphone_config_get_string_list (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, bctbx_list_t * default_list)"
+
+.PP
+Retrieves a configuration item as a list of strings, given its section, key, and default value\&. The default value is returned if the config item is not found\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP A \fBLinphoneConfig\fP object 
+.br
+\fIsection\fP The section from which to retrieve a configuration item 
+.br
+\fIkey\fP The name of the configuration item to retrieve 
+.br
+\fIdefault_list\fP A list of \fBconst\fP char * objects\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBconst\fP char * objects\&. 
+.RE
+.PP
+
+.SS "int linphone_config_has_entry (const \fBLinphoneConfig\fP * lpconfig, const char * section, const char * key)"
+
+.PP
+Returns 1 if a given section with a given key is present in the configuration\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP The LinphoneConfig object 
+.br
+\fIsection\fP 
+.br
+\fIkey\fP 
+.RE
+.PP
+
+.SS "const char* linphone_config_load_from_xml_file (\fBLinphoneConfig\fP * lpc, const char * filename)"
+
+.PP
+Reads a xml config file and fill the LinphoneConfig with the read config dynamic values\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP The LinphoneConfig object to fill with the content of the file 
+.br
+\fIfilename\fP The filename of the config file to read to fill the LinphoneConfig 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_config_load_from_xml_string (LpConfig * lpc, const char * buffer)"
+
+.PP
+Reads a xml config string and fill the LinphoneConfig with the read config dynamic values\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP The LinphoneConfig object to fill with the content of the file 
+.br
+\fIbuffer\fP The string of the config file to fill the LinphoneConfig 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 in case of success 
+.RE
+.PP
+
+.SS "\fBLinphoneConfig\fP* linphone_config_new (const char * filename)"
+
+.PP
+Instantiates a LinphoneConfig object from a user config file\&. The caller of this constructor owns a reference\&. \fBlinphone_config_unref()\fP must be called when this object is no longer needed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfilename\fP the filename of the config file to read to fill the instantiated LinphoneConfig 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_config_new_with_factory\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneConfig\fP* linphone_config_new_from_buffer (const char * buffer)"
+
+.PP
+Instantiates a LinphoneConfig object from a user provided buffer\&. The caller of this constructor owns a reference\&. \fBlinphone_config_unref()\fP must be called when this object is no longer needed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP the buffer from which the LinphoneConfig will be retrieved\&. We expect the buffer to be null-terminated\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_config_new_with_factory\fP 
+.PP
+\fBlinphone_config_new\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneConfig\fP* linphone_config_new_with_factory (const char * config_filename, const char * factory_config_filename)"
+
+.PP
+Instantiates a LinphoneConfig object from a user config file and a factory config file\&. The caller of this constructor owns a reference\&. \fBlinphone_config_unref()\fP must be called when this object is no longer needed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIconfig_filename\fP the filename of the user config file to read to fill the instantiated LinphoneConfig 
+.br
+\fIfactory_config_filename\fP the filename of the factory config file to read to fill the instantiated LinphoneConfig 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_config_new\fP
+.RE
+.PP
+The user config file is read first to fill the LinphoneConfig and then the factory config file is read\&. Therefore the configuration parameters defined in the user config file will be overwritten by the parameters defined in the factory config file\&. 
+.SS "\fBLinphoneStatus\fP linphone_config_read_file (\fBLinphoneConfig\fP * lpconfig, const char * filename)"
+
+.PP
+Reads a user config file and fill the LinphoneConfig with the read config values\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP The LinphoneConfig object to fill with the content of the file 
+.br
+\fIfilename\fP The filename of the config file to read to fill the LinphoneConfig 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_config_read_relative_file (const \fBLinphoneConfig\fP * lpconfig, const char * filename, char * data, size_t max_length)"
+
+.PP
+Read a string from a file placed beside the Linphone configuration file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP LinphoneConfig instance used as a reference 
+.br
+\fIfilename\fP Name of the file where data will be read from\&. The name is relative to the place of the config file 
+.br
+\fIdata\fP Buffer where read string will be stored 
+.br
+\fImax_length\fP Length of the buffer 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 on failure  
+.RE
+.PP
+
+.SS "bool_t linphone_config_relative_file_exists (const \fBLinphoneConfig\fP * lpconfig, const char * filename)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if file exists relative to the to the current location 
+.RE
+.PP
+
+.SS "void linphone_config_set_string_list (\fBLinphoneConfig\fP * lpconfig, const char * section, const char * key, const bctbx_list_t * value)"
+
+.PP
+Sets a string list config item\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP A \fBLinphoneConfig\fP object 
+.br
+\fIsection\fP The name of the section to put the configuration item into 
+.br
+\fIkey\fP The name of the configuration item to set 
+.br
+\fIvalue\fP A list of \fBconst\fP char * objects\&. The value to set 
+.RE
+.PP
+
+.SS "void linphone_config_write_relative_file (const \fBLinphoneConfig\fP * lpconfig, const char * filename, const char * data)"
+
+.PP
+Write a string in a file placed relatively with the Linphone configuration file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlpconfig\fP LinphoneConfig instance used as a reference 
+.br
+\fIfilename\fP Name of the file where to write data\&. The name is relative to the place of the config file 
+.br
+\fIdata\fP String to write 
+.RE
+.PP
+
+.SS "\fBLinphoneContent\fP* linphone_content_find_part_by_header (const \fBLinphoneContent\fP * content, const char * header_name, const char * header_value)"
+
+.PP
+Find a part from a multipart content looking for a part header with a specified value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fIheader_name\fP The name of the header to look for\&. 
+.br
+\fIheader_value\fP The value of the header to look for\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphoneContent object object the part if found, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "void* linphone_content_get_buffer (const \fBLinphoneContent\fP * content)"
+
+.PP
+Get the content data buffer, usually a string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The content data buffer\&. 
+.RE
+.PP
+
+.SS "const char* linphone_content_get_custom_header (const \fBLinphoneContent\fP * content, const char * header_name)"
+
+.PP
+Get a custom header value of a content\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fIheader_name\fP The name of the header to get the value from\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The value of the header if found, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "const char* linphone_content_get_encoding (const \fBLinphoneContent\fP * content)"
+
+.PP
+Get the encoding of the data buffer, for example 'gzip'\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The encoding of the data buffer\&. 
+.RE
+.PP
+
+.SS "const char* linphone_content_get_name (const \fBLinphoneContent\fP * content)"
+
+.PP
+Get the name associated with a RCS file transfer message\&. It is used to store the original filename of the file to be downloaded from server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The name of the content\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneContent\fP* linphone_content_get_part (const \fBLinphoneContent\fP * content, int idx)"
+
+.PP
+Get a part from a multipart content according to its index\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fIidx\fP The index of the part to get\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A LinphoneContent object holding the part if found, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "size_t linphone_content_get_size (const \fBLinphoneContent\fP * content)"
+
+.PP
+Get the content data buffer size, excluding null character despite null character is always set for convenience\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The content data buffer size\&. 
+.RE
+.PP
+
+.SS "const char* linphone_content_get_string_buffer (const \fBLinphoneContent\fP * content)"
+
+.PP
+Get the string content data buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The string content data buffer\&. 
+.RE
+.PP
+
+.SS "const char* linphone_content_get_subtype (const \fBLinphoneContent\fP * content)"
+
+.PP
+Get the mime subtype of the content data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The mime subtype of the content data, for example 'html'\&. 
+.RE
+.PP
+
+.SS "const char* linphone_content_get_type (const \fBLinphoneContent\fP * content)"
+
+.PP
+Get the mime type of the content data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The mime type of the content data, for example 'application'\&. 
+.RE
+.PP
+
+.SS "void* linphone_content_get_user_data (const \fBLinphoneContent\fP * content)"
+
+.PP
+Retrieve the user pointer associated with the content\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the content\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_content_is_multipart (const \fBLinphoneContent\fP * content)"
+
+.PP
+Tell whether a content is a multipart content\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A boolean value telling whether the content is multipart or not\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneContent\fP* linphone_content_ref (\fBLinphoneContent\fP * content)"
+
+.PP
+Acquire a reference to the content\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneContent object\&. 
+.RE
+.PP
+
+.SS "void linphone_content_set_buffer (\fBLinphoneContent\fP * content, const void * buffer, size_t size)"
+
+.PP
+Set the content data buffer, usually a string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fIbuffer\fP The content data buffer\&. 
+.br
+\fIsize\fP The size of the content data buffer\&. 
+.RE
+.PP
+
+.SS "void linphone_content_set_encoding (\fBLinphoneContent\fP * content, const char * encoding)"
+
+.PP
+Set the encoding of the data buffer, for example 'gzip'\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fIencoding\fP The encoding of the data buffer\&. 
+.RE
+.PP
+
+.SS "void linphone_content_set_name (\fBLinphoneContent\fP * content, const char * name)"
+
+.PP
+Set the name associated with a RCS file transfer message\&. It is used to store the original filename of the file to be downloaded from server\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fIname\fP The name of the content\&. 
+.RE
+.PP
+
+.SS "void linphone_content_set_size (\fBLinphoneContent\fP * content, size_t size)"
+
+.PP
+Set the content data size, excluding null character despite null character is always set for convenience\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object 
+.br
+\fIsize\fP The content data buffer size\&. 
+.RE
+.PP
+
+.SS "void linphone_content_set_string_buffer (\fBLinphoneContent\fP * content, const char * buffer)"
+
+.PP
+Set the string content data buffer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fIbuffer\fP The string content data buffer\&. 
+.RE
+.PP
+
+.SS "void linphone_content_set_subtype (\fBLinphoneContent\fP * content, const char * subtype)"
+
+.PP
+Set the mime subtype of the content data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fIsubtype\fP The mime subtype of the content data, for example 'html'\&. 
+.RE
+.PP
+
+.SS "void linphone_content_set_type (\fBLinphoneContent\fP * content, const char * type)"
+
+.PP
+Set the mime type of the content data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fItype\fP The mime type of the content data, for example 'application'\&. 
+.RE
+.PP
+
+.SS "void linphone_content_set_user_data (\fBLinphoneContent\fP * content, void * ud)"
+
+.PP
+Assign a user pointer to the content\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.br
+\fIud\fP The user pointer to associate with the content\&. 
+.RE
+.PP
+
+.SS "void linphone_content_unref (\fBLinphoneContent\fP * content)"
+
+.PP
+Release reference to the content\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcontent\fP LinphoneContent object\&. 
+.RE
+.PP
+
+.SS "void linphone_core_check_for_update (\fBLinphoneCore\fP * lc, const char * current_version)"
+
+.PP
+Checks if a new version of the application is available\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIcurrent_version\fP The current version of the application 
+.RE
+.PP
+
+.SS "\fBLinphoneConfig\fP* linphone_core_create_config (\fBLinphoneCore\fP * lc, const char * filename)"
+
+.PP
+Create a \fBLinphoneConfig\fP object from a user config file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIfilename\fP The filename of the config file to read to fill the instantiated \fBLinphoneConfig\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneContent\fP* linphone_core_create_content (\fBLinphoneCore\fP * lc)"
+
+.PP
+Create a content with default values from Linphone core\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneContent object with default values set 
+.RE
+.PP
+
+.SS "\fBLinphoneInfoMessage\fP* linphone_core_create_info_message (\fBLinphoneCore\fP * lc)"
+
+.PP
+Creates an empty info message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the LinphoneCore 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a new LinphoneInfoMessage\&.
+.RE
+.PP
+The info message can later be filled with information using \fBlinphone_info_message_add_header()\fP or \fBlinphone_info_message_set_content()\fP, and finally sent with linphone_core_send_info_message()\&. 
+.SS "\fBLinphonePlayer\fP* linphone_core_create_local_player (\fBLinphoneCore\fP * lc, const char * sound_card_name, const char * video_display_name, void * window_id)"
+
+.PP
+Create an independent media file player\&. This player support WAVE and MATROSKA formats\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP A LinphoneCore object 
+.br
+\fIsound_card_name\fP Playback sound card\&. If NULL, the ringer sound card set in LinphoneCore will be used 
+.br
+\fIvideo_display_name\fP Video display\&. If NULL, the video display set in LinphoneCore will be used 
+.br
+\fIwindow_id\fP Id of the drawing window\&. Depend of video out 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer on the new instance\&. NULL if faild\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneConfig\fP* linphone_core_create_lp_config (\fBLinphoneCore\fP * lc, const char * filename)"
+
+.PP
+Create a LpConfig object from a user config file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIfilename\fP The filename of the config file to read to fill the instantiated LpConfig
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_core_create_config()\fP instead\&.  
+.RE
+.PP
+
+.SS "\fBLinphoneConfig\fP* linphone_core_get_config (\fBLinphoneCore\fP * lc)"
+
+.PP
+Returns the LpConfig object used to manage the storage (config) file\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object The application can use the LpConfig object to insert its own private sections and pairs of key=value in the configuration file\&. 
+.RE
+.PP
+
+.SS "const char* linphone_core_get_file_transfer_server (\fBLinphoneCore\fP * core)"
+
+.PP
+Get the globaly set http file transfer server to be used for content type application/vnd\&.gsma\&.rcs-ft-http+xml\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcore\fP \fBLinphoneCore\fP from which to get the server_url 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+URL of the file server like https://file.linphone.org/upload.php 
+.RE
+.PP
+
+.SS "\fBLinphoneAddress\fP* linphone_core_interpret_url (\fBLinphoneCore\fP * lc, const char * url)"
+
+.PP
+See linphone_proxy_config_normalize_sip_uri for documentation\&. Default proxy config is used to parse the address\&. 
+.SS "\fBLinphoneStatus\fP linphone_core_play_local (\fBLinphoneCore\fP * lc, const char * audiofile)"
+
+.PP
+Plays an audio file to the local user\&. This function works at any time, during calls, or when no calls are running\&. It doesn't request the underlying audio system to support multiple playback streams\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIaudiofile\fP The path to an audio file in wav PCM 16 bit format 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 on error 
+.RE
+.PP
+
+.SS "void linphone_core_set_call_error_tone (\fBLinphoneCore\fP * lc, \fBLinphoneReason\fP reason, const char * audiofile)"
+
+.PP
+Assign an audio file to be played locally upon call failure, for a given reason\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the core 
+.br
+\fIreason\fP the \fBLinphoneReason\fP representing the failure error code\&. 
+.br
+\fIaudiofile\fP a wav file to be played when such call failure happens\&. 
+.RE
+.PP
+
+.SS "void linphone_core_set_file_transfer_server (\fBLinphoneCore\fP * core, const char * server_url)"
+
+.PP
+Globaly set an http file transfer server to be used for content type application/vnd\&.gsma\&.rcs-ft-http+xml\&. This value can also be set for a dedicated account using \fBlinphone_proxy_config_set_file_transfer_server\fP 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcore\fP \fBLinphoneCore\fP to be modified 
+.br
+\fIserver_url\fP URL of the file server like https://file.linphone.org/upload.php 
+.RE
+.PP
+
+.SS "void linphone_core_set_user_agent (\fBLinphoneCore\fP * lc, const char * ua_name, const char * version)"
+
+.PP
+Sets the user agent string used in SIP messages, ideally called just after \fBlinphone_core_new()\fP or linphone_core_init()\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIua_name\fP The user agent name 
+.br
+\fIversion\fP The user agent version 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_core_take_preview_snapshot (\fBLinphoneCore\fP * lc, const char * file)"
+
+.PP
+Take a photo of currently from capture device and write it into a jpeg file\&. Note that the snapshot is asynchronous, an application shall not assume that the file is created when the function returns\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the linphone core 
+.br
+\fIfile\fP a path where to write the jpeg content\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successfull, -1 otherwise (typically if jpeg format is not supported)\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_core_vcard_supported (void)"
+
+.PP
+Tells whether VCARD support is builtin\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if VCARD is supported, FALSE otherwise\&. 
+.RE
+.PP
+
+.SS "int linphone_dial_plan_lookup_ccc_from_e164 (const char * e164)"
+
+.PP
+Function to get call country code from an e164 number, ex: +33952650121 will return 33\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIe164\fP phone number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+call country code or -1 if not found 
+.RE
+.PP
+
+.SS "int linphone_dial_plan_lookup_ccc_from_iso (const char * iso)"
+
+.PP
+Function to get call country code from ISO 3166-1 alpha-2 code, ex: FR returns 33\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIiso\fP country code alpha2 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+call country code or -1 if not found 
+.RE
+.PP
+
+.SS "\fBLinphoneReason\fP linphone_error_code_to_reason (int err)"
+
+.PP
+Converts an error code to a LinphoneReason\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIerr\fP An error code 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The LinphoneReason corresponding to the specified error code 
+.RE
+.PP
+
+.SS "const char* linphone_error_info_get_phrase (const \fBLinphoneErrorInfo\fP * ei)"
+
+.PP
+Get textual phrase from the error info\&. This is the text that is provided by the peer in the protocol (SIP)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The error phrase 
+.RE
+.PP
+
+.SS "const char* linphone_error_info_get_protocol (const \fBLinphoneErrorInfo\fP * ei)"
+
+.PP
+Get protocol from the error info\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The protocol 
+.RE
+.PP
+
+.SS "int linphone_error_info_get_protocol_code (const \fBLinphoneErrorInfo\fP * ei)"
+
+.PP
+Get the status code from the low level protocol (ex a SIP status code)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The status code 
+.RE
+.PP
+
+.SS "\fBLinphoneReason\fP linphone_error_info_get_reason (const \fBLinphoneErrorInfo\fP * ei)"
+
+.PP
+Get reason code from the error info\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A \fBLinphoneReason\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneErrorInfo\fP* linphone_error_info_get_sub_error_info (const \fBLinphoneErrorInfo\fP * ei)"
+
+.PP
+Get pointer to chained LinphoneErrorInfo set in sub_ei\&. It corresponds to a Reason header in a received SIP response\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneErrorInfo pointer defined in the ei object\&. 
+.RE
+.PP
+
+.SS "const char* linphone_error_info_get_warnings (const \fBLinphoneErrorInfo\fP * ei)"
+
+.PP
+Provides additional information regarding the failure\&. With SIP protocol, the content of 'Warning' headers are returned\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+More details about the failure 
+.RE
+.PP
+
+.SS "\fBLinphoneErrorInfo\fP* linphone_error_info_new (void)"
+
+.PP
+Create an empty LinphoneErrorInfo object\&. The LinphoneErrorInfo object carries these fields:
+.IP "\(bu" 2
+a LinphoneReason enum member giving overall signification of the error reported\&.
+.IP "\(bu" 2
+the 'protocol' name in which the protocol reason code has meaning, for example SIP or Q\&.850
+.IP "\(bu" 2
+the 'protocol code', an integer referencing the kind of error reported
+.IP "\(bu" 2
+the 'phrase', a text phrase describing the error
+.IP "\(bu" 2
+the 'warning', the content of warning headers if any
+.IP "\(bu" 2
+a sub 'LinphoneErrorInfo' may be provided if a SIP response includes a Reason header (RFC3326)\&. 
+.PP
+
+.SS "\fBLinphoneErrorInfo\fP* linphone_error_info_ref (\fBLinphoneErrorInfo\fP * ei)"
+
+.PP
+Increment refcount\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.RE
+.PP
+
+.SS "void linphone_error_info_set (\fBLinphoneErrorInfo\fP * ei, const char * protocol, \fBLinphoneReason\fP reason, int code, const char * status_string, const char * warning)"
+
+.PP
+Assign information to a LinphoneErrorInfo object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.br
+\fIprotocol\fP protocol name 
+.br
+\fIreason\fP reason from LinphoneReason enum 
+.br
+\fIcode\fP protocol code 
+.br
+\fIstatus_string\fP description of the reason 
+.br
+\fIwarning\fP warning message 
+.RE
+.PP
+
+.SS "void linphone_error_info_set_phrase (\fBLinphoneErrorInfo\fP * ei, const char * phrase)"
+
+.PP
+Assign phrase to a LinphoneErrorInfo object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.br
+\fIphrase\fP the phrase explaining the error 
+.RE
+.PP
+
+.SS "void linphone_error_info_set_protocol (\fBLinphoneErrorInfo\fP * ei, const char * proto)"
+
+.PP
+Assign protocol name to a LinphoneErrorInfo object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.br
+\fIproto\fP the protocol name 
+.RE
+.PP
+
+.SS "void linphone_error_info_set_protocol_code (\fBLinphoneErrorInfo\fP * ei, int code)"
+
+.PP
+Assign protocol code to a LinphoneErrorInfo object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.br
+\fIcode\fP the protocol code 
+.RE
+.PP
+
+.SS "void linphone_error_info_set_reason (\fBLinphoneErrorInfo\fP * ei, \fBLinphoneReason\fP reason)"
+
+.PP
+Assign reason LinphoneReason to a LinphoneErrorInfo object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.br
+\fIreason\fP reason from LinphoneReason enum 
+.RE
+.PP
+
+.SS "void linphone_error_info_set_sub_error_info (\fBLinphoneErrorInfo\fP * ei, \fBLinphoneErrorInfo\fP * appended_ei)"
+
+.PP
+Set the sub_ei in LinphoneErrorInfo to another LinphoneErrorInfo\&. Used when a reason header is to be added in a SIP response\&. The first level LinphoneErrorInfo defines the SIP response code and phrase, the second (sub) LinphoneErroInfo defining the content of the Reason header\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP LinphoneErrorInfo object to which the other LinphoneErrorInfo will be appended as ei->sub_ei\&. 
+.br
+\fIappended_ei\fP LinphoneErrorInfo to append 
+.RE
+.PP
+
+.SS "void linphone_error_info_set_warnings (\fBLinphoneErrorInfo\fP * ei, const char * warnings)"
+
+.PP
+Assign warnings to a LinphoneErrorInfo object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.br
+\fIphrase\fP the warnings 
+.RE
+.PP
+
+.SS "void linphone_error_info_unref (\fBLinphoneErrorInfo\fP * ei)"
+
+.PP
+Decrement refcount and possibly free the object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIei\fP ErrorInfo object 
+.RE
+.PP
+
+.SS "void linphone_headers_add (\fBLinphoneHeaders\fP * obj, const char * name, const char * value)"
+
+.PP
+Add given header name and corresponding value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the LinphoneHeaders object 
+.br
+\fIname\fP the header's name 
+.br
+\fIthe\fP header's value 
+.RE
+.PP
+
+.SS "const char* linphone_headers_get_value (\fBLinphoneHeaders\fP * obj, const char * header_name)"
+
+.PP
+Search for a given header name and return its value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the LinphoneHeaders object 
+.br
+\fIname\fP the header's name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the header's value or NULL if not found\&. 
+.RE
+.PP
+
+.SS "void linphone_headers_remove (\fBLinphoneHeaders\fP * obj, const char * name)"
+
+.PP
+Add given header name and corresponding value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIobj\fP the LinphoneHeaders object 
+.br
+\fIname\fP the header's name 
+.br
+\fIthe\fP header's value 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngineCbsGenerateFileTransferKeyCb\fP linphone_im_encryption_engine_cbs_get_generate_file_transfer_key (\fBLinphoneImEncryptionEngineCbs\fP * cbs)"
+
+.PP
+Gets the callback that will generate the key to encrypt the file before uploading it\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the callback 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngineCbsIsEncryptionEnabledForFileTransferCb\fP linphone_im_encryption_engine_cbs_get_is_encryption_enabled_for_file_transfer (\fBLinphoneImEncryptionEngineCbs\fP * cbs)"
+
+.PP
+Gets the callback telling wheter or not to encrypt the files\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the callback 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngineCbsDownloadingFileCb\fP linphone_im_encryption_engine_cbs_get_process_downloading_file (\fBLinphoneImEncryptionEngineCbs\fP * cbs)"
+
+.PP
+Gets the callback that will decrypt the files while downloading them\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the callback 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngineCbsIncomingMessageCb\fP linphone_im_encryption_engine_cbs_get_process_incoming_message (\fBLinphoneImEncryptionEngineCbs\fP * cbs)"
+
+.PP
+Gets the callback that will decrypt the chat messages upon reception\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the callback 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngineCbsOutgoingMessageCb\fP linphone_im_encryption_engine_cbs_get_process_outgoing_message (\fBLinphoneImEncryptionEngineCbs\fP * cbs)"
+
+.PP
+Gets the callback that will encrypt the chat messages before sending them\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the callback 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngineCbsUploadingFileCb\fP linphone_im_encryption_engine_cbs_get_process_uploading_file (\fBLinphoneImEncryptionEngineCbs\fP * cbs)"
+
+.PP
+Gets the callback that will will encrypt the files while uploading them\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the callback 
+.RE
+.PP
+
+.SS "void* linphone_im_encryption_engine_cbs_get_user_data (const \fBLinphoneImEncryptionEngineCbs\fP * cbs)"
+
+.PP
+Gets the user data in the LinphoneImEncryptionEngineCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the user data 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngineCbs\fP* linphone_im_encryption_engine_cbs_ref (\fBLinphoneImEncryptionEngineCbs\fP * cbs)"
+
+.PP
+Acquire a reference to the LinphoneImEncryptionEngineCbs\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneImEncryptionEngineCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneImEncryptionEngineCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_cbs_set_generate_file_transfer_key (\fBLinphoneImEncryptionEngineCbs\fP * cbs, \fBLinphoneImEncryptionEngineCbsGenerateFileTransferKeyCb\fP cb)"
+
+.PP
+Sets the callback that will generate the key to encrypt the file before uploading it\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.br
+\fIcb\fP the callback to call 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_cbs_set_is_encryption_enabled_for_file_transfer (\fBLinphoneImEncryptionEngineCbs\fP * cbs, \fBLinphoneImEncryptionEngineCbsIsEncryptionEnabledForFileTransferCb\fP cb)"
+
+.PP
+Sets the callback telling wheter or not to encrypt the files\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.br
+\fIcb\fP the callback to call 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_cbs_set_process_downloading_file (\fBLinphoneImEncryptionEngineCbs\fP * cbs, \fBLinphoneImEncryptionEngineCbsDownloadingFileCb\fP cb)"
+
+.PP
+Sets the callback that will decrypt the files while downloading them\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.br
+\fIcb\fP the callback to call 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_cbs_set_process_incoming_message (\fBLinphoneImEncryptionEngineCbs\fP * cbs, \fBLinphoneImEncryptionEngineCbsIncomingMessageCb\fP cb)"
+
+.PP
+Sets the callback that will decrypt the chat messages upon reception\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.br
+\fIcb\fP the callback to call 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_cbs_set_process_outgoing_message (\fBLinphoneImEncryptionEngineCbs\fP * cbs, \fBLinphoneImEncryptionEngineCbsOutgoingMessageCb\fP cb)"
+
+.PP
+Sets the callback that will encrypt the chat messages before sending them\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.br
+\fIcb\fP the callback to call 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_cbs_set_process_uploading_file (\fBLinphoneImEncryptionEngineCbs\fP * cbs, \fBLinphoneImEncryptionEngineCbsUploadingFileCb\fP cb)"
+
+.PP
+Sets the callback that will encrypt the files while uploading them\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.br
+\fIcb\fP the callback to call 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_cbs_set_user_data (\fBLinphoneImEncryptionEngineCbs\fP * cbs, void * data)"
+
+.PP
+Sets the user data in the LinphoneImEncryptionEngineCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP the LinphoneImEncryptionEngineCbs object 
+.br
+\fIdata\fP the user data 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_cbs_unref (\fBLinphoneImEncryptionEngineCbs\fP * cbs)"
+
+.PP
+Release reference to the LinphoneImEncryptionEngineCbs\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneImEncryptionEngineCbs object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngineCbs\fP* linphone_im_encryption_engine_get_callbacks (const \fBLinphoneImEncryptionEngine\fP * imee)"
+
+.PP
+Gets the LinphoneImEncryptionEngineCbs object that holds the callbacks\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimee\fP the LinphoneImEncryptionEngine object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the LinphoneImEncryptionEngineCbs object 
+.RE
+.PP
+
+.SS "\fBLinphoneCore\fP* linphone_im_encryption_engine_get_core (\fBLinphoneImEncryptionEngine\fP * imee)"
+
+.PP
+Gets the LinphoneCore object that created the IM encryption engine\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimee\fP LinphoneImEncryptionEngine object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The LinphoneCore object that created the IM encryption engine 
+.RE
+.PP
+
+.SS "void* linphone_im_encryption_engine_get_user_data (const \fBLinphoneImEncryptionEngine\fP * imee)"
+
+.PP
+Gets the user data in the LinphoneImEncryptionEngine object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimee\fP the LinphoneImEncryptionEngine 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the user data 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngine\fP* linphone_im_encryption_engine_new (void)"
+
+.PP
+Create the IM encryption engine\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The created the IM encryption engine 
+.RE
+.PP
+
+.SS "\fBLinphoneImEncryptionEngine\fP* linphone_im_encryption_engine_ref (\fBLinphoneImEncryptionEngine\fP * imee)"
+
+.PP
+Acquire a reference to the LinphoneImEncryptionEngine\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimee\fP LinphoneImEncryptionEngine object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneImEncryptionEngine object\&. 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_set_user_data (\fBLinphoneImEncryptionEngine\fP * imee, void * data)"
+
+.PP
+Sets the user data in the LinphoneImEncryptionEngine object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimee\fP the LinphoneImEncryptionEngine object 
+.br
+\fIdata\fP the user data 
+.RE
+.PP
+
+.SS "void linphone_im_encryption_engine_unref (\fBLinphoneImEncryptionEngine\fP * imee)"
+
+.PP
+Release reference to the LinphoneImEncryptionEngine\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimee\fP LinphoneImEncryptionEngine object\&. 
+.RE
+.PP
+
+.SS "void linphone_info_message_add_header (\fBLinphoneInfoMessage\fP * im, const char * name, const char * value)"
+
+.PP
+Add a header to an info message to be sent\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIim\fP the info message 
+.br
+\fIname\fP the header'name 
+.br
+\fIvalue\fP the header's value 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_info_message_destroy (\fBLinphoneInfoMessage\fP * im)"
+
+.PP
+Destroy a LinphoneInfoMessage\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_info_message_unref()\fP instead\&.  
+.RE
+.PP
+
+.SS "const char* linphone_info_message_get_header (const \fBLinphoneInfoMessage\fP * im, const char * name)"
+
+.PP
+Obtain a header value from a received info message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIim\fP the info message 
+.br
+\fIname\fP the header'name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the corresponding header's value, or NULL if not exists\&. 
+.RE
+.PP
+
+.SS "void linphone_info_message_set_content (\fBLinphoneInfoMessage\fP * im, const \fBLinphoneContent\fP * content)"
+
+.PP
+Assign a content to the info message\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIim\fP the linphone info message 
+.br
+\fIcontent\fP the content described as a \fBLinphoneContent\fP structure\&. All fields of the LinphoneContent are copied, thus the application can destroy/modify/recycloe the content object freely ater the function returns\&. 
+.RE
+.PP
+
+.SS "int linphone_range_get_max (const \fBLinphoneRange\fP * range)"
+
+.PP
+Gets the higher value of the range\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP a LinphoneRange 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The higher value 
+.RE
+.PP
+
+.SS "int linphone_range_get_min (const \fBLinphoneRange\fP * range)"
+
+.PP
+Gets the lower value of the range\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP a LinphoneRange 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The lower value 
+.RE
+.PP
+
+.SS "void* linphone_range_get_user_data (const \fBLinphoneRange\fP * range)"
+
+.PP
+Gets the user data in the LinphoneRange object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP the LinphoneRange 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the user data 
+.RE
+.PP
+
+.SS "\fBLinphoneRange\fP* linphone_range_ref (\fBLinphoneRange\fP * range)"
+
+.PP
+Increment refcount\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP LinphoneRange object 
+.RE
+.PP
+
+.SS "void linphone_range_set_max (\fBLinphoneRange\fP * range, int max)"
+
+.PP
+Sets the higher value of the range\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP a LinphoneRange 
+.br
+\fImax\fP the value to set 
+.RE
+.PP
+
+.SS "void linphone_range_set_min (\fBLinphoneRange\fP * range, int min)"
+
+.PP
+Sets the lower value of the range\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP a LinphoneRange 
+.br
+\fImin\fP the value to set 
+.RE
+.PP
+
+.SS "void linphone_range_set_user_data (\fBLinphoneRange\fP * range, void * data)"
+
+.PP
+Sets the user data in the LinphoneRange object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP the LinphoneRange object 
+.br
+\fIdata\fP the user data 
+.RE
+.PP
+
+.SS "void linphone_range_unref (\fBLinphoneRange\fP * range)"
+
+.PP
+Decrement refcount and possibly free the object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrange\fP LinphoneRange object 
+.RE
+.PP
+
+.SS "int linphone_reason_to_error_code (\fBLinphoneReason\fP reason)"
+
+.PP
+Converts a LinphoneReason to an error code\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIreason\fP A LinphoneReason 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The error code corresponding to the specified LinphoneReason 
+.RE
+.PP
+
+.SS "const char* linphone_reason_to_string (\fBLinphoneReason\fP err)"
+
+.PP
+Converts a LinphoneReason enum to a string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIerr\fP A \fBLinphoneReason\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The string representation of the specified LinphoneReason 
+.RE
+.PP
+
+.SS "\fBLinphoneTransportType\fP linphone_transport_parse (const char * transport)"
+
+.PP
+Converts a lowercase string to a LinphoneTransportType enum\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+Transport matching input, or LinphoneTransportUdp if nothing is found 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_request_add_int_arg (\fBLinphoneXmlRpcRequest\fP * request, int value)"
+
+.PP
+Add an integer argument to an XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.br
+\fIvalue\fP The integer value of the added argument\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_request_add_string_arg (\fBLinphoneXmlRpcRequest\fP * request, const char * value)"
+
+.PP
+Add a string argument to an XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.br
+\fIvalue\fP The string value of the added argument\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneXmlRpcRequestCbsResponseCb\fP linphone_xml_rpc_request_cbs_get_response (const \fBLinphoneXmlRpcRequestCbs\fP * cbs)"
+
+.PP
+Get the response callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneXmlRpcRequestCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The current response callback\&. 
+.RE
+.PP
+
+.SS "void* linphone_xml_rpc_request_cbs_get_user_data (const \fBLinphoneXmlRpcRequestCbs\fP * cbs)"
+
+.PP
+Retrieve the user pointer associated with a LinphoneXmlRpcRequestCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneXmlRpcRequestCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the LinphoneXmlRpcRequestCbs object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneXmlRpcRequestCbs\fP* linphone_xml_rpc_request_cbs_ref (\fBLinphoneXmlRpcRequestCbs\fP * cbs)"
+
+.PP
+Acquire a reference to a LinphoneXmlRpcRequestCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneXmlRpcRequestCbs object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneXmlRpcRequestCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_request_cbs_set_response (\fBLinphoneXmlRpcRequestCbs\fP * cbs, \fBLinphoneXmlRpcRequestCbsResponseCb\fP cb)"
+
+.PP
+Set the response callback\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneXmlRpcRequestCbs object\&. 
+.br
+\fIcb\fP The response callback to be used\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_request_cbs_set_user_data (\fBLinphoneXmlRpcRequestCbs\fP * cbs, void * ud)"
+
+.PP
+Assign a user pointer to a LinphoneXmlRpcRequestCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneXmlRpcRequestCbs object\&. 
+.br
+\fIud\fP The user pointer to associate with the LinphoneXmlRpcRequestCbs object\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_request_cbs_unref (\fBLinphoneXmlRpcRequestCbs\fP * cbs)"
+
+.PP
+Release a reference to a LinphoneXmlRpcRequestCbs object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcbs\fP LinphoneXmlRpcRequestCbs object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneXmlRpcRequestCbs\fP* linphone_xml_rpc_request_get_callbacks (const \fBLinphoneXmlRpcRequest\fP * request)"
+
+.PP
+Get the LinphoneXmlRpcRequestCbs object associated with a LinphoneXmlRpcRequest\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The LinphoneXmlRpcRequestCbs object associated with the LinphoneXmlRpcRequest\&. 
+.RE
+.PP
+
+.SS "const char* linphone_xml_rpc_request_get_content (const \fBLinphoneXmlRpcRequest\fP * request)"
+
+.PP
+Get the content of the XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The string representation of the content of the XML-RPC request\&. 
+.RE
+.PP
+
+.SS "int linphone_xml_rpc_request_get_int_response (const \fBLinphoneXmlRpcRequest\fP * request)"
+
+.PP
+Get the response to an XML-RPC request sent with \fBlinphone_xml_rpc_session_send_request()\fP and returning an integer response\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The integer response to the XML-RPC request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneXmlRpcStatus\fP linphone_xml_rpc_request_get_status (const \fBLinphoneXmlRpcRequest\fP * request)"
+
+.PP
+Get the status of the XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The status of the XML-RPC request\&. 
+.RE
+.PP
+
+.SS "const char* linphone_xml_rpc_request_get_string_response (const \fBLinphoneXmlRpcRequest\fP * request)"
+
+.PP
+Get the response to an XML-RPC request sent with \fBlinphone_xml_rpc_session_send_request()\fP and returning a string response\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The string response to the XML-RPC request\&. 
+.RE
+.PP
+
+.SS "void* linphone_xml_rpc_request_get_user_data (const \fBLinphoneXmlRpcRequest\fP * request)"
+
+.PP
+Retrieve the user pointer associated with the XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the XML-RPC request\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneXmlRpcRequest\fP* linphone_xml_rpc_request_new (\fBLinphoneXmlRpcArgType\fP return_type, const char * method)"
+
+.PP
+Create a new LinphoneXmlRpcRequest object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIreturn_type\fP The expected XML-RPC response type\&. 
+.br
+\fImethod\fP The XML-RPC method to call\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A new LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneXmlRpcRequest\fP* linphone_xml_rpc_request_new_with_args (\fBLinphoneXmlRpcArgType\fP return_type, const char * method,  \&.\&.\&.)"
+
+.PP
+Create a new LinphoneXmlRpcRequest object giving the arguments to the method call\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIreturn_type\fP The expected XML-RPC response type\&. 
+.br
+\fImethod\fP The XML-RPC method to call\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A new LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneXmlRpcRequest\fP* linphone_xml_rpc_request_ref (\fBLinphoneXmlRpcRequest\fP * request)"
+
+.PP
+Acquire a reference to the XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_request_set_user_data (\fBLinphoneXmlRpcRequest\fP * request, void * ud)"
+
+.PP
+Assign a user pointer to the XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.br
+\fIud\fP The user pointer to associate with the XML-RPC request\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_request_unref (\fBLinphoneXmlRpcRequest\fP * request)"
+
+.PP
+Release reference to the XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrequest\fP LinphoneXmlRpcRequest object\&. 
+.RE
+.PP
+
+.SS "void* linphone_xml_rpc_session_get_user_data (const \fBLinphoneXmlRpcSession\fP * session)"
+
+.PP
+Retrieve the user pointer associated with the XML-RPC session\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP LinphoneXmlRpcSession object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the XML-RPC session\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneXmlRpcSession\fP* linphone_xml_rpc_session_new (\fBLinphoneCore\fP * core, const char * url)"
+
+.PP
+Create a new LinphoneXmlRpcSession object\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcore\fP The LinphoneCore object used to send the XML-RPC requests\&. 
+.br
+\fIurl\fP The URL of the XML-RPC server to send the XML-RPC requests to\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A new LinphoneXmlRpcSession object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneXmlRpcSession\fP* linphone_xml_rpc_session_ref (\fBLinphoneXmlRpcSession\fP * session)"
+
+.PP
+Acquire a reference to the XML-RPC session\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP LinphoneXmlRpcSession object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same LinphoneXmlRpcSession object\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_session_release (\fBLinphoneXmlRpcSession\fP * session)"
+
+.PP
+Stop and unref an XML rpc session\&. Pending requests will be aborted\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP LinphoneXmlRpcSession object\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_session_send_request (\fBLinphoneXmlRpcSession\fP * session, \fBLinphoneXmlRpcRequest\fP * request)"
+
+.PP
+Send an XML-RPC request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP LinphoneXmlRpcSession object\&. 
+.br
+\fIrequest\fP The LinphoneXmlRpcRequest to be sent\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_session_set_user_data (\fBLinphoneXmlRpcSession\fP * session, void * ud)"
+
+.PP
+Assign a user pointer to the XML-RPC session\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP LinphoneXmlRpcSession object\&. 
+.br
+\fIud\fP The user pointer to associate with the XML-RPC session\&. 
+.RE
+.PP
+
+.SS "void linphone_xml_rpc_session_unref (\fBLinphoneXmlRpcSession\fP * session)"
+
+.PP
+Release reference to the XML-RPC session\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP LinphoneXmlRpcSession object\&. 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+This will not stop pending xml-rpc requests\&. Use \fBlinphone_xml_rpc_session_release()\fP instead if this is intended\&. 
+.RE
+.PP
+
+.SS "void lp_config_load_dict_to_section (LpConfig * lpconfig, const char * section, const LinphoneDictionary * dict)"
+
+.PP
+Loads a dictionary into a section of the lpconfig\&. If the section doesn't exist it is created\&. Overwrites existing keys, creates non-existing keys\&. 
+.SS "LinphoneDictionary* lp_config_section_to_dict (const LpConfig * lpconfig, const char * section)"
+
+.PP
+Converts a config section into a dictionary\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+a dictionary with all the keys from a section, or NULL if the section doesn't exist 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

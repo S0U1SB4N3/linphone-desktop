@@ -1,0 +1,31 @@
+.TH "_PayloadTypeAvpfParams" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_PayloadTypeAvpfParams
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "unsigned char \fBfeatures\fP"
+.br
+.ti -1c
+.RI "bool_t \fBrpsi_compatibility\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBtrr_interval\fP"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "unsigned char _PayloadTypeAvpfParams::features"
+A bitmask of PAYLOAD_TYPE_AVPF_* macros\&. 
+.SS "uint16_t _PayloadTypeAvpfParams::trr_interval"
+The interval in milliseconds between regular RTCP packets\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

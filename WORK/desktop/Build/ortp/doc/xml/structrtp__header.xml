@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrtp__header" kind="struct" language="C++" prot="public">
+    <compoundname>rtp_header</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrtp__header_1a8e4b59ed46d0a521aeebed80e68139b0" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtp_header::cc</definition>
+        <argsstring></argsstring>
+        <name>cc</name>
+        <bitfield>4</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="47" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtp__header_1a1f857798b02b2cf4c60188b34d244c52" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtp_header::extbit</definition>
+        <argsstring></argsstring>
+        <name>extbit</name>
+        <bitfield>1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="48" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtp__header_1aacd3b11e46cb1ce8ae7009a6aa5bdd73" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtp_header::padbit</definition>
+        <argsstring></argsstring>
+        <name>padbit</name>
+        <bitfield>1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="49" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtp__header_1ae5aef95491a29cc773b26db605560028" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtp_header::version</definition>
+        <argsstring></argsstring>
+        <name>version</name>
+        <bitfield>2</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="50" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtp__header_1afddba7d3abfc26bfcc2ec36fd7ed3a7f" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtp_header::paytype</definition>
+        <argsstring></argsstring>
+        <name>paytype</name>
+        <bitfield>7</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="51" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtp__header_1a68bcde87c50cfe8183bedadfc030c2ad" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtp_header::markbit</definition>
+        <argsstring></argsstring>
+        <name>markbit</name>
+        <bitfield>1</bitfield>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="52" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtp__header_1ace420e52b29a943519da96bf07c8fb89" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtp_header::seq_number</definition>
+        <argsstring></argsstring>
+        <name>seq_number</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="54" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtp__header_1a392b631ee1eea2a285c8d91ffa4d7bb4" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtp_header::timestamp</definition>
+        <argsstring></argsstring>
+        <name>timestamp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="55" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtp__header_1ac6307a27e70b53784832ba5cc92ad8cd" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtp_header::ssrc</definition>
+        <argsstring></argsstring>
+        <name>ssrc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="56" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtp__header_1aa06a3e4762596d971f53b7b2fd4040b4" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtp_header::csrc[16]</definition>
+        <argsstring>[16]</argsstring>
+        <name>csrc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="57" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" line="38" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtp.h" bodystart="37" bodyend="58"/>
+    <listofallmembers>
+      <member refid="structrtp__header_1a8e4b59ed46d0a521aeebed80e68139b0" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>cc</name></member>
+      <member refid="structrtp__header_1aa06a3e4762596d971f53b7b2fd4040b4" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>csrc</name></member>
+      <member refid="structrtp__header_1a1f857798b02b2cf4c60188b34d244c52" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>extbit</name></member>
+      <member refid="structrtp__header_1a68bcde87c50cfe8183bedadfc030c2ad" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>markbit</name></member>
+      <member refid="structrtp__header_1aacd3b11e46cb1ce8ae7009a6aa5bdd73" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>padbit</name></member>
+      <member refid="structrtp__header_1afddba7d3abfc26bfcc2ec36fd7ed3a7f" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>paytype</name></member>
+      <member refid="structrtp__header_1ace420e52b29a943519da96bf07c8fb89" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>seq_number</name></member>
+      <member refid="structrtp__header_1ac6307a27e70b53784832ba5cc92ad8cd" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>ssrc</name></member>
+      <member refid="structrtp__header_1a392b631ee1eea2a285c8d91ffa4d7bb4" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>timestamp</name></member>
+      <member refid="structrtp__header_1ae5aef95491a29cc773b26db605560028" prot="public" virt="non-virtual"><scope>rtp_header</scope><name>version</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

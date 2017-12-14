@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structOrtpRtcpXrMediaCallbacks" kind="struct" language="C++" prot="public">
+    <compoundname>OrtpRtcpXrMediaCallbacks</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structOrtpRtcpXrMediaCallbacks_1adb9b0b0ebad4490af00af5759415a4f1" prot="public" static="no" mutable="no">
+        <type>OrtpRtcpXrPlcCallback</type>
+        <definition>OrtpRtcpXrPlcCallback OrtpRtcpXrMediaCallbacks::plc</definition>
+        <argsstring></argsstring>
+        <name>plc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="229" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="229" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrMediaCallbacks_1ae84929df6194d6fe71cce416eefc0c8f" prot="public" static="no" mutable="no">
+        <type>OrtpRtcpXrSignalLevelCallback</type>
+        <definition>OrtpRtcpXrSignalLevelCallback OrtpRtcpXrMediaCallbacks::signal_level</definition>
+        <argsstring></argsstring>
+        <name>signal_level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="230" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrMediaCallbacks_1a3813ede607a2e2ff1300acf8d5826a40" prot="public" static="no" mutable="no">
+        <type>OrtpRtcpXrNoiseLevelCallback</type>
+        <definition>OrtpRtcpXrNoiseLevelCallback OrtpRtcpXrMediaCallbacks::noise_level</definition>
+        <argsstring></argsstring>
+        <name>noise_level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="231" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="231" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrMediaCallbacks_1a5de0421a944b66fa269f5bb22be6a01c" prot="public" static="no" mutable="no">
+        <type>OrtpRtcpXrAverageQualityIndicatorCallback</type>
+        <definition>OrtpRtcpXrAverageQualityIndicatorCallback OrtpRtcpXrMediaCallbacks::average_qi</definition>
+        <argsstring></argsstring>
+        <name>average_qi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="232" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="232" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrMediaCallbacks_1acd44e74f6e45b38dead3e659160a54f8" prot="public" static="no" mutable="no">
+        <type>OrtpRtcpXrAverageQualityIndicatorCallback</type>
+        <definition>OrtpRtcpXrAverageQualityIndicatorCallback OrtpRtcpXrMediaCallbacks::average_lq_qi</definition>
+        <argsstring></argsstring>
+        <name>average_lq_qi</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="233" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="233" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpRtcpXrMediaCallbacks_1ab5992b358c71afdc0d2463e2b6c20f6d" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* OrtpRtcpXrMediaCallbacks::userdata</definition>
+        <argsstring></argsstring>
+        <name>userdata</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="234" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="234" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="228" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="228" bodyend="235"/>
+    <listofallmembers>
+      <member refid="structOrtpRtcpXrMediaCallbacks_1acd44e74f6e45b38dead3e659160a54f8" prot="public" virt="non-virtual"><scope>OrtpRtcpXrMediaCallbacks</scope><name>average_lq_qi</name></member>
+      <member refid="structOrtpRtcpXrMediaCallbacks_1a5de0421a944b66fa269f5bb22be6a01c" prot="public" virt="non-virtual"><scope>OrtpRtcpXrMediaCallbacks</scope><name>average_qi</name></member>
+      <member refid="structOrtpRtcpXrMediaCallbacks_1a3813ede607a2e2ff1300acf8d5826a40" prot="public" virt="non-virtual"><scope>OrtpRtcpXrMediaCallbacks</scope><name>noise_level</name></member>
+      <member refid="structOrtpRtcpXrMediaCallbacks_1adb9b0b0ebad4490af00af5759415a4f1" prot="public" virt="non-virtual"><scope>OrtpRtcpXrMediaCallbacks</scope><name>plc</name></member>
+      <member refid="structOrtpRtcpXrMediaCallbacks_1ae84929df6194d6fe71cce416eefc0c8f" prot="public" virt="non-virtual"><scope>OrtpRtcpXrMediaCallbacks</scope><name>signal_level</name></member>
+      <member refid="structOrtpRtcpXrMediaCallbacks_1ab5992b358c71afdc0d2463e2b6c20f6d" prot="public" virt="non-virtual"><scope>OrtpRtcpXrMediaCallbacks</scope><name>userdata</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

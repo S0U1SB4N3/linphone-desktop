@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__mediastreamer2__init" kind="group">
+    <compoundname>mediastreamer2_init</compoundname>
+    <title>Init API - Starting mediastreamer2 library</title>
+    <briefdescription>
+<para>Starting mediastreamer2 library. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

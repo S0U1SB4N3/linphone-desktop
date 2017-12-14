@@ -1,0 +1,7 @@
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/bv16/CMakeFiles/install/strip.dir
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/bv16/CMakeFiles/install.dir
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/bv16/CMakeFiles/list_install_components.dir
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/bv16/CMakeFiles/rebuild_cache.dir
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/bv16/CMakeFiles/edit_cache.dir
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/bv16/CMakeFiles/install/local.dir
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/bv16/CMakeFiles/bv16.dir

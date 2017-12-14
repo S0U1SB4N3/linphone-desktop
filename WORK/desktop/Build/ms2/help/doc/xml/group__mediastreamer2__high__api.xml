@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="group__mediastreamer2__high__api" kind="group">
+    <compoundname>mediastreamer2_high_api</compoundname>
+    <title>Mediastreamer2&apos;s high level APIs</title>
+    <innergroup refid="group__audio__stream__api">Audio streaming API - Create and run VoIP audio streams.</innergroup>
+    <innergroup refid="group__mediastreamer2__audio__conference">Audio conferencing API - Easily create conferences.</innergroup>
+    <innergroup refid="group__video__stream__api">Video streaming API - Create and run video streams.</innergroup>
+    <innergroup refid="group__ring__api">Ring playing API - Play ring files.</innergroup>
+    <briefdescription>
+<para>High level APIs of mediastreamer2. </para>    </briefdescription>
+    <detaileddescription>
+<para>The high level apis are designed to provide an easy way to create audio or video processing graphs for VoIP. </para>    </detaileddescription>
+  </compounddef>
+</doxygen>

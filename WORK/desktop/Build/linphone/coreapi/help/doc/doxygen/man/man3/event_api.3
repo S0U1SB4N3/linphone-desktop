@@ -1,0 +1,618 @@
+.TH "event_api" 3 "Thu Dec 14 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+event_api \- Managing generic subscriptions and publishes\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBLinphoneCoreCbsNotifyReceivedCb\fP) (\fBLinphoneCore\fP *lc, \fBLinphoneEvent\fP *lev, const char *notified_event, const \fBLinphoneContent\fP *body)"
+.br
+.RI "Callback prototype for notifying the application about notification received from the network\&. "
+.ti -1c
+.RI "typedef \fBLinphoneCoreCbsNotifyReceivedCb\fP \fBLinphoneCoreNotifyReceivedCb\fP"
+.br
+.RI "Old name of \fBLinphoneCoreCbsNotifyReceivedCb\fP\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneCoreCbsSubscriptionStateChangedCb\fP) (\fBLinphoneCore\fP *lc, \fBLinphoneEvent\fP *lev, \fBLinphoneSubscriptionState\fP state)"
+.br
+.RI "Callback prototype for notifying the application about changes of subscription states, including arrival of new subscriptions\&. "
+.ti -1c
+.RI "typedef \fBLinphoneCoreCbsSubscriptionStateChangedCb\fP \fBLinphoneCoreSubscriptionStateChangedCb\fP"
+.br
+.RI "Old name of \fBLinphoneCoreCbsSubscriptionStateChangedCb\fP\&. "
+.ti -1c
+.RI "typedef void(* \fBLinphoneCoreCbsPublishStateChangedCb\fP) (\fBLinphoneCore\fP *lc, \fBLinphoneEvent\fP *lev, \fBLinphonePublishState\fP state)"
+.br
+.RI "Callback prototype for notifying the application about changes of publish states\&. "
+.ti -1c
+.RI "typedef \fBLinphoneCoreCbsPublishStateChangedCb\fP \fBLinphoneCorePublishStateChangedCb\fP"
+.br
+.RI "Old name of LinphoneCoreCbsPublishStateChangedCb\&. "
+.ti -1c
+.RI "typedef struct _LinphoneEvent \fBLinphoneEvent\fP"
+.br
+.RI "Object representing an event state, which is subcribed or published\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphonePublishState\fP \fBLinphonePublishState\fP"
+.br
+.RI "Enum for publish states\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneSubscriptionDir\fP \fBLinphoneSubscriptionDir\fP"
+.br
+.RI "Enum for subscription direction (incoming or outgoing)\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneSubscriptionState\fP \fBLinphoneSubscriptionState\fP"
+.br
+.RI "Enum for subscription states\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_LinphonePublishState\fP { \fBLinphonePublishNone\fP, \fBLinphonePublishProgress\fP, \fBLinphonePublishOk\fP, \fBLinphonePublishError\fP, \fBLinphonePublishExpiring\fP, \fBLinphonePublishCleared\fP }
+.RI "Enum for publish states\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneSubscriptionDir\fP { \fBLinphoneSubscriptionIncoming\fP, \fBLinphoneSubscriptionOutgoing\fP, \fBLinphoneSubscriptionInvalidDir\fP }
+.RI "Enum for subscription direction (incoming or outgoing)\&. ""
+.br
+.ti -1c
+.RI "enum \fB_LinphoneSubscriptionState\fP { \fBLinphoneSubscriptionNone\fP, \fBLinphoneSubscriptionOutgoingProgress\fP, \fBLinphoneSubscriptionIncomingReceived\fP, \fBLinphoneSubscriptionPending\fP, \fBLinphoneSubscriptionActive\fP, \fBLinphoneSubscriptionTerminated\fP, \fBLinphoneSubscriptionError\fP, \fBLinphoneSubscriptionExpiring\fP }
+.RI "Enum for subscription states\&. ""
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLinphoneEvent\fP * \fBlinphone_core_subscribe\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event, int expires, const \fBLinphoneContent\fP *body)"
+.br
+.RI "Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body\&. "
+.ti -1c
+.RI "\fBLinphoneEvent\fP * \fBlinphone_core_create_subscribe\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event, int expires)"
+.br
+.RI "Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body\&. "
+.ti -1c
+.RI "\fBLinphoneEvent\fP * \fBlinphone_core_create_notify\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event)"
+.br
+.RI "Create an out-of-dialog notification, specifying the destination resource, the event name\&. "
+.ti -1c
+.RI "\fBLinphoneEvent\fP * \fBlinphone_core_publish\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event, int expires, const \fBLinphoneContent\fP *body)"
+.br
+.RI "Publish an event state\&. "
+.ti -1c
+.RI "\fBLinphoneEvent\fP * \fBlinphone_core_create_publish\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event, int expires)"
+.br
+.RI "Create a publish context for an event state\&. "
+.ti -1c
+.RI "\fBLinphoneEvent\fP * \fBlinphone_core_create_one_shot_publish\fP (\fBLinphoneCore\fP *lc, const \fBLinphoneAddress\fP *resource, const char *event)"
+.br
+.RI "Create a publish context for a one-shot publish\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_event_send_subscribe\fP (\fBLinphoneEvent\fP *ev, const \fBLinphoneContent\fP *body)"
+.br
+.RI "Send a subscription previously created by \fBlinphone_core_create_subscribe()\fP\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_event_update_subscribe\fP (\fBLinphoneEvent\fP *lev, const \fBLinphoneContent\fP *body)"
+.br
+.RI "Update (refresh) an outgoing subscription, changing the body\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_event_refresh_subscribe\fP (\fBLinphoneEvent\fP *lev)"
+.br
+.RI "Refresh an outgoing subscription keeping the same body\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_event_accept_subscription\fP (\fBLinphoneEvent\fP *lev)"
+.br
+.RI "Accept an incoming subcription\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_event_deny_subscription\fP (\fBLinphoneEvent\fP *lev, \fBLinphoneReason\fP reason)"
+.br
+.RI "Deny an incoming subscription with given reason\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_event_notify\fP (\fBLinphoneEvent\fP *lev, const \fBLinphoneContent\fP *body)"
+.br
+.RI "Send a notification\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_event_send_publish\fP (\fBLinphoneEvent\fP *lev, const \fBLinphoneContent\fP *body)"
+.br
+.RI "Send a publish created by \fBlinphone_core_create_publish()\fP\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_event_update_publish\fP (\fBLinphoneEvent\fP *lev, const \fBLinphoneContent\fP *body)"
+.br
+.RI "Update (refresh) a publish\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_event_refresh_publish\fP (\fBLinphoneEvent\fP *lev)"
+.br
+.RI "Refresh an outgoing publish keeping the same body\&. "
+.ti -1c
+.RI "void \fBlinphone_event_pause_publish\fP (\fBLinphoneEvent\fP *lev)"
+.br
+.RI "Prevent an event from refreshing its publish\&. "
+.ti -1c
+.RI "\fBLinphoneReason\fP \fBlinphone_event_get_reason\fP (const \fBLinphoneEvent\fP *lev)"
+.br
+.RI "Return reason code (in case of error state reached)\&. "
+.ti -1c
+.RI "const \fBLinphoneErrorInfo\fP * \fBlinphone_event_get_error_info\fP (const \fBLinphoneEvent\fP *lev)"
+.br
+.RI "Get full details about an error occured\&. "
+.ti -1c
+.RI "\fBLinphoneSubscriptionState\fP \fBlinphone_event_get_subscription_state\fP (const \fBLinphoneEvent\fP *lev)"
+.br
+.RI "Get subscription state\&. "
+.ti -1c
+.RI "\fBLinphonePublishState\fP \fBlinphone_event_get_publish_state\fP (const \fBLinphoneEvent\fP *lev)"
+.br
+.RI "Get publish state\&. "
+.ti -1c
+.RI "\fBLinphoneSubscriptionDir\fP \fBlinphone_event_get_subscription_dir\fP (\fBLinphoneEvent\fP *lev)"
+.br
+.RI "Get subscription direction\&. "
+.ti -1c
+.RI "void \fBlinphone_event_set_user_data\fP (\fBLinphoneEvent\fP *ev, void *up)"
+.br
+.RI "Set a user (application) pointer\&. "
+.ti -1c
+.RI "void * \fBlinphone_event_get_user_data\fP (const \fBLinphoneEvent\fP *ev)"
+.br
+.RI "Retrieve user pointer\&. "
+.ti -1c
+.RI "void \fBlinphone_event_add_custom_header\fP (\fBLinphoneEvent\fP *ev, const char *name, const char *value)"
+.br
+.RI "Add a custom header to an outgoing susbscription or publish\&. "
+.ti -1c
+.RI "const char * \fBlinphone_event_get_custom_header\fP (\fBLinphoneEvent\fP *ev, const char *name)"
+.br
+.RI "Obtain the value of a given header for an incoming subscription\&. "
+.ti -1c
+.RI "void \fBlinphone_event_terminate\fP (\fBLinphoneEvent\fP *lev)"
+.br
+.RI "Terminate an incoming or outgoing subscription that was previously acccepted, or a previous publication\&. "
+.ti -1c
+.RI "\fBLinphoneEvent\fP * \fBlinphone_event_ref\fP (\fBLinphoneEvent\fP *lev)"
+.br
+.RI "Increase reference count of LinphoneEvent\&. "
+.ti -1c
+.RI "void \fBlinphone_event_unref\fP (\fBLinphoneEvent\fP *lev)"
+.br
+.RI "Decrease reference count\&. "
+.ti -1c
+.RI "const char * \fBlinphone_event_get_name\fP (const \fBLinphoneEvent\fP *lev)"
+.br
+.RI "Get the name of the event as specified in the event package RFC\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_event_get_from\fP (const \fBLinphoneEvent\fP *lev)"
+.br
+.RI "Get the 'from' address of the subscription\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_event_get_resource\fP (const \fBLinphoneEvent\fP *lev)"
+.br
+.RI "Get the resource address of the subscription or publish\&. "
+.ti -1c
+.RI "\fBLinphoneCore\fP * \fBlinphone_event_get_core\fP (const \fBLinphoneEvent\fP *lev)"
+.br
+.RI "Returns back pointer to the LinphoneCore that created this LinphoneEvent\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Managing generic subscriptions and publishes\&. 
+
+The LinphoneEvent api allows application to control subscriptions, receive notifications and make publish to peers, in a generic manner\&. 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct _LinphoneEvent \fBLinphoneEvent\fP"
+
+.PP
+Object representing an event state, which is subcribed or published\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_core_publish()\fP 
+.PP
+\fBlinphone_core_subscribe()\fP 
+.RE
+.PP
+
+.SS "typedef enum \fB_LinphoneSubscriptionState\fP  \fBLinphoneSubscriptionState\fP"
+
+.PP
+Enum for subscription states\&. LinphoneSubscriptionTerminated and LinphoneSubscriptionError are final states\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_LinphonePublishState\fP"
+
+.PP
+Enum for publish states\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphonePublishNone \fP\fP
+Initial state, do not use\&. 
+.TP
+\fB\fILinphonePublishProgress \fP\fP
+An outgoing publish was created and submitted\&. 
+.TP
+\fB\fILinphonePublishOk \fP\fP
+Publish is accepted\&. 
+.TP
+\fB\fILinphonePublishError \fP\fP
+Publish encoutered an error, \fBlinphone_event_get_reason()\fP gives reason code\&. 
+.TP
+\fB\fILinphonePublishExpiring \fP\fP
+Publish is about to expire, only sent if [sip]->refresh_generic_publish property is set to 0\&. 
+.TP
+\fB\fILinphonePublishCleared \fP\fP
+Event has been un published\&. 
+.SS "enum \fB_LinphoneSubscriptionDir\fP"
+
+.PP
+Enum for subscription direction (incoming or outgoing)\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneSubscriptionIncoming \fP\fP
+Incoming subscription\&. 
+.TP
+\fB\fILinphoneSubscriptionOutgoing \fP\fP
+Outgoing subscription\&. 
+.TP
+\fB\fILinphoneSubscriptionInvalidDir \fP\fP
+Invalid subscription direction\&. 
+.SS "enum \fB_LinphoneSubscriptionState\fP"
+
+.PP
+Enum for subscription states\&. LinphoneSubscriptionTerminated and LinphoneSubscriptionError are final states\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneSubscriptionNone \fP\fP
+Initial state, should not be used\&. 
+.TP
+\fB\fILinphoneSubscriptionOutgoingProgress \fP\fP
+An outgoing subcription was sent\&. 
+.TP
+\fB\fILinphoneSubscriptionIncomingReceived \fP\fP
+An incoming subcription is received\&. 
+.TP
+\fB\fILinphoneSubscriptionPending \fP\fP
+Subscription is pending, waiting for user approval\&. 
+.TP
+\fB\fILinphoneSubscriptionActive \fP\fP
+Subscription is accepted\&. 
+.TP
+\fB\fILinphoneSubscriptionTerminated \fP\fP
+Subscription is terminated normally\&. 
+.TP
+\fB\fILinphoneSubscriptionError \fP\fP
+Subscription was terminated by an error, indicated by \fBlinphone_event_get_reason()\fP 
+.TP
+\fB\fILinphoneSubscriptionExpiring \fP\fP
+Subscription is about to expire, only sent if [sip]->refresh_generic_subscribe property is set to 0\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBLinphoneEvent\fP* linphone_core_create_notify (\fBLinphoneCore\fP * lc, const \fBLinphoneAddress\fP * resource, const char * event)"
+
+.PP
+Create an out-of-dialog notification, specifying the destination resource, the event name\&. The notification can be send with \fBlinphone_event_notify()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP 
+.br
+\fIresource\fP the destination resource 
+.br
+\fIevent\fP the event name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a LinphoneEvent holding the context of the notification\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneEvent\fP* linphone_core_create_one_shot_publish (\fBLinphoneCore\fP * lc, const \fBLinphoneAddress\fP * resource, const char * event)"
+
+.PP
+Create a publish context for a one-shot publish\&. After being created, the publish must be sent using \fBlinphone_event_send_publish()\fP\&. The LinphoneEvent is automatically terminated when the publish transaction is finished, either with success or failure\&. The application must not call \fBlinphone_event_terminate()\fP for such one-shot publish\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP 
+.br
+\fIresource\fP the resource uri for the event 
+.br
+\fIevent\fP the event name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the LinphoneEvent holding the context of the publish\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneEvent\fP* linphone_core_create_publish (\fBLinphoneCore\fP * lc, const \fBLinphoneAddress\fP * resource, const char * event, int expires)"
+
+.PP
+Create a publish context for an event state\&. After being created, the publish must be sent using \fBlinphone_event_send_publish()\fP\&. After expiry, the publication is refreshed unless it is terminated before\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP 
+.br
+\fIresource\fP the resource uri for the event 
+.br
+\fIevent\fP the event name 
+.br
+\fIexpires\fP the lifetime of event being published, -1 if no associated duration, in which case it will not be refreshed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the LinphoneEvent holding the context of the publish\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneEvent\fP* linphone_core_create_subscribe (\fBLinphoneCore\fP * lc, const \fBLinphoneAddress\fP * resource, const char * event, int expires)"
+
+.PP
+Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body\&. If accepted, the subscription runs for a finite period, but is automatically renewed if not terminated before\&. Unlike \fBlinphone_core_subscribe()\fP the subscription isn't sent immediately\&. It will be send when calling \fBlinphone_event_send_subscribe()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP 
+.br
+\fIresource\fP the destination resource 
+.br
+\fIevent\fP the event name 
+.br
+\fIexpires\fP the whished duration of the subscription 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a LinphoneEvent holding the context of the created subcription\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneEvent\fP* linphone_core_publish (\fBLinphoneCore\fP * lc, const \fBLinphoneAddress\fP * resource, const char * event, int expires, const \fBLinphoneContent\fP * body)"
+
+.PP
+Publish an event state\&. This first create a LinphoneEvent with \fBlinphone_core_create_publish()\fP and calls \fBlinphone_event_send_publish()\fP to actually send it\&. After expiry, the publication is refreshed unless it is terminated before\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP 
+.br
+\fIresource\fP the resource uri for the event 
+.br
+\fIevent\fP the event name 
+.br
+\fIexpires\fP the lifetime of event being published, -1 if no associated duration, in which case it will not be refreshed\&. 
+.br
+\fIbody\fP the actual published data 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the LinphoneEvent holding the context of the publish\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneEvent\fP* linphone_core_subscribe (\fBLinphoneCore\fP * lc, const \fBLinphoneAddress\fP * resource, const char * event, int expires, const \fBLinphoneContent\fP * body)"
+
+.PP
+Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body\&. If accepted, the subscription runs for a finite period, but is automatically renewed if not terminated before\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP the \fBLinphoneCore\fP 
+.br
+\fIresource\fP the destination resource 
+.br
+\fIevent\fP the event name 
+.br
+\fIexpires\fP the whished duration of the subscription 
+.br
+\fIbody\fP an optional body, may be NULL\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a LinphoneEvent holding the context of the created subcription\&. 
+.RE
+.PP
+
+.SS "void linphone_event_add_custom_header (\fBLinphoneEvent\fP * ev, const char * name, const char * value)"
+
+.PP
+Add a custom header to an outgoing susbscription or publish\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIev\fP the LinphoneEvent 
+.br
+\fIname\fP header's name 
+.br
+\fIvalue\fP the header's value\&. 
+.RE
+.PP
+
+.SS "const char* linphone_event_get_custom_header (\fBLinphoneEvent\fP * ev, const char * name)"
+
+.PP
+Obtain the value of a given header for an incoming subscription\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIev\fP the LinphoneEvent 
+.br
+\fIname\fP header's name 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the header's value or NULL if such header doesn't exist\&. 
+.RE
+.PP
+
+.SS "\fBLinphonePublishState\fP linphone_event_get_publish_state (const \fBLinphoneEvent\fP * lev)"
+
+.PP
+Get publish state\&. If the event object was not created by a publish mechanism, \fBLinphonePublishNone\fP is returned\&. 
+.SS "\fBLinphoneSubscriptionDir\fP linphone_event_get_subscription_dir (\fBLinphoneEvent\fP * lev)"
+
+.PP
+Get subscription direction\&. If the object wasn't created by a subscription mechanism, \fBLinphoneSubscriptionInvalidDir\fP is returned\&. 
+.SS "\fBLinphoneSubscriptionState\fP linphone_event_get_subscription_state (const \fBLinphoneEvent\fP * lev)"
+
+.PP
+Get subscription state\&. If the event object was not created by a subscription mechanism, \fBLinphoneSubscriptionNone\fP is returned\&. 
+.SS "\fBLinphoneStatus\fP linphone_event_notify (\fBLinphoneEvent\fP * lev, const \fBLinphoneContent\fP * body)"
+
+.PP
+Send a notification\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP a \fBLinphoneEvent\fP corresponding to an incoming subscription previously received and accepted\&. 
+.br
+\fIbody\fP an optional body containing the actual notification data\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, -1 otherwise\&. 
+.RE
+.PP
+
+.SS "void linphone_event_pause_publish (\fBLinphoneEvent\fP * lev)"
+
+.PP
+Prevent an event from refreshing its publish\&. This is useful to let registrations to expire naturally (or) when the application wants to keep control on when refreshes are sent\&. The refreshing operations can be resumed with \fBlinphone_proxy_config_refresh_register()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP \fBLinphoneEvent\fP object\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneEvent\fP* linphone_event_ref (\fBLinphoneEvent\fP * lev)"
+
+.PP
+Increase reference count of LinphoneEvent\&. By default LinphoneEvents created by the core are owned by the core only\&. An application that wishes to retain a reference to it must call \fBlinphone_event_ref()\fP\&. When this reference is no longer needed, \fBlinphone_event_unref()\fP must be called\&. 
+.SS "\fBLinphoneStatus\fP linphone_event_refresh_publish (\fBLinphoneEvent\fP * lev)"
+
+.PP
+Refresh an outgoing publish keeping the same body\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP LinphoneEvent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, -1 otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_event_refresh_subscribe (\fBLinphoneEvent\fP * lev)"
+
+.PP
+Refresh an outgoing subscription keeping the same body\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP LinphoneEvent object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, -1 otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_event_send_publish (\fBLinphoneEvent\fP * lev, const \fBLinphoneContent\fP * body)"
+
+.PP
+Send a publish created by \fBlinphone_core_create_publish()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP the \fBLinphoneEvent\fP 
+.br
+\fIbody\fP the new data to be published 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_event_send_subscribe (\fBLinphoneEvent\fP * ev, const \fBLinphoneContent\fP * body)"
+
+.PP
+Send a subscription previously created by \fBlinphone_core_create_subscribe()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIev\fP the LinphoneEvent 
+.br
+\fIbody\fP optional content to attach with the subscription\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successful, -1 otherwise\&. 
+.RE
+.PP
+
+.SS "void linphone_event_terminate (\fBLinphoneEvent\fP * lev)"
+
+.PP
+Terminate an incoming or outgoing subscription that was previously acccepted, or a previous publication\&. The LinphoneEvent shall not be used anymore after this operation, unless the application explicitely took a reference on the object with \fBlinphone_event_ref()\fP\&. 
+.SS "void linphone_event_unref (\fBLinphoneEvent\fP * lev)"
+
+.PP
+Decrease reference count\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_event_ref()\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_event_update_publish (\fBLinphoneEvent\fP * lev, const \fBLinphoneContent\fP * body)"
+
+.PP
+Update (refresh) a publish\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP the \fBLinphoneEvent\fP 
+.br
+\fIbody\fP the new data to be published 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_event_update_subscribe (\fBLinphoneEvent\fP * lev, const \fBLinphoneContent\fP * body)"
+
+.PP
+Update (refresh) an outgoing subscription, changing the body\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlev\fP a LinphoneEvent 
+.br
+\fIbody\fP an optional body to include in the subscription update, may be NULL\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

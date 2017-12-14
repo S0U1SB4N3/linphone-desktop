@@ -1,0 +1,55 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_matroska2"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_matroska2.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_matroska2-complete.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_matroska2/EP_matroska2-install.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_matroska2/EP_matroska2-mkdir.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_matroska2/EP_matroska2-download.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_matroska2/EP_matroska2-update.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_matroska2/EP_matroska2-patch.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_matroska2/EP_matroska2-configure.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_matroska2/EP_matroska2-build.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_matroska2/EP_matroska2-force_build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "EP_matroska2" ],
+		"name" : "EP_matroska2"
+	}
+}

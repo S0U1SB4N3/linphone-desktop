@@ -1,0 +1,1566 @@
+\section{Proxies}
+\label{group__proxies}\index{Proxies@{Proxies}}
+
+
+Managing proxies.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy}(lc,  config)~\textbf{ linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config}(lc, config)
+\item 
+\mbox{\label{group__proxies_ga2929b27c5f57444aa2656e27bbedd1b0}} 
+\#define {\bfseries linphone\+\_\+proxy\+\_\+config\+\_\+expires}~\textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+expires}
+\item 
+\mbox{\label{group__proxies_ga07e7f3ea8e067e3741bf6dcd6871675e}} 
+\#define {\bfseries linphone\+\_\+proxy\+\_\+config\+\_\+enableregister}~\textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+register}
+\item 
+\mbox{\label{group__proxies_gac4313bfe50cf4bf57c50584beb4aef10}} 
+\#define {\bfseries linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+addr}~\textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+server\+\_\+addr}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \+\_\+\+Linphone\+Proxy\+Config \textbf{ Linphone\+Proxy\+Config}
+\begin{DoxyCompactList}\small\item\em The Linphone\+Proxy\+Config object represents a proxy configuration to be used by the Linphone\+Core object. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_gabf1415b6c3722e92fc39ce592b1fe3e0}} 
+typedef enum \textbf{ \+\_\+\+Linphone\+Registration\+State} \textbf{ Linphone\+Registration\+State}
+\begin{DoxyCompactList}\small\item\em Linphone\+Registration\+State describes proxy registration states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ \+\_\+\+Linphone\+Registration\+State} \{ \newline
+\textbf{ Linphone\+Registration\+None}, 
+\newline
+\textbf{ Linphone\+Registration\+Progress}, 
+\newline
+\textbf{ Linphone\+Registration\+Ok}, 
+\newline
+\textbf{ Linphone\+Registration\+Cleared}, 
+\newline
+\textbf{ Linphone\+Registration\+Failed}
+ \}\begin{DoxyCompactList}\small\item\em Linphone\+Registration\+State describes proxy registration states. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+core\+\_\+set\+\_\+primary\+\_\+contact} (\textbf{ Linphone\+Core} $\ast$lc, const char $\ast$contact)
+\begin{DoxyCompactList}\small\item\em Sets the local \char`\"{}from\char`\"{} identity. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_ga147c072e33bdf5d44a3b95b28b4b27a1}} 
+const char $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+primary\+\_\+contact} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Returns the default identity when no proxy configuration is used. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+identity} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Gets the default identity S\+IP address. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_gace31b80363e608291ec7df0ccb0b4cf7}} 
+void \textbf{ linphone\+\_\+core\+\_\+set\+\_\+guess\+\_\+hostname} (\textbf{ Linphone\+Core} $\ast$lc, bool\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Tells Linphone\+Core to guess local hostname automatically in primary contact. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_ga1db010bcc9027f1e2aead2e2ddc51eef}} 
+bool\+\_\+t \textbf{ linphone\+\_\+core\+\_\+get\+\_\+guess\+\_\+hostname} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Returns T\+R\+UE if hostname part of primary contact is guessed automatically. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_gae1788b49053b46190f7b305d8d21d6af}} 
+\textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+primary\+\_\+contact\+\_\+parsed} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Same as \doxyref{linphone\+\_\+core\+\_\+get\+\_\+primary\+\_\+contact()}{p.}{group__proxies_ga147c072e33bdf5d44a3b95b28b4b27a1} but the result is a Linphone\+Address object instead of const char$\ast$. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Proxy\+Config} $\ast$ \textbf{ linphone\+\_\+core\+\_\+create\+\_\+proxy\+\_\+config} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Create a proxy config with default values from Linphone core. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+core\+\_\+add\+\_\+proxy\+\_\+config} (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Proxy\+Config} $\ast$config)
+\begin{DoxyCompactList}\small\item\em Add a proxy configuration. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_ga3a9d4801bf073c349fe4f4de65aba432}} 
+void \textbf{ linphone\+\_\+core\+\_\+clear\+\_\+proxy\+\_\+config} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Erase all proxies from config. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+remove\+\_\+proxy\+\_\+config} (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Proxy\+Config} $\ast$config)
+\begin{DoxyCompactList}\small\item\em Removes a proxy configuration. \end{DoxyCompactList}\item 
+const bctbx\+\_\+list\+\_\+t $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+proxy\+\_\+config\+\_\+list} (const \textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Returns an unmodifiable list of entered proxy configurations. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_ga919b5770a51d23c0ef8c6af8e5ae1104}} 
+void {\bfseries linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+index} (\textbf{ Linphone\+Core} $\ast$lc, int index)
+\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED int \textbf{ linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy} (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Proxy\+Config} $\ast$$\ast$config)
+\item 
+\textbf{ Linphone\+Proxy\+Config} $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy\+\_\+config} (\textbf{ Linphone\+Core} $\ast$lc)
+\item 
+void \textbf{ linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config} (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Proxy\+Config} $\ast$config)
+\begin{DoxyCompactList}\small\item\em Sets the default proxy. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_ga130795ea67730f7b01f7b51fe6bdb44f}} 
+void \textbf{ linphone\+\_\+core\+\_\+refresh\+\_\+registers} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em force registration refresh to be initiated upon next iterate \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+registration\+\_\+state\+\_\+to\+\_\+string} (\textbf{ Linphone\+Registration\+State} cs)
+\begin{DoxyCompactList}\small\item\em Human readable version of the \doxyref{Linphone\+Registration\+State}{p.}{group__proxies_gabf1415b6c3722e92fc39ce592b1fe3e0}. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED \textbf{ Linphone\+Proxy\+Config} $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+new} (void)
+\begin{DoxyCompactList}\small\item\em Creates an empty proxy config. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Proxy\+Config} $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+ref} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Acquire a reference to the proxy config. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+unref} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Release reference to the proxy config. \end{DoxyCompactList}\item 
+void $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+user\+\_\+data} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Retrieve the user pointer associated with the proxy config. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+user\+\_\+data} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, void $\ast$ud)
+\begin{DoxyCompactList}\small\item\em Assign a user pointer to the proxy config. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+server\+\_\+addr} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$server\+\_\+addr)
+\begin{DoxyCompactList}\small\item\em Sets the proxy address. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED \textbf{ Linphone\+Status} \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$identity)
+\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity\+\_\+address} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const \textbf{ Linphone\+Address} $\ast$identity)
+\begin{DoxyCompactList}\small\item\em Sets the user identity as a S\+IP address. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+route} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$route)
+\begin{DoxyCompactList}\small\item\em Sets a S\+IP route. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_gaedc369323b04e8e9c4b3f210234fe783}} 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+expires} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, int expires)
+\begin{DoxyCompactList}\small\item\em Sets the registration expiration time in seconds. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+register} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, bool\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Indicates either or not, R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON must be issued for this \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} . \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+edit} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Starts editing a proxy configuration. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_ga2f48ab930fd797e1065c61b389f57988}} 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+done} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Commits modification made to the proxy configuration. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+publish} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, bool\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Indicates either or not, P\+U\+B\+L\+I\+SH must be issued for this \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} . \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+publish\+\_\+expires} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, int expires)
+\begin{DoxyCompactList}\small\item\em Set the publish expiration time in second. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+publish\+\_\+expires} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em get the publish expiration time in second. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_gadf8ce7a15604a3b8469e7149f992d916}} 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+dial\+\_\+escape\+\_\+plus} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, bool\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Sets whether liblinphone should replace \char`\"{}+\char`\"{} by international calling prefix in dialed numbers (passed to \doxyref{linphone\+\_\+core\+\_\+invite}{p.}{group__call__control_gaaea662739cc3825eaa80d8ac264a883c} ). \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_ga34cc952a4053bd82f65f8de965e239dc}} 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+dial\+\_\+prefix} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$prefix)
+\begin{DoxyCompactList}\small\item\em Sets a dialing prefix to be automatically prepended when inviting a number with \doxyref{linphone\+\_\+core\+\_\+invite()}{p.}{group__call__control_gaaea662739cc3825eaa80d8ac264a883c}; This dialing prefix shall usually be the country code of the country where the user is living, without \char`\"{}+\char`\"{}. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+quality\+\_\+reporting} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, bool\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Indicates whether quality statistics during call should be stored and sent to a collector according to R\+FC 6035. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+quality\+\_\+reporting\+\_\+enabled} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Indicates whether quality statistics during call should be stored and sent to a collector according to R\+FC 6035. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+collector} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$collector)
+\begin{DoxyCompactList}\small\item\em Set the route of the collector end-\/point when using quality reporting. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+collector} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the route of the collector end-\/point when using quality reporting. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+interval} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, int interval)
+\begin{DoxyCompactList}\small\item\em Set the interval between 2 interval reports sending when using quality reporting. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+interval} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the interval between interval reports when using quality reporting. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Registration\+State} \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+state} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the registration state of the given proxy config. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED bool\+\_\+t \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+registered} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+domain} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the domain name of the given proxy config. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+realm} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the realm of the given proxy config. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+realm} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$realm)
+\begin{DoxyCompactList}\small\item\em Set the realm of the given proxy config. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+route} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+const \textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity\+\_\+address} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+bool\+\_\+t \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+publish\+\_\+enabled} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+server\+\_\+addr} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+int \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+expires} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+bool\+\_\+t \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+register\+\_\+enabled} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+refresh\+\_\+register} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Refresh a proxy registration. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+pause\+\_\+register} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Prevent a proxy config from refreshing its registration. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_gafa6b4e48bd179c6a4f5a8e746db2ee1a}} 
+const \textbf{ Linphone\+Address} $\ast$ {\bfseries linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+parameters} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+parameters} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$contact\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Set optional contact parameters that will be added to the contact information sent in the registration. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+uri\+\_\+parameters} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$contact\+\_\+uri\+\_\+params)
+\begin{DoxyCompactList}\small\item\em Set optional contact parameters that will be added to the contact information sent in the registration, inside the U\+RI. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+uri\+\_\+parameters} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+\textbf{ Linphone\+Core} $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+core} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object to which is associated the \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b}. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+escape\+\_\+plus} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+prefix} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+\textbf{ Linphone\+Reason} \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the reason why registration failed when the proxy config state is Linphone\+Registration\+Failed. \end{DoxyCompactList}\item 
+const \textbf{ Linphone\+Error\+Info} $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error\+\_\+info} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get detailed information why registration failed when the proxy config state is Linphone\+Registration\+Failed. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+transport} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the transport from either service route, route or addr. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+destroy} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Destroys a proxy config. \end{DoxyCompactList}\item 
+\mbox{\label{group__proxies_ga7edff4b44460cbbffb172b83054c9dc8}} 
+void {\bfseries linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+sip\+\_\+setup} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$type)
+\item 
+\mbox{\label{group__proxies_ga0eb38455de041ed793d885cfbcf3c91c}} 
+\textbf{ Sip\+Setup\+Context} $\ast$ {\bfseries linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+sip\+\_\+setup\+\_\+context} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+\mbox{\label{group__proxies_ga3cad96a9adafcf02e6ecbfa8030e2202}} 
+\textbf{ Sip\+Setup} $\ast$ {\bfseries linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+sip\+\_\+setup} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\item 
+bool\+\_\+t \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+phone\+\_\+number} (\textbf{ Linphone\+Proxy\+Config} $\ast$proxy, const char $\ast$username)
+\begin{DoxyCompactList}\small\item\em Detect if the given input is a phone number or not. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED bool\+\_\+t \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+number} (\textbf{ Linphone\+Proxy\+Config} $\ast$proxy, const char $\ast$username, char $\ast$result, size\+\_\+t result\+\_\+len)
+\begin{DoxyCompactList}\small\item\em See linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number. \end{DoxyCompactList}\item 
+char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number} (\textbf{ Linphone\+Proxy\+Config} $\ast$proxy, const char $\ast$username)
+\begin{DoxyCompactList}\small\item\em Normalize a human readable phone number into a basic string. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+sip\+\_\+uri} (\textbf{ Linphone\+Proxy\+Config} $\ast$proxy, const char $\ast$username)
+\begin{DoxyCompactList}\small\item\em Normalize a human readable sip uri into a fully qualified Linphone\+Address. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+privacy} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, \textbf{ Linphone\+Privacy\+Mask} privacy)
+\begin{DoxyCompactList}\small\item\em Set default privacy policy for all calls routed through this proxy. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Privacy\+Mask} \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+privacy} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get default privacy policy for all calls routed through this proxy. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+file\+\_\+transfer\+\_\+server} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$server\+\_\+url)
+\begin{DoxyCompactList}\small\item\em Set the http file transfer server to be used for content type application/vnd.\+gsma.\+rcs-\/ft-\/http+xml. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+file\+\_\+transfer\+\_\+server} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the http file transfer server to be used for content type application/vnd.\+gsma.\+rcs-\/ft-\/http+xml. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+avpf} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, bool\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Indicates whether A\+V\+P\+F/\+S\+A\+V\+PF must be used for calls using this proxy config. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+avpf\+\_\+enabled} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Indicates whether A\+V\+P\+F/\+S\+A\+V\+PF is being used for calls using this proxy config. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+rr\+\_\+interval} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, uint8\+\_\+t interval)
+\begin{DoxyCompactList}\small\item\em Set the interval between regular R\+T\+CP reports when using A\+V\+P\+F/\+S\+A\+V\+PF. \end{DoxyCompactList}\item 
+uint8\+\_\+t \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+rr\+\_\+interval} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the interval between regular R\+T\+CP reports when using A\+V\+P\+F/\+S\+A\+V\+PF. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+A\+V\+P\+F\+Mode} \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+mode} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get enablement status of R\+T\+CP feedback (also known as A\+V\+PF profile). \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+mode} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, \textbf{ Linphone\+A\+V\+P\+F\+Mode} mode)
+\begin{DoxyCompactList}\small\item\em Enable the use of R\+T\+CP feedback (also known as A\+V\+PF profile). \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+custom\+\_\+header} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$header\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Obtain the value of a header sent by the server in last answer to R\+E\+G\+I\+S\+T\+ER. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+custom\+\_\+header} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$header\+\_\+name, const char $\ast$header\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Set the value of a custom header sent to the server in R\+E\+G\+I\+S\+T\+E\+Rs request. \end{DoxyCompactList}\item 
+const \textbf{ Linphone\+Auth\+Info} $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+find\+\_\+auth\+\_\+info} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Find authentication info matching proxy config, if any, similarly to linphone\+\_\+core\+\_\+find\+\_\+auth\+\_\+info. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+ref\+\_\+key} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get the persistent reference key associated to the proxy config. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+ref\+\_\+key} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, const char $\ast$refkey)
+\begin{DoxyCompactList}\small\item\em Associate a persistent reference key to the proxy config. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Nat\+Policy} $\ast$ \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+nat\+\_\+policy} (const \textbf{ Linphone\+Proxy\+Config} $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Get The policy that is used to pass through N\+A\+Ts/firewalls when using this proxy config. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+nat\+\_\+policy} (\textbf{ Linphone\+Proxy\+Config} $\ast$cfg, \textbf{ Linphone\+Nat\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Set the policy to use to pass through N\+A\+Ts/firewalls when using this proxy config. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Managing proxies. 
+
+User registration is controled by \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} settings.~\newline
+ Each \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object can be configured with registration informations like \doxyref{proxy address }{p.}{group__proxies_ga6e896345be76aaf6399ab4ed4532b2a4} , \doxyref{user id }{p.}{group__proxies_ga978c00a218b907a2f98fc59f5d217805}, \doxyref{refresh period }{p.}{ga2929b27c5f57444aa2656e27bbedd1b0}, and so on. ~\newline
+ A created proxy config using \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+new()}{p.}{group__proxies_gac435e6efb12fedf8a016745c88ee09a4}, once configured, must be added to \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} using function \doxyref{linphone\+\_\+core\+\_\+add\+\_\+proxy\+\_\+config()}{p.}{group__proxies_gafe9c40e742c5b047fc9a6825da97d075}. ~\newline
+ It is recommended to set a default \doxyref{proxy config }{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} using function \doxyref{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy()}{p.}{group__proxies_ga2082f2c37ffbf5d46e8d20ae8bccc2a4}. Once done, if \doxyref{a proxy config }{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} has been configured with attribute \doxyref{enable register }{p.}{group__proxies_gaea39579996645d4bc5e62e68ab097f17} , next call to \doxyref{linphone\+\_\+core\+\_\+iterate()}{p.}{group__initializing_ga7bdac8ac386483fc4e0876e4c5d13755} triggers a S\+IP register. ~\newline
+ Registration status is reported by Linphone\+Core\+Registration\+State\+Changed\+Cb. ~\newline
+ ~\newline
+ This pseudo code demonstrates basic registration operations\+: ~\newline
+
+\begin{DoxyCode}
+LinphoneProxyConfig* proxy\_cfg;
+\textcolor{comment}{/*create proxy config*/}
+proxy\_cfg = linphone_proxy_config_new();
+\textcolor{comment}{/*parse identity*/}
+LinphoneAddress *from = linphone_address_new(\textcolor{stringliteral}{"sip:toto@sip.titi.com"});
+LinphoneAuthInfo *info;
+\textcolor{keywordflow}{if} (password!=NULL)\{
+        info=linphone_auth_info_new(linphone_address_get_username(from),NULL,\textcolor{stringliteral}{"secret"},NULL,NULL); \textcolor{comment}{/*create
+       authentication structure from identity*/}
+        linphone_core_add_auth_info(lc,info); \textcolor{comment}{/*add authentication info to LinphoneCore*/}
+\}
+\textcolor{comment}{// configure proxy entries}
+linphone_proxy_config_set_identity(proxy\_cfg,identity); \textcolor{comment}{/*set identity with user name and domain*/}
+\textcolor{keyword}{const} \textcolor{keywordtype}{char}* server\_addr = linphone_address_get_domain(from); \textcolor{comment}{/*extract domain address from identity*/}
+linphone_proxy_config_set_server_addr(proxy\_cfg,server\_addr); \textcolor{comment}{/* we assume domain = proxy server address*/}
+linphone_proxy_config_enable_register(proxy\_cfg,TRUE); \textcolor{comment}{/*activate registration for this proxy config*/}
+linphone_address_destroy(from); \textcolor{comment}{/*release resource*/}
+
+linphone_core_add_proxy_config(lc,proxy\_cfg); \textcolor{comment}{/*add proxy config to linphone core*/}
+linphone_core_set_default_proxy(lc,proxy\_cfg); \textcolor{comment}{/*set to default proxy*/} 
+\end{DoxyCode}
+ ~\newline
+ Registration sate call back\+: 
+\begin{DoxyCode}
+ \textcolor{keyword}{static} \textcolor{keywordtype}{void} registration\_state\_changed(\textcolor{keyword}{struct} \_LinphoneCore *lc, 
+      LinphoneProxyConfig *cfg, LinphoneRegistrationState cstate, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *message)\{
+                printf(\textcolor{stringliteral}{"New registration state %s for user id [%s] at proxy [%s]\(\backslash\)n"}
+                                ,linphone_registration_state_to_string(cstate)
+                                ,linphone_proxy_config_get_identity(cfg)
+                                ,linphone\_proxy\_config\_get\_addr(cfg));
+\}
+\end{DoxyCode}
+ ~\newline
+{\bfseries Authentication\+:} ~\newline
+Most of the time, registration requires \doxyref{authentication}{p.}{group__authentication} to succeed. \doxyref{Linphone\+Auth\+Info}{p.}{group__authentication_ga0f8289c1aab407992864a68869107f4f} info must be either added to \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} using function \doxyref{linphone\+\_\+core\+\_\+add\+\_\+auth\+\_\+info()}{p.}{group__authentication_ga62ac5bb34f0342f7edc733c42473b7aa} before \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} is added to Linphone core, or on demand from call back \doxyref{Linphone\+Core\+Auth\+Info\+Requested\+Cb}{p.}{group__initializing_gad3a716c0a60a3a9d9d422b8dbc0827a7}. ~\newline
+ ~\newline
+{\bfseries Unregistration\+:} ~\newline
+ Unregistration or any changes to \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} must be first started by a call to function \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+edit()}{p.}{group__proxies_gadfddcce1c3dd138f144ae0421782834b} and validated by function \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+done()}{p.}{group__proxies_ga2f48ab930fd797e1065c61b389f57988} ~\newline
+ This pseudo code shows how to unregister a user associated to a \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} 
+\begin{DoxyCode}
+LinphoneProxyConfig* proxy\_cfg;
+linphone_core_get_default_proxy(lc,&proxy\_cfg); \textcolor{comment}{/* get default proxy config*/}
+linphone_proxy_config_edit(proxy\_cfg); \textcolor{comment}{/*start editing proxy configuration*/}
+linphone_proxy_config_enable_register(proxy\_cfg,FALSE); \textcolor{comment}{/*de-activate registration for this proxy config*/}
+linphone_proxy_config_done(proxy\_cfg); \textcolor{comment}{/*initiate REGISTER with expire = 0*/}
+\end{DoxyCode}
+ ~\newline
+ A complete tutorial can be found at \+: \doxyref{Registration tutorial}{p.}{group__registration__tutorials} 
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{group__proxies_ga2082f2c37ffbf5d46e8d20ae8bccc2a4}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy@{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy}}
+\index{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy@{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy}
+{\footnotesize\ttfamily \#define linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy(\begin{DoxyParamCaption}\item[{}]{lc,  }\item[{}]{config }\end{DoxyParamCaption})~\textbf{ linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config}(lc, config)}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config()}{p.}{group__proxies_ga4df28789d61c5d2e4b562094b46ed319} instead.\end{DoxyRefDesc}
+
+
+\subsection{Typedef Documentation}
+\mbox{\label{group__proxies_ga1879a0d59e068457b688138da97f2d0b}} 
+\index{Proxies@{Proxies}!Linphone\+Proxy\+Config@{Linphone\+Proxy\+Config}}
+\index{Linphone\+Proxy\+Config@{Linphone\+Proxy\+Config}!Proxies@{Proxies}}
+\subsubsection{Linphone\+Proxy\+Config}
+{\footnotesize\ttfamily typedef struct \+\_\+\+Linphone\+Proxy\+Config \textbf{ Linphone\+Proxy\+Config}}
+
+
+
+The Linphone\+Proxy\+Config object represents a proxy configuration to be used by the Linphone\+Core object. 
+
+Its fields must not be used directly in favour of the accessors methods. Once created and filled properly the Linphone\+Proxy\+Config can be given to Linphone\+Core with \doxyref{linphone\+\_\+core\+\_\+add\+\_\+proxy\+\_\+config()}{p.}{group__proxies_gafe9c40e742c5b047fc9a6825da97d075}. This will automatically triggers the registration, if enabled.
+
+The proxy configuration are persistent to restarts because they are saved in the configuration file. As a consequence, after \doxyref{linphone\+\_\+core\+\_\+new()}{p.}{group__initializing_ga9601ae3c81a1bbf110e84a1a484f3fee} there might already be a list of configured proxy that can be examined with \doxyref{linphone\+\_\+core\+\_\+get\+\_\+proxy\+\_\+config\+\_\+list()}{p.}{group__proxies_ga23b6e78aae85500af63955a2be36eaff}.
+
+The default proxy (see \doxyref{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy()}{p.}{group__proxies_ga2082f2c37ffbf5d46e8d20ae8bccc2a4} ) is the one of the list that is used by default for calls. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{group__proxies_gaea1b64a739b1faf0b490fe0f52cfe65e}} 
+\index{Proxies@{Proxies}!\+\_\+\+Linphone\+Registration\+State@{\+\_\+\+Linphone\+Registration\+State}}
+\index{\+\_\+\+Linphone\+Registration\+State@{\+\_\+\+Linphone\+Registration\+State}!Proxies@{Proxies}}
+\subsubsection{\+\_\+\+Linphone\+Registration\+State}
+{\footnotesize\ttfamily enum \textbf{ \+\_\+\+Linphone\+Registration\+State}}
+
+
+
+Linphone\+Registration\+State describes proxy registration states. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Registration\+None@{Linphone\+Registration\+None}!Proxies@{Proxies}}\index{Proxies@{Proxies}!Linphone\+Registration\+None@{Linphone\+Registration\+None}}}\mbox{\label{group__proxies_ggaea1b64a739b1faf0b490fe0f52cfe65ea07341285f0270fe6e3b1e21949725d54}} 
+Linphone\+Registration\+None&Initial state for registrations. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Registration\+Progress@{Linphone\+Registration\+Progress}!Proxies@{Proxies}}\index{Proxies@{Proxies}!Linphone\+Registration\+Progress@{Linphone\+Registration\+Progress}}}\mbox{\label{group__proxies_ggaea1b64a739b1faf0b490fe0f52cfe65eae20dab1677f285ef32006cc86f8ea630}} 
+Linphone\+Registration\+Progress&Registration is in progress. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Registration\+Ok@{Linphone\+Registration\+Ok}!Proxies@{Proxies}}\index{Proxies@{Proxies}!Linphone\+Registration\+Ok@{Linphone\+Registration\+Ok}}}\mbox{\label{group__proxies_ggaea1b64a739b1faf0b490fe0f52cfe65ea73e009ef868a552c580b179578b87366}} 
+Linphone\+Registration\+Ok&Registration is successful. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Registration\+Cleared@{Linphone\+Registration\+Cleared}!Proxies@{Proxies}}\index{Proxies@{Proxies}!Linphone\+Registration\+Cleared@{Linphone\+Registration\+Cleared}}}\mbox{\label{group__proxies_ggaea1b64a739b1faf0b490fe0f52cfe65eaf08a66584f81f4bbc9bfd1e3166c348d}} 
+Linphone\+Registration\+Cleared&Unregistration succeeded. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Registration\+Failed@{Linphone\+Registration\+Failed}!Proxies@{Proxies}}\index{Proxies@{Proxies}!Linphone\+Registration\+Failed@{Linphone\+Registration\+Failed}}}\mbox{\label{group__proxies_ggaea1b64a739b1faf0b490fe0f52cfe65eaa9861e7fe94dd55d5e9f7e58119abe5d}} 
+Linphone\+Registration\+Failed&Registration failed. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\label{group__proxies_gafe9c40e742c5b047fc9a6825da97d075}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+add\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+add\+\_\+proxy\+\_\+config}}
+\index{linphone\+\_\+core\+\_\+add\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+add\+\_\+proxy\+\_\+config}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+add\+\_\+proxy\+\_\+config()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+core\+\_\+add\+\_\+proxy\+\_\+config (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{config }\end{DoxyParamCaption})}
+
+
+
+Add a proxy configuration. 
+
+This will start registration on the proxy, if registration is enabled. \mbox{\label{group__proxies_ga165451afd911ce954c3c7a0880fe52f5}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+create\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+create\+\_\+proxy\+\_\+config}}
+\index{linphone\+\_\+core\+\_\+create\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+create\+\_\+proxy\+\_\+config}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+create\+\_\+proxy\+\_\+config()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Proxy\+Config}$\ast$ linphone\+\_\+core\+\_\+create\+\_\+proxy\+\_\+config (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Create a proxy config with default values from Linphone core. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} with default values set 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga763f9d7399c18c01feca3eb644c6377f}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy@{linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy@{linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED int linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$$\ast$}]{config }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the default proxy configuration, that is the one used to determine the current identity. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy\+\_\+config()}{p.}{group__proxies_gab379acf922a163434face124106e33da} instead.  \end{DoxyRefDesc}
+\mbox{\label{group__proxies_gab379acf922a163434face124106e33da}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy\+\_\+config}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy\+\_\+config}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy\+\_\+config()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Proxy\+Config}$\ast$ linphone\+\_\+core\+\_\+get\+\_\+default\+\_\+proxy\+\_\+config (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the default proxy configuration, that is the one used to determine the current identity. 
+\end{DoxyReturn}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & Linphone\+Core object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The default proxy configuration. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga33972bf5275874d28cf0eb59f1d34d18}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+get\+\_\+identity@{linphone\+\_\+core\+\_\+get\+\_\+identity}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+identity@{linphone\+\_\+core\+\_\+get\+\_\+identity}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+identity()}
+{\footnotesize\ttfamily const char $\ast$ linphone\+\_\+core\+\_\+get\+\_\+identity (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Gets the default identity S\+IP address. 
+
+This is an helper function. If no default proxy is set, this will return the primary contact ( see \doxyref{linphone\+\_\+core\+\_\+get\+\_\+primary\+\_\+contact()}{p.}{group__proxies_ga147c072e33bdf5d44a3b95b28b4b27a1} ). If a default proxy is set it returns the registered identity on the proxy. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & Linphone\+Core object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The default identity S\+IP address 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga23b6e78aae85500af63955a2be36eaff}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+get\+\_\+proxy\+\_\+config\+\_\+list@{linphone\+\_\+core\+\_\+get\+\_\+proxy\+\_\+config\+\_\+list}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+proxy\+\_\+config\+\_\+list@{linphone\+\_\+core\+\_\+get\+\_\+proxy\+\_\+config\+\_\+list}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+proxy\+\_\+config\+\_\+list()}
+{\footnotesize\ttfamily const bctbx\+\_\+list\+\_\+t$\ast$ linphone\+\_\+core\+\_\+get\+\_\+proxy\+\_\+config\+\_\+list (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Returns an unmodifiable list of entered proxy configurations. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & The Linphone\+Core object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} objects. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga70c5efbfea5392003eb6b1e402d8c811}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+remove\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+remove\+\_\+proxy\+\_\+config}}
+\index{linphone\+\_\+core\+\_\+remove\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+remove\+\_\+proxy\+\_\+config}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+remove\+\_\+proxy\+\_\+config()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+remove\+\_\+proxy\+\_\+config (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{config }\end{DoxyParamCaption})}
+
+
+
+Removes a proxy configuration. 
+
+Linphone\+Core will then automatically unregister and place the proxy configuration on a deleted list. For that reason, a removed proxy does N\+OT need to be freed. \mbox{\label{group__proxies_ga4df28789d61c5d2e4b562094b46ed319}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config}}
+\index{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config@{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy\+\_\+config (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{config }\end{DoxyParamCaption})}
+
+
+
+Sets the default proxy. 
+
+This default proxy must be part of the list of already entered Linphone\+Proxy\+Config. Toggling it as default will make Linphone\+Core use the identity associated with the proxy configuration in all incoming and outgoing calls. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & Linphone\+Core object \\
+\hline
+\mbox{\tt in}  & {\em config} & The proxy configuration to use as the default one. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_gaf782eac91ebedddcf5f6b5dbced8b792}} 
+\index{Proxies@{Proxies}!linphone\+\_\+core\+\_\+set\+\_\+primary\+\_\+contact@{linphone\+\_\+core\+\_\+set\+\_\+primary\+\_\+contact}}
+\index{linphone\+\_\+core\+\_\+set\+\_\+primary\+\_\+contact@{linphone\+\_\+core\+\_\+set\+\_\+primary\+\_\+contact}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+core\+\_\+set\+\_\+primary\+\_\+contact()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+core\+\_\+set\+\_\+primary\+\_\+contact (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const char $\ast$}]{contact }\end{DoxyParamCaption})}
+
+
+
+Sets the local \char`\"{}from\char`\"{} identity. 
+
+This data is used in absence of any proxy configuration or when no default proxy configuration is set. See Linphone\+Proxy\+Config \mbox{\label{group__proxies_ga118eccd24901b763b342a4cbeab42c4a}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+avpf\+\_\+enabled@{linphone\+\_\+proxy\+\_\+config\+\_\+avpf\+\_\+enabled}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+avpf\+\_\+enabled@{linphone\+\_\+proxy\+\_\+config\+\_\+avpf\+\_\+enabled}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+avpf\+\_\+enabled()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+proxy\+\_\+config\+\_\+avpf\+\_\+enabled (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Indicates whether A\+V\+P\+F/\+S\+A\+V\+PF is being used for calls using this proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if A\+V\+P\+F/\+S\+A\+V\+PF is enabled, false otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga454d93372a1a089fe938e2ee475c7a8a}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+destroy@{linphone\+\_\+proxy\+\_\+config\+\_\+destroy}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+destroy@{linphone\+\_\+proxy\+\_\+config\+\_\+destroy}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+destroy()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+proxy\+\_\+config\+\_\+destroy (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Destroys a proxy config. 
+
+\begin{DoxyNote}{Note}
+\+: Linphone\+Proxy\+Config that have been removed from Linphone\+Core with \doxyref{linphone\+\_\+core\+\_\+remove\+\_\+proxy\+\_\+config()}{p.}{group__proxies_ga70c5efbfea5392003eb6b1e402d8c811} must not be freed. 
+\end{DoxyNote}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}] \end{DoxyRefDesc}
+\mbox{\label{group__proxies_gadfddcce1c3dd138f144ae0421782834b}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+edit@{linphone\+\_\+proxy\+\_\+config\+\_\+edit}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+edit@{linphone\+\_\+proxy\+\_\+config\+\_\+edit}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+edit()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+edit (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Starts editing a proxy configuration. 
+
+Because proxy configuration must be consistent, applications M\+U\+ST call \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+edit()}{p.}{group__proxies_gadfddcce1c3dd138f144ae0421782834b} before doing any attempts to modify proxy configuration (such as identity, proxy address and so on). Once the modifications are done, then the application must call \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+done()}{p.}{group__proxies_ga2f48ab930fd797e1065c61b389f57988} to commit the changes. \mbox{\label{group__proxies_ga1455616c1b22e5ebccb56ba4557280f7}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+avpf@{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+avpf}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+avpf@{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+avpf}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+avpf()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+avpf (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{bool\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+
+
+Indicates whether A\+V\+P\+F/\+S\+A\+V\+PF must be used for calls using this proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\mbox{\tt in}  & {\em enable} & True to enable A\+V\+P\+F/\+S\+A\+VF, false to disable it. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]use \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+mode()}{p.}{group__proxies_ga3bbd52c26bdbc7df7fb84f804101a6d8}  \end{DoxyRefDesc}
+\mbox{\label{group__proxies_gaf21d29929d15256e0c993a4959d570cd}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+publish@{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+publish}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+publish@{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+publish}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+publish()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+publish (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{bool\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Indicates either or not, P\+U\+B\+L\+I\+SH must be issued for this \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} . 
+
+~\newline
+ In case this \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} has been added to \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a}, follows the \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+edit()}{p.}{group__proxies_gadfddcce1c3dd138f144ae0421782834b} rule. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+ & {\em val} & if true, publish will be engaged \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_gacc39ea2058541b920b54606d06aed37d}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+quality\+\_\+reporting@{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+quality\+\_\+reporting}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+quality\+\_\+reporting@{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+quality\+\_\+reporting}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+quality\+\_\+reporting()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+quality\+\_\+reporting (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{bool\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+
+
+Indicates whether quality statistics during call should be stored and sent to a collector according to R\+FC 6035. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\mbox{\tt in}  & {\em enable} & True to sotre quality statistics and sent them to the collector, false to disable it. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_gaea39579996645d4bc5e62e68ab097f17}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+register@{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+register}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+register@{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+register}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+register()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+enable\+\_\+register (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{bool\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Indicates either or not, R\+E\+G\+I\+S\+T\+R\+A\+T\+I\+ON must be issued for this \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} . 
+
+~\newline
+ In case this \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} has been added to \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a}, follows the \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+edit()}{p.}{group__proxies_gadfddcce1c3dd138f144ae0421782834b} rule. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+ & {\em val} & if true, registration will be engaged \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga638c613d6b340c71eec58d3ed46c02fe}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+find\+\_\+auth\+\_\+info@{linphone\+\_\+proxy\+\_\+config\+\_\+find\+\_\+auth\+\_\+info}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+find\+\_\+auth\+\_\+info@{linphone\+\_\+proxy\+\_\+config\+\_\+find\+\_\+auth\+\_\+info}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+find\+\_\+auth\+\_\+info()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Auth\+Info}$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+find\+\_\+auth\+\_\+info (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Find authentication info matching proxy config, if any, similarly to linphone\+\_\+core\+\_\+find\+\_\+auth\+\_\+info. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a \doxyref{Linphone\+Auth\+Info}{p.}{group__authentication_ga0f8289c1aab407992864a68869107f4f} matching proxy config criteria if possible, N\+U\+LL if nothing can be found. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gaabd040abc63ac202ea4a7ed0bbb81108}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+mode@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+mode}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+mode@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+mode}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+mode()}
+{\footnotesize\ttfamily \textbf{ Linphone\+A\+V\+P\+F\+Mode} linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+mode (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get enablement status of R\+T\+CP feedback (also known as A\+V\+PF profile). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the enablement mode, which can be Linphone\+A\+V\+P\+F\+Default (use Linphone\+Core\textquotesingle{}s mode), Linphone\+A\+V\+P\+F\+Enabled (avpf is enabled), or Linphone\+A\+V\+P\+F\+Disabled (disabled). 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gaafe4fa6cdcddaac450ad9a999109f642}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+rr\+\_\+interval@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+rr\+\_\+interval}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+rr\+\_\+interval@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+rr\+\_\+interval}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+rr\+\_\+interval()}
+{\footnotesize\ttfamily uint8\+\_\+t linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+avpf\+\_\+rr\+\_\+interval (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the interval between regular R\+T\+CP reports when using A\+V\+P\+F/\+S\+A\+V\+PF. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The interval in seconds. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga21bfae676398cc76e0b3d749b7881892}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+parameters@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+parameters}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+parameters@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+parameters}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+parameters()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+parameters (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+previously set contact parameters. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga9f96669aa19b314a2354ff0d3d682109}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+uri\+\_\+parameters@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+uri\+\_\+parameters}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+uri\+\_\+parameters@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+uri\+\_\+parameters}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+uri\+\_\+parameters()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+contact\+\_\+uri\+\_\+parameters (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+previously set contact U\+RI parameters. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga2e9ba1893bd890747ba2055e9cc09117}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+core@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+core}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+core@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+core}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+core()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Core}$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+core (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object to which is associated the \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object to which is associated the \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b}. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga7a8c087752cc2c4af91e609becc3368e}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+custom\+\_\+header@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+custom\+\_\+header}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+custom\+\_\+header@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+custom\+\_\+header}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+custom\+\_\+header()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+custom\+\_\+header (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{header\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Obtain the value of a header sent by the server in last answer to R\+E\+G\+I\+S\+T\+ER. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+ & {\em header\+\_\+name} & the header name for which to fetch corresponding value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the value of the queried header. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga5f7d7b51c71f544c40e76a64bd81da04}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+escape\+\_\+plus@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+escape\+\_\+plus}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+escape\+\_\+plus@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+escape\+\_\+plus}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+escape\+\_\+plus()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+escape\+\_\+plus (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+whether liblinphone should replace \char`\"{}+\char`\"{} by \char`\"{}00\char`\"{} in dialed numbers (passed to \doxyref{linphone\+\_\+core\+\_\+invite}{p.}{group__call__control_gaaea662739cc3825eaa80d8ac264a883c} ). 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga783ee03e3420b88c2cae25e3897ea237}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+prefix@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+prefix}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+prefix@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+prefix}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+prefix()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+dial\+\_\+prefix (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+dialing prefix. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga946996ee0054eeb049fd1a360750b49e}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+domain@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+domain}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+domain@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+domain}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+domain()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+domain (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the domain name of the given proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The domain name of the proxy config. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga245ddcd6772adad4ac8ecc64a10494ce}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Reason} linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the reason why registration failed when the proxy config state is Linphone\+Registration\+Failed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reason why registration failed for this proxy config. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gacee7b20f44e48bfb1a2ccbc00eada052}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error\+\_\+info@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error\+\_\+info}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error\+\_\+info@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error\+\_\+info}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error\+\_\+info()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Error\+Info}$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+error\+\_\+info (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get detailed information why registration failed when the proxy config state is Linphone\+Registration\+Failed. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The details why registration failed for this proxy config. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gaa473134be85e065921df2da1353d256c}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+expires@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+expires}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+expires@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+expires}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+expires()}
+{\footnotesize\ttfamily int linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+expires (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the duration of registration. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga46a8c15232a6edb8450132210e4b664f}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+file\+\_\+transfer\+\_\+server@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+file\+\_\+transfer\+\_\+server}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+file\+\_\+transfer\+\_\+server@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+file\+\_\+transfer\+\_\+server}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+file\+\_\+transfer\+\_\+server()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+file\+\_\+transfer\+\_\+server (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the http file transfer server to be used for content type application/vnd.\+gsma.\+rcs-\/ft-\/http+xml. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+U\+RL of the file server like {\tt https\+://file.\+linphone.\+org/upload.\+php} 
+\end{DoxyReturn}
+\begin{DoxyWarning}{Warning}
+That function isn\textquotesingle{}t implemented yet.  
+\end{DoxyWarning}
+\mbox{\label{group__proxies_ga24cee22ec8347c97b6757f0bcb9f8dbe}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]use \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity\+\_\+address()}{p.}{group__proxies_gaf11990682f68c340e914b2962cf088b1}  \end{DoxyRefDesc}
+\mbox{\label{group__proxies_gaf11990682f68c340e914b2962cf088b1}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity\+\_\+address@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity\+\_\+address}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity\+\_\+address@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity\+\_\+address}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity\+\_\+address()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Address}$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+identity\+\_\+address (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the S\+IP identity that belongs to this proxy configuration. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gaaa0a0d5dcd440f4fb1e556c7f489e5b3}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+nat\+\_\+policy@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+nat\+\_\+policy}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+nat\+\_\+policy@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+nat\+\_\+policy}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+nat\+\_\+policy()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Nat\+Policy}$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+nat\+\_\+policy (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get The policy that is used to pass through N\+A\+Ts/firewalls when using this proxy config. 
+
+If it is set to N\+U\+LL, the default N\+AT policy from the core will be used instead. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linphone\+Nat\+Policy object in use. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxyref{linphone\+\_\+core\+\_\+get\+\_\+nat\+\_\+policy()}{p.}{group__network__parameters_ga96d97e153a69a61ac21db4e6b3a21327} 
+\end{DoxySeeAlso}
+\mbox{\label{group__proxies_ga94721646dad94bb19ff9bc560d74de77}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+privacy@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+privacy}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+privacy@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+privacy}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+privacy()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Privacy\+Mask} linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+privacy (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get default privacy policy for all calls routed through this proxy. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Privacy mode 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga3522d9f0b04089588a84ea13cd836060}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+publish\+\_\+expires@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+publish\+\_\+expires}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+publish\+\_\+expires@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+publish\+\_\+expires}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+publish\+\_\+expires()}
+{\footnotesize\ttfamily int linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+publish\+\_\+expires (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+get the publish expiration time in second. 
+
+Default value is the registration expiration value. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+expires in second 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga1fcc3327df0fe15efb3b5a7f7f0d61cd}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+collector@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+collector}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+collector@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+collector}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+collector()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+collector (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the route of the collector end-\/point when using quality reporting. 
+
+This S\+IP address should be used on server-\/side to process packets directly before discarding packets. Collector address should be a non existing account and will not receive any messages. If N\+U\+LL, reports will be send to the proxy domain. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The S\+IP address of the collector end-\/point. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gab6eb2d0f234a917a55fff2e7dea55da8}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+interval@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+interval}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+interval@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+interval}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+interval()}
+{\footnotesize\ttfamily int linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+quality\+\_\+reporting\+\_\+interval (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the interval between interval reports when using quality reporting. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The interval in seconds, 0 means interval reports are disabled. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga58c37b50e9f5477e32042e4f0bd355d7}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+realm@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+realm}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+realm@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+realm}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+realm()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+realm (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the realm of the given proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The realm of the proxy config. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga23bf76cb122ee4840007cc8f85e87907}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+ref\+\_\+key@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+ref\+\_\+key}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+ref\+\_\+key@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+ref\+\_\+key}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+ref\+\_\+key()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+ref\+\_\+key (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the persistent reference key associated to the proxy config. 
+
+The reference key can be for example an id to an external database. It is stored in the config file, thus can survive to process exits/restarts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reference key string that has been associated to the proxy config, or N\+U\+LL if none has been associated. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gafc5b942439a74b727de1b8578636394d}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+route@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+route}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+route@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+route}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+route()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+route (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the route set for this proxy configuration. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga44a3fa191fd4d47999749e28b0158d6e}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+server\+\_\+addr@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+server\+\_\+addr}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+server\+\_\+addr@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+server\+\_\+addr}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+server\+\_\+addr()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+server\+\_\+addr (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+the proxy\textquotesingle{}s S\+IP address. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga5ae722780e8c0a03545736c01bb7018b}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+state@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+state}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+state@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+state}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+state()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Registration\+State} linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+state (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the registration state of the given proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The registration state of the proxy config. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga2505c0225f920e0c3e933de24662bd8b}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+transport@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+transport}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+transport@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+transport}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+transport()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+transport (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Get the transport from either service route, route or addr. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The transport as a string (I.\+E udp, tcp, tls, dtls) 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gabb1e3eae0dab32c619d7aaf30e9724f8}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+user\+\_\+data}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Retrieve the user pointer associated with the proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The user pointer associated with the proxy config. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga81859303cbfbf1c86cbd5c346df69ba6}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+phone\+\_\+number@{linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+phone\+\_\+number}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+phone\+\_\+number@{linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+phone\+\_\+number}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+phone\+\_\+number()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+phone\+\_\+number (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{proxy,  }\item[{const char $\ast$}]{username }\end{DoxyParamCaption})}
+
+
+
+Detect if the given input is a phone number or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em proxy} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} argument, unused yet but may contain useful data. Can be N\+U\+LL. \\
+\hline
+{\em username} & string to parse. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if input is a phone number, F\+A\+L\+SE otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga4fda970e7f94e39eae6f80935b77b8d0}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+registered@{linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+registered}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+registered@{linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+registered}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+registered()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED bool\+\_\+t linphone\+\_\+proxy\+\_\+config\+\_\+is\+\_\+registered (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+a boolean indicating that the user is sucessfully registered on the proxy. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+get\+\_\+state()}{p.}{group__proxies_ga5ae722780e8c0a03545736c01bb7018b} instead.  \end{DoxyRefDesc}
+\mbox{\label{group__proxies_gac435e6efb12fedf8a016745c88ee09a4}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+new@{linphone\+\_\+proxy\+\_\+config\+\_\+new}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+new@{linphone\+\_\+proxy\+\_\+config\+\_\+new}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+new()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED \textbf{ Linphone\+Proxy\+Config}$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+new (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Creates an empty proxy config. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}], use \doxyref{linphone\+\_\+core\+\_\+create\+\_\+proxy\+\_\+config}{p.}{group__proxies_ga165451afd911ce954c3c7a0880fe52f5} instead  \end{DoxyRefDesc}
+\mbox{\label{group__proxies_ga37c772255042876d0c713073209c5fa4}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+number@{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+number}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+number@{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+number}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+number()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED bool\+\_\+t linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+number (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{proxy,  }\item[{const char $\ast$}]{username,  }\item[{char $\ast$}]{result,  }\item[{size\+\_\+t}]{result\+\_\+len }\end{DoxyParamCaption})}
+
+
+
+See linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em proxy} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object containing country code and/or escape symbol. If N\+U\+LL passed, will use default configuration. \\
+\hline
+{\em username} & the string to parse \\
+\hline
+{\em result} & the newly normalized number \\
+\hline
+{\em result\+\_\+len} & the size of the normalized number {\itshape result} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if a phone number was recognized, F\+A\+L\+SE otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]use \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number()}{p.}{group__proxies_ga77b72de9ab152d8792615623cc5e8964}  \end{DoxyRefDesc}
+\mbox{\label{group__proxies_ga77b72de9ab152d8792615623cc5e8964}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number@{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number@{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number()}
+{\footnotesize\ttfamily char$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+phone\+\_\+number (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{proxy,  }\item[{const char $\ast$}]{username }\end{DoxyParamCaption})}
+
+
+
+Normalize a human readable phone number into a basic string. 
+
+888-\/444-\/222 becomes 888444222 or +33888444222 depending on the \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. This function will always generate a normalized username if input is a phone number. 
+\begin{DoxyParams}{Parameters}
+{\em proxy} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object containing country code and/or escape symbol. If N\+U\+LL passed, will use default configuration. \\
+\hline
+{\em username} & the string to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL if input is an invalid phone number, normalized phone number from username input otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gac6573670d9ec138d3add3303a7f3a669}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+sip\+\_\+uri@{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+sip\+\_\+uri}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+sip\+\_\+uri@{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+sip\+\_\+uri}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+sip\+\_\+uri()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Address}$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+normalize\+\_\+sip\+\_\+uri (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{proxy,  }\item[{const char $\ast$}]{username }\end{DoxyParamCaption})}
+
+
+
+Normalize a human readable sip uri into a fully qualified Linphone\+Address. 
+
+A sip address should look like Display\+Name $<$sip\+:username@domain\+:port$>$ . Basically this function performs the following tasks
+\begin{DoxyItemize}
+\item if a phone number is entered, prepend country prefix and eventually escape the \textquotesingle{}+\textquotesingle{} by 00 of the proxy config.
+\item if no domain part is supplied, append the domain name of the proxy config. Returns N\+U\+LL if no proxy is provided at this point.
+\item if no sip\+: is present, prepend it.
+\end{DoxyItemize}
+
+The result is a syntactically correct S\+IP address. 
+\begin{DoxyParams}{Parameters}
+{\em proxy} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object containing country code, escape symbol and/or domain name. Can be N\+U\+LL if domain is already provided. \\
+\hline
+{\em username} & the string to parse \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+N\+U\+LL if invalid input, normalized sip address otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gac588358be5ccfcef184c5e501f98c112}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+pause\+\_\+register@{linphone\+\_\+proxy\+\_\+config\+\_\+pause\+\_\+register}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+pause\+\_\+register@{linphone\+\_\+proxy\+\_\+config\+\_\+pause\+\_\+register}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+pause\+\_\+register()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+pause\+\_\+register (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Prevent a proxy config from refreshing its registration. 
+
+This is useful to let registrations to expire naturally (or) when the application wants to keep control on when refreshes are sent. However, linphone\+\_\+core\+\_\+set\+\_\+network\+\_\+reachable(lc,\+T\+R\+U\+E) will always request the proxy configs to refresh their registrations. The refreshing operations can be resumed with \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+refresh\+\_\+register()}{p.}{group__proxies_ga94411d7a66d26b421358fc4ab73a844d}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga7b5dc74b961381a1e220f0f8e3e03ac0}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+publish\+\_\+enabled@{linphone\+\_\+proxy\+\_\+config\+\_\+publish\+\_\+enabled}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+publish\+\_\+enabled@{linphone\+\_\+proxy\+\_\+config\+\_\+publish\+\_\+enabled}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+publish\+\_\+enabled()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+proxy\+\_\+config\+\_\+publish\+\_\+enabled (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if P\+U\+B\+L\+I\+SH request is enabled for this proxy. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_gafa768bc49afd9c987d5676328ae71771}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+quality\+\_\+reporting\+\_\+enabled@{linphone\+\_\+proxy\+\_\+config\+\_\+quality\+\_\+reporting\+\_\+enabled}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+quality\+\_\+reporting\+\_\+enabled@{linphone\+\_\+proxy\+\_\+config\+\_\+quality\+\_\+reporting\+\_\+enabled}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+quality\+\_\+reporting\+\_\+enabled()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+proxy\+\_\+config\+\_\+quality\+\_\+reporting\+\_\+enabled (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Indicates whether quality statistics during call should be stored and sent to a collector according to R\+FC 6035. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if quality repotring is enabled, false otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga25e37ca48aad663a3f18f418ea92dfd2}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+ref@{linphone\+\_\+proxy\+\_\+config\+\_\+ref}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+ref@{linphone\+\_\+proxy\+\_\+config\+\_\+ref}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+ref()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Proxy\+Config}$\ast$ linphone\+\_\+proxy\+\_\+config\+\_\+ref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Acquire a reference to the proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The same proxy config. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga94411d7a66d26b421358fc4ab73a844d}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+refresh\+\_\+register@{linphone\+\_\+proxy\+\_\+config\+\_\+refresh\+\_\+register}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+refresh\+\_\+register@{linphone\+\_\+proxy\+\_\+config\+\_\+refresh\+\_\+register}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+refresh\+\_\+register()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+refresh\+\_\+register (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Refresh a proxy registration. 
+
+This is useful if for example you resuming from suspend, thus IP address may have changed. \mbox{\label{group__proxies_ga0b8cd45acee99fda4a8273f159f9db51}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+register\+\_\+enabled@{linphone\+\_\+proxy\+\_\+config\+\_\+register\+\_\+enabled}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+register\+\_\+enabled@{linphone\+\_\+proxy\+\_\+config\+\_\+register\+\_\+enabled}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+register\+\_\+enabled()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+proxy\+\_\+config\+\_\+register\+\_\+enabled (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if registration to the proxy is enabled. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga3bbd52c26bdbc7df7fb84f804101a6d8}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+mode@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+mode}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+mode@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+mode}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+mode()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+mode (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{\textbf{ Linphone\+A\+V\+P\+F\+Mode}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Enable the use of R\+T\+CP feedback (also known as A\+V\+PF profile). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\mbox{\tt in}  & {\em mode} & the enablement mode, which can be Linphone\+A\+V\+P\+F\+Default (use Linphone\+Core\textquotesingle{}s mode), Linphone\+A\+V\+P\+F\+Enabled (avpf is enabled), or Linphone\+A\+V\+P\+F\+Disabled (disabled). \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga676e7545e2a09ab61c86a700d78b7082}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+rr\+\_\+interval@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+rr\+\_\+interval}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+rr\+\_\+interval@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+rr\+\_\+interval}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+rr\+\_\+interval()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+avpf\+\_\+rr\+\_\+interval (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{uint8\+\_\+t}]{interval }\end{DoxyParamCaption})}
+
+
+
+Set the interval between regular R\+T\+CP reports when using A\+V\+P\+F/\+S\+A\+V\+PF. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\mbox{\tt in}  & {\em interval} & The interval in seconds (between 0 and 5 seconds). \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga5cc64979a1d040467a87b29e8c71ec6b}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+parameters@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+parameters}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+parameters@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+parameters}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+parameters()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+parameters (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{contact\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+Set optional contact parameters that will be added to the contact information sent in the registration. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+ & {\em contact\+\_\+params} & a string contaning the additional parameters in text form, like \char`\"{}myparam=something;myparam2=something\+\_\+else\char`\"{}\\
+\hline
+\end{DoxyParams}
+The main use case for this function is provide the proxy additional information regarding the user agent, like for example unique identifier or apple push id. As an example, the contact address in the S\+IP register sent will look like $<$sip\+:{\tt joe@15.\+128.\+128.\+93}\+:50421$>$;apple-\/push-\/id=43143-\/\+D\+F\+E23\+F-\/2323-\/\+F\+A2232. \mbox{\label{group__proxies_gaa563205dd35ba911f10c6c1ff1221a72}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+uri\+\_\+parameters@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+uri\+\_\+parameters}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+uri\+\_\+parameters@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+uri\+\_\+parameters}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+uri\+\_\+parameters()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+contact\+\_\+uri\+\_\+parameters (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{contact\+\_\+uri\+\_\+params }\end{DoxyParamCaption})}
+
+
+
+Set optional contact parameters that will be added to the contact information sent in the registration, inside the U\+RI. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+ & {\em contact\+\_\+uri\+\_\+params} & a string containing the additional parameters in text form, like \char`\"{}myparam=something;myparam2=something\+\_\+else\char`\"{}\\
+\hline
+\end{DoxyParams}
+The main use case for this function is provide the proxy additional information regarding the user agent, like for example unique identifier or apple push id. As an example, the contact address in the S\+IP register sent will look like $<$sip\+:{\tt joe@15.\+128.\+128.\+93}\+:50421;apple-\/push-\/id=43143-\/\+D\+F\+E23\+F-\/2323-\/\+F\+A2232$>$. \mbox{\label{group__proxies_gaa912e274897579302aebe440d74bdc82}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+custom\+\_\+header@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+custom\+\_\+header}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+custom\+\_\+header@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+custom\+\_\+header}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+custom\+\_\+header()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+custom\+\_\+header (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{header\+\_\+name,  }\item[{const char $\ast$}]{header\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Set the value of a custom header sent to the server in R\+E\+G\+I\+S\+T\+E\+Rs request. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+ & {\em header\+\_\+name} & the header name \\
+\hline
+ & {\em header\+\_\+value} & the header\textquotesingle{}s value \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga80967171aab9c0564676d5faec831ebd}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+file\+\_\+transfer\+\_\+server@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+file\+\_\+transfer\+\_\+server}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+file\+\_\+transfer\+\_\+server@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+file\+\_\+transfer\+\_\+server}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+file\+\_\+transfer\+\_\+server()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+file\+\_\+transfer\+\_\+server (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{server\+\_\+url }\end{DoxyParamCaption})}
+
+
+
+Set the http file transfer server to be used for content type application/vnd.\+gsma.\+rcs-\/ft-\/http+xml. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+ & {\em server\+\_\+url} & U\+RL of the file server like {\tt https\+://file.\+linphone.\+org/upload.\+php} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+That function isn\textquotesingle{}t implemented yet.  
+\end{DoxyWarning}
+\mbox{\label{group__proxies_ga978c00a218b907a2f98fc59f5d217805}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED \textbf{ Linphone\+Status} linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{identity }\end{DoxyParamCaption})}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity\+\_\+address()}{p.}{group__proxies_ga0980474bbee09845232fdf4ed6f300f6}  \end{DoxyRefDesc}
+\mbox{\label{group__proxies_ga0980474bbee09845232fdf4ed6f300f6}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity\+\_\+address@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity\+\_\+address}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity\+\_\+address@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity\+\_\+address}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity\+\_\+address()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+identity\+\_\+address (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{identity }\end{DoxyParamCaption})}
+
+
+
+Sets the user identity as a S\+IP address. 
+
+This identity is normally formed with display name, username and domain, such as\+: Alice $<$sip\+:{\tt alice@example.\+net}$>$ The R\+E\+G\+I\+S\+T\+ER messages will have from and to set to this identity. \mbox{\label{group__proxies_ga56ef55bd8c1b82945de38d7c63b18283}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+nat\+\_\+policy@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+nat\+\_\+policy}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+nat\+\_\+policy@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+nat\+\_\+policy}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+nat\+\_\+policy()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+nat\+\_\+policy (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{\textbf{ Linphone\+Nat\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Set the policy to use to pass through N\+A\+Ts/firewalls when using this proxy config. 
+
+If it is set to N\+U\+LL, the default N\+AT policy from the core will be used instead. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object \\
+\hline
+\mbox{\tt in}  & {\em policy} & Linphone\+Nat\+Policy object \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\doxyref{linphone\+\_\+core\+\_\+set\+\_\+nat\+\_\+policy()}{p.}{group__network__parameters_gad4a583bc56e9fec5b6fe647f9147d200} 
+\end{DoxySeeAlso}
+\mbox{\label{group__proxies_ga361a02178ca3ef43fb20bd9814254288}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+privacy@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+privacy}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+privacy@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+privacy}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+privacy()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+privacy (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{\textbf{ Linphone\+Privacy\+Mask}}]{privacy }\end{DoxyParamCaption})}
+
+
+
+Set default privacy policy for all calls routed through this proxy. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+ & {\em privacy} & Linphone\+Privacy to configure privacy \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga6646671d50f8a447a0f89a534edf0dd9}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+publish\+\_\+expires@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+publish\+\_\+expires}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+publish\+\_\+expires@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+publish\+\_\+expires}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+publish\+\_\+expires()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+publish\+\_\+expires (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{int}]{expires }\end{DoxyParamCaption})}
+
+
+
+Set the publish expiration time in second. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+ & {\em expires} & in second \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga5eb818aafb8cca230f40617ef3e18bba}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+collector@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+collector}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+collector@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+collector}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+collector()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+collector (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{collector }\end{DoxyParamCaption})}
+
+
+
+Set the route of the collector end-\/point when using quality reporting. 
+
+This S\+IP address should be used on server-\/side to process packets directly before discarding packets. Collector address should be a non existing account and will not receive any messages. If N\+U\+LL, reports will be send to the proxy domain. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\mbox{\tt in}  & {\em collector} & route of the collector end-\/point, if N\+U\+LL P\+U\+B\+L\+I\+SH will be sent to the proxy domain. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga077037b144a42b6067c3025596eaa897}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+interval@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+interval}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+interval@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+interval}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+interval()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+quality\+\_\+reporting\+\_\+interval (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{int}]{interval }\end{DoxyParamCaption})}
+
+
+
+Set the interval between 2 interval reports sending when using quality reporting. 
+
+If call exceed interval size, an interval report will be sent to the collector. On call termination, a session report will be sent for the remaining period. Value must be 0 (disabled) or positive. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\mbox{\tt in}  & {\em interval} & The interval in seconds, 0 means interval reports are disabled. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga4279d99d9f33955bfb3249467d7e98c1}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+realm@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+realm}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+realm@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+realm}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+realm()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+realm (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{realm }\end{DoxyParamCaption})}
+
+
+
+Set the realm of the given proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\mbox{\tt in}  & {\em realm} & New realm value. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga47060a21fe08f981cd5166067496f92d}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+ref\+\_\+key@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+ref\+\_\+key}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+ref\+\_\+key@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+ref\+\_\+key}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+ref\+\_\+key()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+ref\+\_\+key (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{refkey }\end{DoxyParamCaption})}
+
+
+
+Associate a persistent reference key to the proxy config. 
+
+The reference key can be for example an id to an external database. It is stored in the config file, thus can survive to process exits/restarts.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\mbox{\tt in}  & {\em refkey} & The reference key string to associate to the proxy config. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_gab774e242021e96efb7b4af86885bdbcc}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+route@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+route}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+route@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+route}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+route()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+route (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{route }\end{DoxyParamCaption})}
+
+
+
+Sets a S\+IP route. 
+
+When a route is set, all outgoing calls will go to the route\textquotesingle{}s destination if this proxy is the default one (see \doxyref{linphone\+\_\+core\+\_\+set\+\_\+default\+\_\+proxy()}{p.}{group__proxies_ga2082f2c37ffbf5d46e8d20ae8bccc2a4} ). \begin{DoxyReturn}{Returns}
+-\/1 if route is invalid, 0 otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__proxies_ga6e896345be76aaf6399ab4ed4532b2a4}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+server\+\_\+addr@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+server\+\_\+addr}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+server\+\_\+addr@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+server\+\_\+addr}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+server\+\_\+addr()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+server\+\_\+addr (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{const char $\ast$}]{server\+\_\+addr }\end{DoxyParamCaption})}
+
+
+
+Sets the proxy address. 
+
+Examples of valid sip proxy address are\+:
+\begin{DoxyItemize}
+\item IP address\+: sip\+:87.\+98.\+157.\+38
+\item IP address with port\+: sip\+:87.\+98.\+157.\+38\+:5062
+\item hostnames \+: sip\+:sip.\+example.\+net 
+\end{DoxyItemize}\mbox{\label{group__proxies_ga4258acbc13b3ba3ab36ff9ce06bffa9a}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+user\+\_\+data}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+set\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg,  }\item[{void $\ast$}]{ud }\end{DoxyParamCaption})}
+
+
+
+Assign a user pointer to the proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\mbox{\tt in}  & {\em ud} & The user pointer to associate with the proxy config. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_ga813af731d0baf61dd6b25590344b62a2}} 
+\index{Proxies@{Proxies}!linphone\+\_\+proxy\+\_\+config\+\_\+unref@{linphone\+\_\+proxy\+\_\+config\+\_\+unref}}
+\index{linphone\+\_\+proxy\+\_\+config\+\_\+unref@{linphone\+\_\+proxy\+\_\+config\+\_\+unref}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+proxy\+\_\+config\+\_\+unref()}
+{\footnotesize\ttfamily void linphone\+\_\+proxy\+\_\+config\+\_\+unref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Proxy\+Config} $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Release reference to the proxy config. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cfg} & \doxyref{Linphone\+Proxy\+Config}{p.}{group__proxies_ga1879a0d59e068457b688138da97f2d0b} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__proxies_gae79c79371d71750ee987757d59785ed7}} 
+\index{Proxies@{Proxies}!linphone\+\_\+registration\+\_\+state\+\_\+to\+\_\+string@{linphone\+\_\+registration\+\_\+state\+\_\+to\+\_\+string}}
+\index{linphone\+\_\+registration\+\_\+state\+\_\+to\+\_\+string@{linphone\+\_\+registration\+\_\+state\+\_\+to\+\_\+string}!Proxies@{Proxies}}
+\subsubsection{linphone\+\_\+registration\+\_\+state\+\_\+to\+\_\+string()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+registration\+\_\+state\+\_\+to\+\_\+string (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Registration\+State}}]{cs }\end{DoxyParamCaption})}
+
+
+
+Human readable version of the \doxyref{Linphone\+Registration\+State}{p.}{group__proxies_gabf1415b6c3722e92fc39ce592b1fe3e0}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cs} & sate \\
+\hline
+\end{DoxyParams}

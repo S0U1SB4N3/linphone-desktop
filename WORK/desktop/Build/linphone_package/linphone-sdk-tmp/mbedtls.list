@@ -1,0 +1,3 @@
+lib/libmbedcrypto*.dylib
+lib/libmbedx509*.dylib
+lib/libmbedtls*.dylib

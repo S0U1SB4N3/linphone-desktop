@@ -1,0 +1,41 @@
+.TH "_OrtpVideoBandwidthEstimatorParams" 3 "Thu Dec 14 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_OrtpVideoBandwidthEstimatorParams
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <rtpsession\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBenabled\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBpacket_count_min\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBpackets_size_max\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBtrust_percentage\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Structure describing the video bandwidth estimator parameters 
+.SH "Field Documentation"
+.PP 
+.SS "int _OrtpVideoBandwidthEstimatorParams::enabled"
+Whether estimator is enabled or off\&. 
+.SS "unsigned int _OrtpVideoBandwidthEstimatorParams::packets_size_max"
+minimum number of packets with the same sent timestamp to be processed continuously before being used 
+.SS "unsigned int _OrtpVideoBandwidthEstimatorParams::trust_percentage"
+number of packets needed to compute the available video bandwidth 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

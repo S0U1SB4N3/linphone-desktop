@@ -1,0 +1,10 @@
+# This is a comment
+prefix=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop
+exec_prefix=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/bin
+includedir=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include
+
+Name: oRTP 
+Description: Implement the RFC3550 (RTP) with a easy to use API with high and low level access.
+Version: 1.0.2
+Libs: -L/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/lib -lortp 
+Cflags: -I/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include 

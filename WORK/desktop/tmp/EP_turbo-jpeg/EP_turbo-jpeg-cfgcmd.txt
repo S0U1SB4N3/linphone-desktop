@@ -1,0 +1,1 @@
+cmd='/usr/local/Cellar/cmake/3.8.2/bin/cmake;-DENABLE_STATIC=YES;-DENABLE_SHARED=NO;-C<TMP_DIR>/EP_turbo-jpeg-cache-$<CONFIG>.cmake;-GUnix Makefiles;<SOURCE_DIR><SOURCE_SUBDIR>'

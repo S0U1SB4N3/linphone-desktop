@@ -1,0 +1,1109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="b64_8h" kind="file" language="C++">
+    <compoundname>b64.h</compoundname>
+    <includes local="no">stddef.h</includes>
+    <includedby refid="b64_8c" local="yes">b64.c</includedby>
+    <incdepgraph>
+      <node id="20">
+        <label>stddef.h</label>
+      </node>
+      <node id="19">
+        <label>b64.h</label>
+        <link refid="b64_8h"/>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="22">
+        <label>b64.c</label>
+        <link refid="b64_8c"/>
+      </node>
+      <node id="21">
+        <label>b64.h</label>
+        <link refid="b64_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="b64_8h_1a2c4522ec1680d94b1384af538dcb8ec5" prot="public" static="no">
+        <name>B64_VER_B64_H_B64_MAJOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="57" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1ac9c42f119e1ce799c5dddf13d739b8a4" prot="public" static="no">
+        <name>B64_VER_B64_H_B64_MINOR</name>
+        <initializer>5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="58" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a093dc99926d1149bbe9d1e421f474fe1" prot="public" static="no">
+        <name>B64_VER_B64_H_B64_REVISION</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="59" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1ab0d03e186f1dd9fe8d38283f65402243" prot="public" static="no">
+        <name>B64_VER_B64_H_B64_EDIT</name>
+        <initializer>28</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="60" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="60" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a91115a820e707a381aa1dbbf2e6b7fb1" prot="public" static="no">
+        <name>B64_VER_1_0_1</name>
+        <initializer>0x01000100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="80" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1ae3ac967a600434b13065c917cc5e6957" prot="public" static="no">
+        <name>B64_VER_1_0_2</name>
+        <initializer>0x01000200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="81" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a23aa7c4d56ee1f5a0d942650059cca02" prot="public" static="no">
+        <name>B64_VER_1_0_3</name>
+        <initializer>0x01000300</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="82" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1ad8258483cf4298de59e16c7117dcbfe8" prot="public" static="no">
+        <name>B64_VER_1_1_1</name>
+        <initializer>0x01010100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="83" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1ac71838065083fd8c783bf556426d66b2" prot="public" static="no">
+        <name>B64_VER_1_1_2</name>
+        <initializer>0x01010200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="84" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a8a28e18c13b4f2272c837240057a74c8" prot="public" static="no">
+        <name>B64_VER_1_1_3</name>
+        <initializer>0x01010300</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="85" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a033c6c62147ccfa0ae709d1447c3155e" prot="public" static="no">
+        <name>B64_VER_1_2_1</name>
+        <initializer>0x01020100</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="86" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a2b5da056c59e9dcd61df67f492aedb53" prot="public" static="no">
+        <name>B64_VER_1_2_2</name>
+        <initializer>0x01020200</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="87" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a5a0e37b462635c0a02689ce253157c38" prot="public" static="no">
+        <name>B64_VER_1_2_3</name>
+        <initializer>0x01020300</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="88" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1ae77f684fbfbbe98e77dff72e114c5a3e" prot="public" static="no">
+        <name>B64_VER_1_2_4</name>
+        <initializer>0x01020400</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="89" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1ad606ba4b7ebb5ef1c0b5c652cea1325a" prot="public" static="no">
+        <name>B64_VER_1_2_5</name>
+        <initializer>0x01020500</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="90" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a0ff69f09786e5d273823e8355e4fe982" prot="public" static="no">
+        <name>B64_VER_1_2_6</name>
+        <initializer>0x01020600</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="91" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="91" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a92f5e669132fa67fe01c131cd1964bc1" prot="public" static="no">
+        <name>B64_VER_1_2_7</name>
+        <initializer>0x01020700</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="92" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a05aa3f40f1f9fd12453b10c0914d5d11" prot="public" static="no">
+        <name>B64_VER_1_3_1</name>
+        <initializer>0x010301ff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="93" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a7384e88f6ca07d46409243ab3632fb26" prot="public" static="no">
+        <name>B64_VER_1_3_2</name>
+        <initializer>0x010302ff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="94" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1afc889160969b0e16edcdd8e587686e99" prot="public" static="no">
+        <name>B64_VER_1_3_3</name>
+        <initializer>0x010303ff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="95" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1afb70fd4c5845ab2fc5618b8030d161db" prot="public" static="no">
+        <name>B64_VER_1_3_4</name>
+        <initializer>0x010304ff</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="96" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1abe0b08c19ff1be8d226ffc918b094c7a" prot="public" static="no">
+        <name>B64_VER</name>
+        <initializer>B64_VER_1_3_4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The current composite version number of b64 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="98" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a7c8c6f92247adb4a9c879eab9b0746e1" prot="public" static="no">
+        <name>B64_VER_MAJOR</name>
+        <initializer>1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The major version number of b64 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="103" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1afbc2c009921cd16d7960def81987189d" prot="public" static="no">
+        <name>B64_VER_MINOR</name>
+        <initializer>3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The minor version number of b64 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="104" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a6cffd0bac9997a6d085c4b9486487cd5" prot="public" static="no">
+        <name>B64_VER_REVISION</name>
+        <initializer>4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The revision version number of b64 </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="105" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="b64_8h_1a4c5badd33244f6fe9ca6ab5515a1dcf3" prot="public" static="no">
+        <name>B64_NO_NAMESPACE</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="119" column="10" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="b64_8h_1a432f620157f14714e209d99a20f523d9" prot="public" static="no">
+        <name>B64_RC</name>
+        <enumvalue id="b64_8h_1a432f620157f14714e209d99a20f523d9a093d40a7c78e12094da606fbe9633e36" prot="public">
+          <name>B64_RC_OK</name>
+          <initializer>=   0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Operation was successful. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a432f620157f14714e209d99a20f523d9abfeaa32948d5a8b9afe5314a4e5f4ce3" prot="public">
+          <name>B64_RC_INSUFFICIENT_BUFFER</name>
+          <initializer>=   1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The given translation buffer was not of sufficient size. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a432f620157f14714e209d99a20f523d9a207599c81a925353d57267f0a878147c" prot="public">
+          <name>B64_RC_TRUNCATED_INPUT</name>
+          <initializer>=   2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>The input did not represent a fully formed stream of octet couplings. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a432f620157f14714e209d99a20f523d9a0d7d5feca8db186e00437c4c7b6aeb41" prot="public">
+          <name>B64_RC_DATA_ERROR</name>
+          <initializer>=   3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Invalid data. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a432f620157f14714e209d99a20f523d9ae4df01457010823eef400581892fc00a" prot="public">
+          <name>B64_max_RC_value</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Return codes (from <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref> / <ref refid="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" kindref="member">b64_decode2()</ref>) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="166" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="165" bodyend="174"/>
+      </memberdef>
+      <memberdef kind="enum" id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413c" prot="public" static="no">
+        <name>B64_FLAGS</name>
+        <enumvalue id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413cae413e3e84255c3eae6ad13c5fa98ecca" prot="public">
+          <name>B64_F_LINE_LEN_USE_PARAM</name>
+          <initializer>=   0x0000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Uses the lineLen parameter to <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. Ignored by <ref refid="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" kindref="member">b64_decode2()</ref>. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413cadd6af461896c070fa3db1bd33921e379" prot="public">
+          <name>B64_F_LINE_LEN_INFINITE</name>
+          <initializer>=   0x0001</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Ignores the lineLen parameter to <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. Line length is infinite. Ignored by <ref refid="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" kindref="member">b64_decode2()</ref>. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413ca816f1c78e0a6f47a5bfad5ff1fcf0b72" prot="public">
+          <name>B64_F_LINE_LEN_64</name>
+          <initializer>=   0x0002</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Ignores the lineLen parameter to <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. Line length is 64. Ignored by <ref refid="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" kindref="member">b64_decode2()</ref>. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413ca96b853d392c2cdce0c8019a89a1d4a0b" prot="public">
+          <name>B64_F_LINE_LEN_76</name>
+          <initializer>=   0x0003</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Ignores the lineLen parameter to <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. Line length is 76. Ignored by <ref refid="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" kindref="member">b64_decode2()</ref>. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413cacc8694fc21ea7aa55739e129ab004571" prot="public">
+          <name>B64_F_LINE_LEN_MASK</name>
+          <initializer>=   0x000f</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Mask for testing line length flags to <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. Ignored by <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413cac9103a00218a3d5888e0e40123104340" prot="public">
+          <name>B64_F_STOP_ON_NOTHING</name>
+          <initializer>=   0x0000</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Decoding ignores all invalid characters in the input data. Ignored by <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413caa020e250cf72194c76df9a241b4ec454" prot="public">
+          <name>B64_F_STOP_ON_UNKNOWN_CHAR</name>
+          <initializer>=   0x0100</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Causes decoding to break if any non-Base-64 [a-zA-Z0-9=+/], non-whitespace character is encountered. Ignored by <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413caad4bc3f40b605d9364692a04cf198fa2" prot="public">
+          <name>B64_F_STOP_ON_UNEXPECTED_WS</name>
+          <initializer>=   0x0200</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Causes decoding to break if any unexpected whitespace is encountered. Ignored by <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. </para>          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413caac1deeef9e56c113faffc338c008346c" prot="public">
+          <name>B64_F_STOP_ON_BAD_CHAR</name>
+          <initializer>=   0x0300</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Causes decoding to break if any non-Base-64 [a-zA-Z0-9=+/] character is encountered. Ignored by <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref>. </para>          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Coding behaviour modification flags (for <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref> / <ref refid="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" kindref="member">b64_decode2()</ref>) </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="183" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="182" bodyend="193"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="b64_8h_1aa33b5f86d2186fd56bdf85a442202dc3" prot="public" static="no">
+        <type>enum <ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_RC</ref></type>
+        <definition>typedef enum B64_RC B64_RC</definition>
+        <argsstring></argsstring>
+        <name>B64_RC</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="9" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="b64_8h_1a5bd0b8433038525a851fb4b4f772836c" prot="public" static="no">
+        <type>enum <ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413c" kindref="member">B64_FLAGS</ref></type>
+        <definition>typedef enum B64_FLAGS B64_FLAGS</definition>
+        <argsstring></argsstring>
+        <name>B64_FLAGS</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="9" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" bodystart="196" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="b64_8h_1aa518340c8e76af0cf0753c15bebfc2af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t b64_encode</definition>
+        <argsstring>(void const *src, size_t srcSize, char *dest, size_t destLen)</argsstring>
+        <name>b64_encode</name>
+        <param>
+          <type>void const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>srcSize</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>destLen</declname>
+        </param>
+        <briefdescription>
+<para>Encodes a block of binary data into Base-64. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the block to be encoded. May not be NULL, except when <computeroutput>dest</computeroutput> is NULL, in which case it is ignored. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>srcSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of block to be encoded </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer into which the result is to be written. May be NULL, in which case the function returns the required length </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destLen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from <ref refid="b64_8h_1aa518340c8e76af0cf0753c15bebfc2af" kindref="member">b64_encode(NULL, srcSize, NULL, 0)</ref>.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than <computeroutput>destLen</computeroutput> </para></simplesect>
+<simplesect kind="note"><para>The function returns the required length if <computeroutput>dest</computeroutput> is NULL</para></simplesect>
+<simplesect kind="note"><para>The function returns the required length if <computeroutput>dest</computeroutput> is NULL. The returned size might be larger than the actual required size, but will never be smaller.</para></simplesect>
+<simplesect kind="note"><para>Threading: The function is fully re-entrant.</para></simplesect>
+<simplesect kind="see"><para>b64::encode() </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="230" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="425" bodyend="433"/>
+      </memberdef>
+      <memberdef kind="function" id="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t b64_encode2</definition>
+        <argsstring>(void const *src, size_t srcSize, char *dest, size_t destLen, unsigned flags, int lineLen, B64_RC *rc)</argsstring>
+        <name>b64_encode2</name>
+        <param>
+          <type>void const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>srcSize</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>destLen</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>lineLen</declname>
+        </param>
+        <param>
+          <type><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_RC</ref> *</type>
+          <declname>rc</declname>
+        </param>
+        <briefdescription>
+<para>Encodes a block of binary data into Base-64. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the block to be encoded. May not be NULL, except when <computeroutput>dest</computeroutput> is NULL, in which case it is ignored. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>srcSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of block to be encoded </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer into which the result is to be written. May be NULL, in which case the function returns the required length </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destLen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2(NULL, srcSize, NULL, 0, flags, lineLen, rc)</ref>. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A combination of the B64_FLAGS enumeration, that moderate the behaviour of the function </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>lineLen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the flags parameter contains B64_F_LINE_LEN_USE_PARAM, then this parameter represents the length of the lines into which the encoded form is split, with a hard line break (&apos;\r\n&apos;). If this value is 0, then the line is not split. If it is &lt;0, then the RFC-1113 recommended line length of 64 is used </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The return code representing the status of the operation. May be NULL.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than <computeroutput>destLen</computeroutput> </para></simplesect>
+<simplesect kind="note"><para>The function returns the required length if <computeroutput>dest</computeroutput> is NULL. The returned size might be larger than the actual required size, but will never be smaller.</para></simplesect>
+<simplesect kind="note"><para>Threading: The function is fully re-entrant.</para></simplesect>
+<simplesect kind="see"><para>b64::encode() </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="260" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="435" bodyend="477"/>
+      </memberdef>
+      <memberdef kind="function" id="b64_8h_1af0a580e1694f2addb2fec740214f959a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t b64_decode</definition>
+        <argsstring>(char const *src, size_t srcLen, void *dest, size_t destSize)</argsstring>
+        <name>b64_decode</name>
+        <param>
+          <type>char const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>srcLen</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>destSize</declname>
+        </param>
+        <briefdescription>
+<para>Decodes a sequence of Base-64 into a block of binary data. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the Base-64 block to be decoded. May not be NULL, except when <computeroutput>dest</computeroutput> is NULL, in which case it is ignored. If <computeroutput>dest</computeroutput> is NULL, and <computeroutput>src</computeroutput> is <bold>not</bold> NULL, then the returned value is calculated exactly, otherwise a value is returned that is guaranteed to be large enough to hold the decoded block.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>srcLen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of block to be encoded. Must be an integral of 4, the Base-64 encoding quantum, otherwise the Base-64 block is assumed to be invalid </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer into which the result is to be written. May be NULL, in which case the function returns the required length </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from <computeroutput>b64_decode(src, srcSize, NULL, 0)</computeroutput>, even in the case where the encoded form contains a number of characters that will be ignored, resulting in a lower total length of converted form.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than <computeroutput>destSize</computeroutput> </para></simplesect>
+<simplesect kind="note"><para>The function returns the required length if <computeroutput>dest</computeroutput> is NULL. The returned size might be larger than the actual required size, but will never be smaller.</para></simplesect>
+<simplesect kind="note"><para><anchor id="b64_8h_1anchor__4_characters"/>The behaviour of both <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref> and <ref refid="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" kindref="member">b64_decode2()</ref> are undefined if the line length is not a multiple of 4.</para></simplesect>
+<simplesect kind="note"><para>Threading: The function is fully re-entrant.</para></simplesect>
+<simplesect kind="see"><para>b64::decode() </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="301" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="479" bodyend="488"/>
+      </memberdef>
+      <memberdef kind="function" id="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t b64_decode2</definition>
+        <argsstring>(char const *src, size_t srcLen, void *dest, size_t destSize, unsigned flags, char const **badChar, B64_RC *rc)</argsstring>
+        <name>b64_decode2</name>
+        <param>
+          <type>char const *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>srcLen</declname>
+        </param>
+        <param>
+          <type>void *</type>
+          <declname>dest</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>destSize</declname>
+        </param>
+        <param>
+          <type>unsigned</type>
+          <declname>flags</declname>
+        </param>
+        <param>
+          <type>char const **</type>
+          <declname>badChar</declname>
+        </param>
+        <param>
+          <type><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_RC</ref> *</type>
+          <declname>rc</declname>
+        </param>
+        <briefdescription>
+<para>Decodes a sequence of Base-64 into a block of binary data. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the Base-64 block to be decoded. May not be NULL, except when <computeroutput>dest</computeroutput> is NULL, in which case it is ignored. If <computeroutput>dest</computeroutput> is NULL, and <computeroutput>src</computeroutput> is <bold>not</bold> NULL, then the returned value is calculated exactly, otherwise a value is returned that is guaranteed to be large enough to hold the decoded block.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>srcLen</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of block to be encoded. Must be an integral of 4, the Base-64 encoding quantum, otherwise the Base-64 block is assumed to be invalid </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>dest</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Pointer to the buffer into which the result is to be written. May be NULL, in which case the function returns the required length </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>destSize</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Length of the buffer into which the result is to be written. Must be at least as large as that indicated by the return value from <computeroutput>b64_decode(src, srcSize, NULL, 0)</computeroutput>, even in the case where the encoded form contains a number of characters that will be ignored, resulting in a lower total length of converted form. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>flags</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>A combination of the B64_FLAGS enumeration, that moderate the behaviour of the function. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rc</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The return code representing the status of the operation. May be NULL. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>badChar</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>If the flags parameter does not contain B64_F_STOP_ON_NOTHING, this parameter specifies the address of a pointer that will be set to point to any character in the sequence that stops the parsing, as dictated by the flags parameter. May be NULL.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than <computeroutput>destSize</computeroutput>, or a bad character stopped parsing.</para></simplesect>
+<simplesect kind="note"><para>The function returns the required length if <computeroutput>dest</computeroutput> is NULL. The returned size might be larger than the actual required size, but will never be smaller.</para></simplesect>
+<simplesect kind="note"><para>The behaviour of both <ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2()</ref> and <ref refid="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" kindref="member">b64_decode2()</ref> are undefined if the line length is not a multiple of 4.</para></simplesect>
+<simplesect kind="note"><para>Threading: The function is fully re-entrant.</para></simplesect>
+<simplesect kind="see"><para>b64::decode() </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="343" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="490" bodyend="514"/>
+      </memberdef>
+      <memberdef kind="function" id="b64_8h_1a84adc01b9c5028eee501d2fb2bef9a11" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char const  *</type>
+        <definition>char const* b64_getErrorString</definition>
+        <argsstring>(B64_RC code)</argsstring>
+        <name>b64_getErrorString</name>
+        <param>
+          <type><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_RC</ref></type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>Returns the textual description of the error. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">error code</ref> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="356" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="597" bodyend="600"/>
+      </memberdef>
+      <memberdef kind="function" id="b64_8h_1a48c61d4785f8b1f8122a5a9f778a9f20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t b64_getErrorStringLength</definition>
+        <argsstring>(B64_RC code)</argsstring>
+        <name>b64_getErrorStringLength</name>
+        <param>
+          <type><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_RC</ref></type>
+          <declname>code</declname>
+        </param>
+        <briefdescription>
+<para>Returns the length of the textual description of the error. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="see"><para><ref refid="b64_8h_1a84adc01b9c5028eee501d2fb2bef9a11" kindref="member">b64_getErrorString()</ref></para></simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>code</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The <ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">error code</ref> </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h" line="364" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/b64.c" bodystart="602" bodyend="607"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>[C/C++] Header file for the b64 library. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*<sp/>/////////////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>File:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b64/b64.h</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*<sp/>Purpose:<sp/><sp/><sp/><sp/><sp/>Header<sp/>file<sp/>for<sp/>the<sp/>b64<sp/>library</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/>Created:<sp/><sp/><sp/><sp/><sp/>18th<sp/>October<sp/>2004</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/>Updated:<sp/><sp/><sp/><sp/><sp/>24th<sp/>August<sp/>2008</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*<sp/>Thanks:<sp/><sp/><sp/><sp/><sp/><sp/>To<sp/>Adam<sp/>McLaurin,<sp/>for<sp/>ideas<sp/>regarding<sp/>the<sp/>b64_decode2()<sp/>and</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>b64_encode2().</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/>Home:<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>http://synesis.com.au/software/</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(c)<sp/>2004-2008,<sp/>Matthew<sp/>Wilson<sp/>and<sp/>Synesis<sp/>Software</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/>All<sp/>rights<sp/>reserved.</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/>Redistribution<sp/>and<sp/>use<sp/>in<sp/>source<sp/>and<sp/>binary<sp/>forms,<sp/>with<sp/>or<sp/>without</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*<sp/>modification,<sp/>are<sp/>permitted<sp/>provided<sp/>that<sp/>the<sp/>following<sp/>conditions<sp/>are<sp/>met:</highlight></codeline>
+<codeline lineno="19"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="20"><highlight class="comment"><sp/>*<sp/>-<sp/>Redistributions<sp/>of<sp/>source<sp/>code<sp/>must<sp/>retain<sp/>the<sp/>above<sp/>copyright<sp/>notice,<sp/>this</highlight></codeline>
+<codeline lineno="21"><highlight class="comment"><sp/>*<sp/><sp/><sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer.</highlight></codeline>
+<codeline lineno="22"><highlight class="comment"><sp/>*<sp/>-<sp/>Redistributions<sp/>in<sp/>binary<sp/>form<sp/>must<sp/>reproduce<sp/>the<sp/>above<sp/>copyright<sp/>notice,</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"><sp/>*<sp/><sp/><sp/>this<sp/>list<sp/>of<sp/>conditions<sp/>and<sp/>the<sp/>following<sp/>disclaimer<sp/>in<sp/>the<sp/>documentation</highlight></codeline>
+<codeline lineno="24"><highlight class="comment"><sp/>*<sp/><sp/><sp/>and/or<sp/>other<sp/>materials<sp/>provided<sp/>with<sp/>the<sp/>distribution.</highlight></codeline>
+<codeline lineno="25"><highlight class="comment"><sp/>*<sp/>-<sp/>Neither<sp/>the<sp/>name(s)<sp/>of<sp/>Matthew<sp/>Wilson<sp/>and<sp/>Synesis<sp/>Software<sp/>nor<sp/>the<sp/>names<sp/>of</highlight></codeline>
+<codeline lineno="26"><highlight class="comment"><sp/>*<sp/><sp/><sp/>any<sp/>contributors<sp/>may<sp/>be<sp/>used<sp/>to<sp/>endorse<sp/>or<sp/>promote<sp/>products<sp/>derived<sp/>from</highlight></codeline>
+<codeline lineno="27"><highlight class="comment"><sp/>*<sp/><sp/><sp/>this<sp/>software<sp/>without<sp/>specific<sp/>prior<sp/>written<sp/>permission.</highlight></codeline>
+<codeline lineno="28"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="29"><highlight class="comment"><sp/>*<sp/>THIS<sp/>SOFTWARE<sp/>IS<sp/>PROVIDED<sp/>BY<sp/>THE<sp/>COPYRIGHT<sp/>HOLDERS<sp/>AND<sp/>CONTRIBUTORS<sp/>&quot;AS<sp/>IS&quot;</highlight></codeline>
+<codeline lineno="30"><highlight class="comment"><sp/>*<sp/>AND<sp/>ANY<sp/>EXPRESS<sp/>OR<sp/>IMPLIED<sp/>WARRANTIES,<sp/>INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>THE</highlight></codeline>
+<codeline lineno="31"><highlight class="comment"><sp/>*<sp/>IMPLIED<sp/>WARRANTIES<sp/>OF<sp/>MERCHANTABILITY<sp/>AND<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE</highlight></codeline>
+<codeline lineno="32"><highlight class="comment"><sp/>*<sp/>ARE<sp/>DISCLAIMED.<sp/>IN<sp/>NO<sp/>EVENT<sp/>SHALL<sp/>THE<sp/>COPYRIGHT<sp/>OWNER<sp/>OR<sp/>CONTRIBUTORS<sp/>BE</highlight></codeline>
+<codeline lineno="33"><highlight class="comment"><sp/>*<sp/>LIABLE<sp/>FOR<sp/>ANY<sp/>DIRECT,<sp/>INDIRECT,<sp/>INCIDENTAL,<sp/>SPECIAL,<sp/>EXEMPLARY,<sp/>OR</highlight></codeline>
+<codeline lineno="34"><highlight class="comment"><sp/>*<sp/>CONSEQUENTIAL<sp/>DAMAGES<sp/>(INCLUDING,<sp/>BUT<sp/>NOT<sp/>LIMITED<sp/>TO,<sp/>PROCUREMENT<sp/>OF</highlight></codeline>
+<codeline lineno="35"><highlight class="comment"><sp/>*<sp/>SUBSTITUTE<sp/>GOODS<sp/>OR<sp/>SERVICES;<sp/>LOSS<sp/>OF<sp/>USE,<sp/>DATA,<sp/>OR<sp/>PROFITS;<sp/>OR<sp/>BUSINESS</highlight></codeline>
+<codeline lineno="36"><highlight class="comment"><sp/>*<sp/>INTERRUPTION)<sp/>HOWEVER<sp/>CAUSED<sp/>AND<sp/>ON<sp/>ANY<sp/>THEORY<sp/>OF<sp/>LIABILITY,<sp/>WHETHER<sp/>IN</highlight></codeline>
+<codeline lineno="37"><highlight class="comment"><sp/>*<sp/>CONTRACT,<sp/>STRICT<sp/>LIABILITY,<sp/>OR<sp/>TORT<sp/>(INCLUDING<sp/>NEGLIGENCE<sp/>OR<sp/>OTHERWISE)</highlight></codeline>
+<codeline lineno="38"><highlight class="comment"><sp/>*<sp/>ARISING<sp/>IN<sp/>ANY<sp/>WAY<sp/>OUT<sp/>OF<sp/>THE<sp/>USE<sp/>OF<sp/>THIS<sp/>SOFTWARE,<sp/>EVEN<sp/>IF<sp/>ADVISED<sp/>OF<sp/>THE</highlight></codeline>
+<codeline lineno="39"><highlight class="comment"><sp/>*<sp/>POSSIBILITY<sp/>OF<sp/>SUCH<sp/>DAMAGE.</highlight></codeline>
+<codeline lineno="40"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="41"><highlight class="comment"><sp/>*<sp/>//////////////////////////////////////////////////////////////////////////<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="preprocessor">#ifndef<sp/>B64_INCL_B64_H_B64</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B64_INCL_B64_H_B64</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>/////////////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="53"><highlight class="comment"><sp/>*<sp/>Version<sp/>information</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>B64_DOCUMENTATION_SKIP_SECTION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_B64_H_B64_MAJOR<sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_B64_H_B64_MINOR<sp/><sp/><sp/><sp/>5</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_B64_H_B64_REVISION<sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_B64_H_B64_EDIT<sp/><sp/><sp/><sp/><sp/>28</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!B64_DOCUMENTATION_SKIP_SECTION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="preprocessor">#ifndef<sp/>B64_DOCUMENTATION_SKIP_SECTION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_0_1<sp/><sp/><sp/><sp/><sp/><sp/>0x01000100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_0_2<sp/><sp/><sp/><sp/><sp/><sp/>0x01000200</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_0_3<sp/><sp/><sp/><sp/><sp/><sp/>0x01000300</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_1_1<sp/><sp/><sp/><sp/><sp/><sp/>0x01010100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_1_2<sp/><sp/><sp/><sp/><sp/><sp/>0x01010200</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_1_3<sp/><sp/><sp/><sp/><sp/><sp/>0x01010300</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_2_1<sp/><sp/><sp/><sp/><sp/><sp/>0x01020100</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_2_2<sp/><sp/><sp/><sp/><sp/><sp/>0x01020200</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_2_3<sp/><sp/><sp/><sp/><sp/><sp/>0x01020300</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_2_4<sp/><sp/><sp/><sp/><sp/><sp/>0x01020400</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_2_5<sp/><sp/><sp/><sp/><sp/><sp/>0x01020500</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_2_6<sp/><sp/><sp/><sp/><sp/><sp/>0x01020600</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_2_7<sp/><sp/><sp/><sp/><sp/><sp/>0x01020700</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_3_1<sp/><sp/><sp/><sp/><sp/><sp/>0x010301ff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_3_2<sp/><sp/><sp/><sp/><sp/><sp/>0x010302ff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_3_3<sp/><sp/><sp/><sp/><sp/><sp/>0x010303ff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER_1_3_4<sp/><sp/><sp/><sp/><sp/><sp/>0x010304ff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>B64_VER_1_3_4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight><highlight class="preprocessor">#else<sp/></highlight><highlight class="comment">/*<sp/>?<sp/>B64_DOCUMENTATION_SKIP_SECTION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_VER<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>0x010304ff</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!B64_DOCUMENTATION_SKIP_SECTION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B64_VER_MAJOR<sp/><sp/><sp/><sp/><sp/><sp/><sp/>1</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B64_VER_MINOR<sp/><sp/><sp/><sp/><sp/><sp/><sp/>3</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>B64_VER_REVISION<sp/><sp/><sp/><sp/>4</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>/////////////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="108"><highlight class="comment"><sp/>*<sp/>Includes</highlight></codeline>
+<codeline lineno="109"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stddef.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>/////////////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="114"><highlight class="comment"><sp/>*<sp/>Namespace</highlight></codeline>
+<codeline lineno="115"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/>!defined(B64_NO_NAMESPACE)<sp/>&amp;&amp;<sp/>\</highlight></codeline>
+<codeline lineno="118"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>!defined(__cplusplus)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>B64_NO_NAMESPACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!B64_NO_NAMESPACE<sp/>&amp;&amp;<sp/>!__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>B64_NAMESPACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>undef<sp/>B64_NAMESPACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>B64_NAMESPACE<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>B64_NAMESPACE_QUALIFIER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="127"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>undef<sp/>B64_NAMESPACE_QUALIFIER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>B64_NAMESPACE_QUALIFIER<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"></highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>B64_NO_NAMESPACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>ifdef<sp/>B64_CUSTOM_NAMESPACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>B64_NAMESPACE<sp/><sp/><sp/><sp/><sp/>B64_CUSTOM_NAMESPACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>else<sp/></highlight><highlight class="comment">/*<sp/>?<sp/>B64_CUSTOM_NAMESPACE<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>B64_NAMESPACE<sp/><sp/><sp/><sp/><sp/>b64</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif<sp/></highlight><highlight class="comment">/*<sp/>B64_CUSTOM_NAMESPACE<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>if<sp/>defined(B64_CUSTOM_NAMESPACE)<sp/>&amp;&amp;<sp/>\</highlight></codeline>
+<codeline lineno="140"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/>defined(B64_CUSTOM_NAMESPACE_QUALIFIER)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>B64_NAMESPACE_QUALIFIER<sp/><sp/><sp/><sp/><sp/><sp/><sp/>B64_CUSTOM_NAMESPACE_QUALIFIER</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="142"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>else<sp/></highlight><highlight class="comment">/*<sp/>B64_CUSTOM_NAMESPACE<sp/>&amp;&amp;<sp/>B64_CUSTOM_NAMESPACE_QUALIFIER<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/><sp/>define<sp/>B64_NAMESPACE_QUALIFIER<sp/><sp/><sp/><sp/><sp/><sp/><sp/>::B64_NAMESPACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif<sp/></highlight><highlight class="comment">/*<sp/>B64_CUSTOM_NAMESPACE<sp/>&amp;&amp;<sp/>B64_CUSTOM_NAMESPACE_QUALIFIER<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155"><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">B64_NAMESPACE</highlight></codeline>
+<codeline lineno="156"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!B64_NO_NAMESPACE<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>/////////////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="160"><highlight class="comment"><sp/>*<sp/>Enumerations</highlight></codeline>
+<codeline lineno="161"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_RC</ref></highlight></codeline>
+<codeline lineno="166"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9a093d40a7c78e12094da606fbe9633e36" kindref="member">B64_RC_OK</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>0<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9abfeaa32948d5a8b9afe5314a4e5f4ce3" kindref="member">B64_RC_INSUFFICIENT_BUFFER</ref><sp/><sp/>=<sp/><sp/><sp/>1<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9a207599c81a925353d57267f0a878147c" kindref="member">B64_RC_TRUNCATED_INPUT</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>2<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9a0d7d5feca8db186e00437c4c7b6aeb41" kindref="member">B64_RC_DATA_ERROR</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>3<sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="171"><highlight class="preprocessor">#ifndef<sp/>B64_DOCUMENTATION_SKIP_SECTION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/>B64_max_RC_value</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!B64_DOCUMENTATION_SKIP_SECTION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="174"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"></highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_RC</ref><sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_RC</ref>;</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="182"><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413c" kindref="member">B64_FLAGS</ref></highlight></codeline>
+<codeline lineno="183"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="184"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413cae413e3e84255c3eae6ad13c5fa98ecca" kindref="member">B64_F_LINE_LEN_USE_PARAM</ref><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>0x0000<sp/><sp/></highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413cadd6af461896c070fa3db1bd33921e379" kindref="member">B64_F_LINE_LEN_INFINITE</ref><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>0x0001<sp/><sp/></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413ca816f1c78e0a6f47a5bfad5ff1fcf0b72" kindref="member">B64_F_LINE_LEN_64</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>0x0002<sp/><sp/></highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413ca96b853d392c2cdce0c8019a89a1d4a0b" kindref="member">B64_F_LINE_LEN_76</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>0x0003<sp/><sp/></highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413cacc8694fc21ea7aa55739e129ab004571" kindref="member">B64_F_LINE_LEN_MASK</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>0x000f<sp/><sp/></highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413cac9103a00218a3d5888e0e40123104340" kindref="member">B64_F_STOP_ON_NOTHING</ref><sp/><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>0x0000<sp/><sp/></highlight></codeline>
+<codeline lineno="190"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413caa020e250cf72194c76df9a241b4ec454" kindref="member">B64_F_STOP_ON_UNKNOWN_CHAR</ref><sp/><sp/>=<sp/><sp/><sp/>0x0100<sp/><sp/></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413caad4bc3f40b605d9364692a04cf198fa2" kindref="member">B64_F_STOP_ON_UNEXPECTED_WS</ref><sp/>=<sp/><sp/><sp/>0x0200<sp/><sp/></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413caac1deeef9e56c113faffc338c008346c" kindref="member">B64_F_STOP_ON_BAD_CHAR</ref><sp/><sp/><sp/><sp/><sp/><sp/>=<sp/><sp/><sp/>0x0300<sp/><sp/></highlight></codeline>
+<codeline lineno="193"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"></highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413c" kindref="member">B64_FLAGS</ref><sp/><sp/><ref refid="b64_8h_1a5768c3ae7453e1fa71cd7c737fc7413c" kindref="member">B64_FLAGS</ref>;</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight></codeline>
+<codeline lineno="199"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>/////////////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="200"><highlight class="comment"><sp/>*<sp/>Functions</highlight></codeline>
+<codeline lineno="201"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"></highlight></codeline>
+<codeline lineno="203"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="230"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1aa518340c8e76af0cf0753c15bebfc2af" kindref="member">b64_encode</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*src,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>srcSize,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*dest,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>destLen);</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"></highlight></codeline>
+<codeline lineno="260"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1ab08b80124c4db4bf423feff5f7ffa5f2" kindref="member">b64_encode2</ref>(<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><sp/>*src</highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>srcSize</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*dest</highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>destLen</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>flags</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>lineLen<sp/></highlight><highlight class="comment">/*<sp/>=<sp/>0<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="266"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/>B64_RC<sp/><sp/><sp/><sp/><sp/><sp/>*rc<sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=<sp/>NULL<sp/>*/</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="301"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1af0a580e1694f2addb2fec740214f959a" kindref="member">b64_decode</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*src,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>srcLen,<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*dest,<sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>destSize);</highlight></codeline>
+<codeline lineno="302"><highlight class="normal"></highlight></codeline>
+<codeline lineno="343"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a50a93e4f6a922c5314a9cb50befc2d13" kindref="member">b64_decode2</ref>(<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><sp/>*src</highlight></codeline>
+<codeline lineno="344"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>srcLen</highlight></codeline>
+<codeline lineno="345"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*dest</highlight></codeline>
+<codeline lineno="346"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>destSize</highlight></codeline>
+<codeline lineno="347"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/><sp/><sp/><sp/>flags</highlight></codeline>
+<codeline lineno="348"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><sp/>**badChar<sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=<sp/>NULL<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="349"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>,<sp/><sp/><sp/>B64_RC<sp/><sp/><sp/><sp/><sp/><sp/>*rc<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>=<sp/>NULL<sp/>*/</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="350"><highlight class="normal"></highlight></codeline>
+<codeline lineno="351"><highlight class="normal"></highlight></codeline>
+<codeline lineno="356"><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*<ref refid="b64_8h_1a84adc01b9c5028eee501d2fb2bef9a11" kindref="member">b64_getErrorString</ref>(B64_RC<sp/>code);</highlight></codeline>
+<codeline lineno="357"><highlight class="normal"></highlight></codeline>
+<codeline lineno="364"><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a48c61d4785f8b1f8122a5a9f778a9f20" kindref="member">b64_getErrorStringLength</ref>(B64_RC<sp/>code);</highlight></codeline>
+<codeline lineno="365"><highlight class="normal"></highlight></codeline>
+<codeline lineno="366"><highlight class="normal"></highlight></codeline>
+<codeline lineno="367"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="368"><highlight class="normal">}<sp/></highlight><highlight class="comment">/*<sp/>extern<sp/>&quot;C&quot;<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="369"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>__cplusplus<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="370"><highlight class="normal"></highlight></codeline>
+<codeline lineno="371"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>/////////////////////////////////////////////////////////////////////////////</highlight></codeline>
+<codeline lineno="372"><highlight class="comment"><sp/>*<sp/>Namespace</highlight></codeline>
+<codeline lineno="373"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="374"><highlight class="normal"></highlight></codeline>
+<codeline lineno="375"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>B64_NO_NAMESPACE</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="376"><highlight class="normal">}<sp/></highlight><highlight class="comment">/*<sp/>namespace<sp/>B64_NAMESPACE<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="377"><highlight class="normal"></highlight></codeline>
+<codeline lineno="378"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>ifndef<sp/>B64_DOCUMENTATION_SKIP_SECTION</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="379"><highlight class="normal"></highlight></codeline>
+<codeline lineno="380"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">stlsoft</highlight></codeline>
+<codeline lineno="381"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="382"><highlight class="normal"></highlight></codeline>
+<codeline lineno="383"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*c_str_data_a(<sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_NAMESPACE_QUALIFIER::B64_RC</ref><sp/>code)</highlight></codeline>
+<codeline lineno="384"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="385"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a84adc01b9c5028eee501d2fb2bef9a11" kindref="member">B64_NAMESPACE_QUALIFIER::b64_getErrorString</ref>(code);</highlight></codeline>
+<codeline lineno="386"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="387"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*c_str_data(<sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_NAMESPACE_QUALIFIER::B64_RC</ref><sp/>code)</highlight></codeline>
+<codeline lineno="388"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="389"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a84adc01b9c5028eee501d2fb2bef9a11" kindref="member">B64_NAMESPACE_QUALIFIER::b64_getErrorString</ref>(code);</highlight></codeline>
+<codeline lineno="390"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="391"><highlight class="normal"></highlight></codeline>
+<codeline lineno="392"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>c_str_len_a(<sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_NAMESPACE_QUALIFIER::B64_RC</ref><sp/>code)</highlight></codeline>
+<codeline lineno="393"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="394"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a48c61d4785f8b1f8122a5a9f778a9f20" kindref="member">B64_NAMESPACE_QUALIFIER::b64_getErrorStringLength</ref>(code);</highlight></codeline>
+<codeline lineno="395"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="396"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/>c_str_len(<sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_NAMESPACE_QUALIFIER::B64_RC</ref><sp/>code)</highlight></codeline>
+<codeline lineno="397"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="398"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a48c61d4785f8b1f8122a5a9f778a9f20" kindref="member">B64_NAMESPACE_QUALIFIER::b64_getErrorStringLength</ref>(code);</highlight></codeline>
+<codeline lineno="399"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="400"><highlight class="normal"></highlight></codeline>
+<codeline lineno="401"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*c_str_ptr_a(<sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_NAMESPACE_QUALIFIER::B64_RC</ref><sp/>code)</highlight></codeline>
+<codeline lineno="402"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="403"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a84adc01b9c5028eee501d2fb2bef9a11" kindref="member">B64_NAMESPACE_QUALIFIER::b64_getErrorString</ref>(code);</highlight></codeline>
+<codeline lineno="404"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="405"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">inline</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>*c_str_ptr(<sp/><ref refid="b64_8h_1a432f620157f14714e209d99a20f523d9" kindref="member">B64_NAMESPACE_QUALIFIER::B64_RC</ref><sp/>code)</highlight></codeline>
+<codeline lineno="406"><highlight class="normal"><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="407"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="b64_8h_1a84adc01b9c5028eee501d2fb2bef9a11" kindref="member">B64_NAMESPACE_QUALIFIER::b64_getErrorString</ref>(code);</highlight></codeline>
+<codeline lineno="408"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="409"><highlight class="normal"></highlight></codeline>
+<codeline lineno="410"><highlight class="normal">}<sp/></highlight><highlight class="comment">/*<sp/>namespace<sp/>stlsoft<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="411"><highlight class="normal"></highlight></codeline>
+<codeline lineno="412"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>endif<sp/></highlight><highlight class="comment">/*<sp/>!B64_DOCUMENTATION_SKIP_SECTION<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="413"><highlight class="normal"></highlight></codeline>
+<codeline lineno="414"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>!B64_NO_NAMESPACE<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="415"><highlight class="normal"></highlight></codeline>
+<codeline lineno="416"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>//////////////////////////////////////////////////////////////////////////<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="417"><highlight class="normal"></highlight></codeline>
+<codeline lineno="418"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*<sp/>B64_INCL_B64_H_B64<sp/>*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="419"><highlight class="normal"></highlight></codeline>
+<codeline lineno="420"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>//////////////////////////////////////////////////////////////////////////<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/b64.h"/>
+  </compounddef>
+</doxygen>
