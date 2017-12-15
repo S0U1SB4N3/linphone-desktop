@@ -1,5 +1,5 @@
 /* libjpeg-turbo build number */
-#define BUILD "20171214"
+#define BUILD "20171215"
 
 /* How to obtain function inlining. */
 #define INLINE inline

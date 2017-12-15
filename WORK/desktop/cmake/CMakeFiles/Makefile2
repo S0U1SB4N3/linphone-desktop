@@ -64,10 +64,10 @@ CMAKE_BINARY_DIR = /Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake
 
 # All Build rule for target.
 CMakeFiles/EP_linphone.dir/all: CMakeFiles/EP_ms2.dir/all
-CMakeFiles/EP_linphone.dir/all: CMakeFiles/EP_belcard.dir/all
 CMakeFiles/EP_linphone.dir/all: CMakeFiles/EP_ortp.dir/all
-CMakeFiles/EP_linphone.dir/all: CMakeFiles/EP_bellesip.dir/all
+CMakeFiles/EP_linphone.dir/all: CMakeFiles/EP_belcard.dir/all
 CMakeFiles/EP_linphone.dir/all: CMakeFiles/EP_bctoolbox.dir/all
+CMakeFiles/EP_linphone.dir/all: CMakeFiles/EP_bellesip.dir/all
 	$(MAKE) -f CMakeFiles/EP_linphone.dir/build.make CMakeFiles/EP_linphone.dir/depend
 	$(MAKE) -f CMakeFiles/EP_linphone.dir/build.make CMakeFiles/EP_linphone.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles --progress-num=40,41,42,43 "Built target EP_linphone"
@@ -141,13 +141,13 @@ clean: CMakeFiles/EP_mswebrtc.dir/clean
 # Target rules for target CMakeFiles/EP_ms2.dir
 
 # All Build rule for target.
+CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_bv16.dir/all
+CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_ortp.dir/all
+CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_gsm.dir/all
 CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_vpx.dir/all
 CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_turbo-jpeg.dir/all
 CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_srtp.dir/all
-CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_bv16.dir/all
 CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_bzrtp.dir/all
-CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_ortp.dir/all
-CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_gsm.dir/all
 CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_bctoolbox.dir/all
 CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_opus.dir/all
 CMakeFiles/EP_ms2.dir/all: CMakeFiles/EP_matroska2.dir/all
@@ -374,11 +374,11 @@ clean: CMakeFiles/EP_turbo-jpeg.dir/clean
 # Target rules for target CMakeFiles/TARGET_linphoneqt.dir
 
 # All Build rule for target.
-CMakeFiles/TARGET_linphoneqt.dir/all: CMakeFiles/TARGET_ms2plugins.dir/all
-CMakeFiles/TARGET_linphoneqt.dir/all: CMakeFiles/TARGET_ortp.dir/all
 CMakeFiles/TARGET_linphoneqt.dir/all: CMakeFiles/TARGET_bellesip.dir/all
 CMakeFiles/TARGET_linphoneqt.dir/all: CMakeFiles/TARGET_ms2.dir/all
 CMakeFiles/TARGET_linphoneqt.dir/all: CMakeFiles/EP_linphoneqt.dir/all
+CMakeFiles/TARGET_linphoneqt.dir/all: CMakeFiles/TARGET_ms2plugins.dir/all
+CMakeFiles/TARGET_linphoneqt.dir/all: CMakeFiles/TARGET_ortp.dir/all
 CMakeFiles/TARGET_linphoneqt.dir/all: CMakeFiles/TARGET_linphone.dir/all
 CMakeFiles/TARGET_linphoneqt.dir/all: CMakeFiles/TARGET_bctoolbox.dir/all
 	$(MAKE) -f CMakeFiles/TARGET_linphoneqt.dir/build.make CMakeFiles/TARGET_linphoneqt.dir/depend
@@ -642,15 +642,15 @@ clean: CMakeFiles/TARGET_bellesip.dir/clean
 # Target rules for target CMakeFiles/TARGET_ms2.dir
 
 # All Build rule for target.
+CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_bv16.dir/all
+CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_ms2.dir/all
+CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_gsm.dir/all
 CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_vpx.dir/all
 CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_turbo-jpeg.dir/all
 CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_srtp.dir/all
-CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_ms2.dir/all
-CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_bv16.dir/all
 CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_bzrtp.dir/all
-CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/TARGET_ortp.dir/all
-CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_gsm.dir/all
 CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_opus.dir/all
+CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/TARGET_ortp.dir/all
 CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_matroska2.dir/all
 CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/EP_speex.dir/all
 CMakeFiles/TARGET_ms2.dir/all: CMakeFiles/TARGET_bctoolbox.dir/all
@@ -766,11 +766,11 @@ clean: CMakeFiles/EP_linphoneqt.dir/clean
 # Target rules for target CMakeFiles/TARGET_linphone_builder.dir
 
 # All Build rule for target.
+CMakeFiles/TARGET_linphone_builder.dir/all: CMakeFiles/TARGET_bellesip.dir/all
+CMakeFiles/TARGET_linphone_builder.dir/all: CMakeFiles/TARGET_ms2.dir/all
 CMakeFiles/TARGET_linphone_builder.dir/all: CMakeFiles/TARGET_linphoneqt.dir/all
 CMakeFiles/TARGET_linphone_builder.dir/all: CMakeFiles/TARGET_ms2plugins.dir/all
 CMakeFiles/TARGET_linphone_builder.dir/all: CMakeFiles/TARGET_ortp.dir/all
-CMakeFiles/TARGET_linphone_builder.dir/all: CMakeFiles/TARGET_bellesip.dir/all
-CMakeFiles/TARGET_linphone_builder.dir/all: CMakeFiles/TARGET_ms2.dir/all
 CMakeFiles/TARGET_linphone_builder.dir/all: CMakeFiles/TARGET_linphone.dir/all
 CMakeFiles/TARGET_linphone_builder.dir/all: CMakeFiles/TARGET_bctoolbox.dir/all
 	$(MAKE) -f CMakeFiles/TARGET_linphone_builder.dir/build.make CMakeFiles/TARGET_linphone_builder.dir/depend
@@ -847,8 +847,8 @@ clean: CMakeFiles/EP_opus.dir/clean
 
 # All Build rule for target.
 CMakeFiles/TARGET_ms2plugins.dir/all: CMakeFiles/EP_mswebrtc.dir/all
-CMakeFiles/TARGET_ms2plugins.dir/all: CMakeFiles/TARGET_ortp.dir/all
 CMakeFiles/TARGET_ms2plugins.dir/all: CMakeFiles/TARGET_ms2.dir/all
+CMakeFiles/TARGET_ms2plugins.dir/all: CMakeFiles/TARGET_ortp.dir/all
 CMakeFiles/TARGET_ms2plugins.dir/all: CMakeFiles/EP_ms2plugins.dir/all
 CMakeFiles/TARGET_ms2plugins.dir/all: CMakeFiles/TARGET_bctoolbox.dir/all
 	$(MAKE) -f CMakeFiles/TARGET_ms2plugins.dir/build.make CMakeFiles/TARGET_ms2plugins.dir/depend
@@ -1075,11 +1075,11 @@ clean: CMakeFiles/EP_matroska2.dir/clean
 
 # All Build rule for target.
 CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/EP_linphone.dir/all
+CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/TARGET_bellesip.dir/all
+CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/TARGET_ms2.dir/all
 CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/EP_belcard.dir/all
 CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/TARGET_ms2plugins.dir/all
 CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/TARGET_ortp.dir/all
-CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/TARGET_bellesip.dir/all
-CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/TARGET_ms2.dir/all
 CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/EP_belr.dir/all
 CMakeFiles/TARGET_linphone.dir/all: CMakeFiles/TARGET_bctoolbox.dir/all
 	$(MAKE) -f CMakeFiles/TARGET_linphone.dir/build.make CMakeFiles/TARGET_linphone.dir/depend
@@ -1155,8 +1155,8 @@ clean: CMakeFiles/EP_belr.dir/clean
 # Target rules for target CMakeFiles/EP_ms2plugins.dir
 
 # All Build rule for target.
-CMakeFiles/EP_ms2plugins.dir/all: CMakeFiles/EP_ms2.dir/all
 CMakeFiles/EP_ms2plugins.dir/all: CMakeFiles/EP_mswebrtc.dir/all
+CMakeFiles/EP_ms2plugins.dir/all: CMakeFiles/EP_ms2.dir/all
 	$(MAKE) -f CMakeFiles/EP_ms2plugins.dir/build.make CMakeFiles/EP_ms2plugins.dir/depend
 	$(MAKE) -f CMakeFiles/EP_ms2plugins.dir/build.make CMakeFiles/EP_ms2plugins.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles --progress-num=62,63,64,65 "Built target EP_ms2plugins"
@@ -1231,8 +1231,8 @@ clean: CMakeFiles/EP_speex.dir/clean
 
 # All Build rule for target.
 CMakeFiles/TARGET_bctoolbox.dir/all: CMakeFiles/EP_bcunit.dir/all
-CMakeFiles/TARGET_bctoolbox.dir/all: CMakeFiles/EP_mbedtls.dir/all
 CMakeFiles/TARGET_bctoolbox.dir/all: CMakeFiles/EP_bctoolbox.dir/all
+CMakeFiles/TARGET_bctoolbox.dir/all: CMakeFiles/EP_mbedtls.dir/all
 	$(MAKE) -f CMakeFiles/TARGET_bctoolbox.dir/build.make CMakeFiles/TARGET_bctoolbox.dir/depend
 	$(MAKE) -f CMakeFiles/TARGET_bctoolbox.dir/build.make CMakeFiles/TARGET_bctoolbox.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles --progress-num= "Built target TARGET_bctoolbox"
