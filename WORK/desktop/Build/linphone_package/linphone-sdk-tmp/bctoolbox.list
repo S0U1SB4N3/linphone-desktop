@@ -1,5 +1,0 @@
-lib/libbctoolbox*.dylib
-include/bctoolbox/*
-lib/bctoolbox*.lib
-lib/pkgconfig/bctoolbox*.pc
-share/bctoolbox/cmake/*

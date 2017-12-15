@@ -1,7 +1,0 @@
-/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/lib/libopus.5.dylib
-/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/lib/libopus.dylib
-/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include/opus/opus.h
-/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include/opus/opus_custom.h
-/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include/opus/opus_defines.h
-/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include/opus/opus_multistream.h
-/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include/opus/opus_types.h

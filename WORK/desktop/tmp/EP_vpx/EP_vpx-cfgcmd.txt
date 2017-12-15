@@ -1,1 +1,0 @@
-cmd='/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/EP_vpx_configure.sh'

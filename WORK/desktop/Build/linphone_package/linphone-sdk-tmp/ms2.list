@@ -1,8 +1,0 @@
-lib/libmediastreamer_base*.dylib
-lib/libmediastreamer_voip*.dylib
-include/mediastreamer2/*
-lib/mediastreamer_base*.lib
-lib/mediastreamer_voip*.lib
-share/doc/mediastreamer2-*
-share/images/nowebcamCIF.jpg
-share/Mediastreamer2/cmake/*

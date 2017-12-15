@@ -1,9 +1,0 @@
-# This is a comment
-prefix=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop
-exec_prefix=/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop
-Name:  bctoolbox-tester
-Description: A common set of tester wrappers used by Belledonne Communications's softwares
-Requires.private: bcunit
-Version: 0.6.0
-Libs: -L/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/lib -lbctoolbox-tester
-Cflags: -I/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include

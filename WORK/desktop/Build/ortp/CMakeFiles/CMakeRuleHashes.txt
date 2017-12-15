@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-b02c8ebadaf274a0dc3ad405faa1f17c CMakeFiles/ortp-html-doc
-e74e2ebdd030aca9404af6aaa208976b doc/html/index.html

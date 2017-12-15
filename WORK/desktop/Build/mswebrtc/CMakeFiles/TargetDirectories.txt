@@ -1,9 +1,0 @@
-/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/mswebrtc/CMakeFiles/install/local.dir
-/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/mswebrtc/CMakeFiles/install/strip.dir
-/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/mswebrtc/CMakeFiles/install.dir
-/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/mswebrtc/CMakeFiles/list_install_components.dir
-/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/mswebrtc/CMakeFiles/package.dir
-/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/mswebrtc/CMakeFiles/package_source.dir
-/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/mswebrtc/CMakeFiles/rebuild_cache.dir
-/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/mswebrtc/CMakeFiles/edit_cache.dir
-/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Build/mswebrtc/CMakeFiles/mswebrtc.dir
