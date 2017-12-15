@@ -1,0 +1,78 @@
+.TH "ortp.h" 3 "Fri Dec 15 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+ortp.h \- General purpose library functions\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'ortp/logging\&.h'\fP
+.br
+\fC#include 'ortp/rtpsession\&.h'\fP
+.br
+\fC#include 'ortp/sessionset\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool_t \fBortp_min_version_required\fP (int major, int minor, int micro)"
+.br
+.ti -1c
+.RI "void \fBortp_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBortp_scheduler_init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBortp_exit\fP (void)"
+.br
+.ti -1c
+.RI "void \fBortp_global_stats_reset\fP (void)"
+.br
+.ti -1c
+.RI "\fBrtp_stats_t\fP * \fBortp_get_global_stats\fP (void)"
+.br
+.ti -1c
+.RI "void \fBortp_global_stats_display\fP (void)"
+.br
+.ti -1c
+.RI "void \fBrtp_stats_display\fP (const \fBrtp_stats_t\fP *stats, const char *header)"
+.br
+.ti -1c
+.RI "void \fBrtp_stats_reset\fP (\fBrtp_stats_t\fP *stats)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBrtp_stats_t\fP \fBortp_global_stats\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+General purpose library functions\&. 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "void ortp_exit (void)"
+Gracefully uninitialize the library, including shutdowning the scheduler if it was started\&. 
+.SS "void ortp_global_stats_display (void)"
+Display global statistics (cumulative for all RtpSession) 
+.SS "void ortp_init (void)"
+Initialize the oRTP library\&. You should call this function first before using oRTP API\&. 
+.SS "bool_t ortp_min_version_required (int major, int minor, int micro)"
+This function give the opportunity to programs to check if the libortp they link to has the minimum version number they need\&.
+.PP
+Returns: true if ortp has a version number greater or equal than the required one\&. 
+.SS "void ortp_scheduler_init (void)"
+Initialize the oRTP scheduler\&. You only have to do that if you intend to use the scheduled mode of the RtpSession in your application\&. 
+.SS "void rtp_stats_display (const \fBrtp_stats_t\fP * stats, const char * header)"
+Print RTP statistics\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

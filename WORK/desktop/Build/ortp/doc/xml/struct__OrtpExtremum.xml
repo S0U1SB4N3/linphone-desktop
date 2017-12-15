@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__OrtpExtremum" kind="struct" language="C++" prot="public">
+    <compoundname>_OrtpExtremum</compoundname>
+    <includes local="no">utils.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__OrtpExtremum_1acd0b2055e410f53632c7ac869bb5bae5" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float _OrtpExtremum::current_extremum</definition>
+        <argsstring></argsstring>
+        <name>current_extremum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" line="34" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpExtremum_1a888d187083970a245c60c9d34fcebdd5" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float _OrtpExtremum::last_stable</definition>
+        <argsstring></argsstring>
+        <name>last_stable</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" line="35" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpExtremum_1ad5dd15194f231c7303980b89a7b66f69" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t _OrtpExtremum::extremum_time</definition>
+        <argsstring></argsstring>
+        <name>extremum_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" line="36" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpExtremum_1a5b45b8d130a8622af93e98a9ac426d66" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _OrtpExtremum::period</definition>
+        <argsstring></argsstring>
+        <name>period</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" line="37" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Utility object to determine a maximum or minimum (but not both at the same time), of a signal during a sliding period of time. </para>    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" line="33" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/utils.h" bodystart="33" bodyend="38"/>
+    <listofallmembers>
+      <member refid="struct__OrtpExtremum_1acd0b2055e410f53632c7ac869bb5bae5" prot="public" virt="non-virtual"><scope>_OrtpExtremum</scope><name>current_extremum</name></member>
+      <member refid="struct__OrtpExtremum_1ad5dd15194f231c7303980b89a7b66f69" prot="public" virt="non-virtual"><scope>_OrtpExtremum</scope><name>extremum_time</name></member>
+      <member refid="struct__OrtpExtremum_1a888d187083970a245c60c9d34fcebdd5" prot="public" virt="non-virtual"><scope>_OrtpExtremum</scope><name>last_stable</name></member>
+      <member refid="struct__OrtpExtremum_1a5b45b8d130a8622af93e98a9ac426d66" prot="public" virt="non-virtual"><scope>_OrtpExtremum</scope><name>period</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

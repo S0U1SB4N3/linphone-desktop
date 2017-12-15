@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrtcp__fb__sli__fci" kind="struct" language="C++" prot="public">
+    <compoundname>rtcp_fb_sli_fci</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrtcp__fb__sli__fci_1a8e69918ca155dcdd0188951d936226e2" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_fb_sli_fci::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="357" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="357" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="356" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="356" bodyend="358"/>
+    <listofallmembers>
+      <member refid="structrtcp__fb__sli__fci_1a8e69918ca155dcdd0188951d936226e2" prot="public" virt="non-virtual"><scope>rtcp_fb_sli_fci</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

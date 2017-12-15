@@ -1,0 +1,37 @@
+\section{\+\_\+\+Ortp\+Kalman\+R\+LS Struct Reference}
+\label{struct__OrtpKalmanRLS}\index{\+\_\+\+Ortp\+Kalman\+R\+LS@{\+\_\+\+Ortp\+Kalman\+R\+LS}}
+
+
+{\ttfamily \#include $<$utils.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct__OrtpKalmanRLS_ae06a3091f91ab01484deefb53b934748}} 
+double {\bfseries m}
+\item 
+\mbox{\label{struct__OrtpKalmanRLS_ac4c62359e5079cd3f4e147826f43a2d0}} 
+double {\bfseries b}
+\item 
+\mbox{\label{struct__OrtpKalmanRLS_a42f06f7bde2a34c9be2c1e7807fef479}} 
+double {\bfseries P} [2][2]
+\item 
+double \textbf{ lambda}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Utility object to interpolate linear model based on captures with 0-\/mean noise. Based on the model (x, y) where y evolves depending on x with relation y = m$\ast$x+b, it will estimate unknown values b, m using given noisy measures xmes and ymes, eg real system is evolving with\+: y = m $\ast$ x + b + noise. Note\+: If noise is N\+OT white, the residue will be absorbed by one of the estimators. It is an implementation of recursive least square algorithm, based on Kalman filter. 
+
+\subsection{Field Documentation}
+\mbox{\label{struct__OrtpKalmanRLS_a52bf5eb9d6d2e55cd3f8ca674f8a8590}} 
+\index{\+\_\+\+Ortp\+Kalman\+R\+LS@{\+\_\+\+Ortp\+Kalman\+R\+LS}!lambda@{lambda}}
+\index{lambda@{lambda}!\+\_\+\+Ortp\+Kalman\+R\+LS@{\+\_\+\+Ortp\+Kalman\+R\+LS}}
+\subsubsection{lambda}
+{\footnotesize\ttfamily double \+\_\+\+Ortp\+Kalman\+R\+L\+S\+::lambda}
+
+Forgetting factor in [94, .999]. Used when unknown parameters vary in time. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/ortp/utils.\+h\end{DoxyCompactItemize}

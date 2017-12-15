@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structOrtpLossRateEstimator" kind="struct" language="C++" prot="public">
+    <compoundname>OrtpLossRateEstimator</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structOrtpLossRateEstimator_1a2db3186332280ffc7f3d088d1a7c71e1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int OrtpLossRateEstimator::min_packet_count_interval</definition>
+        <argsstring></argsstring>
+        <name>min_packet_count_interval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="527" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="527" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpLossRateEstimator_1aa1d123ae1039233d5cc624c50c769977" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t OrtpLossRateEstimator::min_time_ms_interval</definition>
+        <argsstring></argsstring>
+        <name>min_time_ms_interval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="528" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="528" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpLossRateEstimator_1ac90b5ad8c14f25d80c14244b39f140d9" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t OrtpLossRateEstimator::last_estimate_time_ms</definition>
+        <argsstring></argsstring>
+        <name>last_estimate_time_ms</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="529" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="529" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpLossRateEstimator_1a73aafffcca5e6b9c2f094006de548442" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t OrtpLossRateEstimator::last_cum_loss</definition>
+        <argsstring></argsstring>
+        <name>last_cum_loss</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="530" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="530" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpLossRateEstimator_1a0f8dbdb3a5e4a26fcf29886c918ef964" prot="public" static="no" mutable="no">
+        <type>int32_t</type>
+        <definition>int32_t OrtpLossRateEstimator::last_ext_seq</definition>
+        <argsstring></argsstring>
+        <name>last_ext_seq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="531" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="531" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpLossRateEstimator_1aaac9677e8d63b25186eece3695f30380" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float OrtpLossRateEstimator::loss_rate</definition>
+        <argsstring></argsstring>
+        <name>loss_rate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="532" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="532" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpLossRateEstimator_1a282565858881ab8d97e3870e218ed2d0" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t OrtpLossRateEstimator::last_dup_packet_sent_count</definition>
+        <argsstring></argsstring>
+        <name>last_dup_packet_sent_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Total number of outgoing duplicate packets on last ortp_loss_rate_estimator_process_report_block iteration. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="537" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="537" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structOrtpLossRateEstimator_1a8b56287327b45b673640eb8db37b5065" prot="public" static="no" mutable="no">
+        <type>int64_t</type>
+        <definition>int64_t OrtpLossRateEstimator::last_packet_sent_count</definition>
+        <argsstring></argsstring>
+        <name>last_packet_sent_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Total number of outgoing unique packets on last ortp_loss_rate_estimator_process_report_block iteration. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="542" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="542" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="526" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="526" bodyend="543"/>
+    <listofallmembers>
+      <member refid="structOrtpLossRateEstimator_1a73aafffcca5e6b9c2f094006de548442" prot="public" virt="non-virtual"><scope>OrtpLossRateEstimator</scope><name>last_cum_loss</name></member>
+      <member refid="structOrtpLossRateEstimator_1a282565858881ab8d97e3870e218ed2d0" prot="public" virt="non-virtual"><scope>OrtpLossRateEstimator</scope><name>last_dup_packet_sent_count</name></member>
+      <member refid="structOrtpLossRateEstimator_1ac90b5ad8c14f25d80c14244b39f140d9" prot="public" virt="non-virtual"><scope>OrtpLossRateEstimator</scope><name>last_estimate_time_ms</name></member>
+      <member refid="structOrtpLossRateEstimator_1a0f8dbdb3a5e4a26fcf29886c918ef964" prot="public" virt="non-virtual"><scope>OrtpLossRateEstimator</scope><name>last_ext_seq</name></member>
+      <member refid="structOrtpLossRateEstimator_1a8b56287327b45b673640eb8db37b5065" prot="public" virt="non-virtual"><scope>OrtpLossRateEstimator</scope><name>last_packet_sent_count</name></member>
+      <member refid="structOrtpLossRateEstimator_1aaac9677e8d63b25186eece3695f30380" prot="public" virt="non-virtual"><scope>OrtpLossRateEstimator</scope><name>loss_rate</name></member>
+      <member refid="structOrtpLossRateEstimator_1a2db3186332280ffc7f3d088d1a7c71e1" prot="public" virt="non-virtual"><scope>OrtpLossRateEstimator</scope><name>min_packet_count_interval</name></member>
+      <member refid="structOrtpLossRateEstimator_1aa1d123ae1039233d5cc624c50c769977" prot="public" virt="non-virtual"><scope>OrtpLossRateEstimator</scope><name>min_time_ms_interval</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

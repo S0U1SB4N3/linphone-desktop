@@ -1,0 +1,2372 @@
+\section{Chatroom}
+\label{group__chatroom}\index{Chatroom@{Chatroom}}
+
+
+Chat room and Messaging.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from}(msg,  addr)~\textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address}(msg, addr)
+\item 
+\#define \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from}(msg)~\textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address}(msg)
+\item 
+\mbox{\label{group__chatroom_gae66327c357f8b9487823e1a8e17b8b9a}} 
+\#define {\bfseries linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to}(msg,  addr)~\textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+address}(msg, addr)
+\item 
+\#define \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to}(msg)~\textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address}(msg)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \textbf{ Linphone\+Chat\+Message\+State\+Changed\+Cb}) (\textbf{ Linphone\+Chat\+Message} $\ast$msg, \textbf{ Linphone\+Chat\+Message\+State} state, void $\ast$ud)
+\begin{DoxyCompactList}\small\item\em Call back used to notify message delivery status. \end{DoxyCompactList}\item 
+typedef void($\ast$ \textbf{ Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb}) (\textbf{ Linphone\+Chat\+Message} $\ast$msg, \textbf{ Linphone\+Chat\+Message\+State} state)
+\begin{DoxyCompactList}\small\item\em Call back used to notify message delivery status. \end{DoxyCompactList}\item 
+typedef void($\ast$ \textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb}) (\textbf{ Linphone\+Chat\+Message} $\ast$message, const \textbf{ Linphone\+Content} $\ast$content, const \textbf{ Linphone\+Buffer} $\ast$buffer)
+\begin{DoxyCompactList}\small\item\em File transfer receive callback prototype. \end{DoxyCompactList}\item 
+typedef \textbf{ Linphone\+Buffer} $\ast$($\ast$ \textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb}) (\textbf{ Linphone\+Chat\+Message} $\ast$message, const \textbf{ Linphone\+Content} $\ast$content, size\+\_\+t offset, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em File transfer send callback prototype. \end{DoxyCompactList}\item 
+typedef void($\ast$ \textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb}) (\textbf{ Linphone\+Chat\+Message} $\ast$message, const \textbf{ Linphone\+Content} $\ast$content, size\+\_\+t offset, size\+\_\+t total)
+\begin{DoxyCompactList}\small\item\em File transfer progress indication callback prototype. \end{DoxyCompactList}\item 
+typedef struct \+\_\+\+Linphone\+Chat\+Message \textbf{ Linphone\+Chat\+Message}
+\begin{DoxyCompactList}\small\item\em A chat room message to hold content to be sent. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_gaa1a715195601cd8885ca3a45bb3a1e6a}} 
+typedef struct \+\_\+\+Linphone\+Chat\+Message\+Cbs \textbf{ Linphone\+Chat\+Message\+Cbs}
+\begin{DoxyCompactList}\small\item\em An object to handle the callbacks for the handling a Linphone\+Chat\+Message objects. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga0d32dafdad12f343a09fc38fa48df136}} 
+typedef enum \textbf{ \+\_\+\+Linphone\+Chat\+Message\+State} \textbf{ Linphone\+Chat\+Message\+State}
+\begin{DoxyCompactList}\small\item\em Linphone\+Chat\+Message\+State is used to notify if messages have been succesfully delivered or not. \end{DoxyCompactList}\item 
+typedef struct \+\_\+\+Linphone\+Chat\+Room \textbf{ Linphone\+Chat\+Room}
+\begin{DoxyCompactList}\small\item\em A chat room is the place where text messages are exchanged. \end{DoxyCompactList}\item 
+typedef struct \+\_\+\+Linphone\+Im\+Notif\+Policy \textbf{ Linphone\+Im\+Notif\+Policy}
+\begin{DoxyCompactList}\small\item\em Policy to use to send/receive instant messaging composing/delivery/display notifications. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ \+\_\+\+Linphone\+Chat\+Message\+State} \{ \newline
+\textbf{ Linphone\+Chat\+Message\+State\+Idle}, 
+\newline
+\textbf{ Linphone\+Chat\+Message\+State\+In\+Progress}, 
+\newline
+\textbf{ Linphone\+Chat\+Message\+State\+Delivered}, 
+\newline
+\textbf{ Linphone\+Chat\+Message\+State\+Not\+Delivered}, 
+\newline
+\textbf{ Linphone\+Chat\+Message\+State\+File\+Transfer\+Error}, 
+\newline
+\textbf{ Linphone\+Chat\+Message\+State\+File\+Transfer\+Done}, 
+\newline
+\textbf{ Linphone\+Chat\+Message\+State\+Delivered\+To\+User}, 
+\newline
+\textbf{ Linphone\+Chat\+Message\+State\+Displayed}
+ \}\begin{DoxyCompactList}\small\item\em Linphone\+Chat\+Message\+State is used to notify if messages have been succesfully delivered or not. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+destroy} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Destroy a Linphone\+Chat\+Room. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, const char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Create a message attached to a dedicated chat room;. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message\+\_\+2} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, const char $\ast$message, const char $\ast$external\+\_\+body\+\_\+url, \textbf{ Linphone\+Chat\+Message\+State} state, time\+\_\+t time, bool\+\_\+t is\+\_\+read, bool\+\_\+t is\+\_\+incoming)
+\begin{DoxyCompactList}\small\item\em Create a message attached to a dedicated chat room;. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Room} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+ref} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Acquire a reference to the chat room. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+unref} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Release reference to the chat room. \end{DoxyCompactList}\item 
+void $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+user\+\_\+data} (const \textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Retrieve the user pointer associated with the chat room. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+set\+\_\+user\+\_\+data} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, void $\ast$ud)
+\begin{DoxyCompactList}\small\item\em Assign a user pointer to the chat room. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+file\+\_\+transfer\+\_\+message} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, const \textbf{ Linphone\+Content} $\ast$initial\+\_\+content)
+\begin{DoxyCompactList}\small\item\em Create a message attached to a dedicated chat room with a particular content. \end{DoxyCompactList}\item 
+const \textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+peer\+\_\+address} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em get peer address \doxyref{associated to }{p.}{group__chatroom_gae91f97feaeea9a7dedab24faf3fbc3c2} this \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, const char $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Send a message to peer member of this chat room. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message2} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, \textbf{ Linphone\+Chat\+Message} $\ast$msg, \textbf{ Linphone\+Chat\+Message\+State\+Changed\+Cb} status\+\_\+cb, void $\ast$ud)
+\begin{DoxyCompactList}\small\item\em Send a message to peer member of this chat room. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, \textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Send a message to peer member of this chat room. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+mark\+\_\+as\+\_\+read} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Mark all messages of the conversation as read. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+message} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, \textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Delete a message from the chat room history. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+history} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Delete all messages from the history. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+size} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Gets the number of messages in a chat room. \end{DoxyCompactList}\item 
+bctbx\+\_\+list\+\_\+t $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, int nb\+\_\+message)
+\begin{DoxyCompactList}\small\item\em Gets nb\+\_\+message most recent messages from cr chat room, sorted from oldest to most recent. \end{DoxyCompactList}\item 
+bctbx\+\_\+list\+\_\+t $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+range} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, int begin, int end)
+\begin{DoxyCompactList}\small\item\em Gets the partial list of messages in the given range, sorted from oldest to most recent. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga0c0697a3445954935b549ed4db223e8e}} 
+\textbf{ Linphone\+Chat\+Message} $\ast$ {\bfseries linphone\+\_\+chat\+\_\+room\+\_\+find\+\_\+message} (\textbf{ Linphone\+Chat\+Room} $\ast$cr, const char $\ast$message\+\_\+id)
+\item 
+void \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+compose} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Notifies the destination of the chat message being composed that the user is typing a new message. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+is\+\_\+remote\+\_\+composing} (const \textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Tells whether the remote is currently composing a message. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+unread\+\_\+messages\+\_\+count} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Gets the number of unread messages in the chatroom. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED \textbf{ Linphone\+Core} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+lc} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Returns back pointer to \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga985710ce0f27ab6013395c75fabcc70c}} 
+\textbf{ Linphone\+Core} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+core} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Returns back pointer to \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object. \end{DoxyCompactList}\item 
+uint32\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+char} (const \textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em When realtime text is enabled \doxyref{linphone\+\_\+call\+\_\+params\+\_\+realtime\+\_\+text\+\_\+enabled}{p.}{group__media__parameters_gac93f1c5212a71362a315b6ed310ea9e8}, \doxyref{Linphone\+Core\+Is\+Composing\+Received\+Cb}{p.}{group__initializing_ga18aea1c8329ef3faeaa33b7c00675442} is call everytime a char is received from peer. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+lime\+\_\+available} (\textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Returns true if lime is available for given peer. \end{DoxyCompactList}\item 
+const bctbx\+\_\+list\+\_\+t $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+rooms} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Returns an list of chat rooms. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_gad62fb330fbac186fc2bf5c138f981c71}} 
+unsigned int {\bfseries linphone\+\_\+chat\+\_\+message\+\_\+store} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\item 
+\textbf{ Linphone\+Chat\+Message\+State} \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+state} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Get the state of the message. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_gab9ef7020810084ab739276c3be9903c3}} 
+\textbf{ Linphone\+Chat\+Message} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+clone} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Duplicate a Linphone\+Chat\+Message. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+ref} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Acquire a reference to the chat message. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+unref} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Release reference to the chat message. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga5de9eb78775fee4bd6250e3005912aef}} 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+destroy} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Destroys a Linphone\+Chat\+Message. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address} (\textbf{ Linphone\+Chat\+Message} $\ast$message, const \textbf{ Linphone\+Address} $\ast$from)
+\begin{DoxyCompactList}\small\item\em Set origin of the message. \end{DoxyCompactList}\item 
+const \textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Get origin of the message. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+address} (\textbf{ Linphone\+Chat\+Message} $\ast$message, const \textbf{ Linphone\+Address} $\ast$addr)
+\begin{DoxyCompactList}\small\item\em Set destination of the message. \end{DoxyCompactList}\item 
+const \textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Get destination of the message. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+secured} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Get if the message was encrypted when transfered. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+external\+\_\+body\+\_\+url} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Linphone message can carry external body as defined by rfc2017. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+external\+\_\+body\+\_\+url} (\textbf{ Linphone\+Chat\+Message} $\ast$message, const char $\ast$url)
+\begin{DoxyCompactList}\small\item\em Linphone message can carry external body as defined by rfc2017. \end{DoxyCompactList}\item 
+const \textbf{ Linphone\+Content} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+information} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Get the file\+\_\+transfer\+\_\+information (used by call backs to recover informations during a rcs file transfer) \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+content\+\_\+type} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Get the content type of a chat message. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+content\+\_\+type} (\textbf{ Linphone\+Chat\+Message} $\ast$message, const char $\ast$content\+\_\+type)
+\begin{DoxyCompactList}\small\item\em Set the content type of a chat message. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+file\+\_\+transfer} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Return whether or not a chat message is a file tranfer. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+text} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Return whether or not a chat message is a text. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+be\+\_\+stored} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Get if a chat message is to be stored. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+be\+\_\+stored} (\textbf{ Linphone\+Chat\+Message} $\ast$message, bool\+\_\+t to\+\_\+be\+\_\+stored)
+\begin{DoxyCompactList}\small\item\em Set if a chat message is to be stored. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+start\+\_\+file\+\_\+download} (\textbf{ Linphone\+Chat\+Message} $\ast$message, \textbf{ Linphone\+Chat\+Message\+State\+Changed\+Cb} status\+\_\+cb, void $\ast$ud)
+\begin{DoxyCompactList}\small\item\em Start the download of the file from remote server. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+download\+\_\+file} (\textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Start the download of the file referenced in a Linphone\+Chat\+Message from remote server. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cancel\+\_\+file\+\_\+transfer} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Cancel an ongoing file transfer attached to this message. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+resend} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Resend a chat message if it is in the \textquotesingle{}not delivered\textquotesingle{} state for whatever reason. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+appdata} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Linphone message has an app-\/specific field that can store a text. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+appdata} (\textbf{ Linphone\+Chat\+Message} $\ast$message, const char $\ast$data)
+\begin{DoxyCompactList}\small\item\em Linphone message has an app-\/specific field that can store a text. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+text} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Get text part of this message. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga4e1e898a61341ca4136ab66b2164a380}} 
+time\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+time} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Get the time the message was sent. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga9223eed845a30a13ed8479c0f4099eb2}} 
+void $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+user\+\_\+data} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em User pointer get function. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga4463e59a0a67fc289d935347897a013e}} 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+user\+\_\+data} (\textbf{ Linphone\+Chat\+Message} $\ast$message, void $\ast$)
+\begin{DoxyCompactList}\small\item\em User pointer set function. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga38e6c01c047a4b5512935c888d188dab}} 
+\textbf{ Linphone\+Chat\+Room} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+chat\+\_\+room} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Returns the chatroom this message belongs to. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga880db604c2cab9f24824a228fb914682}} 
+const \textbf{ Linphone\+Address} $\ast$ {\bfseries linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+peer\+\_\+address} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\item 
+\textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+local\+\_\+address} (const \textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Returns the origin address of a message if it was a outgoing message, or the destination address if it was an incoming message. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+add\+\_\+custom\+\_\+header} (\textbf{ Linphone\+Chat\+Message} $\ast$message, const char $\ast$header\+\_\+name, const char $\ast$header\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Add custom headers to the message. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+custom\+\_\+header} (\textbf{ Linphone\+Chat\+Message} $\ast$message, const char $\ast$header\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Retrieve a custom header value given its name. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+remove\+\_\+custom\+\_\+header} (\textbf{ Linphone\+Chat\+Message} $\ast$msg, const char $\ast$header\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Removes a custom header from the message. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+read} (\textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Returns T\+R\+UE if the message has been read, otherwise returns F\+A\+L\+SE. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+outgoing} (\textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Returns T\+R\+UE if the message has been sent, returns F\+A\+L\+SE if the message has been received. \end{DoxyCompactList}\item 
+unsigned int \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+storage\+\_\+id} (\textbf{ Linphone\+Chat\+Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Returns the id used to identify this message in the storage database. \end{DoxyCompactList}\item 
+\mbox{\label{group__chatroom_ga4807d15298e13bac33fbf457daf487c8}} 
+\textbf{ Linphone\+Reason} {\bfseries linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+reason} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\item 
+const \textbf{ Linphone\+Error\+Info} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+error\+\_\+info} (const \textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Get full details about delivery error of a chat message. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+file\+\_\+transfer\+\_\+filepath} (\textbf{ Linphone\+Chat\+Message} $\ast$msg, const char $\ast$filepath)
+\begin{DoxyCompactList}\small\item\em Set the path to the file to read from or write to during the file transfer. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+filepath} (\textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Get the path to the file to read from or write to during the file transfer. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+put\+\_\+char} (\textbf{ Linphone\+Chat\+Message} $\ast$msg, uint32\+\_\+t character)
+\begin{DoxyCompactList}\small\item\em Fulfill a chat message char by char. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+message\+\_\+id} (const \textbf{ Linphone\+Chat\+Message} $\ast$cm)
+\begin{DoxyCompactList}\small\item\em Get the message identifier. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Call} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+call} (const \textbf{ Linphone\+Chat\+Room} $\ast$room)
+\begin{DoxyCompactList}\small\item\em get Curent Call associated to this chatroom if any To commit a message, use \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message}{p.}{group__chatroom_gad22a10b819a4a33f6dc12d88b64e5537} \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+callbacks} (const \textbf{ Linphone\+Chat\+Message} $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Get the Linphone\+Chat\+Message\+Cbs object associated with the Linphone\+Chat\+Message. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+ref} (\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs)
+\begin{DoxyCompactList}\small\item\em Acquire a reference to the Linphone\+Chat\+Message\+Cbs object. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+unref} (\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs)
+\begin{DoxyCompactList}\small\item\em Release reference to the Linphone\+Chat\+Message\+Cbs object. \end{DoxyCompactList}\item 
+void $\ast$ \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+user\+\_\+data} (const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs)
+\begin{DoxyCompactList}\small\item\em Retrieve the user pointer associated with the Linphone\+Chat\+Message\+Cbs object. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+user\+\_\+data} (\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs, void $\ast$ud)
+\begin{DoxyCompactList}\small\item\em Assign a user pointer to the Linphone\+Chat\+Message\+Cbs object. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb} \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+msg\+\_\+state\+\_\+changed} (const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs)
+\begin{DoxyCompactList}\small\item\em Get the message state changed callback. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+msg\+\_\+state\+\_\+changed} (\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs, \textbf{ Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb} cb)
+\begin{DoxyCompactList}\small\item\em Set the message state changed callback. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb} \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+recv} (const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs)
+\begin{DoxyCompactList}\small\item\em Get the file transfer receive callback. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+recv} (\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs, \textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb} cb)
+\begin{DoxyCompactList}\small\item\em Set the file transfer receive callback. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb} \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+send} (const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs)
+\begin{DoxyCompactList}\small\item\em Get the file transfer send callback. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+send} (\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs, \textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb} cb)
+\begin{DoxyCompactList}\small\item\em Set the file transfer send callback. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb} \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication} (const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs)
+\begin{DoxyCompactList}\small\item\em Get the file transfer progress indication callback. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication} (\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$cbs, \textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb} cb)
+\begin{DoxyCompactList}\small\item\em Set the file transfer progress indication callback. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+set\+\_\+im\+\_\+encryption\+\_\+engine} (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Im\+Encryption\+Engine} $\ast$imee)
+\begin{DoxyCompactList}\small\item\em Sets an IM Encryption Engine in the core. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Im\+Encryption\+Engine} $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+encryption\+\_\+engine} (const \textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Gets the IM Encryption Engine in the core if possible. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+set\+\_\+chat\+\_\+database\+\_\+path} (\textbf{ Linphone\+Core} $\ast$lc, const char $\ast$path)
+\begin{DoxyCompactList}\small\item\em Set the chat database path. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+database\+\_\+path} (const \textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Get path to the database file used for storing chat messages. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Room} $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room} (\textbf{ Linphone\+Core} $\ast$lc, const \textbf{ Linphone\+Address} $\ast$addr)
+\begin{DoxyCompactList}\small\item\em Get a chat room whose peer is the supplied address. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Chat\+Room} $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room\+\_\+from\+\_\+uri} (\textbf{ Linphone\+Core} $\ast$lc, const char $\ast$to)
+\begin{DoxyCompactList}\small\item\em Get a chat room for messaging from a sip uri like sip\+:{\tt joe@sip.\+linphone.\+org}. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+delete\+\_\+chat\+\_\+room} (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Chat\+Room} $\ast$cr)
+\begin{DoxyCompactList}\small\item\em Removes a chatroom including all message history from the Linphone\+Core. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+disable\+\_\+chat} (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Reason} deny\+\_\+reason)
+\begin{DoxyCompactList}\small\item\em Inconditionnaly disable incoming chat messages. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+enable\+\_\+chat} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Enable reception of incoming chat messages. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+core\+\_\+chat\+\_\+enabled} (const \textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Returns whether chat is enabled. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+notif\+\_\+policy} (const \textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Get the Linphone\+Im\+Notif\+Policy object controlling the instant messaging notifications. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$ \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+ref} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Acquire a reference to the Linphone\+Im\+Notif\+Policy object. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+unref} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Release reference to the Linphone\+Im\+Notif\+Policy object. \end{DoxyCompactList}\item 
+void $\ast$ \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+user\+\_\+data} (const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Retrieve the user pointer associated with the Linphone\+Im\+Notif\+Policy object. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+user\+\_\+data} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy, void $\ast$ud)
+\begin{DoxyCompactList}\small\item\em Assign a user pointer to the Linphone\+Im\+Notif\+Policy object. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+clear} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Clear an IM notif policy (deactivate all receiving and sending of notifications). \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+enable\+\_\+all} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Enable all receiving and sending of notifications. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+is\+\_\+composing} (const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Tell whether is\+\_\+composing notifications are being sent. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+is\+\_\+composing} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy, bool\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Enable is\+\_\+composing notifications sending. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+is\+\_\+composing} (const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Tell whether is\+\_\+composing notifications are being notified when received. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+is\+\_\+composing} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy, bool\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Enable is\+\_\+composing notifications receiving. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+delivered} (const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Tell whether imdn delivered notifications are being sent. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+delivered} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy, bool\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Enable imdn delivered notifications sending. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+delivered} (const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Tell whether imdn delivered notifications are being notified when received. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+delivered} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy, bool\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Enable imdn delivered notifications receiving. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+displayed} (const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Tell whether imdn displayed notifications are being sent. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+displayed} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy, bool\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Enable imdn displayed notifications sending. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+displayed} (const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy)
+\begin{DoxyCompactList}\small\item\em Tell whether imdn displayed notifications are being notified when received. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+displayed} (\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$policy, bool\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Enable imdn displayed notifications receiving. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Chat room and Messaging. 
+
+{\bfseries  Exchanging text messages} ~\newline
+ Messages are sent using \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object. First step is to create a \doxyref{chat room }{p.}{group__chatroom_gae91f97feaeea9a7dedab24faf3fbc3c2} from a peer sip uri. 
+\begin{DoxyCode}
+LinphoneChatRoom* chat\_room = linphone_core_get_chat_room(lc,\textcolor{stringliteral}{"sip:joe@sip.linphone.org"});
+\end{DoxyCode}
+
+
+~\newline
+Once created, messages are sent using function \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message()}{p.}{group__chatroom_gad22a10b819a4a33f6dc12d88b64e5537}. 
+\begin{DoxyCode}
+linphone_chat_room_send_message(chat\_room,\textcolor{stringliteral}{"Hello world"}); \textcolor{comment}{/*sending message*/}
+\end{DoxyCode}
+ ~\newline
+Incoming message are received from call back \doxyref{Linphone\+Core\+V\+Table.\+text\+\_\+received}{p.}{struct__LinphoneCoreVTable_aa8c03429942bf96b1ad5420d406114c8} 
+\begin{DoxyCode}
+\textcolor{keywordtype}{void} text\_received(LinphoneCore *lc, LinphoneChatRoom *room, \textcolor{keyword}{const} 
+      LinphoneAddress *from, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *message) \{
+        printf(\textcolor{stringliteral}{" Message [%s] received from [%s] \(\backslash\)n"},message,
+      linphone_address_as_string (from));
+\}
+\end{DoxyCode}
+ ~\newline
+ A complete tutorial can be found at \+: \doxyref{Chat room tutorial}{p.}{group__chatroom__tuto} 
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{group__chatroom_ga6201809af11d783c6619a681829fe546}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from}
+{\footnotesize\ttfamily \#define linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})~\textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address}(msg)}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address()}{p.}{group__chatroom_ga33936374d5d76773f4c9fac942094306} instead.\end{DoxyRefDesc}
+\mbox{\label{group__chatroom_ga140c91cbca50e5df05525434bb76f7b1}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to}
+{\footnotesize\ttfamily \#define linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to(\begin{DoxyParamCaption}\item[{}]{msg }\end{DoxyParamCaption})~\textbf{ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address}(msg)}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address()}{p.}{group__chatroom_gaf542e77773cedb7240bd3d3572b417fe} instead.\end{DoxyRefDesc}
+\mbox{\label{group__chatroom_gaffad74949fc83993c95f04cd61b40155}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from}
+{\footnotesize\ttfamily \#define linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from(\begin{DoxyParamCaption}\item[{}]{msg,  }\item[{}]{addr }\end{DoxyParamCaption})~\textbf{ linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address}(msg, addr)}
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address()}{p.}{group__chatroom_gaf77d70f509da66755bc7bcc4c3efc211} instead.\end{DoxyRefDesc}
+
+
+\subsection{Typedef Documentation}
+\mbox{\label{group__chatroom_gada79c4417919389b5247e254279f7833}} 
+\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message@{Linphone\+Chat\+Message}}
+\index{Linphone\+Chat\+Message@{Linphone\+Chat\+Message}!Chatroom@{Chatroom}}
+\subsubsection{Linphone\+Chat\+Message}
+{\footnotesize\ttfamily typedef struct \+\_\+\+Linphone\+Chat\+Message \textbf{ Linphone\+Chat\+Message}}
+
+
+
+A chat room message to hold content to be sent. 
+
+Can be created by \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message()}{p.}{group__chatroom_gae602d59df35f19ba76afbaf33fdc2851}. \mbox{\label{group__chatroom_ga3033906678c1a340f4c5c2d8660e6e85}} 
+\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb@{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb}}
+\index{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb@{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb}!Chatroom@{Chatroom}}
+\subsubsection{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb}
+{\footnotesize\ttfamily typedef void($\ast$ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb) (\textbf{ Linphone\+Chat\+Message} $\ast$message, const \textbf{ Linphone\+Content} $\ast$content, size\+\_\+t offset, size\+\_\+t total)}
+
+
+
+File transfer progress indication callback prototype. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} message from which the body is received. \\
+\hline
+{\em content} & \doxyref{Linphone\+Content}{p.}{group__misc_gaec435ed53168e70535e64b69a906304b} incoming content information \\
+\hline
+{\em offset} & The number of bytes sent/received since the beginning of the transfer. \\
+\hline
+{\em total} & The total number of bytes to be sent/received. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga632f408ae7134a840cbd2444f78ce0a9}} 
+\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb@{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb}}
+\index{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb@{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb}!Chatroom@{Chatroom}}
+\subsubsection{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb}
+{\footnotesize\ttfamily typedef void($\ast$ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb) (\textbf{ Linphone\+Chat\+Message} $\ast$message, const \textbf{ Linphone\+Content} $\ast$content, const \textbf{ Linphone\+Buffer} $\ast$buffer)}
+
+
+
+File transfer receive callback prototype. 
+
+This function is called by the core upon an incoming File transfer is started. This function may be call several time for the same file in case of large file. 
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} message from which the body is received. \\
+\hline
+{\em content} & \doxyref{Linphone\+Content}{p.}{group__misc_gaec435ed53168e70535e64b69a906304b} incoming content information \\
+\hline
+{\em buffer} & \doxyref{Linphone\+Buffer}{p.}{group__misc_ga888e911d654b9cf07b994538c28160de} holding the received data. Empty buffer means end of file. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gafb4467954e23b733108480b5c665d735}} 
+\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb@{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb}}
+\index{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb@{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb}!Chatroom@{Chatroom}}
+\subsubsection{Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb}
+{\footnotesize\ttfamily typedef \textbf{ Linphone\+Buffer}$\ast$($\ast$ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb) (\textbf{ Linphone\+Chat\+Message} $\ast$message, const \textbf{ Linphone\+Content} $\ast$content, size\+\_\+t offset, size\+\_\+t size)}
+
+
+
+File transfer send callback prototype. 
+
+This function is called by the core when an outgoing file transfer is started. This function is called until size is set to 0. 
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} message from which the body is received. \\
+\hline
+{\em content} & \doxyref{Linphone\+Content}{p.}{group__misc_gaec435ed53168e70535e64b69a906304b} outgoing content \\
+\hline
+{\em offset} & the offset in the file from where to get the data to be sent \\
+\hline
+{\em size} & the number of bytes expected by the framework \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Linphone\+Buffer object holding the data written by the application. An empty buffer means end of file. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gad69fe47fad68113fe1b014b45ce227c9}} 
+\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb@{Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb}}
+\index{Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb@{Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb}!Chatroom@{Chatroom}}
+\subsubsection{Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb}
+{\footnotesize\ttfamily typedef void($\ast$ Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb) (\textbf{ Linphone\+Chat\+Message} $\ast$msg, \textbf{ Linphone\+Chat\+Message\+State} state)}
+
+
+
+Call back used to notify message delivery status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} object \\
+\hline
+{\em status} & Linphone\+Chat\+Message\+State \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga6941eb2e156092085642187f5cf92530}} 
+\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+State\+Changed\+Cb@{Linphone\+Chat\+Message\+State\+Changed\+Cb}}
+\index{Linphone\+Chat\+Message\+State\+Changed\+Cb@{Linphone\+Chat\+Message\+State\+Changed\+Cb}!Chatroom@{Chatroom}}
+\subsubsection{Linphone\+Chat\+Message\+State\+Changed\+Cb}
+{\footnotesize\ttfamily typedef void($\ast$ Linphone\+Chat\+Message\+State\+Changed\+Cb) (\textbf{ Linphone\+Chat\+Message} $\ast$msg, \textbf{ Linphone\+Chat\+Message\+State} state, void $\ast$ud)}
+
+
+
+Call back used to notify message delivery status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} object \\
+\hline
+{\em status} & Linphone\+Chat\+Message\+State \\
+\hline
+{\em ud} & application user data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb instead.  \end{DoxyRefDesc}
+\mbox{\label{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299}} 
+\index{Chatroom@{Chatroom}!Linphone\+Chat\+Room@{Linphone\+Chat\+Room}}
+\index{Linphone\+Chat\+Room@{Linphone\+Chat\+Room}!Chatroom@{Chatroom}}
+\subsubsection{Linphone\+Chat\+Room}
+{\footnotesize\ttfamily typedef struct \+\_\+\+Linphone\+Chat\+Room \textbf{ Linphone\+Chat\+Room}}
+
+
+
+A chat room is the place where text messages are exchanged. 
+
+Can be created by linphone\+\_\+core\+\_\+create\+\_\+chat\+\_\+room(). \mbox{\label{group__chatroom_gac763666cbb8dc52b69e8b419126bcc05}} 
+\index{Chatroom@{Chatroom}!Linphone\+Im\+Notif\+Policy@{Linphone\+Im\+Notif\+Policy}}
+\index{Linphone\+Im\+Notif\+Policy@{Linphone\+Im\+Notif\+Policy}!Chatroom@{Chatroom}}
+\subsubsection{Linphone\+Im\+Notif\+Policy}
+{\footnotesize\ttfamily typedef struct \+\_\+\+Linphone\+Im\+Notif\+Policy \textbf{ Linphone\+Im\+Notif\+Policy}}
+
+
+
+Policy to use to send/receive instant messaging composing/delivery/display notifications. 
+
+The sending of this information is done as in the R\+F\+Cs 3994 (is\+\_\+composing) and 5438 (imdn delivered/displayed). 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{group__chatroom_gaebb7d95526380c5c15d26a940f8f0c95}} 
+\index{Chatroom@{Chatroom}!\+\_\+\+Linphone\+Chat\+Message\+State@{\+\_\+\+Linphone\+Chat\+Message\+State}}
+\index{\+\_\+\+Linphone\+Chat\+Message\+State@{\+\_\+\+Linphone\+Chat\+Message\+State}!Chatroom@{Chatroom}}
+\subsubsection{\+\_\+\+Linphone\+Chat\+Message\+State}
+{\footnotesize\ttfamily enum \textbf{ \+\_\+\+Linphone\+Chat\+Message\+State}}
+
+
+
+Linphone\+Chat\+Message\+State is used to notify if messages have been succesfully delivered or not. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Chat\+Message\+State\+Idle@{Linphone\+Chat\+Message\+State\+Idle}!Chatroom@{Chatroom}}\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+State\+Idle@{Linphone\+Chat\+Message\+State\+Idle}}}\mbox{\label{group__chatroom_ggaebb7d95526380c5c15d26a940f8f0c95ae171a0bd65958442e555c212c1bd0e91}} 
+Linphone\+Chat\+Message\+State\+Idle&Initial state. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Chat\+Message\+State\+In\+Progress@{Linphone\+Chat\+Message\+State\+In\+Progress}!Chatroom@{Chatroom}}\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+State\+In\+Progress@{Linphone\+Chat\+Message\+State\+In\+Progress}}}\mbox{\label{group__chatroom_ggaebb7d95526380c5c15d26a940f8f0c95aefe743267c1917171b6865a1f4595396}} 
+Linphone\+Chat\+Message\+State\+In\+Progress&Delivery in progress. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Chat\+Message\+State\+Delivered@{Linphone\+Chat\+Message\+State\+Delivered}!Chatroom@{Chatroom}}\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+State\+Delivered@{Linphone\+Chat\+Message\+State\+Delivered}}}\mbox{\label{group__chatroom_ggaebb7d95526380c5c15d26a940f8f0c95a3deb067e35a26effceb3ca8da87110bd}} 
+Linphone\+Chat\+Message\+State\+Delivered&Message successfully delivered and acknowledged by server. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Chat\+Message\+State\+Not\+Delivered@{Linphone\+Chat\+Message\+State\+Not\+Delivered}!Chatroom@{Chatroom}}\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+State\+Not\+Delivered@{Linphone\+Chat\+Message\+State\+Not\+Delivered}}}\mbox{\label{group__chatroom_ggaebb7d95526380c5c15d26a940f8f0c95ae60cbcd9da2cba25ace9a6ddf2f7cf08}} 
+Linphone\+Chat\+Message\+State\+Not\+Delivered&Message was not delivered. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Chat\+Message\+State\+File\+Transfer\+Error@{Linphone\+Chat\+Message\+State\+File\+Transfer\+Error}!Chatroom@{Chatroom}}\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+State\+File\+Transfer\+Error@{Linphone\+Chat\+Message\+State\+File\+Transfer\+Error}}}\mbox{\label{group__chatroom_ggaebb7d95526380c5c15d26a940f8f0c95aee76f661a8dc0817a4cbb8e6193a9cb5}} 
+Linphone\+Chat\+Message\+State\+File\+Transfer\+Error&Message was received(and acknowledged) but cannot get file from server. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Chat\+Message\+State\+File\+Transfer\+Done@{Linphone\+Chat\+Message\+State\+File\+Transfer\+Done}!Chatroom@{Chatroom}}\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+State\+File\+Transfer\+Done@{Linphone\+Chat\+Message\+State\+File\+Transfer\+Done}}}\mbox{\label{group__chatroom_ggaebb7d95526380c5c15d26a940f8f0c95a297cf5538cd27feeb34c9825a89edf53}} 
+Linphone\+Chat\+Message\+State\+File\+Transfer\+Done&File transfer has been completed successfully. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Chat\+Message\+State\+Delivered\+To\+User@{Linphone\+Chat\+Message\+State\+Delivered\+To\+User}!Chatroom@{Chatroom}}\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+State\+Delivered\+To\+User@{Linphone\+Chat\+Message\+State\+Delivered\+To\+User}}}\mbox{\label{group__chatroom_ggaebb7d95526380c5c15d26a940f8f0c95a4b614e1fa589836b42e9fc1172328099}} 
+Linphone\+Chat\+Message\+State\+Delivered\+To\+User&Message successfully delivered and acknowledged to destination. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Chat\+Message\+State\+Displayed@{Linphone\+Chat\+Message\+State\+Displayed}!Chatroom@{Chatroom}}\index{Chatroom@{Chatroom}!Linphone\+Chat\+Message\+State\+Displayed@{Linphone\+Chat\+Message\+State\+Displayed}}}\mbox{\label{group__chatroom_ggaebb7d95526380c5c15d26a940f8f0c95ad84e3f8127c2be2e27cdbc2316875279}} 
+Linphone\+Chat\+Message\+State\+Displayed&Message displayed to the remote user. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\label{group__chatroom_ga7f64fe2eb0c031205e92e7e0e33fa811}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+add\+\_\+custom\+\_\+header@{linphone\+\_\+chat\+\_\+message\+\_\+add\+\_\+custom\+\_\+header}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+add\+\_\+custom\+\_\+header@{linphone\+\_\+chat\+\_\+message\+\_\+add\+\_\+custom\+\_\+header}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+add\+\_\+custom\+\_\+header()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+add\+\_\+custom\+\_\+header (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message,  }\item[{const char $\ast$}]{header\+\_\+name,  }\item[{const char $\ast$}]{header\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Add custom headers to the message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the message \\
+\hline
+{\em header\+\_\+name} & name of the header \\
+\hline
+{\em header\+\_\+value} & header value \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga76f6743533db8ed91967a103b7672750}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cancel\+\_\+file\+\_\+transfer@{linphone\+\_\+chat\+\_\+message\+\_\+cancel\+\_\+file\+\_\+transfer}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cancel\+\_\+file\+\_\+transfer@{linphone\+\_\+chat\+\_\+message\+\_\+cancel\+\_\+file\+\_\+transfer}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cancel\+\_\+file\+\_\+transfer()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+cancel\+\_\+file\+\_\+transfer (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Cancel an ongoing file transfer attached to this message. 
+
+(upload or download) 
+\begin{DoxyParams}{Parameters}
+{\em msg} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaade0f89a81fcb64f5ddfb253b69ae2e9}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb} linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs }\end{DoxyParamCaption})}
+
+
+
+Get the file transfer progress indication callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current file transfer progress indication callback. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga56dd7d35dff6ac76004e13a1cbde2939}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+recv@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+recv}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+recv@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+recv}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+recv()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb} linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+recv (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs }\end{DoxyParamCaption})}
+
+
+
+Get the file transfer receive callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current file transfer receive callback. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaf9f3fc3866a3f3f0f74a05a85e8a4a5c}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+send@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+send}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+send@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+send}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+send()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb} linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+file\+\_\+transfer\+\_\+send (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs }\end{DoxyParamCaption})}
+
+
+
+Get the file transfer send callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current file transfer send callback. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga5d5cf0998e47e0d9fe5b5b72f39551ea}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+msg\+\_\+state\+\_\+changed@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+msg\+\_\+state\+\_\+changed}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+msg\+\_\+state\+\_\+changed@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+msg\+\_\+state\+\_\+changed}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+msg\+\_\+state\+\_\+changed()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb} linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+msg\+\_\+state\+\_\+changed (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs }\end{DoxyParamCaption})}
+
+
+
+Get the message state changed callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current message state changed callback. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga8e89143ccc4893e424ac690bfc6bceef}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+user\+\_\+data}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+get\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs }\end{DoxyParamCaption})}
+
+
+
+Retrieve the user pointer associated with the Linphone\+Chat\+Message\+Cbs object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The user pointer associated with the Linphone\+Chat\+Message\+Cbs object. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga234a6782f72731a2da91f2c1013446e0}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+ref@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+ref}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+ref@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+ref}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+ref()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message\+Cbs}$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+ref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs }\end{DoxyParamCaption})}
+
+
+
+Acquire a reference to the Linphone\+Chat\+Message\+Cbs object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The same Linphone\+Chat\+Message\+Cbs object. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga78435fdda372ba34eff4d6c0c88aa3e6}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+progress\+\_\+indication (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs,  }\item[{\textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Progress\+Indication\+Cb}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Set the file transfer progress indication callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\mbox{\tt in}  & {\em cb} & The file transfer progress indication callback to be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gabd8db238eb8de64881caa0adc4f15143}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+recv@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+recv}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+recv@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+recv}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+recv()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+recv (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs,  }\item[{\textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Recv\+Cb}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Set the file transfer receive callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\mbox{\tt in}  & {\em cb} & The file transfer receive callback to be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gac954da1b1f2bdf4d1fb58f727363c3d0}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+send@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+send}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+send@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+send}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+send()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+file\+\_\+transfer\+\_\+send (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs,  }\item[{\textbf{ Linphone\+Chat\+Message\+Cbs\+File\+Transfer\+Send\+Cb}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Set the file transfer send callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\mbox{\tt in}  & {\em cb} & The file transfer send callback to be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gab89f3415c63f78a817b87dcb9e0f152b}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+msg\+\_\+state\+\_\+changed@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+msg\+\_\+state\+\_\+changed}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+msg\+\_\+state\+\_\+changed@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+msg\+\_\+state\+\_\+changed}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+msg\+\_\+state\+\_\+changed()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+msg\+\_\+state\+\_\+changed (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs,  }\item[{\textbf{ Linphone\+Chat\+Message\+Cbs\+Msg\+State\+Changed\+Cb}}]{cb }\end{DoxyParamCaption})}
+
+
+
+Set the message state changed callback. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\mbox{\tt in}  & {\em cb} & The message state changed callback to be used. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga2cfebcedb2d7ee541585cefd2259c19e}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+user\+\_\+data}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+set\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs,  }\item[{void $\ast$}]{ud }\end{DoxyParamCaption})}
+
+
+
+Assign a user pointer to the Linphone\+Chat\+Message\+Cbs object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\mbox{\tt in}  & {\em ud} & The user pointer to associate with the Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga95e4b24cd1a45db6bcc6b16bac247411}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+unref@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+unref}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+unref@{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+unref}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+unref()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+cbs\+\_\+unref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message\+Cbs} $\ast$}]{cbs }\end{DoxyParamCaption})}
+
+
+
+Release reference to the Linphone\+Chat\+Message\+Cbs object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cbs} & Linphone\+Chat\+Message\+Cbs object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gad4b041a53fb91d89d7ef6060687a4f3e}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+download\+\_\+file@{linphone\+\_\+chat\+\_\+message\+\_\+download\+\_\+file}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+download\+\_\+file@{linphone\+\_\+chat\+\_\+message\+\_\+download\+\_\+file}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+download\+\_\+file()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+chat\+\_\+message\+\_\+download\+\_\+file (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Start the download of the file referenced in a Linphone\+Chat\+Message from remote server. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & Linphone\+Chat\+Message object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga2b3c788bbe57f3d85282362da52fa7d4}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+appdata@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+appdata}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+appdata@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+appdata}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+appdata()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+appdata (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Linphone message has an app-\/specific field that can store a text. 
+
+The application might want to use it for keeping data over restarts, like thumbnail image path. 
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the application-\/specific data or N\+U\+LL if none has been stored. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga2ec794964eed8849b421f315429c16ed}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+callbacks@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+callbacks}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+callbacks@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+callbacks}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+callbacks()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message\+Cbs}$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+callbacks (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Get the Linphone\+Chat\+Message\+Cbs object associated with the Linphone\+Chat\+Message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & Linphone\+Chat\+Message object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Linphone\+Chat\+Message\+Cbs object associated with the Linphone\+Chat\+Message. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga9e2ea8054a3bc24031eaa739a8ce053d}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+content\+\_\+type@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+content\+\_\+type}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+content\+\_\+type@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+content\+\_\+type}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+content\+\_\+type()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+content\+\_\+type (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Get the content type of a chat message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & Linphone\+Chat\+Message object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The content type of the chat message 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga88e6095523ee394803fe67853d1f3508}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+custom\+\_\+header@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+custom\+\_\+header}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+custom\+\_\+header@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+custom\+\_\+header}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+custom\+\_\+header()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+custom\+\_\+header (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message,  }\item[{const char $\ast$}]{header\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Retrieve a custom header value given its name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the message \\
+\hline
+{\em header\+\_\+name} & header name searched \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga866409390c5efcee22857a0ada506bfa}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+error\+\_\+info@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+error\+\_\+info}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+error\+\_\+info@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+error\+\_\+info}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+error\+\_\+info()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Error\+Info}$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+error\+\_\+info (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Get full details about delivery error of a chat message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & a Linphone\+Chat\+Message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Linphone\+Error\+Info describing the details. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gad95bf697b0e2c7aca97375a348b4c71a}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+external\+\_\+body\+\_\+url@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+external\+\_\+body\+\_\+url}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+external\+\_\+body\+\_\+url@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+external\+\_\+body\+\_\+url}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+external\+\_\+body\+\_\+url()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+external\+\_\+body\+\_\+url (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Linphone message can carry external body as defined by rfc2017. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+external body url or N\+U\+LL if not present. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gacf6eebe4bca8cb4f9e484719d39e97cf}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+filepath@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+filepath}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+filepath@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+filepath}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+filepath()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+filepath (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Get the path to the file to read from or write to during the file transfer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & Linphone\+Chat\+Message object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The path to the file to use for the file transfer. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga09413a0ae2ced9eacd18ad755f5e2c53}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+information@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+information}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+information@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+information}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+information()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Content}$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+file\+\_\+transfer\+\_\+information (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Get the file\+\_\+transfer\+\_\+information (used by call backs to recover informations during a rcs file transfer) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a pointer to the Linphone\+Content structure or N\+U\+LL if not present. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga33936374d5d76773f4c9fac942094306}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Address}$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+from\+\_\+address (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Get origin of the message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} obj \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\+Address}{p.}{group__linphone__address_ga5af5a516ac253e3cda4f51b599a5385b} 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga0760a60d5b052fdb5cc42a6dcd24688b}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+local\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+local\+\_\+address}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+local\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+local\+\_\+address}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+local\+\_\+address()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Address}$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+local\+\_\+address (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Returns the origin address of a message if it was a outgoing message, or the destination address if it was an incoming message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} obj \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\+Address}{p.}{group__linphone__address_ga5af5a516ac253e3cda4f51b599a5385b} 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gac5b1513e11ab34964bef30a2beadd119}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+message\+\_\+id@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+message\+\_\+id}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+message\+\_\+id@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+message\+\_\+id}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+message\+\_\+id()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+message\+\_\+id (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{cm }\end{DoxyParamCaption})}
+
+
+
+Get the message identifier. 
+
+It is used to identify a message so that it can be notified as delivered and/or displayed. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cm} & Linphone\+Chat\+Message object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The message identifier. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga3a1a1c0902cefcb0381f7be04966644f}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+state@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+state}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+state@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+state}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+state()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message\+State} linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+state (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Get the state of the message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} obj \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\+Chat\+Message\+State}{p.}{group__chatroom_ga0d32dafdad12f343a09fc38fa48df136} 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gac54b358980f5df0184954202e2395b93}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+storage\+\_\+id@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+storage\+\_\+id}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+storage\+\_\+id@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+storage\+\_\+id}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+storage\+\_\+id()}
+{\footnotesize\ttfamily unsigned int linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+storage\+\_\+id (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Returns the id used to identify this message in the storage database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the id 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaa1dba5d24c7d3d5e860ea1468b0b8fa6}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+text@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+text}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+text@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+text}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+text()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+text (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Get text part of this message. 
+
+\begin{DoxyReturn}{Returns}
+text or N\+U\+LL if no text. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaf542e77773cedb7240bd3d3572b417fe}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Address}$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+address (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Get destination of the message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} obj \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\+Address}{p.}{group__linphone__address_ga5af5a516ac253e3cda4f51b599a5385b} 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga222a0ea1d317bb856c946b43f54b2f66}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+be\+\_\+stored@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+be\+\_\+stored}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+be\+\_\+stored@{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+be\+\_\+stored}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+be\+\_\+stored()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+to\+\_\+be\+\_\+stored (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Get if a chat message is to be stored. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & Linphone\+Chat\+Message object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether or not the message is to be stored 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga17b2ca4530c0fe5f92b8f1a49f8bc8f6}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+file\+\_\+transfer@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+file\+\_\+transfer}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+file\+\_\+transfer@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+file\+\_\+transfer}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+file\+\_\+transfer()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+file\+\_\+transfer (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Return whether or not a chat message is a file tranfer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & Linphone\+Chat\+Message object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether or not the message is a file tranfer 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga850ae9e1523cbddb1d668dd984909d2b}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+outgoing@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+outgoing}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+outgoing@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+outgoing}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+outgoing()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+outgoing (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Returns T\+R\+UE if the message has been sent, returns F\+A\+L\+SE if the message has been received. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the message \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga5981d1a8152bab00920210495686b61f}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+read@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+read}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+read@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+read}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+read()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+read (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Returns T\+R\+UE if the message has been read, otherwise returns F\+A\+L\+SE. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the message \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gad0b2588db90d0513b218ed1ba2508db2}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+secured@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+secured}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+secured@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+secured}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+secured()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+secured (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Get if the message was encrypted when transfered. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} obj \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+whether the message was encrypted when transfered or not 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga7d986c73b8092f6aa7ab4edb73973c64}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+text@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+text}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+text@{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+text}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+text()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+chat\+\_\+message\+\_\+is\+\_\+text (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Message} $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Return whether or not a chat message is a text. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & Linphone\+Chat\+Message object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Whether or not the message is a text 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gade65a1996db2fdddee5273e4d5d3923c}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+put\+\_\+char@{linphone\+\_\+chat\+\_\+message\+\_\+put\+\_\+char}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+put\+\_\+char@{linphone\+\_\+chat\+\_\+message\+\_\+put\+\_\+char}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+put\+\_\+char()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+chat\+\_\+message\+\_\+put\+\_\+char (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg,  }\item[{uint32\+\_\+t}]{character }\end{DoxyParamCaption})}
+
+
+
+Fulfill a chat message char by char. 
+
+Message linked to a Real Time Text Call send char in realtime following R\+FC 4103/\+T.\+140 To commit a message, use \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message}{p.}{group__chatroom_gad22a10b819a4a33f6dc12d88b64e5537} 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & Linphone\+Chat\+Message \\
+\hline
+\mbox{\tt in}  & {\em character} & T.\+140 char \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if succeed. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaffd9c07fab29225dbfeec72862f4c2dd}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+ref@{linphone\+\_\+chat\+\_\+message\+\_\+ref}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+ref@{linphone\+\_\+chat\+\_\+message\+\_\+ref}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+ref()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message}$\ast$ linphone\+\_\+chat\+\_\+message\+\_\+ref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Acquire a reference to the chat message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the chat message \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the same chat message 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaca421364e9146b00eaf9b56033b7e6e4}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+remove\+\_\+custom\+\_\+header@{linphone\+\_\+chat\+\_\+message\+\_\+remove\+\_\+custom\+\_\+header}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+remove\+\_\+custom\+\_\+header@{linphone\+\_\+chat\+\_\+message\+\_\+remove\+\_\+custom\+\_\+header}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+remove\+\_\+custom\+\_\+header()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+remove\+\_\+custom\+\_\+header (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg,  }\item[{const char $\ast$}]{header\+\_\+name }\end{DoxyParamCaption})}
+
+
+
+Removes a custom header from the message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the message \\
+\hline
+{\em header\+\_\+name} & name of the header to remove \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga65436ae23d8f3360494eb77dd9a83fb4}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+resend@{linphone\+\_\+chat\+\_\+message\+\_\+resend}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+resend@{linphone\+\_\+chat\+\_\+message\+\_\+resend}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+resend()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+resend (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Resend a chat message if it is in the \textquotesingle{}not delivered\textquotesingle{} state for whatever reason. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & Linphone\+Chat\+Message object  \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga74cabd3783fee69778767deaaa8e3b4b}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+appdata@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+appdata}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+appdata@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+appdata}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+appdata()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+appdata (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message,  }\item[{const char $\ast$}]{data }\end{DoxyParamCaption})}
+
+
+
+Linphone message has an app-\/specific field that can store a text. 
+
+The application might want to use it for keeping data over restarts, like thumbnail image path.
+
+Invoking this function will attempt to update the message storage to reflect the changeif it is enabled.
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} \\
+\hline
+{\em data} & the data to store into the message \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gab4b219c8b4813343a8d9368012010075}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+content\+\_\+type@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+content\+\_\+type}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+content\+\_\+type@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+content\+\_\+type}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+content\+\_\+type()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+content\+\_\+type (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message,  }\item[{const char $\ast$}]{content\+\_\+type }\end{DoxyParamCaption})}
+
+
+
+Set the content type of a chat message. 
+
+This content type must match a content that is text representable, such as text/plain, text/html or image/svg+xml. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & Linphone\+Chat\+Message object \\
+\hline
+\mbox{\tt in}  & {\em content\+\_\+type} & The new content type of the chat message \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaffab519662201c3477cedfead3ae65dc}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+external\+\_\+body\+\_\+url@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+external\+\_\+body\+\_\+url}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+external\+\_\+body\+\_\+url@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+external\+\_\+body\+\_\+url}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+external\+\_\+body\+\_\+url()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+external\+\_\+body\+\_\+url (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message,  }\item[{const char $\ast$}]{url }\end{DoxyParamCaption})}
+
+
+
+Linphone message can carry external body as defined by rfc2017. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & a Linphone\+Chat\+Message \\
+\hline
+{\em url} & ex\+: access-\/type=U\+RL; U\+RL=\char`\"{}http\+://www.\+foo.\+com/file\char`\"{} \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gac4f60a5f60d892e343732f5c42ac74d5}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+file\+\_\+transfer\+\_\+filepath@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+file\+\_\+transfer\+\_\+filepath}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+file\+\_\+transfer\+\_\+filepath@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+file\+\_\+transfer\+\_\+filepath}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+file\+\_\+transfer\+\_\+filepath()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+file\+\_\+transfer\+\_\+filepath (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg,  }\item[{const char $\ast$}]{filepath }\end{DoxyParamCaption})}
+
+
+
+Set the path to the file to read from or write to during the file transfer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em msg} & Linphone\+Chat\+Message object \\
+\hline
+\mbox{\tt in}  & {\em filepath} & The path to the file to use for the file transfer. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaf77d70f509da66755bc7bcc4c3efc211}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+from\+\_\+address (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{from }\end{DoxyParamCaption})}
+
+
+
+Set origin of the message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} obj \\
+\hline
+\mbox{\tt in}  & {\em from} & \doxyref{Linphone\+Address}{p.}{group__linphone__address_ga5af5a516ac253e3cda4f51b599a5385b} origin of this message (copied) \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga633cdba280f39f5c08d1ffc99e0f6c6e}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+address}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+address@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+address}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+address()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+address (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{addr }\end{DoxyParamCaption})}
+
+
+
+Set destination of the message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} obj \\
+\hline
+\mbox{\tt in}  & {\em addr} & \doxyref{Linphone\+Address}{p.}{group__linphone__address_ga5af5a516ac253e3cda4f51b599a5385b} destination of this message (copied) \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga365ebcca8677052d57101f21f65625a7}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+be\+\_\+stored@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+be\+\_\+stored}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+be\+\_\+stored@{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+be\+\_\+stored}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+be\+\_\+stored()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+set\+\_\+to\+\_\+be\+\_\+stored (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message,  }\item[{bool\+\_\+t}]{to\+\_\+be\+\_\+stored }\end{DoxyParamCaption})}
+
+
+
+Set if a chat message is to be stored. 
+
+This content type must match a content that is text representable, such as text/plain, text/html or image/svg+xml. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & Linphone\+Chat\+Message object \\
+\hline
+\mbox{\tt in}  & {\em to\+\_\+be\+\_\+stored} & Whether or not the chat message is to be stored \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga708787e7de91833ea01e66d4ab6863b6}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+start\+\_\+file\+\_\+download@{linphone\+\_\+chat\+\_\+message\+\_\+start\+\_\+file\+\_\+download}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+start\+\_\+file\+\_\+download@{linphone\+\_\+chat\+\_\+message\+\_\+start\+\_\+file\+\_\+download}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+start\+\_\+file\+\_\+download()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+chat\+\_\+message\+\_\+start\+\_\+file\+\_\+download (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{message,  }\item[{\textbf{ Linphone\+Chat\+Message\+State\+Changed\+Cb}}]{status\+\_\+cb,  }\item[{void $\ast$}]{ud }\end{DoxyParamCaption})}
+
+
+
+Start the download of the file from remote server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} \\
+\hline
+{\em status\+\_\+cb} & Linphone\+Chat\+Message\+State\+Change\+Cb status callback invoked when file is downloaded or could not be downloaded \\
+\hline
+{\em ud} & user data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+chat\+\_\+message\+\_\+download\+\_\+file()}{p.}{group__chatroom_gad4b041a53fb91d89d7ef6060687a4f3e} instead.  \end{DoxyRefDesc}
+\mbox{\label{group__chatroom_gaf5bd43b17bde713d4851d36f672e893a}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+message\+\_\+unref@{linphone\+\_\+chat\+\_\+message\+\_\+unref}}
+\index{linphone\+\_\+chat\+\_\+message\+\_\+unref@{linphone\+\_\+chat\+\_\+message\+\_\+unref}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+message\+\_\+unref()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+message\+\_\+unref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Release reference to the chat message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & the chat message. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga343beafc56b6bef9a967d5f0a9d6851f}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+compose@{linphone\+\_\+chat\+\_\+room\+\_\+compose}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+compose@{linphone\+\_\+chat\+\_\+room\+\_\+compose}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+compose()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+room\+\_\+compose (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Notifies the destination of the chat message being composed that the user is typing a new message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object corresponding to the conversation for which a new message is being typed. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga6d95139a5d19cd9b3312e5779630b8d8}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+file\+\_\+transfer\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+file\+\_\+transfer\+\_\+message}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+file\+\_\+transfer\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+file\+\_\+transfer\+\_\+message}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+file\+\_\+transfer\+\_\+message()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message}$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+file\+\_\+transfer\+\_\+message (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{const \textbf{ Linphone\+Content} $\ast$}]{initial\+\_\+content }\end{DoxyParamCaption})}
+
+
+
+Create a message attached to a dedicated chat room with a particular content. 
+
+Use \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message}{p.}{group__chatroom_gad22a10b819a4a33f6dc12d88b64e5537} to initiate the transfer 
+\begin{DoxyParams}{Parameters}
+{\em cr} & the chat room. \\
+\hline
+{\em initial\+\_\+content} & \doxyref{Linphone\+Content}{p.}{group__misc_gaec435ed53168e70535e64b69a906304b} initial content. \doxyref{Linphone\+Core\+V\+Table.\+file\+\_\+transfer\+\_\+send}{p.}{struct__LinphoneCoreVTable_a9a89cd8da3e543fd8bc05726115bbf74} is invoked later to notify file transfer progress and collect next chunk of the message if Linphone\+Content.\+data is N\+U\+LL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gae602d59df35f19ba76afbaf33fdc2851}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message}$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{const char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Create a message attached to a dedicated chat room;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & the chat room. \\
+\hline
+{\em message} & text message, N\+U\+LL if absent. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gadc6172038f03a589d410bd9279799a76}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message\+\_\+2@{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message\+\_\+2}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message\+\_\+2@{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message\+\_\+2}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message\+\_\+2()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Message}$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+create\+\_\+message\+\_\+2 (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{const char $\ast$}]{message,  }\item[{const char $\ast$}]{external\+\_\+body\+\_\+url,  }\item[{\textbf{ Linphone\+Chat\+Message\+State}}]{state,  }\item[{time\+\_\+t}]{time,  }\item[{bool\+\_\+t}]{is\+\_\+read,  }\item[{bool\+\_\+t}]{is\+\_\+incoming }\end{DoxyParamCaption})}
+
+
+
+Create a message attached to a dedicated chat room;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & the chat room. \\
+\hline
+{\em message} & text message, N\+U\+LL if absent. \\
+\hline
+{\em external\+\_\+body\+\_\+url} & the U\+RL given in external body or N\+U\+LL. \\
+\hline
+{\em state} & the Linphone\+Chat\+Message.\+State of the message. \\
+\hline
+{\em time} & the time\+\_\+t at which the message has been received/sent. \\
+\hline
+{\em is\+\_\+read} & T\+R\+UE if the message should be flagged as read, F\+A\+L\+SE otherwise. \\
+\hline
+{\em is\+\_\+incoming} & T\+R\+UE if the message has been received, F\+A\+L\+SE otherwise. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a new \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gade516340317128699a0210ff01ff7b35}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+history@{linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+history}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+history@{linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+history}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+history()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+history (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Delete all messages from the history. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object corresponding to the conversation. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga6d872199d2acfb5824fedb73c04b4289}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+message}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+message}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+message()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+room\+\_\+delete\+\_\+message (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Delete a message from the chat room history. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object corresponding to the conversation. \\
+\hline
+\mbox{\tt in}  & {\em msg} & The \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} object to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga820f9d74522e68628cd53191d7eb3864}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+destroy@{linphone\+\_\+chat\+\_\+room\+\_\+destroy}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+destroy@{linphone\+\_\+chat\+\_\+room\+\_\+destroy}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+destroy()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+chat\+\_\+room\+\_\+destroy (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Destroy a Linphone\+Chat\+Room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+unref()}{p.}{group__chatroom_gaf4bb2db36c843ebd85a3e705698c962a} instead.  \end{DoxyRefDesc}
+\mbox{\label{group__chatroom_gacf4f3a36e97b93caa7db239734e5b636}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+call@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+call}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+call@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+call}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+call()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Call}$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+call (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Room} $\ast$}]{room }\end{DoxyParamCaption})}
+
+
+
+get Curent Call associated to this chatroom if any To commit a message, use \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message}{p.}{group__chatroom_gad22a10b819a4a33f6dc12d88b64e5537} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em room} & Linphone\+Chat\+Romm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linphone\+Call or N\+U\+LL. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaff67cad5d18191839515f68a4550ce67}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+char@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+char}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+char@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+char}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+char()}
+{\footnotesize\ttfamily uint32\+\_\+t linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+char (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+When realtime text is enabled \doxyref{linphone\+\_\+call\+\_\+params\+\_\+realtime\+\_\+text\+\_\+enabled}{p.}{group__media__parameters_gac93f1c5212a71362a315b6ed310ea9e8}, \doxyref{Linphone\+Core\+Is\+Composing\+Received\+Cb}{p.}{group__initializing_ga18aea1c8329ef3faeaa33b7c00675442} is call everytime a char is received from peer. 
+
+At the end of remote typing a regular \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} is received with committed data from \doxyref{Linphone\+Core\+Message\+Received\+Cb}{p.}{group__initializing_ga4e9690585a5e6d2b4685c4bd19bbd5a3}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+R\+FC 4103/\+T.\+140 char 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga816c6f561ea22cd1beef9bc8d066e1dd}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history()}
+{\footnotesize\ttfamily bctbx\+\_\+list\+\_\+t$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{int}]{nb\+\_\+message }\end{DoxyParamCaption})}
+
+
+
+Gets nb\+\_\+message most recent messages from cr chat room, sorted from oldest to most recent. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object corresponding to the conversation for which messages should be retrieved \\
+\hline
+\mbox{\tt in}  & {\em nb\+\_\+message} & Number of message to retrieve. 0 means everything. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} objects. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga79b3adc4e2c390569041e0bbb91d9ea1}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+range@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+range}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+range@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+range}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+range()}
+{\footnotesize\ttfamily bctbx\+\_\+list\+\_\+t$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+range (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{int}]{begin,  }\item[{int}]{end }\end{DoxyParamCaption})}
+
+
+
+Gets the partial list of messages in the given range, sorted from oldest to most recent. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object corresponding to the conversation for which messages should be retrieved \\
+\hline
+\mbox{\tt in}  & {\em begin} & The first message of the range to be retrieved. History most recent message has index 0. \\
+\hline
+\mbox{\tt in}  & {\em end} & The last message of the range to be retrieved. History oldest message has index of history size -\/ 1 (use \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+size}{p.}{group__chatroom_gaad3cb6dd449809aae76fdd00a18c157e} to retrieve history size) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} objects. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaad3cb6dd449809aae76fdd00a18c157e}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+size@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+size}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+size@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+size}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+size()}
+{\footnotesize\ttfamily int linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+history\+\_\+size (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Gets the number of messages in a chat room. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object corresponding to the conversation for which size has to be computed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of messages. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaa6d9f80b28dfd0731b6520f87a751404}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+lc@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+lc}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+lc@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+lc}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+lc()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED \textbf{ Linphone\+Core}$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+lc (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Returns back pointer to \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]use \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+core()}{p.}{group__chatroom_ga985710ce0f27ab6013395c75fabcc70c}  \end{DoxyRefDesc}
+\mbox{\label{group__chatroom_gaf3de508d63bbc8b1d51f56886846d526}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+peer\+\_\+address@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+peer\+\_\+address}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+peer\+\_\+address@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+peer\+\_\+address}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+peer\+\_\+address()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Address}$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+peer\+\_\+address (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+get peer address \doxyref{associated to }{p.}{group__chatroom_gae91f97feaeea9a7dedab24faf3fbc3c2} this \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\+Address}{p.}{group__linphone__address_ga5af5a516ac253e3cda4f51b599a5385b} peer address 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaab5ffe062725ba783ad6152203928d6e}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+unread\+\_\+messages\+\_\+count@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+unread\+\_\+messages\+\_\+count}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+unread\+\_\+messages\+\_\+count@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+unread\+\_\+messages\+\_\+count}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+unread\+\_\+messages\+\_\+count()}
+{\footnotesize\ttfamily int linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+unread\+\_\+messages\+\_\+count (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Gets the number of unread messages in the chatroom. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object corresponding to the conversation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the number of unread messages. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gad32e57af52b7a2e91fac045f202e317b}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+user\+\_\+data}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+get\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Retrieve the user pointer associated with the chat room. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The chat room. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The user pointer associated with the chat room. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga31518e8b1774e2f926fe4b62e1082c9f}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+is\+\_\+remote\+\_\+composing@{linphone\+\_\+chat\+\_\+room\+\_\+is\+\_\+remote\+\_\+composing}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+is\+\_\+remote\+\_\+composing@{linphone\+\_\+chat\+\_\+room\+\_\+is\+\_\+remote\+\_\+composing}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+is\+\_\+remote\+\_\+composing()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+chat\+\_\+room\+\_\+is\+\_\+remote\+\_\+composing (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Tells whether the remote is currently composing a message. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object corresponding to the conversation. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the remote is currently composing a message, F\+A\+L\+SE otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga4e3aa955383e4eb9d376bc0d494ed834}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+lime\+\_\+available@{linphone\+\_\+chat\+\_\+room\+\_\+lime\+\_\+available}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+lime\+\_\+available@{linphone\+\_\+chat\+\_\+room\+\_\+lime\+\_\+available}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+lime\+\_\+available()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+chat\+\_\+room\+\_\+lime\+\_\+available (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Returns true if lime is available for given peer. 
+
+\begin{DoxyReturn}{Returns}
+true if zrtp secrets have already been shared and ready to use 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga66b0d16bd38d5145f6df8b5262b5bb5b}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+mark\+\_\+as\+\_\+read@{linphone\+\_\+chat\+\_\+room\+\_\+mark\+\_\+as\+\_\+read}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+mark\+\_\+as\+\_\+read@{linphone\+\_\+chat\+\_\+room\+\_\+mark\+\_\+as\+\_\+read}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+mark\+\_\+as\+\_\+read()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+room\+\_\+mark\+\_\+as\+\_\+read (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Mark all messages of the conversation as read. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object corresponding to the conversation. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga4d1d0c24c5d651cf588842e1df1df5c2}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+ref@{linphone\+\_\+chat\+\_\+room\+\_\+ref}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+ref@{linphone\+\_\+chat\+\_\+room\+\_\+ref}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+ref()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Room}$\ast$ linphone\+\_\+chat\+\_\+room\+\_\+ref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Acquire a reference to the chat room. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The chat room. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The same chat room. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga4f6a53c5c3c0ec9afe7ade876d2da102}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Send a message to peer member of this chat room. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & Linphone\+Chat\+Room object \\
+\hline
+\mbox{\tt in}  & {\em msg} & Linphone\+Chat\+Message object The state of the message sending will be notified via the callbacks defined in the Linphone\+Chat\+Message\+Cbs object that can be obtained by calling \doxyref{linphone\+\_\+chat\+\_\+message\+\_\+get\+\_\+callbacks()}{p.}{group__chatroom_ga2ec794964eed8849b421f315429c16ed}. The Linphone\+Chat\+Message reference is transfered to the function and thus doesn\textquotesingle{}t need to be unref\textquotesingle{}d by the application.  \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gad22a10b819a4a33f6dc12d88b64e5537}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message@{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{const char $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Send a message to peer member of this chat room. 
+
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message()}{p.}{group__chatroom_ga4f6a53c5c3c0ec9afe7ade876d2da102} instead. \end{DoxyRefDesc}
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object \\
+\hline
+{\em msg} & message to be sent  \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gabdf64d2801a69539935361ede5b052f1}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message2@{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message2}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message2@{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message2}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message2()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+message2 (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{\textbf{ Linphone\+Chat\+Message} $\ast$}]{msg,  }\item[{\textbf{ Linphone\+Chat\+Message\+State\+Changed\+Cb}}]{status\+\_\+cb,  }\item[{void $\ast$}]{ud }\end{DoxyParamCaption})}
+
+
+
+Send a message to peer member of this chat room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cr} & \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object \\
+\hline
+{\em msg} & \doxyref{Linphone\+Chat\+Message}{p.}{group__chatroom_gada79c4417919389b5247e254279f7833} message to be sent \\
+\hline
+{\em status\+\_\+cb} & Linphone\+Chat\+Message\+State\+Change\+Cb status callback invoked when message is delivered or could not be delivered. May be N\+U\+LL \\
+\hline
+{\em ud} & user data for the status cb. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Use \doxyref{linphone\+\_\+chat\+\_\+room\+\_\+send\+\_\+chat\+\_\+message()}{p.}{group__chatroom_ga4f6a53c5c3c0ec9afe7ade876d2da102} instead. \end{DoxyRefDesc}
+\begin{DoxyNote}{Note}
+The Linphone\+Chat\+Message must not be destroyed until the the callback is called. The Linphone\+Chat\+Message reference is transfered to the function and thus doesn\textquotesingle{}t need to be unref\textquotesingle{}d by the application.  
+\end{DoxyNote}
+\mbox{\label{group__chatroom_ga8a3d47c51304c9ae8d9acdd22e0916b1}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+chat\+\_\+room\+\_\+set\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+chat\+\_\+room\+\_\+set\+\_\+user\+\_\+data}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+set\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+room\+\_\+set\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr,  }\item[{void $\ast$}]{ud }\end{DoxyParamCaption})}
+
+
+
+Assign a user pointer to the chat room. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The chat room. \\
+\hline
+\mbox{\tt in}  & {\em ud} & The user pointer to associate with the chat room. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaf4bb2db36c843ebd85a3e705698c962a}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+chat\+\_\+room\+\_\+unref@{linphone\+\_\+chat\+\_\+room\+\_\+unref}}
+\index{linphone\+\_\+chat\+\_\+room\+\_\+unref@{linphone\+\_\+chat\+\_\+room\+\_\+unref}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+chat\+\_\+room\+\_\+unref()}
+{\footnotesize\ttfamily void linphone\+\_\+chat\+\_\+room\+\_\+unref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Release reference to the chat room. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cr} & The chat room. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaf8d95d7d0925be52c6325036afa64de3}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+chat\+\_\+enabled@{linphone\+\_\+core\+\_\+chat\+\_\+enabled}}
+\index{linphone\+\_\+core\+\_\+chat\+\_\+enabled@{linphone\+\_\+core\+\_\+chat\+\_\+enabled}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+chat\+\_\+enabled()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+core\+\_\+chat\+\_\+enabled (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Returns whether chat is enabled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lc} & A \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gabe7f852161104574c6d6001cee3c768e}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+delete\+\_\+chat\+\_\+room@{linphone\+\_\+core\+\_\+delete\+\_\+chat\+\_\+room}}
+\index{linphone\+\_\+core\+\_\+delete\+\_\+chat\+\_\+room@{linphone\+\_\+core\+\_\+delete\+\_\+chat\+\_\+room}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+delete\+\_\+chat\+\_\+room()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+delete\+\_\+chat\+\_\+room (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{\textbf{ Linphone\+Chat\+Room} $\ast$}]{cr }\end{DoxyParamCaption})}
+
+
+
+Removes a chatroom including all message history from the Linphone\+Core. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lc} & A \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+{\em cr} & A \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gae954506c6883f8bcac5676159883248e}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+disable\+\_\+chat@{linphone\+\_\+core\+\_\+disable\+\_\+chat}}
+\index{linphone\+\_\+core\+\_\+disable\+\_\+chat@{linphone\+\_\+core\+\_\+disable\+\_\+chat}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+disable\+\_\+chat()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+disable\+\_\+chat (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{\textbf{ Linphone\+Reason}}]{deny\+\_\+reason }\end{DoxyParamCaption})}
+
+
+
+Inconditionnaly disable incoming chat messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lc} & A \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+{\em deny\+\_\+reason} & the deny reason (\doxyref{Linphone\+Reason\+None}{p.}{group__misc_ggaf7346e9b3a064155f3d5d3811d684fb2af390378a48e0b30faeac92813c6a50ef} has no effect). \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga938f8622c590cafd0ea63f15ad29781a}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+enable\+\_\+chat@{linphone\+\_\+core\+\_\+enable\+\_\+chat}}
+\index{linphone\+\_\+core\+\_\+enable\+\_\+chat@{linphone\+\_\+core\+\_\+enable\+\_\+chat}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+enable\+\_\+chat()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+enable\+\_\+chat (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Enable reception of incoming chat messages. 
+
+By default it is enabled but it can be disabled with \doxyref{linphone\+\_\+core\+\_\+disable\+\_\+chat()}{p.}{group__chatroom_gae954506c6883f8bcac5676159883248e}. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & A \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga315b6b8cd0ee71f5aeabc21e8b07c2c7}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+database\+\_\+path@{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+database\+\_\+path}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+database\+\_\+path@{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+database\+\_\+path}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+database\+\_\+path()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+database\+\_\+path (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Get path to the database file used for storing chat messages. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lc} & the linphone core \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+file path or N\+U\+LL if not exist 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gae91f97feaeea9a7dedab24faf3fbc3c2}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room@{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room@{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Room}$\ast$ linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{addr }\end{DoxyParamCaption})}
+
+
+
+Get a chat room whose peer is the supplied address. 
+
+If it does not exist yet, it will be created. No reference is transfered to the application. The Linphone\+Core keeps a reference on the chat room. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & the linphone core \\
+\hline
+{\em addr} & a linphone address. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} where messaging can take place. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga0773908efaefd1e00b4b39d2ad20414c}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room\+\_\+from\+\_\+uri@{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room\+\_\+from\+\_\+uri}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room\+\_\+from\+\_\+uri@{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room\+\_\+from\+\_\+uri}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room\+\_\+from\+\_\+uri()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Room}$\ast$ linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+room\+\_\+from\+\_\+uri (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const char $\ast$}]{to }\end{DoxyParamCaption})}
+
+
+
+Get a chat room for messaging from a sip uri like sip\+:{\tt joe@sip.\+linphone.\+org}. 
+
+If it does not exist yet, it will be created. No reference is transfered to the application. The Linphone\+Core keeps a reference on the chat room. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & A \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+{\em to} & The destination address for messages. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} where messaging can take place. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gae1da171e2e7d5e0143ac4a0bac203243}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+rooms@{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+rooms}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+rooms@{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+rooms}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+rooms()}
+{\footnotesize\ttfamily const bctbx\+\_\+list\+\_\+t$\ast$ linphone\+\_\+core\+\_\+get\+\_\+chat\+\_\+rooms (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Returns an list of chat rooms. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of \doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} objects. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga1e3a103e03d74ceec577297645405bff}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+encryption\+\_\+engine@{linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+encryption\+\_\+engine}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+encryption\+\_\+engine@{linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+encryption\+\_\+engine}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+encryption\+\_\+engine()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Im\+Encryption\+Engine}$\ast$ linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+encryption\+\_\+engine (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Gets the IM Encryption Engine in the core if possible. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lc} & Linphone\+Core object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the IM Encryption Engine in the core or N\+U\+LL 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga2440c074e64df6b6ddf596086243ca47}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+notif\+\_\+policy@{linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+notif\+\_\+policy}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+notif\+\_\+policy@{linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+notif\+\_\+policy}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+notif\+\_\+policy()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Im\+Notif\+Policy}$\ast$ linphone\+\_\+core\+\_\+get\+\_\+im\+\_\+notif\+\_\+policy (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Get the Linphone\+Im\+Notif\+Policy object controlling the instant messaging notifications. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lc} & Linphone\+Core object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Linphone\+Im\+Notif\+Policy object. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga971a0a881b5c9990522ca12e7d2d785b}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+set\+\_\+chat\+\_\+database\+\_\+path@{linphone\+\_\+core\+\_\+set\+\_\+chat\+\_\+database\+\_\+path}}
+\index{linphone\+\_\+core\+\_\+set\+\_\+chat\+\_\+database\+\_\+path@{linphone\+\_\+core\+\_\+set\+\_\+chat\+\_\+database\+\_\+path}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+set\+\_\+chat\+\_\+database\+\_\+path()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+set\+\_\+chat\+\_\+database\+\_\+path (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const char $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Set the chat database path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lc} & the linphone core \\
+\hline
+{\em path} & the database path \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga991497176668215d6f75d904dac7d6de}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+core\+\_\+set\+\_\+im\+\_\+encryption\+\_\+engine@{linphone\+\_\+core\+\_\+set\+\_\+im\+\_\+encryption\+\_\+engine}}
+\index{linphone\+\_\+core\+\_\+set\+\_\+im\+\_\+encryption\+\_\+engine@{linphone\+\_\+core\+\_\+set\+\_\+im\+\_\+encryption\+\_\+engine}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+core\+\_\+set\+\_\+im\+\_\+encryption\+\_\+engine()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+set\+\_\+im\+\_\+encryption\+\_\+engine (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{\textbf{ Linphone\+Im\+Encryption\+Engine} $\ast$}]{imee }\end{DoxyParamCaption})}
+
+
+
+Sets an IM Encryption Engine in the core. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lc} & Linphone\+Core object \\
+\hline
+{\em imee} & Linphone\+Im\+Encryption\+Engine object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga9e591a2d85402f2935432441df9d44f4}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+clear@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+clear}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+clear@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+clear}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+clear()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+clear (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Clear an IM notif policy (deactivate all receiving and sending of notifications). 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga689a735c927db7958fe47be2ff03b63f}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+enable\+\_\+all@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+enable\+\_\+all}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+enable\+\_\+all@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+enable\+\_\+all}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+enable\+\_\+all()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+enable\+\_\+all (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Enable all receiving and sending of notifications. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaafe931982977e1f923a1d469a0a4a611}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+delivered@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+delivered}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+delivered@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+delivered}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+delivered()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+delivered (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Tell whether imdn delivered notifications are being notified when received. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value telling whether imdn delivered notifications are being notified when received. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gaf8a9ffe6ba2cba322a21585831465f1f}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+displayed@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+displayed}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+displayed@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+displayed}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+displayed()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+imdn\+\_\+displayed (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Tell whether imdn displayed notifications are being notified when received. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value telling whether imdn displayed notifications are being notified when received. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga7a4814040e76c7498fe3ce76624ddf21}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+is\+\_\+composing@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+is\+\_\+composing}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+is\+\_\+composing@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+is\+\_\+composing}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+is\+\_\+composing()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+recv\+\_\+is\+\_\+composing (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Tell whether is\+\_\+composing notifications are being notified when received. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value telling whether is\+\_\+composing notifications are being notified when received. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga9271f71f9414db170c44bce2bb84f42a}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+delivered@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+delivered}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+delivered@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+delivered}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+delivered()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+delivered (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Tell whether imdn delivered notifications are being sent. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value telling whether imdn delivered notifications are being sent. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga545e91c074d7b91f7ec71ff1c6e32cbd}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+displayed@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+displayed}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+displayed@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+displayed}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+displayed()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+imdn\+\_\+displayed (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Tell whether imdn displayed notifications are being sent. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value telling whether imdn displayed notifications are being sent. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga3a57873f1625c160f0d73f1f68a99726}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+is\+\_\+composing@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+is\+\_\+composing}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+is\+\_\+composing@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+is\+\_\+composing}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+is\+\_\+composing()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+send\+\_\+is\+\_\+composing (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Tell whether is\+\_\+composing notifications are being sent. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value telling whether is\+\_\+composing notifications are being sent. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga1cb6e850b0c49221d9f4aaa184224e93}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+user\+\_\+data}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void$\ast$ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+get\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Retrieve the user pointer associated with the Linphone\+Im\+Notif\+Policy object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The user pointer associated with the Linphone\+Im\+Notif\+Policy object. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_ga50283242e53b172825f825587a113c7c}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+ref@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+ref}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+ref@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+ref}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+ref()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Im\+Notif\+Policy}$\ast$ linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+ref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Acquire a reference to the Linphone\+Im\+Notif\+Policy object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The same Linphone\+Im\+Notif\+Policy object. 
+\end{DoxyReturn}
+\mbox{\label{group__chatroom_gae451603c4e7f9ce700cc2bf89b5250d6}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+delivered@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+delivered}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+delivered@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+delivered}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+delivered()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+delivered (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy,  }\item[{bool\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+
+
+Enable imdn delivered notifications receiving. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\mbox{\tt in}  & {\em enable} & Boolean value telling whether to notify received imdn delivered notifications. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga2f89f10475d94d9d3e9c028a89799838}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+displayed@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+displayed}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+displayed@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+displayed}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+displayed()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+imdn\+\_\+displayed (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy,  }\item[{bool\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+
+
+Enable imdn displayed notifications receiving. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\mbox{\tt in}  & {\em enable} & Boolean value telling whether to notify received imdn displayed notifications. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaa7fe1131681d11bdcf8d6108a2b12ae3}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+is\+\_\+composing@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+is\+\_\+composing}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+is\+\_\+composing@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+is\+\_\+composing}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+is\+\_\+composing()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+recv\+\_\+is\+\_\+composing (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy,  }\item[{bool\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+
+
+Enable is\+\_\+composing notifications receiving. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\mbox{\tt in}  & {\em enable} & Boolean value telling whether to notify received is\+\_\+composing notifications. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaacddcb11b0cf8647964d49f3c47fd237}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+delivered@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+delivered}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+delivered@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+delivered}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+delivered()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+delivered (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy,  }\item[{bool\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+
+
+Enable imdn delivered notifications sending. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\mbox{\tt in}  & {\em enable} & Boolean value telling whether to send imdn delivered notifications. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaeb58f04502c608d115eb14611c7f05c4}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+displayed@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+displayed}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+displayed@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+displayed}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+displayed()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+imdn\+\_\+displayed (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy,  }\item[{bool\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+
+
+Enable imdn displayed notifications sending. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\mbox{\tt in}  & {\em enable} & Boolean value telling whether to send imdn displayed notifications. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_ga3320cf16adce297215150be606eb8efa}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+is\+\_\+composing@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+is\+\_\+composing}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+is\+\_\+composing@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+is\+\_\+composing}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+is\+\_\+composing()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+send\+\_\+is\+\_\+composing (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy,  }\item[{bool\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+
+
+Enable is\+\_\+composing notifications sending. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object \\
+\hline
+\mbox{\tt in}  & {\em enable} & Boolean value telling whether to send is\+\_\+composing notifications. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gae2bee0401ad322972311529e11f7ee1b}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+user\+\_\+data}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+set\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy,  }\item[{void $\ast$}]{ud }\end{DoxyParamCaption})}
+
+
+
+Assign a user pointer to the Linphone\+Im\+Notif\+Policy object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object. \\
+\hline
+\mbox{\tt in}  & {\em ud} & The user pointer to associate with the Linphone\+Im\+Notif\+Policy object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__chatroom_gaf279b35f076d23655f3bac33f1184462}} 
+\index{Chatroom@{Chatroom}!linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+unref@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+unref}}
+\index{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+unref@{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+unref}!Chatroom@{Chatroom}}
+\subsubsection{linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+unref()}
+{\footnotesize\ttfamily void linphone\+\_\+im\+\_\+notif\+\_\+policy\+\_\+unref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Im\+Notif\+Policy} $\ast$}]{policy }\end{DoxyParamCaption})}
+
+
+
+Release reference to the Linphone\+Im\+Notif\+Policy object. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em policy} & Linphone\+Im\+Notif\+Policy object. \\
+\hline
+\end{DoxyParams}

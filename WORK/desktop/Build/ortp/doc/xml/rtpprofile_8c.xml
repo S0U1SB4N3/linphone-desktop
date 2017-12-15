@@ -1,0 +1,675 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="rtpprofile_8c" kind="file" language="C++">
+    <compoundname>rtpprofile.c</compoundname>
+    <includes refid="ortp_8h" local="yes">ortp/ortp.h</includes>
+    <includes local="no">bctoolbox/port.h</includes>
+    <incdepgraph>
+      <node id="274">
+        <label>ortp/payloadtype.h</label>
+        <link refid="payloadtype_8h"/>
+      </node>
+      <node id="269">
+        <label>rtpprofile.c</label>
+        <link refid="rtpprofile_8c"/>
+        <childnode refid="270" relation="include">
+        </childnode>
+        <childnode refid="280" relation="include">
+        </childnode>
+      </node>
+      <node id="275">
+        <label>ortp/rtpprofile.h</label>
+        <link refid="rtpprofile_8h"/>
+      </node>
+      <node id="270">
+        <label>ortp/ortp.h</label>
+        <link refid="ortp_8h"/>
+        <childnode refid="271" relation="include">
+        </childnode>
+        <childnode refid="272" relation="include">
+        </childnode>
+        <childnode refid="276" relation="include">
+        </childnode>
+      </node>
+      <node id="272">
+        <label>ortp/rtpsession.h</label>
+        <link refid="rtpsession_8h"/>
+        <childnode refid="273" relation="include">
+        </childnode>
+        <childnode refid="274" relation="include">
+        </childnode>
+        <childnode refid="275" relation="include">
+        </childnode>
+        <childnode refid="276" relation="include">
+        </childnode>
+      </node>
+      <node id="276">
+        <label>ortp/sessionset.h</label>
+        <link refid="sessionset_8h"/>
+        <childnode refid="272" relation="include">
+        </childnode>
+        <childnode refid="277" relation="include">
+        </childnode>
+        <childnode refid="278" relation="include">
+        </childnode>
+        <childnode refid="279" relation="include">
+        </childnode>
+      </node>
+      <node id="280">
+        <label>bctoolbox/port.h</label>
+      </node>
+      <node id="278">
+        <label>sys/types.h</label>
+      </node>
+      <node id="279">
+        <label>unistd.h</label>
+      </node>
+      <node id="271">
+        <label>ortp/logging.h</label>
+        <link refid="logging_8h"/>
+      </node>
+      <node id="273">
+        <label>bctoolbox/list.h</label>
+      </node>
+      <node id="277">
+        <label>sys/time.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="rtpprofile_8c_1ac61f0ada65640e3dca648942edb02c6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int rtp_profile_get_payload_number_from_mime</definition>
+        <argsstring>(RtpProfile *profile, const char *mime)</argsstring>
+        <name>rtp_profile_get_payload_number_from_mime</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>profile</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="24" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="24" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1a6aa92f8f9bd5934ca599c6460d28541e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int rtp_profile_get_payload_number_from_mime_and_flag</definition>
+        <argsstring>(RtpProfile *profile, const char *mime, int flag)</argsstring>
+        <name>rtp_profile_get_payload_number_from_mime_and_flag</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>profile</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mime</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>flag</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="29" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="29" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1aedeb348448f40418a77b378bb1e1b2e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int rtp_profile_find_payload_number</definition>
+        <argsstring>(RtpProfile *profile, const char *mime, int rate, int channels)</argsstring>
+        <name>rtp_profile_find_payload_number</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>profile</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mime</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rate</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channels</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="46" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="46" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1a2a67a5886e323b3041c4c637549a98b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int rtp_profile_get_payload_number_from_rtpmap</definition>
+        <argsstring>(RtpProfile *profile, const char *rtpmap)</argsstring>
+        <name>rtp_profile_get_payload_number_from_rtpmap</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>profile</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>rtpmap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="67" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="67" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1a80784376ff73cd052183b4ba1ed6896f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref> *</type>
+        <definition>PayloadType* rtp_profile_find_payload</definition>
+        <argsstring>(RtpProfile *prof, const char *mime, int rate, int channels)</argsstring>
+        <name>rtp_profile_find_payload</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>prof</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mime</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>rate</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>channels</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="106" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="106" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1a72610e4bcbef2461ec6b345df849bbd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref> *</type>
+        <definition>PayloadType* rtp_profile_get_payload_from_mime</definition>
+        <argsstring>(RtpProfile *profile, const char *mime)</argsstring>
+        <name>rtp_profile_get_payload_from_mime</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>profile</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>mime</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="115" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="115" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1a50852a8808443984c0272133cc7b5f60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref> *</type>
+        <definition>PayloadType* rtp_profile_get_payload_from_rtpmap</definition>
+        <argsstring>(RtpProfile *profile, const char *rtpmap)</argsstring>
+        <name>rtp_profile_get_payload_from_rtpmap</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>profile</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>rtpmap</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="124" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="124" bodyend="129"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1aef9cedef5d47b1783fcf87bf5ed4ff62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int rtp_profile_move_payload</definition>
+        <argsstring>(RtpProfile *prof, int oldpos, int newpos)</argsstring>
+        <name>rtp_profile_move_payload</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>prof</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>oldpos</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>newpos</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="131" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="131" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1ac60ec573e4fc0a9f00d1a43742416dfe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+        <definition>RtpProfile* rtp_profile_new</definition>
+        <argsstring>(const char *name)</argsstring>
+        <name>rtp_profile_new</name>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="145" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="145" bodyend="150"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1afd4a2f20716dc0c8392bc5e7d813b1a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtp_profile_set_payload</definition>
+        <argsstring>(RtpProfile *profile, int idx, PayloadType *pt)</argsstring>
+        <name>rtp_profile_set_payload</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>profile</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>idx</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref> *</type>
+          <declname>pt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Assign payload type number index to payload type desribed in pt for the RTP profile profile. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>profile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a RTP profile </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>idx</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the payload type number </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>pt</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the payload type description </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="159" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="159" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1ad06a2cc5db93233e40dc3ecbdc331662" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtp_profile_clear_all</definition>
+        <argsstring>(RtpProfile *profile)</argsstring>
+        <name>rtp_profile_clear_all</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>profile</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the profile to the empty profile (all payload type are unassigned). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>profile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a RTP profile </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="172" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="172" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1a5cd869dbfd1646a82d48429d7b1df0ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtp_profile_set_name</definition>
+        <argsstring>(RtpProfile *profile, const char *name)</argsstring>
+        <name>rtp_profile_set_name</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>profile</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Set a name to the rtp profile. (This is not required) <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>profile</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a rtp profile object </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a string </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="186" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="186" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1aaa659200eb4d1b9f274bd26ef2b385c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+        <definition>RtpProfile* rtp_profile_clone</definition>
+        <argsstring>(RtpProfile *prof)</argsstring>
+        <name>rtp_profile_clone</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>prof</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="192" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="192" bodyend="204"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1ad9d927aa186f7291a2a9b801d5f4bd59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+        <definition>RtpProfile* rtp_profile_clone_full</definition>
+        <argsstring>(RtpProfile *prof)</argsstring>
+        <name>rtp_profile_clone_full</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>prof</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="208" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="208" bodyend="220"/>
+      </memberdef>
+      <memberdef kind="function" id="rtpprofile_8c_1afaa522452b64e44f9f58124cde14e200" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtp_profile_destroy</definition>
+        <argsstring>(RtpProfile *prof)</argsstring>
+        <name>rtp_profile_destroy</name>
+        <param>
+          <type><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref> *</type>
+          <declname>prof</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" line="222" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c" bodystart="222" bodyend="237"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>The<sp/>oRTP<sp/>library<sp/>is<sp/>an<sp/>RTP<sp/>(Realtime<sp/>Transport<sp/>Protocol<sp/>-<sp/>rfc3550)<sp/>implementation<sp/>with<sp/>additional<sp/>features.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2017<sp/>Belledonne<sp/>Communications<sp/>SARL</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>Foundation,<sp/>Inc.,<sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/>02111-1307,<sp/>USA.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="ortp_8h" kindref="compound">ortp/ortp.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;bctoolbox/port.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rtp_profile_get_payload_number_from_mime(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*profile,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*mime)</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rtp_profile_get_payload_number_from_mime_and_flag(profile,<sp/>mime,<sp/>-1);</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rtp_profile_get_payload_number_from_mime_and_flag(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*profile,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*mime,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>flag)</highlight></codeline>
+<codeline lineno="30"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref><sp/>*pt;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>RTP_PROFILE_MAX_PAYLOADS;<sp/>i++)<sp/>{</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pt<sp/>=<sp/>rtp_profile_get_payload(profile,<sp/>i);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pt<sp/>!=<sp/>NULL)<sp/>{</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcasecmp(pt-&gt;<ref refid="struct__OrtpPayloadType_1aca553824693e8dcf4a6181a4310c0d11" kindref="member">mime_type</ref>,<sp/>mime)<sp/>==<sp/>0)<sp/>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(flag<sp/>&lt;<sp/>0<sp/>||<sp/>pt-&gt;flags<sp/>&amp;<sp/>flag)<sp/>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rtp_profile_find_payload_number(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref>*profile,</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*mime,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rate,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>channels)</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref><sp/>*pt;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;RTP_PROFILE_MAX_PAYLOADS;i++)</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pt=rtp_profile_get_payload(profile,i);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pt!=NULL)</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(strcasecmp(pt-&gt;<ref refid="struct__OrtpPayloadType_1aca553824693e8dcf4a6181a4310c0d11" kindref="member">mime_type</ref>,mime)==0<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pt-&gt;<ref refid="struct__OrtpPayloadType_1a020ebbacab34872cfdffc7a5cddf6aa8" kindref="member">clock_rate</ref>==rate<sp/>&amp;&amp;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>(pt-&gt;<ref refid="struct__OrtpPayloadType_1ac5381077d9a9c0ac2b2209d9a73cf924" kindref="member">channels</ref>==channels<sp/>||<sp/>channels&lt;=0<sp/>||<sp/>pt-&gt;channels&lt;=0))<sp/>{</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*we<sp/>don&apos;t<sp/>look<sp/>at<sp/>channels<sp/>if<sp/>it<sp/>is<sp/>undefined</highlight></codeline>
+<codeline lineno="59"><highlight class="comment"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ie<sp/>a<sp/>negative<sp/>or<sp/>zero<sp/>value*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rtp_profile_get_payload_number_from_rtpmap(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*profile,</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*rtpmap)</highlight></codeline>
+<codeline lineno="68"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>clock_rate,<sp/>channels,<sp/>ret;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>subtype<sp/>=<sp/>ortp_strdup(<sp/>rtpmap<sp/>);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>rate_str<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">*<sp/>chan_str<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>find<sp/>the<sp/>slash<sp/>after<sp/>the<sp/>subtype<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rate_str<sp/>=<sp/>strchr(subtype,<sp/></highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rate_str<sp/>&amp;&amp;<sp/>strlen(rate_str)&gt;1)<sp/>{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*rate_str<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rate_str++;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">/*<sp/>Look<sp/>for<sp/>another<sp/>slash<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>chan_str<sp/>=<sp/>strchr(rate_str,<sp/></highlight><highlight class="charliteral">&apos;/&apos;</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(chan_str<sp/>&amp;&amp;<sp/>strlen(chan_str)&gt;1)<sp/>{</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>*chan_str<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>chan_str++;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>chan_str<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>rate_str<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Use<sp/>default<sp/>clock<sp/>rate<sp/>if<sp/>none<sp/>given</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(rate_str)<sp/>clock_rate<sp/>=<sp/>atoi(rate_str);</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>clock_rate<sp/>=<sp/>8000;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Use<sp/>default<sp/>number<sp/>of<sp/>channels<sp/>if<sp/>none<sp/>given</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(chan_str)<sp/>channels<sp/>=<sp/>atoi(chan_str);</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/>channels<sp/>=<sp/>-1;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//printf(&quot;Searching<sp/>for<sp/>payload<sp/>%s<sp/>at<sp/>freq<sp/>%i<sp/>with<sp/>%i<sp/>channels\n&quot;,subtype,clock_rate,ch1annels);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ret=rtp_profile_find_payload_number(profile,subtype,clock_rate,channels);</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ortp_free(subtype);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ret;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref><sp/>*<sp/>rtp_profile_find_payload(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*prof,</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*mime,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rate,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>channels)</highlight></codeline>
+<codeline lineno="107"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>i=rtp_profile_find_payload_number(prof,mime,rate,channels);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(i&gt;=0)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rtp_profile_get_payload(prof,i);</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref><sp/>*<sp/>rtp_profile_get_payload_from_mime(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*profile,</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*mime)</highlight></codeline>
+<codeline lineno="116"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pt;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pt=rtp_profile_get_payload_number_from_mime(profile,mime);</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pt==-1)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rtp_profile_get_payload(profile,pt);</highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref><sp/>*<sp/>rtp_profile_get_payload_from_rtpmap(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*profile,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*rtpmap)</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>pt<sp/>=<sp/>rtp_profile_get_payload_number_from_rtpmap(profile,rtpmap);</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pt==-1)<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>NULL;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">else</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>rtp_profile_get_payload(profile,pt);</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>rtp_profile_move_payload(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*prof,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>oldpos,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>newpos){</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(oldpos&lt;0<sp/>||<sp/>oldpos&gt;=RTP_PROFILE_MAX_PAYLOADS)<sp/>{</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ortp_error(</highlight><highlight class="stringliteral">&quot;Bad<sp/>old<sp/>pos<sp/>index<sp/>%i&quot;</highlight><highlight class="normal">,oldpos);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(newpos&lt;0<sp/>||<sp/>newpos&gt;=RTP_PROFILE_MAX_PAYLOADS)<sp/>{</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ortp_error(</highlight><highlight class="stringliteral">&quot;Bad<sp/>new<sp/>pos<sp/>index<sp/>%i&quot;</highlight><highlight class="normal">,newpos);</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>-1;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prof-&gt;payload[newpos]=prof-&gt;payload[oldpos];</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prof-&gt;payload[oldpos]=NULL;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>0;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*<sp/>rtp_profile_new(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name)</highlight></codeline>
+<codeline lineno="146"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*prof=(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref>*)ortp_new0(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref>,1);</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rtpprofile_8h_1ad539a91501c3b3b686b30a6ebc94765c" kindref="member">rtp_profile_set_name</ref>(prof,name);</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>prof;</highlight></codeline>
+<codeline lineno="150"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rtpprofile_8h_1a40e70cf681256524deb27bd9b130664b" kindref="member">rtp_profile_set_payload</ref>(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*profile,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>idx,<sp/><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref><sp/>*pt){</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(idx&lt;0<sp/>||<sp/>idx&gt;=RTP_PROFILE_MAX_PAYLOADS)<sp/>{</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ortp_error(</highlight><highlight class="stringliteral">&quot;Bad<sp/>index<sp/>%i&quot;</highlight><highlight class="normal">,idx);</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>profile-&gt;payload[idx]=pt;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="166"><highlight class="normal"></highlight></codeline>
+<codeline lineno="172"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rtpprofile_8h_1ac8eca5f60a8b9b79ce98b27298d840e8" kindref="member">rtp_profile_clear_all</ref>(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*profile){</highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;RTP_PROFILE_MAX_PAYLOADS;i++){</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>profile-&gt;payload[i]=0;</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="177"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"></highlight></codeline>
+<codeline lineno="179"><highlight class="normal"></highlight></codeline>
+<codeline lineno="186"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="rtpprofile_8h_1ad539a91501c3b3b686b30a6ebc94765c" kindref="member">rtp_profile_set_name</ref>(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*profile,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*name){</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(profile-&gt;name!=NULL)<sp/>ortp_free(profile-&gt;name);</highlight></codeline>
+<codeline lineno="188"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>profile-&gt;name=ortp_strdup(name);</highlight></codeline>
+<codeline lineno="189"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="190"><highlight class="normal"></highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>!<sp/>payload<sp/>are<sp/>not<sp/>cloned*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="192"><highlight class="normal"><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*<sp/>rtp_profile_clone(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*prof)</highlight></codeline>
+<codeline lineno="193"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="194"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref><sp/>*pt;</highlight></codeline>
+<codeline lineno="196"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*newprof=rtp_profile_new(prof-&gt;name);</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;RTP_PROFILE_MAX_PAYLOADS;i++){</highlight></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pt=rtp_profile_get_payload(prof,i);</highlight></codeline>
+<codeline lineno="199"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pt!=NULL){</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rtpprofile_8h_1a40e70cf681256524deb27bd9b130664b" kindref="member">rtp_profile_set_payload</ref>(newprof,i,pt);</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newprof;</highlight></codeline>
+<codeline lineno="204"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="205"><highlight class="normal"></highlight></codeline>
+<codeline lineno="206"><highlight class="normal"></highlight></codeline>
+<codeline lineno="207"><highlight class="normal"></highlight><highlight class="comment">/*clone<sp/>a<sp/>profile<sp/>and<sp/>its<sp/>payloads<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="208"><highlight class="normal"><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*<sp/>rtp_profile_clone_full(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*prof)</highlight></codeline>
+<codeline lineno="209"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref><sp/>*pt;</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*newprof=rtp_profile_new(prof-&gt;name);</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;RTP_PROFILE_MAX_PAYLOADS;i++){</highlight></codeline>
+<codeline lineno="214"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>pt=rtp_profile_get_payload(prof,i);</highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(pt!=NULL){</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="rtpprofile_8h_1a40e70cf681256524deb27bd9b130664b" kindref="member">rtp_profile_set_payload</ref>(newprof,i,payload_type_clone(pt));</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>newprof;</highlight></codeline>
+<codeline lineno="220"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rtp_profile_destroy(<ref refid="struct__RtpProfile" kindref="compound">RtpProfile</ref><sp/>*prof)</highlight></codeline>
+<codeline lineno="223"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__OrtpPayloadType" kindref="compound">PayloadType</ref><sp/>*payload;</highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(prof-&gt;name)<sp/>{</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ortp_free(prof-&gt;name);</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>prof-&gt;name<sp/>=<sp/>NULL;</highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(i=0;i&lt;RTP_PROFILE_MAX_PAYLOADS;i++)</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>{</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>payload=rtp_profile_get_payload(prof,i);</highlight></codeline>
+<codeline lineno="233"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(payload!=NULL<sp/>&amp;&amp;<sp/>(payload-&gt;flags<sp/>&amp;<sp/>PAYLOAD_TYPE_ALLOCATED))</highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="payloadtype_8h_1a100b470872849693730d0bd0fc4bd100" kindref="member">payload_type_destroy</ref>(payload);</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ortp_free(prof);</highlight></codeline>
+<codeline lineno="237"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/rtpprofile.c"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,44 @@
+\section{\+\_\+\+Ortp\+Event\+Data Struct Reference}
+\label{struct__OrtpEventData}\index{\+\_\+\+Ortp\+Event\+Data@{\+\_\+\+Ortp\+Event\+Data}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct__OrtpEventData_a5a5f87b5ded5235bdaba249dfb138a02}} 
+\textbf{ mblk\+\_\+t} $\ast$ {\bfseries packet}
+\item 
+\mbox{\label{struct__OrtpEventData_ad1989d26af045f405bba648db94e91b0}} 
+struct sockaddr\+\_\+storage {\bfseries source\+\_\+addr}
+\item 
+\mbox{\label{struct__OrtpEventData_a9a59f46db804df4c88814d3b63dddfde}} 
+socklen\+\_\+t {\bfseries source\+\_\+addrlen}
+\item 
+\mbox{\label{struct__OrtpEventData_a29f1db4cd5bd2812f43093cf185e4e9b}} 
+\textbf{ ortp\+Time\+Spec} {\bfseries ts}
+\item 
+\mbox{\label{struct__OrtpEventData_ad23157561be699a683adb9325a5377f5}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>int {\bfseries telephone\_event}\\
+\>int {\bfseries payload\_type}\\
+\>bool\_t {\bfseries dtls\_stream\_encrypted}\\
+\>bool\_t {\bfseries zrtp\_stream\_encrypted}\\
+\>bool\_t {\bfseries ice\_processing\_successful}\\
+\>struct {\bfseries \_ZrtpInfo} \{\\
+\>\>char {\bfseries sas} [32]\\
+\>\>bool\_t {\bfseries verified}\\
+\>\>bool\_t {\bfseries cache\_mismatch}\\
+\>\>bool\_t {\bfseries pad} [2]\\
+\>\} {\bfseries zrtp\_info}\\
+\>OrtpSocketType {\bfseries socket\_type}\\
+\>uint32\_t {\bfseries received\_rtt\_character}\\
+\>bool\_t {\bfseries congestion\_detected}\\
+\>float {\bfseries video\_bandwidth\_available}\\
+\} {\bfseries info}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+event.\+h\end{DoxyCompactItemize}

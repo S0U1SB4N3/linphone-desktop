@@ -1,0 +1,347 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="videobandwidthestimator_8h" kind="file" language="C++">
+    <compoundname>videobandwidthestimator.h</compoundname>
+    <includes refid="port_8h" local="no">ortp/port.h</includes>
+    <includes refid="include_2ortp_2utils_8h" local="no">ortp/utils.h</includes>
+    <includes local="no">bctoolbox/list.h</includes>
+    <includedby refid="rtpparse_8c" local="yes">rtpparse.c</includedby>
+    <includedby refid="rtpsession_8c" local="yes">rtpsession.c</includedby>
+    <includedby refid="videobandwidthestimator_8c" local="yes">videobandwidthestimator.c</includedby>
+    <incdepgraph>
+      <node id="478">
+        <label>bctoolbox/list.h</label>
+      </node>
+      <node id="477">
+        <label>videobandwidthestimator.h</label>
+        <link refid="videobandwidthestimator_8h"/>
+        <childnode refid="478" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct__OrtpVideoBandwidthEstimatorPacket" prot="public">_OrtpVideoBandwidthEstimatorPacket</innerclass>
+    <innerclass refid="struct__OrtpVideoBandwidthEstimator" prot="public">_OrtpVideoBandwidthEstimator</innerclass>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="videobandwidthestimator_8h_1a10dee825c2d6b08430c68b912b7f7bc5" prot="public" static="no">
+        <type>struct <ref refid="struct__OrtpVideoBandwidthEstimatorPacket" kindref="compound">_OrtpVideoBandwidthEstimatorPacket</ref></type>
+        <definition>typedef struct _OrtpVideoBandwidthEstimatorPacket OrtpVideoBandwidthEstimatorPacket</definition>
+        <argsstring></argsstring>
+        <name>OrtpVideoBandwidthEstimatorPacket</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="35" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="videobandwidthestimator_8h_1a10eeff80de196f4ba0d3b36bc5045795" prot="public" static="no">
+        <type>struct <ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">_OrtpVideoBandwidthEstimator</ref></type>
+        <definition>typedef struct _OrtpVideoBandwidthEstimator OrtpVideoBandwidthEstimator</definition>
+        <argsstring></argsstring>
+        <name>OrtpVideoBandwidthEstimator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="46" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="videobandwidthestimator_8h_1af0598c080c48509736bd5d422329b6c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+        <definition>OrtpVideoBandwidthEstimator* ortp_video_bandwidth_estimator_new</definition>
+        <argsstring>(struct _RtpSession *session)</argsstring>
+        <name>ortp_video_bandwidth_estimator_new</name>
+        <param>
+          <type>struct <ref refid="struct__RtpSession" kindref="compound">_RtpSession</ref> *</type>
+          <declname>session</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="48" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="25" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1a56cdeebfa3cbd8471fc9fc1828080a35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_video_bandwidth_estimator_destroy</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe)</argsstring>
+        <name>ortp_video_bandwidth_estimator_destroy</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="50" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="37" bodyend="40"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1aaaf82748e6d2bddf316c3a63789d7874" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_video_bandwidth_estimator_reset</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe)</argsstring>
+        <name>ortp_video_bandwidth_estimator_reset</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="52" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="42" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1a78a2425cf3bad89c111b78d722666c80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_video_bandwidth_estimator_set_packets_count_min</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe, unsigned int value)</argsstring>
+        <name>ortp_video_bandwidth_estimator_set_packets_count_min</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the minimum number of packets with the same sent timestamp to be processed continuously before being used. Default value is 7. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="58" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="49" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1a4ec4e22637c938c29806cd38c52d061a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_video_bandwidth_estimator_set_history_max_size</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe, unsigned int value)</argsstring>
+        <name>ortp_video_bandwidth_estimator_set_history_max_size</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the number of packets needed to compute the available video bandwidth. Default value is 30. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="64" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="53" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1a36649ee59b23ee9e31674561bd67b073" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_video_bandwidth_estimator_set_trust</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe, unsigned int value)</argsstring>
+        <name>ortp_video_bandwidth_estimator_set_trust</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Sets the percentage for which the chosen bandwidth value in all available will be inferior. Example: for 100 packets with 90% trust, bandwidth value will be the 90th after sorted. Default value is 90. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="71" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="57" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1ad7a5f70f5635584a57818ddc630369ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ortp_video_bandwidth_estimator_get_packets_count_min</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe)</argsstring>
+        <name>ortp_video_bandwidth_estimator_get_packets_count_min</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the minimum number of packets with the same sent timestamp to be processed continuously before being used. Default value is 7. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="77" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="61" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1ad059fa5dd444fe24cba1127efe7cb199" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ortp_video_bandwidth_estimator_get_history_max_size</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe)</argsstring>
+        <name>ortp_video_bandwidth_estimator_get_history_max_size</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the number of packets needed to compute the available video bandwidth. Default value is 30. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="83" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="65" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1ad266fc2c34fa3cd0729eb5b0d83ec20b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int ortp_video_bandwidth_estimator_get_trust</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe)</argsstring>
+        <name>ortp_video_bandwidth_estimator_get_trust</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gets the percentage for which the chosen bandwidth value in all available will be inferior. Example: for 100 packets with 90% trust, bandwidth value will be the 90th after sorted. Default value is 90. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="90" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="69" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1a50fa4a228109e045efa97888fb92c614" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_video_bandwidth_estimator_process_packet</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe, uint32_t sent_timestamp, const struct timeval *recv_timestamp, int msgsize, bool_t is_last)</argsstring>
+        <name>ortp_video_bandwidth_estimator_process_packet</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>sent_timestamp</declname>
+        </param>
+        <param>
+          <type>const struct timeval *</type>
+          <declname>recv_timestamp</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>msgsize</declname>
+        </param>
+        <param>
+          <type>bool_t</type>
+          <declname>is_last</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="92" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="116" bodyend="153"/>
+      </memberdef>
+      <memberdef kind="function" id="videobandwidthestimator_8h_1a89bf3ec385736d73c0a8e91036668069" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float ortp_video_bandwidth_estimator_get_estimated_available_bandwidth</definition>
+        <argsstring>(OrtpVideoBandwidthEstimator *vbe)</argsstring>
+        <name>ortp_video_bandwidth_estimator_get_estimated_available_bandwidth</name>
+        <param>
+          <type><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref> *</type>
+          <declname>vbe</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h" line="94" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.c" bodystart="79" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>The<sp/>oRTP<sp/>library<sp/>is<sp/>an<sp/>RTP<sp/>(Realtime<sp/>Transport<sp/>Protocol<sp/>-<sp/>rfc3550)<sp/>implementation<sp/>with<sp/>additional<sp/>features.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2017<sp/>Belledonne<sp/>Communications<sp/>SARL</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>Foundation,<sp/>Inc.,<sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/>02111-1307,<sp/>USA.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>VIDEOBANDWIDTHESTIMATOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>VIDEOBANDWIDTHESTIMATOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ortp/port.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ortp/utils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;bctoolbox/list.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28" refid="struct__OrtpVideoBandwidthEstimatorPacket" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__OrtpVideoBandwidthEstimatorPacket" kindref="compound">_OrtpVideoBandwidthEstimatorPacket</ref>{</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>sent_timestamp;</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">timeval<sp/>recv_first_timestamp;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal">timeval<sp/>recv_last_timestamp;</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>bytes;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>count;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>bitrate;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal">}<ref refid="struct__OrtpVideoBandwidthEstimatorPacket" kindref="compound">OrtpVideoBandwidthEstimatorPacket</ref>;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37" refid="struct__OrtpVideoBandwidthEstimator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">_OrtpVideoBandwidthEstimator</ref>{</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__RtpSession" kindref="compound">_RtpSession</ref><sp/>*session;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>packet_count_min;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>packets_size_max;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>trust_percentage;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__OrtpVideoBandwidthEstimatorPacket" kindref="compound">OrtpVideoBandwidthEstimatorPacket</ref><sp/>*last_packet;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bctbx_list_t<sp/>*packets;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>last_computed;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>nb_packets_computed;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal">}<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref>;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*<sp/>ortp_video_bandwidth_estimator_new(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct__RtpSession" kindref="compound">_RtpSession</ref><sp/>*session);</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_destroy(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe);</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_reset(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe);</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_set_packets_count_min(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_set_history_max_size(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_set_trust(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe,<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>value);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_get_packets_count_min(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_get_history_max_size(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90"><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_get_trust(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_process_packet(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe,<sp/>uint32_t<sp/>sent_timestamp,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>timeval<sp/>*recv_timestamp,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>msgsize,<sp/>bool_t<sp/>is_last);</highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>ortp_video_bandwidth_estimator_get_estimated_available_bandwidth(<ref refid="struct__OrtpVideoBandwidthEstimator" kindref="compound">OrtpVideoBandwidthEstimator</ref><sp/>*vbe);</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/videobandwidthestimator.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,55 @@
+
+{
+	"sources" : 
+	[
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_ms2"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_ms2.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_ms2-complete.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2/EP_ms2-install.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2/EP_ms2-mkdir.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2/EP_ms2-download.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2/EP_ms2-update.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2/EP_ms2-patch.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2/EP_ms2-configure.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2/EP_ms2-build.rule"
+		},
+		
+		{
+			"file" : "/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_ms2/EP_ms2-force_build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : [ "EP_ms2" ],
+		"name" : "EP_ms2"
+	}
+}

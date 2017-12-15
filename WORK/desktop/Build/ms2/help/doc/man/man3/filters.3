@@ -1,0 +1,222 @@
+.TH "filters" 3 "Fri Dec 15 2017" "Version 2.16.1" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+filters
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBAudio filters\fP"
+.br
+.ti -1c
+.RI "\fBVideo filters\fP"
+.br
+.ti -1c
+.RI "\fBOther general filters\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Each filter provides its own functionalities\&. The filters can be organized as audio, video and other more general filters\&. The majority of the available filters are built in the mediastreamer2 library\&. But additional filters can be provided as plugins that will be loaded dynamically by calling the ms_load_plugins() function\&.
+.SH "List of built-in filters"
+.PP
+.IP "\(bu" 2
+Audio filters:
+.IP "  \(bu" 4
+Audio capture and audio playing filters:
+.IP "    \(bu" 6
+Alsa (Linux): src/audiofilters/alsa\&.c
+.IP "    \(bu" 6
+Android native sound (libmedia): src/android/androidsound\&.cpp
+.IP "    \(bu" 6
+Android sound (deprecated): src/android/androidsound_depr\&.cpp
+.IP "    \(bu" 6
+Audio Queue Service (Mac OS X): src/audiofilters/aqsnd\&.m
+.IP "    \(bu" 6
+Audio Unit Service (Mac OS X): src/audiofilters/msiounit\&.m
+.IP "    \(bu" 6
+Arts (Linux): src/audiofilters/arts\&.c
+.IP "    \(bu" 6
+DirectSound (Windows): src/audiofilters/winsndds\&.cpp
+.IP "    \(bu" 6
+File player (raw/wav/pcap files) (Linux): src/audiofilters/msfileplayer\&.c
+.IP "    \(bu" 6
+File player (raw/wav files) (Windows): src/audiofilters/msfileplayer_win\&.c
+.IP "    \(bu" 6
+File recorder (wav files) (Linux): src/audiofilters/msfilerec\&.c
+.IP "    \(bu" 6
+File recorder (wav files) (Windows): src/audiofilters/msfilerec_win\&.c
+.IP "    \(bu" 6
+Mac Audio Unit (Mac OS X): src/audiofilters/macsnd\&.c
+.IP "    \(bu" 6
+MME (Windows): src/audiofilters/winsnd2\&.c
+.IP "    \(bu" 6
+OSS (Linux): src/audiofilters/oss\&.c
+.IP "    \(bu" 6
+PortAudio (Mac OS X): src/audiofilters/pasnd\&.c
+.IP "    \(bu" 6
+PulseAudio (Linux): src/audiofilters/pulseaudio\&.c
+.IP "    \(bu" 6
+Windows Sound (Windows): src/audiofilters/winsnd\&.c, src/audiofilters/winsnd3\&.c
+.PP
+
+.IP "  \(bu" 4
+Audio encoder/decoder filters:
+.IP "    \(bu" 6
+G\&.711 alaw: src/audiofilters/alaw\&.c
+.IP "    \(bu" 6
+G\&.711 µlaw: src/audiofilters/ulaw\&.c
+.IP "    \(bu" 6
+G\&.722: src/audiofilters/msg722\&.c
+.IP "    \(bu" 6
+G\&.726: src/audiofilters/g726\&.c
+.IP "    \(bu" 6
+GSM: src/audiofilters/gsm\&.c
+.IP "    \(bu" 6
+Linear PCM: src/audiofilters/l16\&.c
+.IP "    \(bu" 6
+Speex: src/audiofilters/msspeex\&.c
+.PP
+
+.IP "  \(bu" 4
+Audio processing filters:
+.IP "    \(bu" 6
+Channels adaptation (mono->stereo or stereo->mono): src/audiofilters/chanadapt\&.c
+.IP "    \(bu" 6
+Conferencing: src/audiofilters/msconf\&.c
+.IP "    \(bu" 6
+DTMF generation: src/audiofilters/dtmfgen\&.c
+.IP "    \(bu" 6
+Echo cancellation (speex): src/audiofilters/speexec\&.c
+.IP "    \(bu" 6
+Equalizer: src/audiofilters/equalizer\&.c
+.IP "    \(bu" 6
+Mixer: src/audiofilters/audiomixer\&.c
+.IP "    \(bu" 6
+Packet Loss Concealment (PLC): src/audiofilters/genericplc\&.c
+.IP "    \(bu" 6
+Resampler: src/audiofilters/msresample\&.c
+.IP "    \(bu" 6
+Tone detector: src/audiofilters/tonedetector\&.c
+.IP "    \(bu" 6
+Volume control and measure: src/audiofilters/msvolume\&.c
+.PP
+
+.PP
+
+.IP "\(bu" 2
+Video filters:
+.IP "  \(bu" 4
+Video capture and video display filters:
+.IP "    \(bu" 6
+Android capture: src/android/androidvideo\&.cpp
+.IP "    \(bu" 6
+Android display: src/android/android-display\&.c
+.IP "    \(bu" 6
+AV Foundation capture (iOS): src/videofilters/ioscapture\&.m
+.IP "    \(bu" 6
+AV Foundation display (iOS): src/videofilters/iosdisplay\&.m
+.IP "    \(bu" 6
+DirectShow capture (Windows): src/videofilters/msdscap-mingw\&.cc
+.IP "    \(bu" 6
+DrawDib display (Windows): src/videofilters/drawdib-display\&.c
+.IP "    \(bu" 6
+External display - Send video to the upper layer: src/videofilters/extdisplay\&.c
+.IP "    \(bu" 6
+GLX display (Linux): src/videofilters/glxvideo\&.c
+.IP "    \(bu" 6
+Mire - Synthetic moving picture: src/videofilters/mire\&.c
+.IP "    \(bu" 6
+OpenGL display (Mac OS X): src/videofilters/msosxdisplay\&.m
+.IP "    \(bu" 6
+OpenGL ES2 display (Android): src/videofilters/android-opengl-display\&.c
+.IP "    \(bu" 6
+Quicktime capture (Mac OS X): src/videofilters/qtcapture\&.m
+.IP "    \(bu" 6
+SDL display: src/videofilters/videoout\&.c
+.IP "    \(bu" 6
+Static image output: src/videofilters/nowebcam\&.c
+.IP "    \(bu" 6
+Video For Linux (V4L) capture (Linux): src/videofilters/msv4l\&.c
+.IP "    \(bu" 6
+Video For Linux 2 (V4L2) capture (Linux): src/videofilters/msv4l2\&.c
+.IP "    \(bu" 6
+Video4windows (DirectShow) capture (Windows): src/videofilters/winvideods\&.c
+.IP "    \(bu" 6
+Video4windows (DirectShow) capture (Windows CE): src/videofilters/wincevideods\&.c
+.IP "    \(bu" 6
+Video For Windows (vfw) capture (Windows): src/videofilters/winvideo\&.c, src/videofilters/winvideo2\&.c
+.IP "    \(bu" 6
+XV display (Linux): src/videofilters/x11video\&.c
+.PP
+
+.IP "  \(bu" 4
+Video encoder/decoder filters:
+.IP "    \(bu" 6
+H\&.263, H\&.263-1998, MP4V-ES, JPEG, MJPEG, Snow: src/videofilters/videodec\&.c, src/videofilters/videoenc\&.c
+.IP "    \(bu" 6
+H\&.264 (decoder only): src/videofilters/h264dec\&.c
+.IP "    \(bu" 6
+Theora: src/videofilters/theora\&.c
+.IP "    \(bu" 6
+VP8: src/videofilters/vp8\&.c
+.PP
+
+.IP "  \(bu" 4
+Video processing filters:
+.IP "    \(bu" 6
+JPEG snapshot: src/videofilters/jpegwriter\&.c
+.IP "    \(bu" 6
+Pixel format converter: src/videofilters/pixconv\&.c
+.IP "    \(bu" 6
+Resizer: src/videofilters/sizeconv\&.c
+.PP
+
+.PP
+
+.IP "\(bu" 2
+Other filters:
+.IP "  \(bu" 4
+Inter-ticker communication: src/otherfilters/itc\&.c
+.IP "  \(bu" 4
+Join - Send several inputs to one output: src/otherfilters/join\&.c
+.IP "  \(bu" 4
+RTP sending/receiving: src/otherfilters/msrtp\&.c
+.IP "  \(bu" 4
+Tee - Send one input to several outputs: src/otherfilters/tee\&.c
+.IP "  \(bu" 4
+Void - Trash input: src/otherfilters/void\&.c
+.PP
+
+.PP
+.SH "List of existing plugin filters"
+.PP
+.IP "\(bu" 2
+Audio filters:
+.IP "  \(bu" 4
+AMR-NB encoder/decoder
+.IP "  \(bu" 4
+G\&.729 encoder/decoder
+.IP "  \(bu" 4
+iLBC encoder/decoder
+.IP "  \(bu" 4
+SILK encoder/decoder
+.PP
+
+.IP "\(bu" 2
+Video filters:
+.IP "  \(bu" 4
+H\&.264 software encoder
+.IP "  \(bu" 4
+H\&.264 hardware accelerated V4L2 encoder/decoder 
+.PP
+
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code\&.

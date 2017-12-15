@@ -1,0 +1,72 @@
+.TH "mediastreamer2_intro" 3 "Fri Dec 15 2017" "Version 2.16.1" "mediastreamer2" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mediastreamer2_intro
+.SH SYNOPSIS
+.br
+.PP
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fBHowto 1: build a sample audio graph\&.\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.SH "What is mediastreamer2?"
+.PP
+mediastreamer2 is a powerful engine to make audio and video streams\&. mediastreamer2 is GPL (COPYING)\&. Please understand the licencing details before using it!
+.PP
+Commercial support and licensing is provided by Belledonne Communications http://www.belledonne-communications.com
+.PP
+\fBSee also:\fP
+.RS 4
+http://www.linphone.org/eng/documentation/dev/mediastreamer2.html
+.RE
+.PP
+.SH "Some definitions"
+.PP
+.IP "\(bu" 2
+\fBFilter:\fP A filter is a mediastreamer2 component that process data\&. A filter have 0 or several INPUT pins and 0 or several OUTPUT pins\&. Here is a list of possible use of filters:
+.IP "  \(bu" 4
+capture audio or video data\&.
+.IP "  \(bu" 4
+play audio or display video data\&.
+.IP "  \(bu" 4
+send or receive RTP data\&.
+.IP "  \(bu" 4
+encode or decode audio or video data\&.
+.IP "  \(bu" 4
+transform (resize video, resample audio\&.\&.\&.) data\&.
+.IP "  \(bu" 4
+duplicate any kind of data\&.
+.IP "  \(bu" 4
+mix audio/video data\&.
+.PP
+
+.IP "\(bu" 2
+\fBGraph:\fP A graph is a manager of filters connected together\&. It will transfer data from OUTPUT pins to INPUT pins and will be responsible for running filters\&.
+.PP
+.SH "How do I use mediastreamer2?"
+.PP
+Mediastreamer2 can be used for a lot of different purpose\&. The primary use is to manage RTP audio and video session\&. You will need to use the API to build filters, link them together in a graph\&. Then the ticker API will help you to start and stop the graph\&.
+.PP
+Basic graph example:
+.PP
+.PP
+The above graph is composed of three filters\&. The first one has no input: it captures audio data directly from the drivers and provide it to the OUTPUT pin\&. This data is sent to the INPUT pin of the encoder which of course encodes the data and sends it to its OUTPUT pin\&. This pin is connected to the INPUT pin of a filter capable of building and sending RTP packets\&.
+.PP
+The modular design helps you to encode in many different formats just by replacing the 'ENCODE FILTER' with another one\&. mediastreamer2 contains internal support for g711u, g711a, speex and gsm\&. Other encoding formats can be added by implementing new filters as plugins which can then be dynamically loaded\&.
+.PP
+\fBSee also:\fP
+.RS 4
+\fBFilters documentation\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for mediastreamer2 from the source code\&.

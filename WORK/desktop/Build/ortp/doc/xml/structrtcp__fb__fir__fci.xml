@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrtcp__fb__fir__fci" kind="struct" language="C++" prot="public">
+    <compoundname>rtcp_fb_fir_fci</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrtcp__fb__fir__fci_1a8e0aae345ecd30e9fa2df1e61cae3c2c" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_fb_fir_fci::ssrc</definition>
+        <argsstring></argsstring>
+        <name>ssrc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="347" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="347" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__fb__fir__fci_1a89ba3656dfa524034a51b3d64583306e" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_fb_fir_fci::seq_nr</definition>
+        <argsstring></argsstring>
+        <name>seq_nr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="348" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="348" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__fb__fir__fci_1a246f916119f841d0201c49eefb2f7bcb" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_fb_fir_fci::pad1</definition>
+        <argsstring></argsstring>
+        <name>pad1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="349" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="349" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__fb__fir__fci_1aa3dfcd97f39ff9434e178da2c8b0bd12" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_fb_fir_fci::pad2</definition>
+        <argsstring></argsstring>
+        <name>pad2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="350" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="350" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="346" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="346" bodyend="351"/>
+    <listofallmembers>
+      <member refid="structrtcp__fb__fir__fci_1a246f916119f841d0201c49eefb2f7bcb" prot="public" virt="non-virtual"><scope>rtcp_fb_fir_fci</scope><name>pad1</name></member>
+      <member refid="structrtcp__fb__fir__fci_1aa3dfcd97f39ff9434e178da2c8b0bd12" prot="public" virt="non-virtual"><scope>rtcp_fb_fir_fci</scope><name>pad2</name></member>
+      <member refid="structrtcp__fb__fir__fci_1a89ba3656dfa524034a51b3d64583306e" prot="public" virt="non-virtual"><scope>rtcp_fb_fir_fci</scope><name>seq_nr</name></member>
+      <member refid="structrtcp__fb__fir__fci_1a8e0aae345ecd30e9fa2df1e61cae3c2c" prot="public" virt="non-virtual"><scope>rtcp_fb_fir_fci</scope><name>ssrc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

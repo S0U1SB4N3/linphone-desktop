@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structsdes__item" kind="struct" language="C++" prot="public">
+    <compoundname>sdes_item</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structsdes__item_1ad2b59333892c51895d0c8a3643596983" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t sdes_item::item_type</definition>
+        <argsstring></argsstring>
+        <name>item_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="177" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="177" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsdes__item_1a6137ed90f696671015a0aa1f9602dfb3" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t sdes_item::len</definition>
+        <argsstring></argsstring>
+        <name>len</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="178" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="178" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structsdes__item_1abac9969613d25a126133e36e0663e88c" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char sdes_item::content[1]</definition>
+        <argsstring>[1]</argsstring>
+        <name>content</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="179" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="179" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="176" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="175" bodyend="180"/>
+    <listofallmembers>
+      <member refid="structsdes__item_1abac9969613d25a126133e36e0663e88c" prot="public" virt="non-virtual"><scope>sdes_item</scope><name>content</name></member>
+      <member refid="structsdes__item_1ad2b59333892c51895d0c8a3643596983" prot="public" virt="non-virtual"><scope>sdes_item</scope><name>item_type</name></member>
+      <member refid="structsdes__item_1a6137ed90f696671015a0aa1f9602dfb3" prot="public" virt="non-virtual"><scope>sdes_item</scope><name>len</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

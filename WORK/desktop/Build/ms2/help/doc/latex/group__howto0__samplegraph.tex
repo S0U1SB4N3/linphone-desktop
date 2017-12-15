@@ -1,0 +1,178 @@
+\section{Howto 1\+: build a sample audio graph.}
+\label{group__howto0__samplegraph}\index{Howto 1\+: build a sample audio graph.@{Howto 1\+: build a sample audio graph.}}
+\subsection*{Initialize mediastreamer2}
+
+When using mediastreamer2, your first task is to initialize the library\+:
+
+
+\begin{DoxyPre}
+        #include <mediastreamer2/mscommon.h>\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        int i;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        i=ms\_init();
+        if (i!=0)
+          return -1;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}\end{DoxyPre}
+
+
+Mediastreamer2 provides internal components which are called filters. Those filters must be linked together so that O\+U\+T\+P\+UT from one filter is sent to I\+N\+P\+UT of the other filters.
+
+Usually, filters are used for processing audio or video data. They could capture data, play/draw data, encode/decode data, mix data (conference), transform data (echo canceller). One of the most important filter is the R\+TP filters that are able to send and receive R\+TP data.
+
+\subsection*{Graph sample}
+
+If you are using mediastreamer2, you probably want to do Voice Over IP and get a graph providing a 2 way communication. This 2 graphs are very simple\+:
+
+This first graph shows the filters needed to capture data from a sound card, encode them and send it through an R\+TP session.
+
+
+\begin{DoxyPre}
+             AUDIO    ->    ENCODER   ->   RTP
+            CAPTURE   ->              ->  SENDER
+\end{DoxyPre}
+
+
+This second graph shows the filters needed to receive data from an R\+TP session decode it and send it to the playback device.
+
+
+\begin{DoxyPre}
+        RTP      ->    DECODER   ->   DTMF       ->   AUDIO
+       RECEIVER  ->              ->  GENERATION  ->  PLAYBACK
+\end{DoxyPre}
+
+
+\subsection*{Code to initiate the filters of the Graph sample}
+
+Note that the N\+U\+L\+L/error checks are not done for better reading. To build the graph, you\textquotesingle{}ll need some information\+: you need to select the sound card and of course have an R\+TP session created with o\+R\+TP.
+
+
+\begin{DoxyPre}
+        MSSndCard *sndcard;
+        sndcard=ms\_snd\_card\_manager\_get\_default\_card(ms\_snd\_card\_manager\_get());\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        /* audio capture filter */
+        MSFilter *soundread=ms\_snd\_card\_create\_reader(captcard);
+        MSFilter *soundwrite=ms\_snd\_card\_create\_writer(playcard);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        MSFilter *encoder=ms\_filter\_create\_encoder("PCMU");
+        MSFilter *decoder=ms\_filter\_create\_decoder("PCMU");\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        MSFilter *rtpsend=ms\_filter\_new(MS\_RTP\_SEND\_ID);
+        MSFilter *rtprecv=ms\_filter\_new(MS\_RTP\_RECV\_ID);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        RtpSession *rtp\_session = *** your\_ortp\_session *** ;\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        ms\_filter\_call\_method(rtpsend,MS\_RTP\_SEND\_SET\_SESSION,rtp\_session);
+        ms\_filter\_call\_method(rtprecv,MS\_RTP\_RECV\_SET\_SESSION,rtp\_session);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        MSFilter *dtmfgen=ms\_filter\_new(MS\_DTMF\_GEN\_ID);
+\end{DoxyPre}
+
+
+In most cases, the above graph is not enough\+: you\textquotesingle{}ll need to configure filter\textquotesingle{}s options. As an example, you need to set sampling rate of sound cards\textquotesingle{} filters\+:
+
+
+\begin{DoxyPre}
+        int sr = 8000;
+        int chan=1;
+        ms\_filter\_call\_method(soundread,MS\_FILTER\_SET\_SAMPLE\_RATE,&sr);
+        ms\_filter\_call\_method(soundwrite,MS\_FILTER\_SET\_SAMPLE\_RATE,&sr);
+        ms\_filter\_call\_method(stream->encoder,MS\_FILTER\_SET\_SAMPLE\_RATE,\&sr);
+        ms\_filter\_call\_method(stream->decoder,MS\_FILTER\_SET\_SAMPLE\_RATE,\&sr);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        ms\_filter\_call\_method(soundwrite,MS\_FILTER\_SET\_NCHANNELS, &chan);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        /* if you have some fmtp parameters (from SDP for example!) */
+        char *fmtp1 = ** get your fmtp line **;
+        char *fmtp2 = ** get your fmtp line **;
+        ms\_filter\_call\_method(stream->encoder,MS\_FILTER\_ADD\_FMTP, (void*)fmtp1);
+        ms\_filter\_call\_method(stream->decoder,MS\_FILTER\_ADD\_FMTP,(void*)fmtp2);
+\end{DoxyPre}
+
+
+\subsection*{Code to link the filters and run the graph sample}
+
+
+\begin{DoxyPre}
+        ms\_filter\_link(stream->soundread,0,stream->encoder,0);
+        ms\_filter\_link(stream->encoder,0,stream->rtpsend,0);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        ms\_filter\_link(stream->rtprecv,0,stream->decoder,0);
+        ms\_filter\_link(stream->decoder,0,stream->dtmfgen,0);
+        ms\_filter\_link(stream->dtmfgen,0,stream->soundwrite,0); 
+\end{DoxyPre}
+
+
+Then you need to \textquotesingle{}attach\textquotesingle{} the filters to a ticker. A ticker is a graph manager responsible for running filters.
+
+In the above case, there is 2 independant graph within the ticker\+: you need to attach the first element of each graph (the one that does not contains any I\+N\+P\+UT pins)
+
+
+\begin{DoxyPre}
+        /* create ticker */
+        MSTicker *ticker=ms\_ticker\_new();\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        ms\_ticker\_attach(ticker,soundread);
+        ms\_ticker\_attach(ticker,rtprecv);
+\end{DoxyPre}
+
+
+\subsection*{Code to unlink the filters and stop the graph sample}
+
+
+\begin{DoxyPre}
+        ms\_ticker\_detach(ticker,soundread);
+        ms\_ticker\_detach(ticker,rtprecv);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        ms\_filter\_unlink(stream->soundread,0,stream->encoder,0);
+        ms\_filter\_unlink(stream->encoder,0,stream->rtpsend,0);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        ms\_filter\_unlink(stream->rtprecv,0,stream->decoder,0);
+        ms\_filter\_unlink(stream->decoder,0,stream->dtmfgen,0);
+        ms\_filter\_unlink(stream->dtmfgen,0,stream->soundwrite,0);\end{DoxyPre}
+
+
+
+\begin{DoxyPre}        if (rtp\_session!=NULL) rtp\_session\_destroy(rtp\_session);
+        if (rtpsend!=NULL) ms\_filter\_destroy(rtpsend);
+        if (rtprecv!=NULL) ms\_filter\_destroy(rtprecv);
+        if (soundread!=NULL) ms\_filter\_destroy(soundread);
+        if (soundwrite!=NULL) ms\_filter\_destroy(soundwrite);
+        if (encoder!=NULL) ms\_filter\_destroy(encoder);
+        if (decoder!=NULL) ms\_filter\_destroy(decoder);
+        if (dtmfgen!=NULL) ms\_filter\_destroy(dtmfgen);
+        if (ticker!=NULL) ms\_ticker\_destroy(ticker);
+\end{DoxyPre}
+ 

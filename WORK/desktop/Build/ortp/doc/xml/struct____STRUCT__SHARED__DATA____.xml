@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct____STRUCT__SHARED__DATA____" kind="struct" language="C++" prot="public">
+    <compoundname>__STRUCT_SHARED_DATA__</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct____STRUCT__SHARED__DATA_____1a20b19793ae26908a2ed1404ce6915c4c" prot="public" static="no" mutable="no">
+        <type>DWORD</type>
+        <definition>DWORD __STRUCT_SHARED_DATA__::m_nReference</definition>
+        <argsstring></argsstring>
+        <name>m_nReference</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/dll_entry.c" line="9" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/dll_entry.c" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct____STRUCT__SHARED__DATA_____1a9cfe8385553ca3c3e1408670c00472e6" prot="public" static="no" mutable="no">
+        <type>ULONGLONG</type>
+        <definition>ULONGLONG __STRUCT_SHARED_DATA__::m_ullStartTime</definition>
+        <argsstring></argsstring>
+        <name>m_ullStartTime</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/dll_entry.c" line="13" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/dll_entry.c" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct____STRUCT__SHARED__DATA_____1a20f1197589e6e8f9d7012744cb3acc16" prot="public" static="no" mutable="no">
+        <type>BOOL</type>
+        <definition>BOOL __STRUCT_SHARED_DATA__::m_bInitialize</definition>
+        <argsstring></argsstring>
+        <name>m_bInitialize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/dll_entry.c" line="15" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/dll_entry.c" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/dll_entry.c" line="8" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/dll_entry.c" bodystart="7" bodyend="17"/>
+    <listofallmembers>
+      <member refid="struct____STRUCT__SHARED__DATA_____1a20f1197589e6e8f9d7012744cb3acc16" prot="public" virt="non-virtual"><scope>__STRUCT_SHARED_DATA__</scope><name>m_bInitialize</name></member>
+      <member refid="struct____STRUCT__SHARED__DATA_____1a20b19793ae26908a2ed1404ce6915c4c" prot="public" virt="non-virtual"><scope>__STRUCT_SHARED_DATA__</scope><name>m_nReference</name></member>
+      <member refid="struct____STRUCT__SHARED__DATA_____1a9cfe8385553ca3c3e1408670c00472e6" prot="public" virt="non-virtual"><scope>__STRUCT_SHARED_DATA__</scope><name>m_ullStartTime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,430 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__RtpTransport" kind="struct" language="C++" prot="public">
+    <compoundname>_RtpTransport</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__RtpTransport_1aa9a37fd678e5577da718c181e218af58" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* _RtpTransport::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="132" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpTransport_1a90447010bada94c3d7edf997d9790860" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct__RtpSession" kindref="compound">_RtpSession</ref> *</type>
+        <definition>struct _RtpSession* _RtpTransport::session</definition>
+        <argsstring></argsstring>
+        <name>session</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="133" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="133" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpTransport_1ab81998e21f63188cde8d95ea2d9bc6f0" prot="public" static="no" mutable="no">
+        <type>ortp_socket_t(*</type>
+        <definition>ortp_socket_t(* _RtpTransport::t_getsocket) (struct _RtpTransport *t)</definition>
+        <argsstring>)(struct _RtpTransport *t)</argsstring>
+        <name>t_getsocket</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="134" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpTransport_1a063bd0739c9215ea37674469417576d8" prot="public" static="no" mutable="no">
+        <type>int(*</type>
+        <definition>int(* _RtpTransport::t_sendto) (struct _RtpTransport *t, mblk_t *msg, int flags, const struct sockaddr *to, socklen_t tolen)</definition>
+        <argsstring>)(struct _RtpTransport *t, mblk_t *msg, int flags, const struct sockaddr *to, socklen_t tolen)</argsstring>
+        <name>t_sendto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="135" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpTransport_1aec29d4dec70fbf4422f5e97f9812f4a1" prot="public" static="no" mutable="no">
+        <type>int(*</type>
+        <definition>int(* _RtpTransport::t_recvfrom) (struct _RtpTransport *t, mblk_t *msg, int flags, struct sockaddr *from, socklen_t *fromlen)</definition>
+        <argsstring>)(struct _RtpTransport *t, mblk_t *msg, int flags, struct sockaddr *from, socklen_t *fromlen)</argsstring>
+        <name>t_recvfrom</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="136" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpTransport_1ac5ba81ab92acf8dfea775eadc6ec73b2" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* _RtpTransport::t_close) (struct _RtpTransport *transport)</definition>
+        <argsstring>)(struct _RtpTransport *transport)</argsstring>
+        <name>t_close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="137" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__RtpTransport_1ab6fe16fad12f5b0cf258cc24839cb4d9" prot="public" static="no" mutable="no">
+        <type>void(*</type>
+        <definition>void(* _RtpTransport::t_destroy) (struct _RtpTransport *transport)</definition>
+        <argsstring>)(struct _RtpTransport *transport)</argsstring>
+        <name>t_destroy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mandatory callback responsible of freeing the <ref refid="struct__RtpTransport" kindref="compound">_RtpTransport</ref> object AND the pointer. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername direction="in">transport</parametername>
+</parameternamelist>
+<parameterdescription>
+<para><ref refid="struct__RtpTransport" kindref="compound">_RtpTransport</ref> object to free. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="142" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="422">
+        <label>_JBParameters</label>
+        <link refid="struct__JBParameters"/>
+      </node>
+      <node id="424">
+        <label>_OrtpCongestionDetector</label>
+        <link refid="struct__OrtpCongestionDetector"/>
+        <childnode refid="421" relation="usage">
+          <edgelabel>rls</edgelabel>
+        </childnode>
+        <childnode refid="391" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="406">
+        <label>OrtpRtcpXrConfiguration</label>
+        <link refid="structOrtpRtcpXrConfiguration"/>
+      </node>
+      <node id="412">
+        <label>_OrtpPayloadType</label>
+        <link refid="struct__OrtpPayloadType"/>
+        <childnode refid="413" relation="usage">
+          <edgelabel>avpf</edgelabel>
+        </childnode>
+      </node>
+      <node id="404">
+        <label>OrtpRtcpXrMediaCallbacks</label>
+        <link refid="structOrtpRtcpXrMediaCallbacks"/>
+      </node>
+      <node id="423">
+        <label>_OrtpExtremum</label>
+        <link refid="struct__OrtpExtremum"/>
+      </node>
+      <node id="401">
+        <label>_SessionSet</label>
+        <link refid="struct__SessionSet"/>
+      </node>
+      <node id="396">
+        <label>ortp_recv_addr</label>
+        <link refid="structortp__recv__addr"/>
+      </node>
+      <node id="398">
+        <label>_queue</label>
+        <link refid="struct__queue"/>
+        <childnode refid="394" relation="usage">
+          <edgelabel>_q_stopper</edgelabel>
+        </childnode>
+      </node>
+      <node id="393">
+        <label>rtp_stats</label>
+        <link refid="structrtp__stats"/>
+      </node>
+      <node id="402">
+        <label>_RtcpStream</label>
+        <link refid="struct__RtcpStream"/>
+        <childnode refid="403" relation="usage">
+          <edgelabel>tmmbr_info</edgelabel>
+        </childnode>
+        <childnode refid="404" relation="usage">
+          <edgelabel>xr_media_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="405" relation="usage">
+          <edgelabel>send_algo</edgelabel>
+        </childnode>
+        <childnode refid="406" relation="usage">
+          <edgelabel>xr_conf</edgelabel>
+        </childnode>
+        <childnode refid="407" relation="usage">
+          <edgelabel>gs</edgelabel>
+        </childnode>
+      </node>
+      <node id="419">
+        <label>jitter_stats</label>
+        <link refid="structjitter__stats"/>
+      </node>
+      <node id="400">
+        <label>_RtpTimer</label>
+        <link refid="struct__RtpTimer"/>
+      </node>
+      <node id="407">
+        <label>_OrtpStream</label>
+        <link refid="struct__OrtpStream"/>
+        <childnode refid="408" relation="usage">
+          <edgelabel>allocator</edgelabel>
+        </childnode>
+        <childnode refid="409" relation="usage">
+          <edgelabel>recv_bw_estimator</edgelabel>
+        </childnode>
+        <childnode refid="390" relation="usage">
+          <edgelabel>tr</edgelabel>
+        </childnode>
+      </node>
+      <node id="421">
+        <label>_OrtpKalmanRLS</label>
+        <link refid="struct__OrtpKalmanRLS"/>
+      </node>
+      <node id="394">
+        <label>msgb</label>
+        <link refid="structmsgb"/>
+        <childnode refid="395" relation="usage">
+          <edgelabel>b_datap</edgelabel>
+        </childnode>
+        <childnode refid="394" relation="usage">
+          <edgelabel>b_next</edgelabel>
+          <edgelabel>b_cont</edgelabel>
+          <edgelabel>b_prev</edgelabel>
+        </childnode>
+        <childnode refid="396" relation="usage">
+          <edgelabel>recv_addr</edgelabel>
+        </childnode>
+      </node>
+      <node id="409">
+        <label>_OrtpBwEstimator</label>
+        <link refid="struct__OrtpBwEstimator"/>
+      </node>
+      <node id="417">
+        <label>_OrtpVideoBandwidthEstimator</label>
+        <link refid="struct__OrtpVideoBandwidthEstimator"/>
+        <childnode refid="418" relation="usage">
+          <edgelabel>last_packet</edgelabel>
+        </childnode>
+        <childnode refid="391" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="403">
+        <label>OrtpRtcpTmmbrInfo</label>
+        <link refid="structOrtpRtcpTmmbrInfo"/>
+        <childnode refid="394" relation="usage">
+          <edgelabel>received</edgelabel>
+          <edgelabel>sent</edgelabel>
+        </childnode>
+      </node>
+      <node id="408">
+        <label>_msgb_allocator</label>
+        <link refid="struct__msgb__allocator"/>
+        <childnode refid="398" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="418">
+        <label>_OrtpVideoBandwidthEstimatorPacket</label>
+        <link refid="struct__OrtpVideoBandwidthEstimatorPacket"/>
+      </node>
+      <node id="413">
+        <label>_PayloadTypeAvpfParams</label>
+        <link refid="struct__PayloadTypeAvpfParams"/>
+      </node>
+      <node id="390">
+        <label>_RtpTransport</label>
+        <link refid="struct__RtpTransport"/>
+        <childnode refid="391" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="415">
+        <label>_OrtpNetworkSimulatorParams</label>
+        <link refid="struct__OrtpNetworkSimulatorParams"/>
+      </node>
+      <node id="405">
+        <label>OrtpRtcpSendAlgorithm</label>
+        <link refid="structOrtpRtcpSendAlgorithm"/>
+        <childnode refid="394" relation="usage">
+          <edgelabel>fb_packets</edgelabel>
+        </childnode>
+      </node>
+      <node id="420">
+        <label>_JitterControl</label>
+        <link refid="struct__JitterControl"/>
+        <childnode refid="421" relation="usage">
+          <edgelabel>kalman_rls</edgelabel>
+        </childnode>
+        <childnode refid="422" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+        <childnode refid="423" relation="usage">
+          <edgelabel>max_ts_deviation</edgelabel>
+        </childnode>
+      </node>
+      <node id="399">
+        <label>_RtpScheduler</label>
+        <link refid="struct__RtpScheduler"/>
+        <childnode refid="400" relation="usage">
+          <edgelabel>timer</edgelabel>
+        </childnode>
+        <childnode refid="401" relation="usage">
+          <edgelabel>r_sessions</edgelabel>
+          <edgelabel>e_sessions</edgelabel>
+          <edgelabel>w_sessions</edgelabel>
+          <edgelabel>all_sessions</edgelabel>
+        </childnode>
+        <childnode refid="391" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+      </node>
+      <node id="416">
+        <label>_RtpStream</label>
+        <link refid="struct__RtpStream"/>
+        <childnode refid="417" relation="usage">
+          <edgelabel>video_bw_estimator</edgelabel>
+        </childnode>
+        <childnode refid="419" relation="usage">
+          <edgelabel>jitter_stats</edgelabel>
+        </childnode>
+        <childnode refid="398" relation="usage">
+          <edgelabel>tev_rq</edgelabel>
+          <edgelabel>rq</edgelabel>
+        </childnode>
+        <childnode refid="420" relation="usage">
+          <edgelabel>jittctl</edgelabel>
+        </childnode>
+        <childnode refid="424" relation="usage">
+          <edgelabel>congdetect</edgelabel>
+        </childnode>
+        <childnode refid="407" relation="usage">
+          <edgelabel>gs</edgelabel>
+        </childnode>
+      </node>
+      <node id="391">
+        <label>_RtpSession</label>
+        <link refid="struct__RtpSession"/>
+        <childnode refid="392" relation="usage">
+          <edgelabel>rtcp_xr_stats</edgelabel>
+        </childnode>
+        <childnode refid="393" relation="usage">
+          <edgelabel>stats</edgelabel>
+        </childnode>
+        <childnode refid="394" relation="usage">
+          <edgelabel>full_sdes</edgelabel>
+          <edgelabel>minimal_sdes</edgelabel>
+          <edgelabel>current_tev</edgelabel>
+          <edgelabel>pending</edgelabel>
+        </childnode>
+        <childnode refid="397" relation="usage">
+          <edgelabel>wp</edgelabel>
+        </childnode>
+        <childnode refid="398" relation="usage">
+          <edgelabel>contributing_sources</edgelabel>
+        </childnode>
+        <childnode refid="399" relation="usage">
+          <edgelabel>sched</edgelabel>
+        </childnode>
+        <childnode refid="402" relation="usage">
+          <edgelabel>rtcp</edgelabel>
+        </childnode>
+        <childnode refid="410" relation="usage">
+          <edgelabel>on_timestamp_jump</edgelabel>
+          <edgelabel>on_payload_type_changed</edgelabel>
+          <edgelabel>on_telephone_event_packet</edgelabel>
+          <edgelabel>on_ssrc_changed</edgelabel>
+          <edgelabel>on_network_error</edgelabel>
+          <edgelabel>on_rtcp_bye</edgelabel>
+          <edgelabel>on_telephone_event</edgelabel>
+        </childnode>
+        <childnode refid="411" relation="usage">
+          <edgelabel>profile</edgelabel>
+        </childnode>
+        <childnode refid="414" relation="usage">
+          <edgelabel>net_sim_ctx</edgelabel>
+        </childnode>
+        <childnode refid="391" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>spliced_session</edgelabel>
+        </childnode>
+        <childnode refid="416" relation="usage">
+          <edgelabel>rtp</edgelabel>
+        </childnode>
+      </node>
+      <node id="414">
+        <label>_OrtpNetworkSimulatorCtx</label>
+        <link refid="struct__OrtpNetworkSimulatorCtx"/>
+        <childnode refid="398" relation="usage">
+          <edgelabel>latency_q</edgelabel>
+          <edgelabel>send_q</edgelabel>
+          <edgelabel>q</edgelabel>
+        </childnode>
+        <childnode refid="415" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+      </node>
+      <node id="411">
+        <label>_RtpProfile</label>
+        <link refid="struct__RtpProfile"/>
+        <childnode refid="412" relation="usage">
+          <edgelabel>payload</edgelabel>
+        </childnode>
+      </node>
+      <node id="410">
+        <label>_RtpSignalTable</label>
+        <link refid="struct__RtpSignalTable"/>
+        <childnode refid="391" relation="usage">
+          <edgelabel>session</edgelabel>
+          <edgelabel>callback</edgelabel>
+        </childnode>
+      </node>
+      <node id="395">
+        <label>datab</label>
+        <link refid="structdatab"/>
+      </node>
+      <node id="397">
+        <label>_WaitPoint</label>
+        <link refid="struct__WaitPoint"/>
+      </node>
+      <node id="392">
+        <label>OrtpRtcpXrStats</label>
+        <link refid="structOrtpRtcpXrStats"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" line="131" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtpsession.h" bodystart="130" bodyend="143"/>
+    <listofallmembers>
+      <member refid="struct__RtpTransport_1aa9a37fd678e5577da718c181e218af58" prot="public" virt="non-virtual"><scope>_RtpTransport</scope><name>data</name></member>
+      <member refid="struct__RtpTransport_1a90447010bada94c3d7edf997d9790860" prot="public" virt="non-virtual"><scope>_RtpTransport</scope><name>session</name></member>
+      <member refid="struct__RtpTransport_1ac5ba81ab92acf8dfea775eadc6ec73b2" prot="public" virt="non-virtual"><scope>_RtpTransport</scope><name>t_close</name></member>
+      <member refid="struct__RtpTransport_1ab6fe16fad12f5b0cf258cc24839cb4d9" prot="public" virt="non-virtual"><scope>_RtpTransport</scope><name>t_destroy</name></member>
+      <member refid="struct__RtpTransport_1ab81998e21f63188cde8d95ea2d9bc6f0" prot="public" virt="non-virtual"><scope>_RtpTransport</scope><name>t_getsocket</name></member>
+      <member refid="struct__RtpTransport_1aec29d4dec70fbf4422f5e97f9812f4a1" prot="public" virt="non-virtual"><scope>_RtpTransport</scope><name>t_recvfrom</name></member>
+      <member refid="struct__RtpTransport_1a063bd0739c9215ea37674469417576d8" prot="public" virt="non-virtual"><scope>_RtpTransport</scope><name>t_sendto</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

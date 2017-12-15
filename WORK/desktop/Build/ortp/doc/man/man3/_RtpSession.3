@@ -1,0 +1,229 @@
+.TH "_RtpSession" 3 "Fri Dec 15 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_RtpSession
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <rtpsession\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBRtpSession\fP * \fBnext\fP"
+.br
+.ti -1c
+.RI "int \fBmask_pos\fP"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fBRtpProfile\fP * \fBprofile\fP"
+.br
+.ti -1c
+.RI "   int \fBpt\fP"
+.br
+.ti -1c
+.RI "   unsigned int \fBssrc\fP"
+.br
+.ti -1c
+.RI "   \fBWaitPoint\fP \fBwp\fP"
+.br
+.ti -1c
+.RI "} \fBsnd\fP"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fBRtpProfile\fP * \fBprofile\fP"
+.br
+.ti -1c
+.RI "   int \fBpt\fP"
+.br
+.ti -1c
+.RI "   unsigned int \fBssrc\fP"
+.br
+.ti -1c
+.RI "   \fBWaitPoint\fP \fBwp\fP"
+.br
+.ti -1c
+.RI "} \fBrcv\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBinc_ssrc_candidate\fP"
+.br
+.ti -1c
+.RI "int \fBinc_same_ssrc_count\fP"
+.br
+.ti -1c
+.RI "int \fBhw_recv_pt\fP"
+.br
+.ti -1c
+.RI "int \fBrecv_buf_size\fP"
+.br
+.ti -1c
+.RI "int \fBtarget_upload_bandwidth\fP"
+.br
+.ti -1c
+.RI "\fBRtpSignalTable\fP \fBon_ssrc_changed\fP"
+.br
+.ti -1c
+.RI "\fBRtpSignalTable\fP \fBon_payload_type_changed\fP"
+.br
+.ti -1c
+.RI "\fBRtpSignalTable\fP \fBon_telephone_event_packet\fP"
+.br
+.ti -1c
+.RI "\fBRtpSignalTable\fP \fBon_telephone_event\fP"
+.br
+.ti -1c
+.RI "\fBRtpSignalTable\fP \fBon_timestamp_jump\fP"
+.br
+.ti -1c
+.RI "\fBRtpSignalTable\fP \fBon_network_error\fP"
+.br
+.ti -1c
+.RI "\fBRtpSignalTable\fP \fBon_rtcp_bye\fP"
+.br
+.ti -1c
+.RI "bctbx_list_t * \fBsignal_tables\fP"
+.br
+.ti -1c
+.RI "bctbx_list_t * \fBeventqs\fP"
+.br
+.ti -1c
+.RI "\fBRtpStream\fP \fBrtp\fP"
+.br
+.ti -1c
+.RI "\fBRtcpStream\fP \fBrtcp\fP"
+.br
+.ti -1c
+.RI "\fBOrtpRtcpXrStats\fP \fBrtcp_xr_stats\fP"
+.br
+.ti -1c
+.RI "RtpSessionMode \fBmode\fP"
+.br
+.ti -1c
+.RI "struct \fB_RtpScheduler\fP * \fBsched\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBflags\fP"
+.br
+.ti -1c
+.RI "int \fBdscp\fP"
+.br
+.ti -1c
+.RI "int \fBmulticast_ttl\fP"
+.br
+.ti -1c
+.RI "int \fBmulticast_loopback\fP"
+.br
+.ti -1c
+.RI "float \fBduplication_ratio\fP"
+.br
+.ti -1c
+.RI "float \fBduplication_left\fP"
+.br
+.ti -1c
+.RI "void * \fBuser_data\fP"
+.br
+.ti -1c
+.RI "struct timeval \fBlast_recv_time\fP"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBpending\fP"
+.br
+.ti -1c
+.RI "int \fBtev_send_pt\fP"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBcurrent_tev\fP"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBminimal_sdes\fP"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBfull_sdes\fP"
+.br
+.ti -1c
+.RI "\fBqueue_t\fP \fBcontributing_sources\fP"
+.br
+.ti -1c
+.RI "int \fBlost_packets_test_vector\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBinterarrival_jitter_test_vector\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBdelay_test_vector\fP"
+.br
+.ti -1c
+.RI "float \fBrtt\fP"
+.br
+.ti -1c
+.RI "int \fBcum_loss\fP"
+.br
+.ti -1c
+.RI "\fBOrtpNetworkSimulatorCtx\fP * \fBnet_sim_ctx\fP"
+.br
+.ti -1c
+.RI "\fBRtpSession\fP * \fBspliced_session\fP"
+.br
+.ti -1c
+.RI "\fBrtp_stats_t\fP \fBstats\fP"
+.br
+.ti -1c
+.RI "bctbx_list_t * \fBrecv_addr_map\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBsend_ts_offset\fP"
+.br
+.ti -1c
+.RI "bool_t \fBsymmetric_rtp\fP"
+.br
+.ti -1c
+.RI "bool_t \fBpermissive\fP"
+.br
+.ti -1c
+.RI "bool_t \fBuse_connect\fP"
+.br
+.ti -1c
+.RI "bool_t \fBssrc_set\fP"
+.br
+.ti -1c
+.RI "bool_t \fBreuseaddr\fP"
+.br
+.ti -1c
+.RI "bool_t \fBrtcp_mux\fP"
+.br
+.ti -1c
+.RI "unsigned char \fBavpf_features\fP"
+.br
+.ti -1c
+.RI "bool_t \fBuse_pktinfo\fP"
+.br
+.ti -1c
+.RI "bool_t \fBis_spliced\fP"
+.br
+.ti -1c
+.RI "bool_t \fBcongestion_detector_enabled\fP"
+.br
+.ti -1c
+.RI "bool_t \fBvideo_bandwidth_estimator_enabled\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+An object representing a bi-directional RTP session\&. It holds sockets, jitter buffer, various counters (timestamp, sequence numbers\&.\&.\&.) Applications SHOULD NOT try to read things within the RtpSession object but use instead its public API (the rtp_session_* methods) where RtpSession is used as a pointer\&. \fBrtp_session_new()\fP allocates and initialize a RtpSession\&. 
+.SH "Field Documentation"
+.PP 
+.SS "unsigned char _RtpSession::avpf_features"
+A bitmask of ORTP_AVPF_FEATURE_* macros\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

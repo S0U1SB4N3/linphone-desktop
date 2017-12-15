@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="congestiondetector_8h" kind="file" language="C++">
+    <compoundname>congestiondetector.h</compoundname>
+    <includes refid="port_8h" local="no">ortp/port.h</includes>
+    <includes refid="include_2ortp_2utils_8h" local="no">ortp/utils.h</includes>
+    <includes local="no">bctoolbox/list.h</includes>
+    <includedby refid="congestiondetector_8c" local="yes">congestiondetector.c</includedby>
+    <includedby refid="rtpparse_8c" local="yes">rtpparse.c</includedby>
+    <includedby refid="rtpsession_8c" local="yes">rtpsession.c</includedby>
+    <incdepgraph>
+      <node id="36">
+        <label>bctoolbox/list.h</label>
+      </node>
+      <node id="35">
+        <label>congestiondetector.h</label>
+        <link refid="congestiondetector_8h"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="struct__OrtpCongestionDetector" prot="public">_OrtpCongestionDetector</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="congestiondetector_8h_1a8468260676f3cdc092c0595a9c5d3ea2" prot="public" static="no">
+        <name>_OrtpCongestionState</name>
+        <enumvalue id="congestiondetector_8h_1a8468260676f3cdc092c0595a9c5d3ea2a35a4fb0f83686c7b5666b78ea98c88fb" prot="public">
+          <name>CongestionStateNormal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="congestiondetector_8h_1a8468260676f3cdc092c0595a9c5d3ea2a8ad83297545cd095a2c71e84e1015d56" prot="public">
+          <name>CongestionStateSuspected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="congestiondetector_8h_1a8468260676f3cdc092c0595a9c5d3ea2ad6c9d6803fcde85ff4b1e39af7d1acd0" prot="public">
+          <name>CongestionStateDetected</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="congestiondetector_8h_1a8468260676f3cdc092c0595a9c5d3ea2a27bce59e6bd89c59b8f9374539015a47" prot="public">
+          <name>CongestionStateResolving</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="29" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="29" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="congestiondetector_8h_1ac98f1d3486a3c24d6afef3f793343735" prot="public" static="no">
+        <type>enum _OrtpCongestionState</type>
+        <definition>typedef enum _OrtpCongestionState  OrtpCongestionState</definition>
+        <argsstring></argsstring>
+        <name>OrtpCongestionState</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="34" column="1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="congestiondetector_8h_1a11da3609c91318ecd1eb9c490d95bf84" prot="public" static="no">
+        <type>struct <ref refid="struct__OrtpCongestionDetector" kindref="compound">_OrtpCongestionDetector</ref></type>
+        <definition>typedef struct _OrtpCongestionDetector OrtpCongestionDetector</definition>
+        <argsstring></argsstring>
+        <name>OrtpCongestionDetector</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="47" column="1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="congestiondetector_8h_1a0077a85dcbe073f73043ce1850bc7565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__OrtpCongestionDetector" kindref="compound">OrtpCongestionDetector</ref> *</type>
+        <definition>OrtpCongestionDetector* ortp_congestion_detector_new</definition>
+        <argsstring>(struct _RtpSession *session)</argsstring>
+        <name>ortp_congestion_detector_new</name>
+        <param>
+          <type>struct <ref refid="struct__RtpSession" kindref="compound">_RtpSession</ref> *</type>
+          <declname>session</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="49" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.c" bodystart="80" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="congestiondetector_8h_1a34b8a6170f25deb8ea40f1791e7b41b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool_t</type>
+        <definition>bool_t ortp_congestion_detector_record</definition>
+        <argsstring>(OrtpCongestionDetector *obj, uint32_t packet_ts, uint32_t cur_str_ts)</argsstring>
+        <name>ortp_congestion_detector_record</name>
+        <param>
+          <type><ref refid="struct__OrtpCongestionDetector" kindref="compound">OrtpCongestionDetector</ref> *</type>
+          <declname>obj</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>packet_ts</declname>
+        </param>
+        <param>
+          <type>uint32_t</type>
+          <declname>cur_str_ts</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="54" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.c" bodystart="102" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="congestiondetector_8h_1a0aed7c07e0ee72310b543cbd56322778" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_congestion_detector_destroy</definition>
+        <argsstring>(OrtpCongestionDetector *obj)</argsstring>
+        <name>ortp_congestion_detector_destroy</name>
+        <param>
+          <type><ref refid="struct__OrtpCongestionDetector" kindref="compound">OrtpCongestionDetector</ref> *</type>
+          <declname>obj</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="56" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.c" bodystart="215" bodyend="217"/>
+      </memberdef>
+      <memberdef kind="function" id="congestiondetector_8h_1a4332da57d1f8de4ba47dcb465ca4b69f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_congestion_detector_reset</definition>
+        <argsstring>(OrtpCongestionDetector *cd)</argsstring>
+        <name>ortp_congestion_detector_reset</name>
+        <param>
+          <type><ref refid="struct__OrtpCongestionDetector" kindref="compound">OrtpCongestionDetector</ref> *</type>
+          <declname>cd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="58" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.c" bodystart="74" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>The<sp/>oRTP<sp/>library<sp/>is<sp/>an<sp/>RTP<sp/>(Realtime<sp/>Transport<sp/>Protocol<sp/>-<sp/>rfc3550)<sp/>implementation<sp/>with<sp/>additional<sp/>features.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2017<sp/>Belledonne<sp/>Communications<sp/>SARL</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>Foundation,<sp/>Inc.,<sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/>02111-1307,<sp/>USA.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>CONGESTIONDETECTOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>CONGESTIONDETECTOR_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ortp/port.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;ortp/utils.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;bctoolbox/list.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__JitterControl" kindref="compound">_JitterControl</ref>;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>_OrtpCongestionState<sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CongestionStateNormal,</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CongestionStateSuspected,</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CongestionStateDetected,</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CongestionStateResolving</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}<sp/>OrtpCongestionState;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="struct__OrtpCongestionDetector" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__OrtpCongestionDetector" kindref="compound">_OrtpCongestionDetector</ref>{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="struct__OrtpKalmanRLS" kindref="compound">OrtpKalmanRLS</ref><sp/>rls;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>start_ms;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint64_t<sp/>last_packet_recv;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>uint32_t<sp/>loss_begin,<sp/>seq_begin;</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bool_t<sp/>initialized;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bool_t<sp/>is_in_congestion;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bool_t<sp/>skip;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>bool_t<sp/>too_much_loss;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>OrtpCongestionState<sp/>state;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__RtpSession" kindref="compound">_RtpSession</ref><sp/>*session;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}<ref refid="struct__OrtpCongestionDetector" kindref="compound">OrtpCongestionDetector</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><ref refid="struct__OrtpCongestionDetector" kindref="compound">OrtpCongestionDetector</ref><sp/>*<sp/>ortp_congestion_detector_new(</highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/><ref refid="struct__RtpSession" kindref="compound">_RtpSession</ref><sp/>*session);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="52"><highlight class="comment"><sp/>*<sp/>Returns<sp/>TRUE<sp/>if<sp/>the<sp/>congestion<sp/>state<sp/>is<sp/>changed.</highlight></codeline>
+<codeline lineno="53"><highlight class="comment">**/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="54"><highlight class="normal">bool_t<sp/>ortp_congestion_detector_record(<ref refid="struct__OrtpCongestionDetector" kindref="compound">OrtpCongestionDetector</ref><sp/>*obj,<sp/>uint32_t<sp/>packet_ts,<sp/>uint32_t<sp/>cur_str_ts);</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ortp_congestion_detector_destroy(<ref refid="struct__OrtpCongestionDetector" kindref="compound">OrtpCongestionDetector</ref><sp/>*obj);</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ortp_congestion_detector_reset(<ref refid="struct__OrtpCongestionDetector" kindref="compound">OrtpCongestionDetector</ref><sp/>*cd);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h"/>
+  </compounddef>
+</doxygen>

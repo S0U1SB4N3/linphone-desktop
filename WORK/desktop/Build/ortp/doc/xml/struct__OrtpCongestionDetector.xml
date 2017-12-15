@@ -1,0 +1,478 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__OrtpCongestionDetector" kind="struct" language="C++" prot="public">
+    <compoundname>_OrtpCongestionDetector</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1ad2ae9d07a6a797f08022ac7a65704f56" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__OrtpKalmanRLS" kindref="compound">OrtpKalmanRLS</ref></type>
+        <definition>OrtpKalmanRLS _OrtpCongestionDetector::rls</definition>
+        <argsstring></argsstring>
+        <name>rls</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="37" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1a910ce2b06ca7354b871c88464acadeba" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t _OrtpCongestionDetector::start_ms</definition>
+        <argsstring></argsstring>
+        <name>start_ms</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="38" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1a1b5143b1ee29c3ee0088b4491b627a0f" prot="public" static="no" mutable="no">
+        <type>uint64_t</type>
+        <definition>uint64_t _OrtpCongestionDetector::last_packet_recv</definition>
+        <argsstring></argsstring>
+        <name>last_packet_recv</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="39" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1ac579138368749c17e91fe98b01f34107" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _OrtpCongestionDetector::loss_begin</definition>
+        <argsstring></argsstring>
+        <name>loss_begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="40" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1ad8a15b630e7e6b5b0fc437dbf16c61ea" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t _OrtpCongestionDetector::seq_begin</definition>
+        <argsstring></argsstring>
+        <name>seq_begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="40" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1a4707c344c16832a77854092bee0cc946" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _OrtpCongestionDetector::initialized</definition>
+        <argsstring></argsstring>
+        <name>initialized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="41" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1a1b0a1f38e293d40ad169bfb38dc76592" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _OrtpCongestionDetector::is_in_congestion</definition>
+        <argsstring></argsstring>
+        <name>is_in_congestion</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="42" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1a21ed04a9aadd05b2598bfc9b09464e28" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _OrtpCongestionDetector::skip</definition>
+        <argsstring></argsstring>
+        <name>skip</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="43" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1a966f1874a2ac0cb576e443c0c2114b3c" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _OrtpCongestionDetector::too_much_loss</definition>
+        <argsstring></argsstring>
+        <name>too_much_loss</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="44" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1a5eb1c3063d03054b278a8f14ed528da1" prot="public" static="no" mutable="no">
+        <type>OrtpCongestionState</type>
+        <definition>OrtpCongestionState _OrtpCongestionDetector::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="45" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpCongestionDetector_1a1b723b9668479d71fcda5ef2ed353cc5" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct__RtpSession" kindref="compound">_RtpSession</ref> *</type>
+        <definition>struct _RtpSession* _OrtpCongestionDetector::session</definition>
+        <argsstring></argsstring>
+        <name>session</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="46" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="92">
+        <label>_JBParameters</label>
+        <link refid="struct__JBParameters"/>
+      </node>
+      <node id="59">
+        <label>_OrtpCongestionDetector</label>
+        <link refid="struct__OrtpCongestionDetector"/>
+        <childnode refid="60" relation="usage">
+          <edgelabel>rls</edgelabel>
+        </childnode>
+        <childnode refid="61" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="76">
+        <label>OrtpRtcpXrConfiguration</label>
+        <link refid="structOrtpRtcpXrConfiguration"/>
+      </node>
+      <node id="83">
+        <label>_OrtpPayloadType</label>
+        <link refid="struct__OrtpPayloadType"/>
+        <childnode refid="84" relation="usage">
+          <edgelabel>avpf</edgelabel>
+        </childnode>
+      </node>
+      <node id="74">
+        <label>OrtpRtcpXrMediaCallbacks</label>
+        <link refid="structOrtpRtcpXrMediaCallbacks"/>
+      </node>
+      <node id="93">
+        <label>_OrtpExtremum</label>
+        <link refid="struct__OrtpExtremum"/>
+      </node>
+      <node id="71">
+        <label>_SessionSet</label>
+        <link refid="struct__SessionSet"/>
+      </node>
+      <node id="66">
+        <label>ortp_recv_addr</label>
+        <link refid="structortp__recv__addr"/>
+      </node>
+      <node id="68">
+        <label>_queue</label>
+        <link refid="struct__queue"/>
+        <childnode refid="64" relation="usage">
+          <edgelabel>_q_stopper</edgelabel>
+        </childnode>
+      </node>
+      <node id="63">
+        <label>rtp_stats</label>
+        <link refid="structrtp__stats"/>
+      </node>
+      <node id="72">
+        <label>_RtcpStream</label>
+        <link refid="struct__RtcpStream"/>
+        <childnode refid="73" relation="usage">
+          <edgelabel>tmmbr_info</edgelabel>
+        </childnode>
+        <childnode refid="74" relation="usage">
+          <edgelabel>xr_media_callbacks</edgelabel>
+        </childnode>
+        <childnode refid="75" relation="usage">
+          <edgelabel>send_algo</edgelabel>
+        </childnode>
+        <childnode refid="76" relation="usage">
+          <edgelabel>xr_conf</edgelabel>
+        </childnode>
+        <childnode refid="77" relation="usage">
+          <edgelabel>gs</edgelabel>
+        </childnode>
+      </node>
+      <node id="90">
+        <label>jitter_stats</label>
+        <link refid="structjitter__stats"/>
+      </node>
+      <node id="70">
+        <label>_RtpTimer</label>
+        <link refid="struct__RtpTimer"/>
+      </node>
+      <node id="77">
+        <label>_OrtpStream</label>
+        <link refid="struct__OrtpStream"/>
+        <childnode refid="78" relation="usage">
+          <edgelabel>allocator</edgelabel>
+        </childnode>
+        <childnode refid="79" relation="usage">
+          <edgelabel>recv_bw_estimator</edgelabel>
+        </childnode>
+        <childnode refid="80" relation="usage">
+          <edgelabel>tr</edgelabel>
+        </childnode>
+      </node>
+      <node id="60">
+        <label>_OrtpKalmanRLS</label>
+        <link refid="struct__OrtpKalmanRLS"/>
+      </node>
+      <node id="64">
+        <label>msgb</label>
+        <link refid="structmsgb"/>
+        <childnode refid="65" relation="usage">
+          <edgelabel>b_datap</edgelabel>
+        </childnode>
+        <childnode refid="64" relation="usage">
+          <edgelabel>b_next</edgelabel>
+          <edgelabel>b_cont</edgelabel>
+          <edgelabel>b_prev</edgelabel>
+        </childnode>
+        <childnode refid="66" relation="usage">
+          <edgelabel>recv_addr</edgelabel>
+        </childnode>
+      </node>
+      <node id="79">
+        <label>_OrtpBwEstimator</label>
+        <link refid="struct__OrtpBwEstimator"/>
+      </node>
+      <node id="88">
+        <label>_OrtpVideoBandwidthEstimator</label>
+        <link refid="struct__OrtpVideoBandwidthEstimator"/>
+        <childnode refid="89" relation="usage">
+          <edgelabel>last_packet</edgelabel>
+        </childnode>
+        <childnode refid="61" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="73">
+        <label>OrtpRtcpTmmbrInfo</label>
+        <link refid="structOrtpRtcpTmmbrInfo"/>
+        <childnode refid="64" relation="usage">
+          <edgelabel>received</edgelabel>
+          <edgelabel>sent</edgelabel>
+        </childnode>
+      </node>
+      <node id="78">
+        <label>_msgb_allocator</label>
+        <link refid="struct__msgb__allocator"/>
+        <childnode refid="68" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="89">
+        <label>_OrtpVideoBandwidthEstimatorPacket</label>
+        <link refid="struct__OrtpVideoBandwidthEstimatorPacket"/>
+      </node>
+      <node id="84">
+        <label>_PayloadTypeAvpfParams</label>
+        <link refid="struct__PayloadTypeAvpfParams"/>
+      </node>
+      <node id="80">
+        <label>_RtpTransport</label>
+        <link refid="struct__RtpTransport"/>
+        <childnode refid="61" relation="usage">
+          <edgelabel>session</edgelabel>
+        </childnode>
+      </node>
+      <node id="86">
+        <label>_OrtpNetworkSimulatorParams</label>
+        <link refid="struct__OrtpNetworkSimulatorParams"/>
+      </node>
+      <node id="75">
+        <label>OrtpRtcpSendAlgorithm</label>
+        <link refid="structOrtpRtcpSendAlgorithm"/>
+        <childnode refid="64" relation="usage">
+          <edgelabel>fb_packets</edgelabel>
+        </childnode>
+      </node>
+      <node id="91">
+        <label>_JitterControl</label>
+        <link refid="struct__JitterControl"/>
+        <childnode refid="60" relation="usage">
+          <edgelabel>kalman_rls</edgelabel>
+        </childnode>
+        <childnode refid="92" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+        <childnode refid="93" relation="usage">
+          <edgelabel>max_ts_deviation</edgelabel>
+        </childnode>
+      </node>
+      <node id="69">
+        <label>_RtpScheduler</label>
+        <link refid="struct__RtpScheduler"/>
+        <childnode refid="70" relation="usage">
+          <edgelabel>timer</edgelabel>
+        </childnode>
+        <childnode refid="71" relation="usage">
+          <edgelabel>r_sessions</edgelabel>
+          <edgelabel>e_sessions</edgelabel>
+          <edgelabel>w_sessions</edgelabel>
+          <edgelabel>all_sessions</edgelabel>
+        </childnode>
+        <childnode refid="61" relation="usage">
+          <edgelabel>list</edgelabel>
+        </childnode>
+      </node>
+      <node id="87">
+        <label>_RtpStream</label>
+        <link refid="struct__RtpStream"/>
+        <childnode refid="88" relation="usage">
+          <edgelabel>video_bw_estimator</edgelabel>
+        </childnode>
+        <childnode refid="90" relation="usage">
+          <edgelabel>jitter_stats</edgelabel>
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>tev_rq</edgelabel>
+          <edgelabel>rq</edgelabel>
+        </childnode>
+        <childnode refid="91" relation="usage">
+          <edgelabel>jittctl</edgelabel>
+        </childnode>
+        <childnode refid="59" relation="usage">
+          <edgelabel>congdetect</edgelabel>
+        </childnode>
+        <childnode refid="77" relation="usage">
+          <edgelabel>gs</edgelabel>
+        </childnode>
+      </node>
+      <node id="61">
+        <label>_RtpSession</label>
+        <link refid="struct__RtpSession"/>
+        <childnode refid="62" relation="usage">
+          <edgelabel>rtcp_xr_stats</edgelabel>
+        </childnode>
+        <childnode refid="63" relation="usage">
+          <edgelabel>stats</edgelabel>
+        </childnode>
+        <childnode refid="64" relation="usage">
+          <edgelabel>full_sdes</edgelabel>
+          <edgelabel>minimal_sdes</edgelabel>
+          <edgelabel>current_tev</edgelabel>
+          <edgelabel>pending</edgelabel>
+        </childnode>
+        <childnode refid="67" relation="usage">
+          <edgelabel>wp</edgelabel>
+        </childnode>
+        <childnode refid="68" relation="usage">
+          <edgelabel>contributing_sources</edgelabel>
+        </childnode>
+        <childnode refid="69" relation="usage">
+          <edgelabel>sched</edgelabel>
+        </childnode>
+        <childnode refid="72" relation="usage">
+          <edgelabel>rtcp</edgelabel>
+        </childnode>
+        <childnode refid="81" relation="usage">
+          <edgelabel>on_timestamp_jump</edgelabel>
+          <edgelabel>on_payload_type_changed</edgelabel>
+          <edgelabel>on_telephone_event_packet</edgelabel>
+          <edgelabel>on_ssrc_changed</edgelabel>
+          <edgelabel>on_network_error</edgelabel>
+          <edgelabel>on_rtcp_bye</edgelabel>
+          <edgelabel>on_telephone_event</edgelabel>
+        </childnode>
+        <childnode refid="82" relation="usage">
+          <edgelabel>profile</edgelabel>
+        </childnode>
+        <childnode refid="85" relation="usage">
+          <edgelabel>net_sim_ctx</edgelabel>
+        </childnode>
+        <childnode refid="61" relation="usage">
+          <edgelabel>next</edgelabel>
+          <edgelabel>spliced_session</edgelabel>
+        </childnode>
+        <childnode refid="87" relation="usage">
+          <edgelabel>rtp</edgelabel>
+        </childnode>
+      </node>
+      <node id="85">
+        <label>_OrtpNetworkSimulatorCtx</label>
+        <link refid="struct__OrtpNetworkSimulatorCtx"/>
+        <childnode refid="68" relation="usage">
+          <edgelabel>latency_q</edgelabel>
+          <edgelabel>send_q</edgelabel>
+          <edgelabel>q</edgelabel>
+        </childnode>
+        <childnode refid="86" relation="usage">
+          <edgelabel>params</edgelabel>
+        </childnode>
+      </node>
+      <node id="82">
+        <label>_RtpProfile</label>
+        <link refid="struct__RtpProfile"/>
+        <childnode refid="83" relation="usage">
+          <edgelabel>payload</edgelabel>
+        </childnode>
+      </node>
+      <node id="81">
+        <label>_RtpSignalTable</label>
+        <link refid="struct__RtpSignalTable"/>
+        <childnode refid="61" relation="usage">
+          <edgelabel>session</edgelabel>
+          <edgelabel>callback</edgelabel>
+        </childnode>
+      </node>
+      <node id="65">
+        <label>datab</label>
+        <link refid="structdatab"/>
+      </node>
+      <node id="67">
+        <label>_WaitPoint</label>
+        <link refid="struct__WaitPoint"/>
+      </node>
+      <node id="62">
+        <label>OrtpRtcpXrStats</label>
+        <link refid="structOrtpRtcpXrStats"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" line="36" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/congestiondetector.h" bodystart="36" bodyend="47"/>
+    <listofallmembers>
+      <member refid="struct__OrtpCongestionDetector_1a4707c344c16832a77854092bee0cc946" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>initialized</name></member>
+      <member refid="struct__OrtpCongestionDetector_1a1b0a1f38e293d40ad169bfb38dc76592" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>is_in_congestion</name></member>
+      <member refid="struct__OrtpCongestionDetector_1a1b5143b1ee29c3ee0088b4491b627a0f" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>last_packet_recv</name></member>
+      <member refid="struct__OrtpCongestionDetector_1ac579138368749c17e91fe98b01f34107" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>loss_begin</name></member>
+      <member refid="struct__OrtpCongestionDetector_1ad2ae9d07a6a797f08022ac7a65704f56" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>rls</name></member>
+      <member refid="struct__OrtpCongestionDetector_1ad8a15b630e7e6b5b0fc437dbf16c61ea" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>seq_begin</name></member>
+      <member refid="struct__OrtpCongestionDetector_1a1b723b9668479d71fcda5ef2ed353cc5" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>session</name></member>
+      <member refid="struct__OrtpCongestionDetector_1a21ed04a9aadd05b2598bfc9b09464e28" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>skip</name></member>
+      <member refid="struct__OrtpCongestionDetector_1a910ce2b06ca7354b871c88464acadeba" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>start_ms</name></member>
+      <member refid="struct__OrtpCongestionDetector_1a5eb1c3063d03054b278a8f14ed528da1" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>state</name></member>
+      <member refid="struct__OrtpCongestionDetector_1a966f1874a2ac0cb576e443c0c2114b3c" prot="public" virt="non-virtual"><scope>_OrtpCongestionDetector</scope><name>too_much_loss</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

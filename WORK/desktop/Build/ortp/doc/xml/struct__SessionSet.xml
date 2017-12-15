@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__SessionSet" kind="struct" language="C++" prot="public">
+    <compoundname>_SessionSet</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__SessionSet_1ad67b4a3c57c723ce62decc9a37ba27de" prot="public" static="no" mutable="no">
+        <type>ortp_fd_set</type>
+        <definition>ortp_fd_set _SessionSet::rtpset</definition>
+        <argsstring></argsstring>
+        <name>rtpset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="90" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="89" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="88" bodyend="91"/>
+    <listofallmembers>
+      <member refid="struct__SessionSet_1ad67b4a3c57c723ce62decc9a37ba27de" prot="public" virt="non-virtual"><scope>_SessionSet</scope><name>rtpset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

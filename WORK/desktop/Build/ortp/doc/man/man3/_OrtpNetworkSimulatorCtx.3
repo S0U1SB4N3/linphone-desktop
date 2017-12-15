@@ -1,0 +1,67 @@
+.TH "_OrtpNetworkSimulatorCtx" 3 "Fri Dec 15 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_OrtpNetworkSimulatorCtx
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBOrtpNetworkSimulatorParams\fP \fBparams\fP"
+.br
+.ti -1c
+.RI "int \fBbit_budget\fP"
+.br
+.ti -1c
+.RI "int \fBqsize\fP"
+.br
+.ti -1c
+.RI "\fBqueue_t\fP \fBq\fP"
+.br
+.ti -1c
+.RI "\fBqueue_t\fP \fBlatency_q\fP"
+.br
+.ti -1c
+.RI "\fBqueue_t\fP \fBsend_q\fP"
+.br
+.ti -1c
+.RI "struct timeval \fBlast_check\fP"
+.br
+.ti -1c
+.RI "uint64_t \fBlast_jitter_event\fP"
+.br
+.ti -1c
+.RI "int \fBconsecutive_drops\fP"
+.br
+.ti -1c
+.RI "int \fBdrops_to_ignore\fP"
+.br
+.ti -1c
+.RI "int \fBdrop_by_congestion\fP"
+.br
+.ti -1c
+.RI "int \fBdrop_by_loss\fP"
+.br
+.ti -1c
+.RI "int \fBtotal_count\fP"
+.br
+.ti -1c
+.RI "ortp_mutex_t \fBmutex\fP"
+.br
+.ti -1c
+.RI "ortp_thread_t \fBthread\fP"
+.br
+.ti -1c
+.RI "bool_t \fBin_jitter_event\fP"
+.br
+.ti -1c
+.RI "bool_t \fBthread_started\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrtcp__xr__dlrr__report__subblock" kind="struct" language="C++" prot="public">
+    <compoundname>rtcp_xr_dlrr_report_subblock</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrtcp__xr__dlrr__report__subblock_1a64cc0789af409d13a758d5b7af36af87" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_dlrr_report_subblock::ssrc</definition>
+        <argsstring></argsstring>
+        <name>ssrc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="242" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="242" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__dlrr__report__subblock_1a9727af016c7b84b8dc03d4beae1bce2d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_dlrr_report_subblock::lrr</definition>
+        <argsstring></argsstring>
+        <name>lrr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="243" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="243" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__dlrr__report__subblock_1a87ad6c16e50f2c2df1f5ffe17644b975" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_dlrr_report_subblock::dlrr</definition>
+        <argsstring></argsstring>
+        <name>dlrr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="244" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="244" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="241" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="241" bodyend="245"/>
+    <listofallmembers>
+      <member refid="structrtcp__xr__dlrr__report__subblock_1a87ad6c16e50f2c2df1f5ffe17644b975" prot="public" virt="non-virtual"><scope>rtcp_xr_dlrr_report_subblock</scope><name>dlrr</name></member>
+      <member refid="structrtcp__xr__dlrr__report__subblock_1a9727af016c7b84b8dc03d4beae1bce2d" prot="public" virt="non-virtual"><scope>rtcp_xr_dlrr_report_subblock</scope><name>lrr</name></member>
+      <member refid="structrtcp__xr__dlrr__report__subblock_1a64cc0789af409d13a758d5b7af36af87" prot="public" virt="non-virtual"><scope>rtcp_xr_dlrr_report_subblock</scope><name>ssrc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

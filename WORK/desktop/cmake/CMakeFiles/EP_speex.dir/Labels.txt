@@ -1,0 +1,14 @@
+# Target labels
+ EP_speex
+# Source files and their labels
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_speex
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_speex.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_speex-complete.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_speex/EP_speex-install.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_speex/EP_speex-mkdir.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_speex/EP_speex-download.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_speex/EP_speex-update.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_speex/EP_speex-patch.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_speex/EP_speex-configure.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_speex/EP_speex-build.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_speex/EP_speex-force_build.rule

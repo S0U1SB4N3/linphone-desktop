@@ -1,0 +1,689 @@
+\section{Event api}
+\label{group__event__api}\index{Event api@{Event api}}
+
+
+Managing generic subscriptions and publishes.  
+
+
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{group__event__api_ga7918c2e5c550c1270562e78e8918aada}} 
+typedef void($\ast$ \textbf{ Linphone\+Core\+Cbs\+Notify\+Received\+Cb}) (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Event} $\ast$lev, const char $\ast$notified\+\_\+event, const \textbf{ Linphone\+Content} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Callback prototype for notifying the application about notification received from the network. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga781d3878a7f5f8dd007134df999af779}} 
+typedef \textbf{ Linphone\+Core\+Cbs\+Notify\+Received\+Cb} \textbf{ Linphone\+Core\+Notify\+Received\+Cb}
+\begin{DoxyCompactList}\small\item\em Old name of \doxyref{Linphone\+Core\+Cbs\+Notify\+Received\+Cb}{p.}{group__event__api_ga7918c2e5c550c1270562e78e8918aada}. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga81cc4e7dd7ba26334292ad6eeed941a1}} 
+typedef void($\ast$ \textbf{ Linphone\+Core\+Cbs\+Subscription\+State\+Changed\+Cb}) (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Event} $\ast$lev, \textbf{ Linphone\+Subscription\+State} state)
+\begin{DoxyCompactList}\small\item\em Callback prototype for notifying the application about changes of subscription states, including arrival of new subscriptions. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga3e06431a6e36a1dcb7c0c8dbf2afc176}} 
+typedef \textbf{ Linphone\+Core\+Cbs\+Subscription\+State\+Changed\+Cb} \textbf{ Linphone\+Core\+Subscription\+State\+Changed\+Cb}
+\begin{DoxyCompactList}\small\item\em Old name of \doxyref{Linphone\+Core\+Cbs\+Subscription\+State\+Changed\+Cb}{p.}{group__event__api_ga81cc4e7dd7ba26334292ad6eeed941a1}. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga5bd7f83a6932a97b52d661c90367e798}} 
+typedef void($\ast$ \textbf{ Linphone\+Core\+Cbs\+Publish\+State\+Changed\+Cb}) (\textbf{ Linphone\+Core} $\ast$lc, \textbf{ Linphone\+Event} $\ast$lev, \textbf{ Linphone\+Publish\+State} state)
+\begin{DoxyCompactList}\small\item\em Callback prototype for notifying the application about changes of publish states. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga5d46e912a055805bf3beb2558b0ab329}} 
+typedef \textbf{ Linphone\+Core\+Cbs\+Publish\+State\+Changed\+Cb} \textbf{ Linphone\+Core\+Publish\+State\+Changed\+Cb}
+\begin{DoxyCompactList}\small\item\em Old name of Linphone\+Core\+Cbs\+Publish\+State\+Changed\+Cb. \end{DoxyCompactList}\item 
+typedef struct \+\_\+\+Linphone\+Event \textbf{ Linphone\+Event}
+\begin{DoxyCompactList}\small\item\em Object representing an event state, which is subcribed or published. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga87334f4b5de3956d0480bcdc4b6b73f1}} 
+typedef enum \textbf{ \+\_\+\+Linphone\+Publish\+State} \textbf{ Linphone\+Publish\+State}
+\begin{DoxyCompactList}\small\item\em Enum for publish states. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_gaa99839111e4d7ce2671b65c6072e8dcc}} 
+typedef enum \textbf{ \+\_\+\+Linphone\+Subscription\+Dir} \textbf{ Linphone\+Subscription\+Dir}
+\begin{DoxyCompactList}\small\item\em Enum for subscription direction (incoming or outgoing). \end{DoxyCompactList}\item 
+typedef enum \textbf{ \+\_\+\+Linphone\+Subscription\+State} \textbf{ Linphone\+Subscription\+State}
+\begin{DoxyCompactList}\small\item\em Enum for subscription states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ \+\_\+\+Linphone\+Publish\+State} \{ \newline
+\textbf{ Linphone\+Publish\+None}, 
+\newline
+\textbf{ Linphone\+Publish\+Progress}, 
+\newline
+\textbf{ Linphone\+Publish\+Ok}, 
+\newline
+\textbf{ Linphone\+Publish\+Error}, 
+\newline
+\textbf{ Linphone\+Publish\+Expiring}, 
+\newline
+\textbf{ Linphone\+Publish\+Cleared}
+ \}\begin{DoxyCompactList}\small\item\em Enum for publish states. \end{DoxyCompactList}
+\item 
+enum \textbf{ \+\_\+\+Linphone\+Subscription\+Dir} \{ \newline
+\textbf{ Linphone\+Subscription\+Incoming}, 
+\newline
+\textbf{ Linphone\+Subscription\+Outgoing}, 
+\newline
+\textbf{ Linphone\+Subscription\+Invalid\+Dir}
+ \}\begin{DoxyCompactList}\small\item\em Enum for subscription direction (incoming or outgoing). \end{DoxyCompactList}
+\item 
+enum \textbf{ \+\_\+\+Linphone\+Subscription\+State} \{ \newline
+\textbf{ Linphone\+Subscription\+None}, 
+\newline
+\textbf{ Linphone\+Subscription\+Outgoing\+Progress}, 
+\newline
+\textbf{ Linphone\+Subscription\+Incoming\+Received}, 
+\newline
+\textbf{ Linphone\+Subscription\+Pending}, 
+\newline
+\textbf{ Linphone\+Subscription\+Active}, 
+\newline
+\textbf{ Linphone\+Subscription\+Terminated}, 
+\newline
+\textbf{ Linphone\+Subscription\+Error}, 
+\newline
+\textbf{ Linphone\+Subscription\+Expiring}
+ \}\begin{DoxyCompactList}\small\item\em Enum for subscription states. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Linphone\+Event} $\ast$ \textbf{ linphone\+\_\+core\+\_\+subscribe} (\textbf{ Linphone\+Core} $\ast$lc, const \textbf{ Linphone\+Address} $\ast$resource, const char $\ast$event, int expires, const \textbf{ Linphone\+Content} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Event} $\ast$ \textbf{ linphone\+\_\+core\+\_\+create\+\_\+subscribe} (\textbf{ Linphone\+Core} $\ast$lc, const \textbf{ Linphone\+Address} $\ast$resource, const char $\ast$event, int expires)
+\begin{DoxyCompactList}\small\item\em Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Event} $\ast$ \textbf{ linphone\+\_\+core\+\_\+create\+\_\+notify} (\textbf{ Linphone\+Core} $\ast$lc, const \textbf{ Linphone\+Address} $\ast$resource, const char $\ast$event)
+\begin{DoxyCompactList}\small\item\em Create an out-\/of-\/dialog notification, specifying the destination resource, the event name. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Event} $\ast$ \textbf{ linphone\+\_\+core\+\_\+publish} (\textbf{ Linphone\+Core} $\ast$lc, const \textbf{ Linphone\+Address} $\ast$resource, const char $\ast$event, int expires, const \textbf{ Linphone\+Content} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Publish an event state. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Event} $\ast$ \textbf{ linphone\+\_\+core\+\_\+create\+\_\+publish} (\textbf{ Linphone\+Core} $\ast$lc, const \textbf{ Linphone\+Address} $\ast$resource, const char $\ast$event, int expires)
+\begin{DoxyCompactList}\small\item\em Create a publish context for an event state. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Event} $\ast$ \textbf{ linphone\+\_\+core\+\_\+create\+\_\+one\+\_\+shot\+\_\+publish} (\textbf{ Linphone\+Core} $\ast$lc, const \textbf{ Linphone\+Address} $\ast$resource, const char $\ast$event)
+\begin{DoxyCompactList}\small\item\em Create a publish context for a one-\/shot publish. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+event\+\_\+send\+\_\+subscribe} (\textbf{ Linphone\+Event} $\ast$ev, const \textbf{ Linphone\+Content} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Send a subscription previously created by \doxyref{linphone\+\_\+core\+\_\+create\+\_\+subscribe()}{p.}{group__event__api_ga6a423ceb44b66ee9eb31aca7e94f1cbc}. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+event\+\_\+update\+\_\+subscribe} (\textbf{ Linphone\+Event} $\ast$lev, const \textbf{ Linphone\+Content} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Update (refresh) an outgoing subscription, changing the body. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+event\+\_\+refresh\+\_\+subscribe} (\textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Refresh an outgoing subscription keeping the same body. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga744252e83308a7f50dab9f6ad5c7fe08}} 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+event\+\_\+accept\+\_\+subscription} (\textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Accept an incoming subcription. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_gae88ad09a189b43c6253241c288567808}} 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+event\+\_\+deny\+\_\+subscription} (\textbf{ Linphone\+Event} $\ast$lev, \textbf{ Linphone\+Reason} reason)
+\begin{DoxyCompactList}\small\item\em Deny an incoming subscription with given reason. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+event\+\_\+notify} (\textbf{ Linphone\+Event} $\ast$lev, const \textbf{ Linphone\+Content} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Send a notification. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+event\+\_\+send\+\_\+publish} (\textbf{ Linphone\+Event} $\ast$lev, const \textbf{ Linphone\+Content} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Send a publish created by \doxyref{linphone\+\_\+core\+\_\+create\+\_\+publish()}{p.}{group__event__api_ga61c9286b3c0ef0407140e9978c12e55a}. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+event\+\_\+update\+\_\+publish} (\textbf{ Linphone\+Event} $\ast$lev, const \textbf{ Linphone\+Content} $\ast$body)
+\begin{DoxyCompactList}\small\item\em Update (refresh) a publish. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+event\+\_\+refresh\+\_\+publish} (\textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Refresh an outgoing publish keeping the same body. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+event\+\_\+pause\+\_\+publish} (\textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Prevent an event from refreshing its publish. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga035455d1b9ca83d1415bba989bd93395}} 
+\textbf{ Linphone\+Reason} \textbf{ linphone\+\_\+event\+\_\+get\+\_\+reason} (const \textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Return reason code (in case of error state reached). \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga76be1dba05ea6ddce71d38f621ddcfde}} 
+const \textbf{ Linphone\+Error\+Info} $\ast$ \textbf{ linphone\+\_\+event\+\_\+get\+\_\+error\+\_\+info} (const \textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Get full details about an error occured. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Subscription\+State} \textbf{ linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+state} (const \textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Get subscription state. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Publish\+State} \textbf{ linphone\+\_\+event\+\_\+get\+\_\+publish\+\_\+state} (const \textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Get publish state. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Subscription\+Dir} \textbf{ linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+dir} (\textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Get subscription direction. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga9e22cf3e08ba7801189ef20e58f9afad}} 
+void \textbf{ linphone\+\_\+event\+\_\+set\+\_\+user\+\_\+data} (\textbf{ Linphone\+Event} $\ast$ev, void $\ast$up)
+\begin{DoxyCompactList}\small\item\em Set a user (application) pointer. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_gac4b132995fed3dc6ba4e13c1ade928d1}} 
+void $\ast$ \textbf{ linphone\+\_\+event\+\_\+get\+\_\+user\+\_\+data} (const \textbf{ Linphone\+Event} $\ast$ev)
+\begin{DoxyCompactList}\small\item\em Retrieve user pointer. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+event\+\_\+add\+\_\+custom\+\_\+header} (\textbf{ Linphone\+Event} $\ast$ev, const char $\ast$name, const char $\ast$value)
+\begin{DoxyCompactList}\small\item\em Add a custom header to an outgoing susbscription or publish. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+event\+\_\+get\+\_\+custom\+\_\+header} (\textbf{ Linphone\+Event} $\ast$ev, const char $\ast$name)
+\begin{DoxyCompactList}\small\item\em Obtain the value of a given header for an incoming subscription. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+event\+\_\+terminate} (\textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Terminate an incoming or outgoing subscription that was previously acccepted, or a previous publication. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Event} $\ast$ \textbf{ linphone\+\_\+event\+\_\+ref} (\textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Increase reference count of Linphone\+Event. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+event\+\_\+unref} (\textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Decrease reference count. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_ga7224702b342fef301e15b12aee0aaffe}} 
+const char $\ast$ \textbf{ linphone\+\_\+event\+\_\+get\+\_\+name} (const \textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Get the name of the event as specified in the event package R\+FC. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_gae0d6c66d272f7bfe8f0b3902b6509395}} 
+const \textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+event\+\_\+get\+\_\+from} (const \textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Get the \char`\"{}from\char`\"{} address of the subscription. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_gac45355bd19fd7205deb4f1fcc722410c}} 
+const \textbf{ Linphone\+Address} $\ast$ \textbf{ linphone\+\_\+event\+\_\+get\+\_\+resource} (const \textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Get the resource address of the subscription or publish. \end{DoxyCompactList}\item 
+\mbox{\label{group__event__api_gab2bebd450e088b98b817abeb389e7621}} 
+\textbf{ Linphone\+Core} $\ast$ \textbf{ linphone\+\_\+event\+\_\+get\+\_\+core} (const \textbf{ Linphone\+Event} $\ast$lev)
+\begin{DoxyCompactList}\small\item\em Returns back pointer to the Linphone\+Core that created this Linphone\+Event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Managing generic subscriptions and publishes. 
+
+The Linphone\+Event api allows application to control subscriptions, receive notifications and make publish to peers, in a generic manner. 
+
+\subsection{Typedef Documentation}
+\mbox{\label{group__event__api_ga4befcba96583d9e9d9f2b775cccfb2b7}} 
+\index{Event api@{Event api}!Linphone\+Event@{Linphone\+Event}}
+\index{Linphone\+Event@{Linphone\+Event}!Event api@{Event api}}
+\subsubsection{Linphone\+Event}
+{\footnotesize\ttfamily typedef struct \+\_\+\+Linphone\+Event \textbf{ Linphone\+Event}}
+
+
+
+Object representing an event state, which is subcribed or published. 
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{linphone\+\_\+core\+\_\+publish()}{p.}{group__event__api_ga3d1ea36f58ec30b475e424d2bff93fb6} 
+
+\doxyref{linphone\+\_\+core\+\_\+subscribe()}{p.}{group__event__api_ga7f26a525c7acc4a51a32e36c795e1930} 
+\end{DoxySeeAlso}
+\mbox{\label{group__event__api_gaf1fc5608d1a967b13a28e2b012ceb948}} 
+\index{Event api@{Event api}!Linphone\+Subscription\+State@{Linphone\+Subscription\+State}}
+\index{Linphone\+Subscription\+State@{Linphone\+Subscription\+State}!Event api@{Event api}}
+\subsubsection{Linphone\+Subscription\+State}
+{\footnotesize\ttfamily typedef enum \textbf{ \+\_\+\+Linphone\+Subscription\+State}  \textbf{ Linphone\+Subscription\+State}}
+
+
+
+Enum for subscription states. 
+
+Linphone\+Subscription\+Terminated and Linphone\+Subscription\+Error are final states. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{group__event__api_gaaffffb466f4d5c5141f5a938760e3ce4}} 
+\index{Event api@{Event api}!\+\_\+\+Linphone\+Publish\+State@{\+\_\+\+Linphone\+Publish\+State}}
+\index{\+\_\+\+Linphone\+Publish\+State@{\+\_\+\+Linphone\+Publish\+State}!Event api@{Event api}}
+\subsubsection{\+\_\+\+Linphone\+Publish\+State}
+{\footnotesize\ttfamily enum \textbf{ \+\_\+\+Linphone\+Publish\+State}}
+
+
+
+Enum for publish states. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Publish\+None@{Linphone\+Publish\+None}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Publish\+None@{Linphone\+Publish\+None}}}\mbox{\label{group__event__api_ggaaffffb466f4d5c5141f5a938760e3ce4a5db681b47c687d2e16fa96dab5589752}} 
+Linphone\+Publish\+None&Initial state, do not use. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Publish\+Progress@{Linphone\+Publish\+Progress}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Publish\+Progress@{Linphone\+Publish\+Progress}}}\mbox{\label{group__event__api_ggaaffffb466f4d5c5141f5a938760e3ce4aaeda3e5c8b3d3f0342be1d2491be2764}} 
+Linphone\+Publish\+Progress&An outgoing publish was created and submitted. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Publish\+Ok@{Linphone\+Publish\+Ok}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Publish\+Ok@{Linphone\+Publish\+Ok}}}\mbox{\label{group__event__api_ggaaffffb466f4d5c5141f5a938760e3ce4a72b7fc821667e302e0ede8e2f2c31b9c}} 
+Linphone\+Publish\+Ok&Publish is accepted. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Publish\+Error@{Linphone\+Publish\+Error}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Publish\+Error@{Linphone\+Publish\+Error}}}\mbox{\label{group__event__api_ggaaffffb466f4d5c5141f5a938760e3ce4a51837d4ba711c17524d1585c5caca98c}} 
+Linphone\+Publish\+Error&Publish encoutered an error, \doxyref{linphone\+\_\+event\+\_\+get\+\_\+reason()}{p.}{group__event__api_ga035455d1b9ca83d1415bba989bd93395} gives reason code. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Publish\+Expiring@{Linphone\+Publish\+Expiring}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Publish\+Expiring@{Linphone\+Publish\+Expiring}}}\mbox{\label{group__event__api_ggaaffffb466f4d5c5141f5a938760e3ce4a15222226cc9695458b595d785db16bf2}} 
+Linphone\+Publish\+Expiring&Publish is about to expire, only sent if [sip]-\/$>$refresh\+\_\+generic\+\_\+publish property is set to 0. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Publish\+Cleared@{Linphone\+Publish\+Cleared}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Publish\+Cleared@{Linphone\+Publish\+Cleared}}}\mbox{\label{group__event__api_ggaaffffb466f4d5c5141f5a938760e3ce4a4c2b990cd066348e068d15cdc65a8a55}} 
+Linphone\+Publish\+Cleared&Event has been un published. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{group__event__api_ga952ed6766d10e5c40eb1c08027fd299e}} 
+\index{Event api@{Event api}!\+\_\+\+Linphone\+Subscription\+Dir@{\+\_\+\+Linphone\+Subscription\+Dir}}
+\index{\+\_\+\+Linphone\+Subscription\+Dir@{\+\_\+\+Linphone\+Subscription\+Dir}!Event api@{Event api}}
+\subsubsection{\+\_\+\+Linphone\+Subscription\+Dir}
+{\footnotesize\ttfamily enum \textbf{ \+\_\+\+Linphone\+Subscription\+Dir}}
+
+
+
+Enum for subscription direction (incoming or outgoing). 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Incoming@{Linphone\+Subscription\+Incoming}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Incoming@{Linphone\+Subscription\+Incoming}}}\mbox{\label{group__event__api_gga952ed6766d10e5c40eb1c08027fd299eaf55a603336d43c3ea4cc3499bdb2c0c2}} 
+Linphone\+Subscription\+Incoming&Incoming subscription. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Outgoing@{Linphone\+Subscription\+Outgoing}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Outgoing@{Linphone\+Subscription\+Outgoing}}}\mbox{\label{group__event__api_gga952ed6766d10e5c40eb1c08027fd299ea3767788ba0d1a42fb28aa8b251b15f86}} 
+Linphone\+Subscription\+Outgoing&Outgoing subscription. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Invalid\+Dir@{Linphone\+Subscription\+Invalid\+Dir}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Invalid\+Dir@{Linphone\+Subscription\+Invalid\+Dir}}}\mbox{\label{group__event__api_gga952ed6766d10e5c40eb1c08027fd299eaf11428c5f350033b0771dfed91c65ec8}} 
+Linphone\+Subscription\+Invalid\+Dir&Invalid subscription direction. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\label{group__event__api_ga3f3f0721b654f5d9bf69451894c15fd2}} 
+\index{Event api@{Event api}!\+\_\+\+Linphone\+Subscription\+State@{\+\_\+\+Linphone\+Subscription\+State}}
+\index{\+\_\+\+Linphone\+Subscription\+State@{\+\_\+\+Linphone\+Subscription\+State}!Event api@{Event api}}
+\subsubsection{\+\_\+\+Linphone\+Subscription\+State}
+{\footnotesize\ttfamily enum \textbf{ \+\_\+\+Linphone\+Subscription\+State}}
+
+
+
+Enum for subscription states. 
+
+Linphone\+Subscription\+Terminated and Linphone\+Subscription\+Error are final states. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+None@{Linphone\+Subscription\+None}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+None@{Linphone\+Subscription\+None}}}\mbox{\label{group__event__api_gga3f3f0721b654f5d9bf69451894c15fd2aeca0ec22ff12067bd9678faafb78d2c5}} 
+Linphone\+Subscription\+None&Initial state, should not be used. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Outgoing\+Progress@{Linphone\+Subscription\+Outgoing\+Progress}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Outgoing\+Progress@{Linphone\+Subscription\+Outgoing\+Progress}}}\mbox{\label{group__event__api_gga3f3f0721b654f5d9bf69451894c15fd2a7848cfa1b2acff3093e11b841c004a3f}} 
+Linphone\+Subscription\+Outgoing\+Progress&An outgoing subcription was sent. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Incoming\+Received@{Linphone\+Subscription\+Incoming\+Received}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Incoming\+Received@{Linphone\+Subscription\+Incoming\+Received}}}\mbox{\label{group__event__api_gga3f3f0721b654f5d9bf69451894c15fd2a9da46101b075b3e234bb241110a56199}} 
+Linphone\+Subscription\+Incoming\+Received&An incoming subcription is received. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Pending@{Linphone\+Subscription\+Pending}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Pending@{Linphone\+Subscription\+Pending}}}\mbox{\label{group__event__api_gga3f3f0721b654f5d9bf69451894c15fd2a49a83030925840824cbc1e4d8eb1dec2}} 
+Linphone\+Subscription\+Pending&Subscription is pending, waiting for user approval. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Active@{Linphone\+Subscription\+Active}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Active@{Linphone\+Subscription\+Active}}}\mbox{\label{group__event__api_gga3f3f0721b654f5d9bf69451894c15fd2ab42d78d54f2780123a1f81b016e8c169}} 
+Linphone\+Subscription\+Active&Subscription is accepted. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Terminated@{Linphone\+Subscription\+Terminated}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Terminated@{Linphone\+Subscription\+Terminated}}}\mbox{\label{group__event__api_gga3f3f0721b654f5d9bf69451894c15fd2a108eeeb7d2550850db7c64f6c064972a}} 
+Linphone\+Subscription\+Terminated&Subscription is terminated normally. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Error@{Linphone\+Subscription\+Error}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Error@{Linphone\+Subscription\+Error}}}\mbox{\label{group__event__api_gga3f3f0721b654f5d9bf69451894c15fd2a97811c7073b37718c9b1580b2c81ce97}} 
+Linphone\+Subscription\+Error&Subscription was terminated by an error, indicated by \doxyref{linphone\+\_\+event\+\_\+get\+\_\+reason()}{p.}{group__event__api_ga035455d1b9ca83d1415bba989bd93395} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Subscription\+Expiring@{Linphone\+Subscription\+Expiring}!Event api@{Event api}}\index{Event api@{Event api}!Linphone\+Subscription\+Expiring@{Linphone\+Subscription\+Expiring}}}\mbox{\label{group__event__api_gga3f3f0721b654f5d9bf69451894c15fd2aa622d123717bba7b1dbec6db45ca424f}} 
+Linphone\+Subscription\+Expiring&Subscription is about to expire, only sent if [sip]-\/$>$refresh\+\_\+generic\+\_\+subscribe property is set to 0. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\label{group__event__api_ga36f0b9408dee05af9548c3b6dbec62ce}} 
+\index{Event api@{Event api}!linphone\+\_\+core\+\_\+create\+\_\+notify@{linphone\+\_\+core\+\_\+create\+\_\+notify}}
+\index{linphone\+\_\+core\+\_\+create\+\_\+notify@{linphone\+\_\+core\+\_\+create\+\_\+notify}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+core\+\_\+create\+\_\+notify()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Event}$\ast$ linphone\+\_\+core\+\_\+create\+\_\+notify (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{resource,  }\item[{const char $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Create an out-\/of-\/dialog notification, specifying the destination resource, the event name. 
+
+The notification can be send with \doxyref{linphone\+\_\+event\+\_\+notify()}{p.}{group__event__api_ga8ef76a30f239f2f7fa0704dfdb4547df}. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & the \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} \\
+\hline
+{\em resource} & the destination resource \\
+\hline
+{\em event} & the event name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Linphone\+Event holding the context of the notification. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_gac1c4abdf9d9995f71e60c656817a96fa}} 
+\index{Event api@{Event api}!linphone\+\_\+core\+\_\+create\+\_\+one\+\_\+shot\+\_\+publish@{linphone\+\_\+core\+\_\+create\+\_\+one\+\_\+shot\+\_\+publish}}
+\index{linphone\+\_\+core\+\_\+create\+\_\+one\+\_\+shot\+\_\+publish@{linphone\+\_\+core\+\_\+create\+\_\+one\+\_\+shot\+\_\+publish}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+core\+\_\+create\+\_\+one\+\_\+shot\+\_\+publish()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Event}$\ast$ linphone\+\_\+core\+\_\+create\+\_\+one\+\_\+shot\+\_\+publish (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{resource,  }\item[{const char $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Create a publish context for a one-\/shot publish. 
+
+After being created, the publish must be sent using \doxyref{linphone\+\_\+event\+\_\+send\+\_\+publish()}{p.}{group__event__api_ga36df6a42cb16c28dc44518b0770a5d74}. The Linphone\+Event is automatically terminated when the publish transaction is finished, either with success or failure. The application must not call \doxyref{linphone\+\_\+event\+\_\+terminate()}{p.}{group__event__api_gaef98f2e70b0a62e46bb1e836b61a8491} for such one-\/shot publish. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & the \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} \\
+\hline
+{\em resource} & the resource uri for the event \\
+\hline
+{\em event} & the event name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Linphone\+Event holding the context of the publish. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_ga61c9286b3c0ef0407140e9978c12e55a}} 
+\index{Event api@{Event api}!linphone\+\_\+core\+\_\+create\+\_\+publish@{linphone\+\_\+core\+\_\+create\+\_\+publish}}
+\index{linphone\+\_\+core\+\_\+create\+\_\+publish@{linphone\+\_\+core\+\_\+create\+\_\+publish}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+core\+\_\+create\+\_\+publish()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Event}$\ast$ linphone\+\_\+core\+\_\+create\+\_\+publish (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{resource,  }\item[{const char $\ast$}]{event,  }\item[{int}]{expires }\end{DoxyParamCaption})}
+
+
+
+Create a publish context for an event state. 
+
+After being created, the publish must be sent using \doxyref{linphone\+\_\+event\+\_\+send\+\_\+publish()}{p.}{group__event__api_ga36df6a42cb16c28dc44518b0770a5d74}. After expiry, the publication is refreshed unless it is terminated before. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & the \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} \\
+\hline
+{\em resource} & the resource uri for the event \\
+\hline
+{\em event} & the event name \\
+\hline
+{\em expires} & the lifetime of event being published, -\/1 if no associated duration, in which case it will not be refreshed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Linphone\+Event holding the context of the publish. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_ga6a423ceb44b66ee9eb31aca7e94f1cbc}} 
+\index{Event api@{Event api}!linphone\+\_\+core\+\_\+create\+\_\+subscribe@{linphone\+\_\+core\+\_\+create\+\_\+subscribe}}
+\index{linphone\+\_\+core\+\_\+create\+\_\+subscribe@{linphone\+\_\+core\+\_\+create\+\_\+subscribe}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+core\+\_\+create\+\_\+subscribe()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Event}$\ast$ linphone\+\_\+core\+\_\+create\+\_\+subscribe (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{resource,  }\item[{const char $\ast$}]{event,  }\item[{int}]{expires }\end{DoxyParamCaption})}
+
+
+
+Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body. 
+
+If accepted, the subscription runs for a finite period, but is automatically renewed if not terminated before. Unlike \doxyref{linphone\+\_\+core\+\_\+subscribe()}{p.}{group__event__api_ga7f26a525c7acc4a51a32e36c795e1930} the subscription isn\textquotesingle{}t sent immediately. It will be send when calling \doxyref{linphone\+\_\+event\+\_\+send\+\_\+subscribe()}{p.}{group__event__api_gac0eaf12321c840596d41221f0e849b22}. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & the \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} \\
+\hline
+{\em resource} & the destination resource \\
+\hline
+{\em event} & the event name \\
+\hline
+{\em expires} & the whished duration of the subscription \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Linphone\+Event holding the context of the created subcription. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_ga3d1ea36f58ec30b475e424d2bff93fb6}} 
+\index{Event api@{Event api}!linphone\+\_\+core\+\_\+publish@{linphone\+\_\+core\+\_\+publish}}
+\index{linphone\+\_\+core\+\_\+publish@{linphone\+\_\+core\+\_\+publish}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+core\+\_\+publish()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Event}$\ast$ linphone\+\_\+core\+\_\+publish (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{resource,  }\item[{const char $\ast$}]{event,  }\item[{int}]{expires,  }\item[{const \textbf{ Linphone\+Content} $\ast$}]{body }\end{DoxyParamCaption})}
+
+
+
+Publish an event state. 
+
+This first create a Linphone\+Event with \doxyref{linphone\+\_\+core\+\_\+create\+\_\+publish()}{p.}{group__event__api_ga61c9286b3c0ef0407140e9978c12e55a} and calls \doxyref{linphone\+\_\+event\+\_\+send\+\_\+publish()}{p.}{group__event__api_ga36df6a42cb16c28dc44518b0770a5d74} to actually send it. After expiry, the publication is refreshed unless it is terminated before. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & the \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} \\
+\hline
+{\em resource} & the resource uri for the event \\
+\hline
+{\em event} & the event name \\
+\hline
+{\em expires} & the lifetime of event being published, -\/1 if no associated duration, in which case it will not be refreshed. \\
+\hline
+{\em body} & the actual published data \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the Linphone\+Event holding the context of the publish. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_ga7f26a525c7acc4a51a32e36c795e1930}} 
+\index{Event api@{Event api}!linphone\+\_\+core\+\_\+subscribe@{linphone\+\_\+core\+\_\+subscribe}}
+\index{linphone\+\_\+core\+\_\+subscribe@{linphone\+\_\+core\+\_\+subscribe}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+core\+\_\+subscribe()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Event}$\ast$ linphone\+\_\+core\+\_\+subscribe (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc,  }\item[{const \textbf{ Linphone\+Address} $\ast$}]{resource,  }\item[{const char $\ast$}]{event,  }\item[{int}]{expires,  }\item[{const \textbf{ Linphone\+Content} $\ast$}]{body }\end{DoxyParamCaption})}
+
+
+
+Create an outgoing subscription, specifying the destination resource, the event name, and an optional content body. 
+
+If accepted, the subscription runs for a finite period, but is automatically renewed if not terminated before. 
+\begin{DoxyParams}{Parameters}
+{\em lc} & the \doxyref{Linphone\+Core}{p.}{group__initializing_gaa5cf635b82dd338e7ee2dd3599d05f0a} \\
+\hline
+{\em resource} & the destination resource \\
+\hline
+{\em event} & the event name \\
+\hline
+{\em expires} & the whished duration of the subscription \\
+\hline
+{\em body} & an optional body, may be N\+U\+LL. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a Linphone\+Event holding the context of the created subcription. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_ga1a2b7563784e003df5a64e3355b44297}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+add\+\_\+custom\+\_\+header@{linphone\+\_\+event\+\_\+add\+\_\+custom\+\_\+header}}
+\index{linphone\+\_\+event\+\_\+add\+\_\+custom\+\_\+header@{linphone\+\_\+event\+\_\+add\+\_\+custom\+\_\+header}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+add\+\_\+custom\+\_\+header()}
+{\footnotesize\ttfamily void linphone\+\_\+event\+\_\+add\+\_\+custom\+\_\+header (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{ev,  }\item[{const char $\ast$}]{name,  }\item[{const char $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Add a custom header to an outgoing susbscription or publish. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ev} & the Linphone\+Event \\
+\hline
+{\em name} & header\textquotesingle{}s name \\
+\hline
+{\em value} & the header\textquotesingle{}s value. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__event__api_ga0f8793f2c6970ec61591270204eaa079}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+get\+\_\+custom\+\_\+header@{linphone\+\_\+event\+\_\+get\+\_\+custom\+\_\+header}}
+\index{linphone\+\_\+event\+\_\+get\+\_\+custom\+\_\+header@{linphone\+\_\+event\+\_\+get\+\_\+custom\+\_\+header}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+get\+\_\+custom\+\_\+header()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+event\+\_\+get\+\_\+custom\+\_\+header (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{ev,  }\item[{const char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Obtain the value of a given header for an incoming subscription. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ev} & the Linphone\+Event \\
+\hline
+{\em name} & header\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the header\textquotesingle{}s value or N\+U\+LL if such header doesn\textquotesingle{}t exist. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_gaf3d059c3da69dd0f12ff65f0ecdaaf9d}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+get\+\_\+publish\+\_\+state@{linphone\+\_\+event\+\_\+get\+\_\+publish\+\_\+state}}
+\index{linphone\+\_\+event\+\_\+get\+\_\+publish\+\_\+state@{linphone\+\_\+event\+\_\+get\+\_\+publish\+\_\+state}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+get\+\_\+publish\+\_\+state()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Publish\+State} linphone\+\_\+event\+\_\+get\+\_\+publish\+\_\+state (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Event} $\ast$}]{lev }\end{DoxyParamCaption})}
+
+
+
+Get publish state. 
+
+If the event object was not created by a publish mechanism, \doxyref{Linphone\+Publish\+None}{p.}{group__event__api_ggaaffffb466f4d5c5141f5a938760e3ce4a5db681b47c687d2e16fa96dab5589752} is returned. \mbox{\label{group__event__api_ga51e9694c8b2121a3d71d11632c7e1155}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+dir@{linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+dir}}
+\index{linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+dir@{linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+dir}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+dir()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Subscription\+Dir} linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+dir (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev }\end{DoxyParamCaption})}
+
+
+
+Get subscription direction. 
+
+If the object wasn\textquotesingle{}t created by a subscription mechanism, \doxyref{Linphone\+Subscription\+Invalid\+Dir}{p.}{group__event__api_gga952ed6766d10e5c40eb1c08027fd299eaf11428c5f350033b0771dfed91c65ec8} is returned. \mbox{\label{group__event__api_gabc1e22da12a3a4ca0a76da3dbff38516}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+state@{linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+state}}
+\index{linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+state@{linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+state}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+state()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Subscription\+State} linphone\+\_\+event\+\_\+get\+\_\+subscription\+\_\+state (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Event} $\ast$}]{lev }\end{DoxyParamCaption})}
+
+
+
+Get subscription state. 
+
+If the event object was not created by a subscription mechanism, \doxyref{Linphone\+Subscription\+None}{p.}{group__event__api_gga3f3f0721b654f5d9bf69451894c15fd2aeca0ec22ff12067bd9678faafb78d2c5} is returned. \mbox{\label{group__event__api_ga8ef76a30f239f2f7fa0704dfdb4547df}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+notify@{linphone\+\_\+event\+\_\+notify}}
+\index{linphone\+\_\+event\+\_\+notify@{linphone\+\_\+event\+\_\+notify}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+notify()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+event\+\_\+notify (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev,  }\item[{const \textbf{ Linphone\+Content} $\ast$}]{body }\end{DoxyParamCaption})}
+
+
+
+Send a notification. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lev} & a \doxyref{Linphone\+Event}{p.}{group__event__api_ga4befcba96583d9e9d9f2b775cccfb2b7} corresponding to an incoming subscription previously received and accepted. \\
+\hline
+{\em body} & an optional body containing the actual notification data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_gaab5de6f8d2f8651d485524d41ab857cc}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+pause\+\_\+publish@{linphone\+\_\+event\+\_\+pause\+\_\+publish}}
+\index{linphone\+\_\+event\+\_\+pause\+\_\+publish@{linphone\+\_\+event\+\_\+pause\+\_\+publish}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+pause\+\_\+publish()}
+{\footnotesize\ttfamily void linphone\+\_\+event\+\_\+pause\+\_\+publish (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev }\end{DoxyParamCaption})}
+
+
+
+Prevent an event from refreshing its publish. 
+
+This is useful to let registrations to expire naturally (or) when the application wants to keep control on when refreshes are sent. The refreshing operations can be resumed with \doxyref{linphone\+\_\+proxy\+\_\+config\+\_\+refresh\+\_\+register()}{p.}{group__proxies_ga94411d7a66d26b421358fc4ab73a844d}. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em lev} & \doxyref{Linphone\+Event}{p.}{group__event__api_ga4befcba96583d9e9d9f2b775cccfb2b7} object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__event__api_ga342d31977e58b466cf22dfc40ac9edd0}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+ref@{linphone\+\_\+event\+\_\+ref}}
+\index{linphone\+\_\+event\+\_\+ref@{linphone\+\_\+event\+\_\+ref}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+ref()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Event}$\ast$ linphone\+\_\+event\+\_\+ref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev }\end{DoxyParamCaption})}
+
+
+
+Increase reference count of Linphone\+Event. 
+
+By default Linphone\+Events created by the core are owned by the core only. An application that wishes to retain a reference to it must call \doxyref{linphone\+\_\+event\+\_\+ref()}{p.}{group__event__api_ga342d31977e58b466cf22dfc40ac9edd0}. When this reference is no longer needed, \doxyref{linphone\+\_\+event\+\_\+unref()}{p.}{group__event__api_ga6bc3c78014b8bece4512fecc2b94cd85} must be called. \mbox{\label{group__event__api_ga71b39f8f396dfde1af6202bafa1fde23}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+refresh\+\_\+publish@{linphone\+\_\+event\+\_\+refresh\+\_\+publish}}
+\index{linphone\+\_\+event\+\_\+refresh\+\_\+publish@{linphone\+\_\+event\+\_\+refresh\+\_\+publish}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+refresh\+\_\+publish()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+event\+\_\+refresh\+\_\+publish (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev }\end{DoxyParamCaption})}
+
+
+
+Refresh an outgoing publish keeping the same body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lev} & Linphone\+Event object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_ga0f8f88291a19386ae3de4a16f5dcae1e}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+refresh\+\_\+subscribe@{linphone\+\_\+event\+\_\+refresh\+\_\+subscribe}}
+\index{linphone\+\_\+event\+\_\+refresh\+\_\+subscribe@{linphone\+\_\+event\+\_\+refresh\+\_\+subscribe}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+refresh\+\_\+subscribe()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+event\+\_\+refresh\+\_\+subscribe (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev }\end{DoxyParamCaption})}
+
+
+
+Refresh an outgoing subscription keeping the same body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lev} & Linphone\+Event object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_ga36df6a42cb16c28dc44518b0770a5d74}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+send\+\_\+publish@{linphone\+\_\+event\+\_\+send\+\_\+publish}}
+\index{linphone\+\_\+event\+\_\+send\+\_\+publish@{linphone\+\_\+event\+\_\+send\+\_\+publish}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+send\+\_\+publish()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+event\+\_\+send\+\_\+publish (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev,  }\item[{const \textbf{ Linphone\+Content} $\ast$}]{body }\end{DoxyParamCaption})}
+
+
+
+Send a publish created by \doxyref{linphone\+\_\+core\+\_\+create\+\_\+publish()}{p.}{group__event__api_ga61c9286b3c0ef0407140e9978c12e55a}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lev} & the \doxyref{Linphone\+Event}{p.}{group__event__api_ga4befcba96583d9e9d9f2b775cccfb2b7} \\
+\hline
+{\em body} & the new data to be published \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__event__api_gac0eaf12321c840596d41221f0e849b22}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+send\+\_\+subscribe@{linphone\+\_\+event\+\_\+send\+\_\+subscribe}}
+\index{linphone\+\_\+event\+\_\+send\+\_\+subscribe@{linphone\+\_\+event\+\_\+send\+\_\+subscribe}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+send\+\_\+subscribe()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+event\+\_\+send\+\_\+subscribe (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{ev,  }\item[{const \textbf{ Linphone\+Content} $\ast$}]{body }\end{DoxyParamCaption})}
+
+
+
+Send a subscription previously created by \doxyref{linphone\+\_\+core\+\_\+create\+\_\+subscribe()}{p.}{group__event__api_ga6a423ceb44b66ee9eb31aca7e94f1cbc}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ev} & the Linphone\+Event \\
+\hline
+{\em body} & optional content to attach with the subscription. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if successful, -\/1 otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__event__api_gaef98f2e70b0a62e46bb1e836b61a8491}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+terminate@{linphone\+\_\+event\+\_\+terminate}}
+\index{linphone\+\_\+event\+\_\+terminate@{linphone\+\_\+event\+\_\+terminate}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+terminate()}
+{\footnotesize\ttfamily void linphone\+\_\+event\+\_\+terminate (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev }\end{DoxyParamCaption})}
+
+
+
+Terminate an incoming or outgoing subscription that was previously acccepted, or a previous publication. 
+
+The Linphone\+Event shall not be used anymore after this operation, unless the application explicitely took a reference on the object with \doxyref{linphone\+\_\+event\+\_\+ref()}{p.}{group__event__api_ga342d31977e58b466cf22dfc40ac9edd0}. \mbox{\label{group__event__api_ga6bc3c78014b8bece4512fecc2b94cd85}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+unref@{linphone\+\_\+event\+\_\+unref}}
+\index{linphone\+\_\+event\+\_\+unref@{linphone\+\_\+event\+\_\+unref}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+unref()}
+{\footnotesize\ttfamily void linphone\+\_\+event\+\_\+unref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev }\end{DoxyParamCaption})}
+
+
+
+Decrease reference count. 
+
+\begin{DoxySeeAlso}{See also}
+\doxyref{linphone\+\_\+event\+\_\+ref()}{p.}{group__event__api_ga342d31977e58b466cf22dfc40ac9edd0} 
+\end{DoxySeeAlso}
+\mbox{\label{group__event__api_gaf6fc3b6e568498bfb72e24c624bcb32f}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+update\+\_\+publish@{linphone\+\_\+event\+\_\+update\+\_\+publish}}
+\index{linphone\+\_\+event\+\_\+update\+\_\+publish@{linphone\+\_\+event\+\_\+update\+\_\+publish}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+update\+\_\+publish()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+event\+\_\+update\+\_\+publish (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev,  }\item[{const \textbf{ Linphone\+Content} $\ast$}]{body }\end{DoxyParamCaption})}
+
+
+
+Update (refresh) a publish. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lev} & the \doxyref{Linphone\+Event}{p.}{group__event__api_ga4befcba96583d9e9d9f2b775cccfb2b7} \\
+\hline
+{\em body} & the new data to be published \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__event__api_gae987b5e625a2b3ab65c8c921e7cf1d73}} 
+\index{Event api@{Event api}!linphone\+\_\+event\+\_\+update\+\_\+subscribe@{linphone\+\_\+event\+\_\+update\+\_\+subscribe}}
+\index{linphone\+\_\+event\+\_\+update\+\_\+subscribe@{linphone\+\_\+event\+\_\+update\+\_\+subscribe}!Event api@{Event api}}
+\subsubsection{linphone\+\_\+event\+\_\+update\+\_\+subscribe()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+event\+\_\+update\+\_\+subscribe (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Event} $\ast$}]{lev,  }\item[{const \textbf{ Linphone\+Content} $\ast$}]{body }\end{DoxyParamCaption})}
+
+
+
+Update (refresh) an outgoing subscription, changing the body. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lev} & a Linphone\+Event \\
+\hline
+{\em body} & an optional body to include in the subscription update, may be N\+U\+LL. \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,48 @@
+.TH "_RtpTransportModifier" 3 "Fri Dec 15 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_RtpTransportModifier
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "void * \fBdata\fP"
+.br
+.ti -1c
+.RI "struct \fB_RtpSession\fP * \fBsession\fP"
+.br
+.ti -1c
+.RI "struct \fB_RtpTransport\fP * \fBtransport\fP"
+.br
+.ti -1c
+.RI "int(* \fBt_process_on_send\fP )(struct \fB_RtpTransportModifier\fP *t, \fBmblk_t\fP *msg)"
+.br
+.ti -1c
+.RI "int(* \fBt_process_on_receive\fP )(struct \fB_RtpTransportModifier\fP *t, \fBmblk_t\fP *msg)"
+.br
+.ti -1c
+.RI "void(* \fBt_process_on_schedule\fP )(struct \fB_RtpTransportModifier\fP *t)"
+.br
+.ti -1c
+.RI "void(* \fBt_destroy\fP )(struct \fB_RtpTransportModifier\fP *transport)"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "void(* _RtpTransportModifier::t_destroy) (struct \fB_RtpTransportModifier\fP *transport)"
+Mandatory callback responsible of freeing the \fB_RtpTransportModifier\fP AND the pointer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransport\fP \fB_RtpTransportModifier\fP object to free\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

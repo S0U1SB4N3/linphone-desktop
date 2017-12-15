@@ -1,0 +1,272 @@
+\section{I\+OS}
+\label{group__IOS}\index{I\+OS@{I\+OS}}
+
+
+~\newline
+ {\bfseries Multitasking} ~\newline
+ Liblinphone for I\+OS natively supports multitasking assuming application follows multitasking guides provided by Apple.  
+
+
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ linphone\+\_\+core\+\_\+start\+\_\+dtmf\+\_\+stream} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Special function to warm up dtmf feeback stream. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+core\+\_\+stop\+\_\+dtmf\+\_\+stream} (\textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em Special function to stop dtmf feed back function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+~\newline
+ {\bfseries Multitasking} ~\newline
+ Liblinphone for I\+OS natively supports multitasking assuming application follows multitasking guides provided by Apple. 
+
+First step is to declare application as multitasked. It means adding background mode for both audio and voip to Info.\+plist file. ~\newline
+ 
+\begin{DoxyCode}
+<key>UIBackgroundModes</key>
+<array>
+        <\textcolor{keywordtype}{string}>voip</\textcolor{keywordtype}{string}>
+        <\textcolor{keywordtype}{string}>audio</\textcolor{keywordtype}{string}>
+</array>
+\end{DoxyCode}
+ ~\newline
+ 
+\begin{DoxyItemize}
+\item {\bfseries S\+IP socket }~\newline
+Recommended mode is S\+IP over T\+CP, because U\+DP usually requires frequent keep alives for maintaining N\+AT association at the IP router level. This can be as frequent as one U\+DP packet every 15 seconds to maintain the N\+AT association accross N\+AT routers. Doing such drains the battery very fast, and furthermore the i\+OS keep-\/alive designed by Apple to handle this task can only be called with a minimum of 10 minutes interval.~\newline
+ For T\+CP, liblinphone automatically configures S\+IP socket for voip (I.\+E k\+C\+F\+Stream\+Network\+Service\+Type set to k\+C\+F\+Stream\+Network\+Service\+Type\+Vo\+IP). ~\newline
+{\bfseries Since I\+OS $>$ 4.\+1 Apple disabled voip mode for U\+DP sockets } 
+\item {\bfseries Entering background mode} ~\newline
+ Before entering in background mode (through
+\begin{DoxyCode}
+- (void)applicationDidEnterBackground:(UIApplication *)application 
+\end{DoxyCode}
+ ), the application must first refresh sip registration using function \doxyref{linphone\+\_\+core\+\_\+refresh\+\_\+registers()}{p.}{group__proxies_ga130795ea67730f7b01f7b51fe6bdb44f}; and register a keep-\/alive handler for periodically refreshing the registration. The speudo code below shows how to register a keep alive handler\+: 
+\begin{DoxyCode}
+\textcolor{comment}{//First refresh registration}
+linphone_core_refresh_registers(theLinphoneCore);
+\textcolor{comment}{//wait for registration answer}
+\textcolor{keywordtype}{int} i=0;
+\textcolor{keywordflow}{while} (!linphone_proxy_config_is_registered(proxyCfg) && i++<40 ) \{
+        linphone_core_iterate(theLinphoneCore);
+        usleep(100000);
+\}
+\textcolor{comment}{//register keepalive handler}
+[[UIApplication sharedApplication] setKeepAliveTimeout:600\textcolor{comment}{/*minimal interval is 600 s*/}
+                                               handler:^\{
+                                                        \textcolor{comment}{//refresh sip registration}
+                                                        
+      linphone_core_refresh_registers(theLinphoneCore);
+                                                        \textcolor{comment}{//make sure sip REGISTER is sent}
+                                                        linphone_core_iterate(theLinphoneCore);
+                                                         \}];
+\end{DoxyCode}
+ 
+\item {\bfseries Incoming call notification while in background mode} ~\newline
+Assuming application using liblinphone is well configured for multitasking, incoming calls arriving while liblinphone is in background mode will simply wakeup liblinphone thread but not resume G\+UI. To wakeup G\+UI, it is recommended to send a Local Notification to the user from the \doxyref{Linphone\+Core\+Call\+State\+Changed\+Cb}{p.}{group__initializing_gaa680c67133ac6e4e2f08363d5d83c471}. Here under a speudo code for this operation\+: 
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} ([UIApplication sharedApplication].applicationState !=  UIApplicationStateActive) \{
+        \textcolor{comment}{// Create a new notification}
+        UILocalNotification* notif = [[[UILocalNotification alloc] init] autorelease];
+        \textcolor{keywordflow}{if} (notif) \{
+                notif.repeatInterval = 0;
+                notif.alertBody =\textcolor{stringliteral}{@"New incoming call"};
+                notif.alertAction = \textcolor{stringliteral}{@"Answer"};
+                notif.soundName = \textcolor{stringliteral}{@"oldphone-mono-30s.caf"};
+
+                [[UIApplication sharedApplication]  presentLocalNotificationNow:notif];
+        \}
+\end{DoxyCode}
+ 
+\end{DoxyItemize}{\bfseries Networking} ~\newline
+ 
+\begin{DoxyItemize}
+\item {\bfseries W\+W\+AN connection} ~\newline
+Liblinphone relies on i\+OS\textquotesingle{}s standard B\+SD socket layer for sip/rtp networking. On I\+OS, W\+W\+AN connection is supposed to automatically bring up on any networking resquest issued by an application. At least on i\+Phone OS 3.\+x, B\+SD sockets do not implement this behavior. So it is recomended to add a special code to make sure the W\+W\+AN connection is properly setup. Pseudo code below describes a way to force W\+W\+AN connection by setting up a dummy T\+CP connection. 
+\begin{DoxyCode}
+\textcolor{comment}{/*start a new thread to avoid blocking the main ui in case of peer host failure*/}
+[NSThread detachNewThreadSelector:\textcolor{keyword}{@selector}(runNetworkConnection) toTarget:\textcolor{keyword}{self} withObject:nil];
+-(void) runNetworkConnection \{
+        CFWriteStreamRef writeStream;
+        \textcolor{comment}{//create a dummy socket}
+        CFStreamCreatePairWithSocketToHost(NULL, (CFStringRef)\textcolor{stringliteral}{@"192.168.0.200"}, 15000, nil, &writeStream);
+        CFWriteStreamOpen (writeStream);
+        \textcolor{keyword}{const} \textcolor{keywordtype}{char}* buff=\textcolor{stringliteral}{"hello"};
+        \textcolor{comment}{//try to write on this socket}
+        CFWriteStreamWrite (writeStream,(\textcolor{keyword}{const} UInt8*)buff,strlen(buff));
+        CFWriteStreamClose (writeStream);
+\}
+\end{DoxyCode}
+ It is recommanded to perform this task each time the application is woken up, including keep alive handler. 
+\item {\bfseries Managing IP connection state} ~\newline
+Liblinphone for I\+OS relies on the application to be informed of network connectivity changes. Network state changes when the IP connection moves from D\+O\+WN to UP, or from W\+I\+FI to W\+W\+AN. Applications using liblinphone must inform libliblinphone of this changes using function \doxyref{linphone\+\_\+core\+\_\+set\+\_\+network\+\_\+reachable()}{p.}{group__network__parameters_ga50986600d8f528e083a2c8e6269734e3}. Usually this method is called from the I\+OS Network\+Reachability callback. Here under a sample code\+: 
+\begin{DoxyCode}
+\textcolor{comment}{//typical reachability callback}
+\textcolor{keywordtype}{void} networkReachabilityCallBack(SCNetworkReachabilityRef target, SCNetworkReachabilityFlags flags, \textcolor{keywordtype}{void} * 
+      info) \{
+        \textcolor{keywordflow}{if} ((flags == 0) | (flags & (kSCNetworkReachabilityFlagsConnectionRequired |
+      kSCNetworkReachabilityFlagsConnectionOnTraffic))) \{
+                \textcolor{comment}{//network state is off}
+                linphone_core_set_network_reachable(lc,\textcolor{keyword}{false});
+                ((LinphoneManager*)info).connectivity = none;
+        \} \textcolor{keywordflow}{else} \{
+                Connectivity  newConnectivity = flags & kSCNetworkReachabilityFlagsIsWWAN ? wwan:wifi;
+                \textcolor{keywordflow}{if} (lLinphoneMgr.connectivity == none) \{
+                        \textcolor{comment}{//notify new network state}
+                        linphone_core_set_network_reachable(lc,\textcolor{keyword}{true});
+                \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (lLinphoneMgr.connectivity != newConnectivity) \{
+                        \textcolor{comment}{// connectivity has changed}
+                        linphone_core_set_network_reachable(lc,\textcolor{keyword}{false});
+                        linphone_core_set_network_reachable(lc,\textcolor{keyword}{true});
+                \}
+                \textcolor{comment}{//store new connectivity status}
+                lLinphoneMgr.connectivity=newConnectivity;
+        \}
+\}
+\}
+\end{DoxyCode}
+ 
+\end{DoxyItemize}{\bfseries  Sound cards } ~\newline
+ Since I\+OS 5.\+0, liblinphone supports 2 sound cards. {\itshape AU\+: Audio Unit Receiver} based on IO units for voice calls plus {\itshape AQ\+: Audio Queue Device} dedicated to rings. Here under the recommended settings (I.\+E default one) 
+\begin{DoxyCode}
+linphone_core_set_playback_device(lc, \textcolor{stringliteral}{"AU: Audio Unit Receiver"});
+linphone_core_set_ringer_device(lc, \textcolor{stringliteral}{"AQ: Audio Queue Device"});
+linphone_core_set_capture_device(lc, \textcolor{stringliteral}{"AU: Audio Unit Receiver"});
+\end{DoxyCode}
+ {\bfseries  G\+SM call interaction } ~\newline
+ To ensure gentle interaction with G\+SM calls, it is recommended to register an Audio\+Session delegate. This allows the application to be notified when its audio session is interrupted/resumed (presumably by a G\+SM call). 
+\begin{DoxyCode}
+\textcolor{comment}{// declare a class handling the AVAudioSessionDelegate protocol}
+\textcolor{keyword}{@interface }MyClass : NSObject <AVAudioSessionDelegate> \{ [...] \}
+\textcolor{comment}{// implement 2 methods : here's an example implementation}
+-(void) beginInterruption \{
+    LinphoneCall* c = linphone_core_get_current_call(theLinphoneCore);
+    ms\_message(\textcolor{stringliteral}{"Sound interruption detected!"});
+    \textcolor{keywordflow}{if} (c) \{
+        linphone_core_pause_call(theLinphoneCore, c);
+    \}
+\}
+
+-(void) endInterruption \{
+    ms\_message(\textcolor{stringliteral}{"Sound interruption ended!"});
+    \textcolor{keyword}{const} MSList* c = linphone_core_get_calls(theLinphoneCore);
+
+    \textcolor{keywordflow}{if} (c) \{
+        ms\_message(\textcolor{stringliteral}{"Auto resuming call"});
+        linphone_core_resume_call(theLinphoneCore, (LinphoneCall*) c->data);
+    \}
+\}
+\end{DoxyCode}
+ \begin{DoxySeeAlso}{See also}
+{\tt http\+://developer.\+apple.\+com/library/ios/\#documentation/\+A\+V\+Foundation/\+Reference/\+A\+V\+Audio\+Session\+Delegate\+\_\+\+Protocol\+Reference/\+Reference/\+Reference.\+html}
+\end{DoxySeeAlso}
+~\newline
+ Declare an instance of your class as Audio\+Session\textquotesingle{}s delegate \+: 
+\begin{DoxyCode}
+[audioSession setDelegate:myClassInstance];
+\end{DoxyCode}
+ \begin{DoxySeeAlso}{See also}
+{\tt http\+://developer.\+apple.\+com/library/ios/\#documentation/\+A\+V\+Foundation/\+Reference/\+A\+V\+Audio\+Session\+\_\+\+Class\+Reference/\+Reference/\+Reference.\+html}
+\end{DoxySeeAlso}
+{\bfseries  Video } ~\newline
+Since 3.\+5 video support has been added to liblinphone for I\+OS. It requires the application to provide liblinphone with pointers to I\+OS\textquotesingle{}s views hosting video display and video previous. ~\newline
+ These 2 U\+I\+View objects must be passed to the core using functions \doxyref{linphone\+\_\+core\+\_\+set\+\_\+native\+\_\+video\+\_\+window\+\_\+id()}{p.}{group__media__parameters_gac1b2e1f9a81085dd1244df9e69c686d5} and \doxyref{linphone\+\_\+core\+\_\+set\+\_\+native\+\_\+preview\+\_\+window\+\_\+id()}{p.}{group__media__parameters_gac242c2eac39863f2b9757502beb91000}. here under speudo code\+: 
+\begin{DoxyCode}
+UIView* display = [[UIView alloc] init];
+UIView* preview = [[UIView alloc] init];
+linphone_core_set_native_video_window_id(lc,(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long})display);
+linphone_core_set_native_preview_window_id(lc,(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long})preview);
+\end{DoxyCode}
+ ~\newline
+ Screen rotations are also handled by liblinphone. 2 positions are currently supported, namely {\itshape U\+I\+Interface\+Orientation\+Portrait} and {\itshape U\+I\+Interface\+Orientation\+Landscape\+Right}. Applications may invoke \doxyref{linphone\+\_\+core\+\_\+set\+\_\+device\+\_\+rotation()}{p.}{group__media__parameters_ga309fdb0f39432b125ff1f36347cea362} followed by \doxyref{linphone\+\_\+core\+\_\+update\+\_\+call()}{p.}{group__call__control_ga5e9fc2d960c07f5ad37efd299a90a474} to notify liblinphone of an orientation change. Here under a speudo code to handle orientation changes 
+\begin{DoxyCode}
+-(void) configureOrientation:(UIInterfaceOrientation) oritentation  \{
+        \textcolor{keywordtype}{int} oldLinphoneOrientation = linphone_core_get_device_rotation(lc);
+        \textcolor{keywordflow}{if} (oritentation == UIInterfaceOrientationPortrait ) \{
+                linphone_core_set_native_video_window_id(lc,(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long})display-portrait);
+                linphone_core_set_native_preview_window_id(lc,(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long})preview-portrait);
+                linphone_core_set_device_rotation(lc, 0);
+
+        \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (oritentation == UIInterfaceOrientationLandscapeRight ) \{
+                linphone_core_set_native_video_window_id(lc,(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long})display-landscape);
+                linphone_core_set_native_preview_window_id(lc,(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long})preview-landscape);
+                linphone_core_set_device_rotation(lc, 270);
+        \}
+
+        \textcolor{keywordflow}{if} ((oldLinphoneOrientation != linphone_core_get_device_rotation(lc))
+                && linphone_core_get_current_call(lc)) \{
+                \textcolor{comment}{//Orientation has changed, must call update call}
+                linphone_core_update_call(lc, linphone_core_get_current_call(lc), NULL);
+        \}
+\}
+\end{DoxyCode}
+
+
+{\bfseries D\+T\+MF feebacks} ~\newline
+Liblinphone provides functions \doxyref{to play dtmf }{p.}{group__media__parameters_ga11b05c55741a236cb8d07b8a197ebcca} to the local user. Usually this is used to play a sound when the user presses a digit, inside or outside of any call. On I\+OS, lib\+Linphone relies on Audio\+Units for interfacing with the audio system. Unfortunately the Audio Unit initialization is a quite long operation that may trigger a bad user experience if performed each time a D\+T\+MF is played, the sound being delayed half a second after the press. To solve this issue and thus insure real-\/time precision, liblinphone introduces 2 functions for \doxyref{preloading }{p.}{group__IOS_gaef3c840b3c9f576c642b49cf306c7461} and \doxyref{unloading }{p.}{group__IOS_gaef3c840b3c9f576c642b49cf306c7461} the underlying audio graph responsible for playing D\+T\+M\+Fs. ~\newline
+ For an application using function \doxyref{linphone\+\_\+core\+\_\+play\+\_\+dtmf()}{p.}{group__media__parameters_ga11b05c55741a236cb8d07b8a197ebcca}, it is recommanded to call \doxyref{linphone\+\_\+core\+\_\+start\+\_\+dtmf\+\_\+stream()}{p.}{group__IOS_gaef3c840b3c9f576c642b49cf306c7461} when entering in foreground and \doxyref{linphone\+\_\+core\+\_\+stop\+\_\+dtmf\+\_\+stream()}{p.}{group__IOS_gad0ecef2fb7a77c3363aa94edeadaf65b} upon entering background mode.
+
+{\bfseries Plugins} ~\newline
+On i\+OS, plugins are built as static libraries so Liblinphone will not be able to load them at runtime dynamically. Instead, you should declare their prototypes\+:
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{extern} \textcolor{keywordtype}{void} libmsamr\_init(MSFactory *factory);
+\textcolor{keyword}{extern} \textcolor{keywordtype}{void} libmsx264\_init(MSFactory *factory);
+\textcolor{keyword}{extern} \textcolor{keywordtype}{void} libmsopenh264\_init(MSFactory *factory);
+\textcolor{keyword}{extern} \textcolor{keywordtype}{void} libmssilk\_init(MSFactory *factory);
+\textcolor{keyword}{extern} \textcolor{keywordtype}{void} libmsbcg729\_init(MSFactory *factory);
+\textcolor{keyword}{extern} \textcolor{keywordtype}{void} libmswebrtc\_init(MSFactory *factory);
+\end{DoxyCode}
+
+
+Then you should register them after the instantiation of Linphone\+Core\+:
+
+
+\begin{DoxyCode}
+theLinphoneCore = linphone_core_new_with_config(\textcolor{comment}{/* options ... */});
+
+\textcolor{comment}{// Load plugins if available in the linphone SDK - otherwise these calls will do nothing}
+MSFactory *f = linphone\_core\_get\_ms\_factory(theLinphoneCore);
+libmssilk\_init(f);
+libmsamr\_init(f);
+libmsx264\_init(f);
+libmsopenh264\_init(f);
+libmsbcg729\_init(f);
+libmswebrtc\_init(f);
+linphone_core_reload_ms_plugins(theLinphoneCore, NULL);
+\end{DoxyCode}
+
+
+If the plugin has not been enabled at compilation time, a stubbed library will be generated with only libplugin\+\_\+init method declared, doing nothing. You should see these trace in logs, if plugin is stubbed\+:
+
+
+\begin{DoxyCode}
+I/lib/Could not find encoder \textcolor{keywordflow}{for} SILK
+I/lib/Could not find decoder \textcolor{keywordflow}{for} SILK
+\end{DoxyCode}
+ 
+
+\subsection{Function Documentation}
+\mbox{\label{group__IOS_gaef3c840b3c9f576c642b49cf306c7461}} 
+\index{I\+OS@{I\+OS}!linphone\+\_\+core\+\_\+start\+\_\+dtmf\+\_\+stream@{linphone\+\_\+core\+\_\+start\+\_\+dtmf\+\_\+stream}}
+\index{linphone\+\_\+core\+\_\+start\+\_\+dtmf\+\_\+stream@{linphone\+\_\+core\+\_\+start\+\_\+dtmf\+\_\+stream}!I\+OS@{I\+OS}}
+\subsubsection{linphone\+\_\+core\+\_\+start\+\_\+dtmf\+\_\+stream()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+start\+\_\+dtmf\+\_\+stream (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Special function to warm up dtmf feeback stream. 
+
+\doxyref{linphone\+\_\+core\+\_\+stop\+\_\+dtmf\+\_\+stream}{p.}{group__IOS_gad0ecef2fb7a77c3363aa94edeadaf65b} must() be called before entering FG mode \mbox{\label{group__IOS_gad0ecef2fb7a77c3363aa94edeadaf65b}} 
+\index{I\+OS@{I\+OS}!linphone\+\_\+core\+\_\+stop\+\_\+dtmf\+\_\+stream@{linphone\+\_\+core\+\_\+stop\+\_\+dtmf\+\_\+stream}}
+\index{linphone\+\_\+core\+\_\+stop\+\_\+dtmf\+\_\+stream@{linphone\+\_\+core\+\_\+stop\+\_\+dtmf\+\_\+stream}!I\+OS@{I\+OS}}
+\subsubsection{linphone\+\_\+core\+\_\+stop\+\_\+dtmf\+\_\+stream()}
+{\footnotesize\ttfamily void linphone\+\_\+core\+\_\+stop\+\_\+dtmf\+\_\+stream (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+Special function to stop dtmf feed back function. 
+
+Must be called before entering BG mode 

@@ -1,0 +1,14 @@
+# Target labels
+ EP_srtp
+# Source files and their labels
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_srtp
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_srtp.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_srtp-complete.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_srtp/EP_srtp-install.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_srtp/EP_srtp-mkdir.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_srtp/EP_srtp-download.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_srtp/EP_srtp-update.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_srtp/EP_srtp-patch.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_srtp/EP_srtp-configure.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_srtp/EP_srtp-build.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_srtp/EP_srtp-force_build.rule

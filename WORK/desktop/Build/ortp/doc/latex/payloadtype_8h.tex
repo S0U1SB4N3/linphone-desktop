@@ -1,0 +1,385 @@
+\section{payloadtype.\+h File Reference}
+\label{payloadtype_8h}\index{payloadtype.\+h@{payloadtype.\+h}}
+
+
+Definition of payload types.  
+
+
+{\ttfamily \#include $<$ortp/port.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ \+\_\+\+Payload\+Type\+Avpf\+Params}
+\item 
+struct \textbf{ \+\_\+\+Ortp\+Payload\+Type}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{payloadtype_8h_a98e369093f47fbf345573497dd2e5e9c}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+L\+L\+O\+C\+A\+T\+ED}~(1)
+\item 
+\mbox{\label{payloadtype_8h_acce6290c637f5da06bd805aa34689940}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+S\+\_\+\+V\+BR}~(1$<$$<$1)
+\item 
+\mbox{\label{payloadtype_8h_a2fc7358bf817435d0dfe184a63b0f0de}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+T\+C\+P\+\_\+\+F\+E\+E\+D\+B\+A\+C\+K\+\_\+\+E\+N\+A\+B\+L\+ED}~(1$<$$<$2)
+\item 
+\mbox{\label{payloadtype_8h_a93371b4fd509824d223eee78127fbc0c}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+R\+I\+V1}~(1$<$$<$3)
+\item 
+\mbox{\label{payloadtype_8h_a731671aa808a35e81dfc034b4ff25b8b}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+S\+E\+R\+\_\+\+F\+L\+A\+G\+\_\+0}~(1$<$$<$4)
+\item 
+\mbox{\label{payloadtype_8h_a197471eb32c40706e0478888aa6d839b}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+S\+E\+R\+\_\+\+F\+L\+A\+G\+\_\+1}~(1$<$$<$5)
+\item 
+\mbox{\label{payloadtype_8h_a4e3aa388277b852980899c169997e70b}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+S\+E\+R\+\_\+\+F\+L\+A\+G\+\_\+2}~(1$<$$<$6)
+\item 
+\mbox{\label{payloadtype_8h_a2ea28895210d75fa68b28d298cff3702}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+S\+E\+R\+\_\+\+F\+L\+A\+G\+\_\+3}~(1$<$$<$7)
+\item 
+\mbox{\label{payloadtype_8h_ae579568f2febfed9c50bdf0dd9ea33a8}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+S\+E\+R\+\_\+\+F\+L\+A\+G\+\_\+4}~(1$<$$<$8)
+\item 
+\mbox{\label{payloadtype_8h_a892d876200e737da520674df7109f6c6}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+F\+L\+A\+G\+\_\+\+C\+A\+N\+\_\+\+R\+E\+CV}~P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+S\+E\+R\+\_\+\+F\+L\+A\+G\+\_\+1
+\item 
+\mbox{\label{payloadtype_8h_acfd6fbdc4c4d890658e7bbd6199c7de9}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+F\+L\+A\+G\+\_\+\+C\+A\+N\+\_\+\+S\+E\+ND}~P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+U\+S\+E\+R\+\_\+\+F\+L\+A\+G\+\_\+2
+\item 
+\mbox{\label{payloadtype_8h_a4c4ae97bf5ac47aca3c88e98966559fc}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+A\+U\+D\+I\+O\+\_\+\+C\+O\+N\+T\+I\+N\+U\+O\+US}~0
+\item 
+\mbox{\label{payloadtype_8h_a5aa57d2d7430370aeacb7b43a4614fc6}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+A\+U\+D\+I\+O\+\_\+\+P\+A\+C\+K\+E\+T\+I\+Z\+ED}~1
+\item 
+\mbox{\label{payloadtype_8h_a9cef82cd973869858421a5c3aa229c6e}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+V\+I\+D\+EO}~2
+\item 
+\mbox{\label{payloadtype_8h_a17dea43c55cdf701c65bf5f878c0534b}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+E\+XT}~3
+\item 
+\mbox{\label{payloadtype_8h_a2193cf1655ee460ec7b2ded3d2177660}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+O\+T\+H\+ER}~4  /$\ast$ ?? $\ast$/
+\item 
+\mbox{\label{payloadtype_8h_abedb607e226dd401941c7002b79ca6fe}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+V\+P\+F\+\_\+\+N\+O\+NE}~0
+\item 
+\mbox{\label{payloadtype_8h_ad6c5a7a120bb8988917021319b4ea014}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+V\+P\+F\+\_\+\+F\+IR}~(1 $<$$<$ 0)
+\item 
+\mbox{\label{payloadtype_8h_a9135cf78de40f30b41099fc8738944d2}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+V\+P\+F\+\_\+\+P\+LI}~(1 $<$$<$ 1)
+\item 
+\mbox{\label{payloadtype_8h_a912eaf3e4ed0451803111997f18b0a02}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+V\+P\+F\+\_\+\+S\+LI}~(1 $<$$<$ 2)
+\item 
+\mbox{\label{payloadtype_8h_adc9e98bffbacdc8011316983a199dddb}} 
+\#define {\bfseries P\+A\+Y\+L\+O\+A\+D\+\_\+\+T\+Y\+P\+E\+\_\+\+A\+V\+P\+F\+\_\+\+R\+P\+SI}~(1 $<$$<$ 3)
+\item 
+\mbox{\label{payloadtype_8h_ab62540f6c164df9f6d1ac59468214b50}} 
+\#define {\bfseries Payload\+Type\+\_\+defined}
+\item 
+\mbox{\label{payloadtype_8h_abec15372b3b4ff93434111434deb16fe}} 
+\#define {\bfseries payload\+\_\+type\+\_\+set\+\_\+flag}(pt,  flag)~(pt)-\/$>$flags$\vert$=((int)flag)
+\item 
+\mbox{\label{payloadtype_8h_ab7a18a5d0eb02af244946fa56516a492}} 
+\#define {\bfseries payload\+\_\+type\+\_\+unset\+\_\+flag}(pt,  flag)~(pt)-\/$>$flags\&=($\sim$(int)flag)
+\item 
+\mbox{\label{payloadtype_8h_a0f8f96f5c3770229b7a2e54dca9f67ff}} 
+\#define {\bfseries payload\+\_\+type\+\_\+get\+\_\+flags}(pt)~(pt)-\/$>$flags
+\item 
+\mbox{\label{payloadtype_8h_a8c5405f9f9269e5768accdb732690244}} 
+\#define {\bfseries payload\+\_\+type\+\_\+get\+\_\+avpf\+\_\+params}(pt)~((pt)-\/$>$avpf)
+\item 
+\mbox{\label{payloadtype_8h_ac57bc0ade600d3c9071b8fb4068a6cb2}} 
+\#define {\bfseries payload\+\_\+type\+\_\+get\+\_\+bitrate}(pt)~((pt)-\/$>$normal\+\_\+bitrate)
+\item 
+\mbox{\label{payloadtype_8h_aa66dc4a1c7f00b7288dee2453bdc8bf7}} 
+\#define {\bfseries payload\+\_\+type\+\_\+get\+\_\+rate}(pt)~((pt)-\/$>$clock\+\_\+rate)
+\item 
+\mbox{\label{payloadtype_8h_ac1db56b4888885f45ca3b03f7cd3ba12}} 
+\#define {\bfseries payload\+\_\+type\+\_\+get\+\_\+mime}(pt)~((pt)-\/$>$mime\+\_\+type)
+\item 
+\mbox{\label{payloadtype_8h_ab11c3def18ccc6baaec1d9be8414abc1}} 
+\#define {\bfseries payload\+\_\+type\+\_\+set\+\_\+user\+\_\+data}(pt,  p)~(pt)-\/$>$user\+\_\+data=(p)
+\item 
+\mbox{\label{payloadtype_8h_af8f135f93157a35e93059dd33b893185}} 
+\#define {\bfseries payload\+\_\+type\+\_\+get\+\_\+user\+\_\+data}(pt)~((pt)-\/$>$user\+\_\+data)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{payloadtype_8h_a6757b4d5b890c86aab779a0460955ef0}} 
+typedef struct \textbf{ \+\_\+\+Ortp\+Payload\+Type} {\bfseries Ortp\+Payload\+Type}
+\item 
+\mbox{\label{payloadtype_8h_a8db14f43d764ed86c9016a51adc5123c}} 
+typedef \textbf{ Ortp\+Payload\+Type} {\bfseries Payload\+Type}
+\item 
+\mbox{\label{payloadtype_8h_a7118930b7700118c93d1ff1d84200417}} 
+typedef struct \textbf{ \+\_\+\+Payload\+Type\+Avpf\+Params} {\bfseries Payload\+Type\+Avpf\+Params}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{payloadtype_8h_a99fbc2b8049f5d960e075ee3712fcafc}} 
+\textbf{ Payload\+Type} $\ast$ {\bfseries payload\+\_\+type\+\_\+new} (void)
+\item 
+\mbox{\label{payloadtype_8h_a8eb37c8c24a9cef81ebcfd7de159f1b9}} 
+\textbf{ Payload\+Type} $\ast$ {\bfseries payload\+\_\+type\+\_\+clone} (const \textbf{ Payload\+Type} $\ast$payload)
+\item 
+\mbox{\label{payloadtype_8h_a3bf5a3d39e5d81862a74c8019e73821b}} 
+char $\ast$ {\bfseries payload\+\_\+type\+\_\+get\+\_\+rtpmap} (\textbf{ Payload\+Type} $\ast$pt)
+\item 
+void \textbf{ payload\+\_\+type\+\_\+destroy} (\textbf{ Payload\+Type} $\ast$pt)
+\item 
+void \textbf{ payload\+\_\+type\+\_\+set\+\_\+recv\+\_\+fmtp} (\textbf{ Payload\+Type} $\ast$pt, const char $\ast$fmtp)
+\item 
+void \textbf{ payload\+\_\+type\+\_\+set\+\_\+send\+\_\+fmtp} (\textbf{ Payload\+Type} $\ast$pt, const char $\ast$fmtp)
+\item 
+\mbox{\label{payloadtype_8h_a9feae0faaabd9142baf9f3c4aaf92391}} 
+void {\bfseries payload\+\_\+type\+\_\+append\+\_\+recv\+\_\+fmtp} (\textbf{ Payload\+Type} $\ast$pt, const char $\ast$fmtp)
+\item 
+\mbox{\label{payloadtype_8h_a53a46eabf38446f3ae7c36de352411f4}} 
+void {\bfseries payload\+\_\+type\+\_\+append\+\_\+send\+\_\+fmtp} (\textbf{ Payload\+Type} $\ast$pt, const char $\ast$fmtp)
+\item 
+\mbox{\label{payloadtype_8h_a5d773587617555a45604da97d05a315e}} 
+void {\bfseries payload\+\_\+type\+\_\+set\+\_\+avpf\+\_\+params} (\textbf{ Payload\+Type} $\ast$pt, \textbf{ Payload\+Type\+Avpf\+Params} params)
+\item 
+\mbox{\label{payloadtype_8h_a55b49d19b8af05f99b4e0a3107077553}} 
+bool\+\_\+t {\bfseries payload\+\_\+type\+\_\+is\+\_\+vbr} (const \textbf{ Payload\+Type} $\ast$pt)
+\item 
+bool\+\_\+t \textbf{ fmtp\+\_\+get\+\_\+value} (const char $\ast$fmtp, const char $\ast$param\+\_\+name, char $\ast$result, size\+\_\+t result\+\_\+len)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{payloadtype_8h_a469980e2a4a05c0832540d4fa98ba5f0}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+pcmu8000}
+\item 
+\mbox{\label{payloadtype_8h_ad7367d052b308d002715041f4d4142e1}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+pcma8000}
+\item 
+\mbox{\label{payloadtype_8h_aba74f1d5ee35cf2da88cb42ced88ad6c}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+pcm8000}
+\item 
+\mbox{\label{payloadtype_8h_ae6eac1e15a137d109550cee1d9f2920a}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+l16\+\_\+mono}
+\item 
+\mbox{\label{payloadtype_8h_a61e0402b2bffcf8f4626382e3e36fc9b}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+l16\+\_\+stereo}
+\item 
+\mbox{\label{payloadtype_8h_a0a123e2c0709010ad05275f613e410dd}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+lpc1016}
+\item 
+\mbox{\label{payloadtype_8h_af9219bf813ae8a1e9a717f53d4013d4c}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+g729}
+\item 
+\mbox{\label{payloadtype_8h_a2cd34476463e1ad69da5d79c9a07b4cc}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+g7231}
+\item 
+\mbox{\label{payloadtype_8h_ae07a057f2d205f37b9bff2fe75d3583c}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+g7221}
+\item 
+\mbox{\label{payloadtype_8h_a2d74f2c907d2fbce1d33ae49e449aa05}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+cn}
+\item 
+\mbox{\label{payloadtype_8h_ad515cb4993772e38954be63883dc2fdd}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+g726\+\_\+40}
+\item 
+\mbox{\label{payloadtype_8h_a97bb505af0a5e2fc5cccacd2ac0400e5}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+g726\+\_\+32}
+\item 
+\mbox{\label{payloadtype_8h_aebb13443e4ddf9a01e8026fcd5a7dbf2}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+g726\+\_\+24}
+\item 
+\mbox{\label{payloadtype_8h_ac4343db917b53d48126c6fd2dc233e8a}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+g726\+\_\+16}
+\item 
+\mbox{\label{payloadtype_8h_adc3495cfa6358b952f9d226a27ba2db2}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+aal2\+\_\+g726\+\_\+40}
+\item 
+\mbox{\label{payloadtype_8h_a93879c270fbcc45690bca38a306c6ab6}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+aal2\+\_\+g726\+\_\+32}
+\item 
+\mbox{\label{payloadtype_8h_a73a27968d1bd4596eda9b8f6d40f9dfd}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+aal2\+\_\+g726\+\_\+24}
+\item 
+\mbox{\label{payloadtype_8h_a0ab2ad8f4a1d289c7adaf6875ff00491}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+aal2\+\_\+g726\+\_\+16}
+\item 
+\mbox{\label{payloadtype_8h_a24eb78569c704676f30dc92cc28ef4d2}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+gsm}
+\item 
+\mbox{\label{payloadtype_8h_abde667d94c9bc32e78e45794c2c2c383}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+lpc}
+\item 
+\mbox{\label{payloadtype_8h_a377137be224cbb168edf8ddf856425c4}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+lpc1015}
+\item 
+\mbox{\label{payloadtype_8h_a19d98d5469a2bca32e7ec519494de7f2}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+speex\+\_\+nb}
+\item 
+\mbox{\label{payloadtype_8h_a9c8445503b9a72a6ac494eb7fd7fd5b4}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+speex\+\_\+wb}
+\item 
+\mbox{\label{payloadtype_8h_ac86993c8375696f744ee424c7f7ba295}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+speex\+\_\+uwb}
+\item 
+\mbox{\label{payloadtype_8h_a18c9d97bc40d50674a93cc1e7ab34205}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+ilbc}
+\item 
+\mbox{\label{payloadtype_8h_ae0a360917645dc9654e82e3fe979e01d}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+amr}
+\item 
+\mbox{\label{payloadtype_8h_a46c6329497d764b43a57bde0e4515858}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+amrwb}
+\item 
+\mbox{\label{payloadtype_8h_a5916ddea3016b646cdfa115fd06e182e}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+truespeech}
+\item 
+\mbox{\label{payloadtype_8h_ac1fdd2e0913433b117ad9a90e5564fb1}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+evrc0}
+\item 
+\mbox{\label{payloadtype_8h_a906e8cfca34b9c0544b5e9bdb0f6136f}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+evrcb0}
+\item 
+\mbox{\label{payloadtype_8h_aa0470c1b68ba84d4b67f4258842d6c58}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+silk\+\_\+nb}
+\item 
+\mbox{\label{payloadtype_8h_afaa2a5586ee7b18476daf584a42a3a41}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+silk\+\_\+mb}
+\item 
+\mbox{\label{payloadtype_8h_a92395fa7ebed601a7f1b70d0d33a5969}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+silk\+\_\+wb}
+\item 
+\mbox{\label{payloadtype_8h_afc986d7c3f2501741087370af6fe86c2}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+silk\+\_\+swb}
+\item 
+\mbox{\label{payloadtype_8h_ac62ee0e65d25838cfeba9486b8907f7b}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+aaceld\+\_\+16k}
+\item 
+\mbox{\label{payloadtype_8h_a86e4368c944cc1e7ff6abc2d0a742883}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+aaceld\+\_\+22k}
+\item 
+\mbox{\label{payloadtype_8h_a3cdec7e99781dab60a2ab58a81e49925}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+aaceld\+\_\+32k}
+\item 
+\mbox{\label{payloadtype_8h_af85fa455e0537670bf67feba5acfa2cb}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+aaceld\+\_\+44k}
+\item 
+\mbox{\label{payloadtype_8h_a0b9a16464f1bd282c1ac50fd48a981bb}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+aaceld\+\_\+48k}
+\item 
+\mbox{\label{payloadtype_8h_acedd965051514faf20d18bcac6273fa9}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+opus}
+\item 
+\mbox{\label{payloadtype_8h_adc055078d81b67978fe095728c0d5eb6}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+isac}
+\item 
+\mbox{\label{payloadtype_8h_a45271e49a019ada1de37e0219b1925c1}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+gsm\+\_\+efr}
+\item 
+\mbox{\label{payloadtype_8h_a7deefb872468aac3860fa88377ac0798}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+codec2}
+\item 
+\mbox{\label{payloadtype_8h_aeff6aff2cf170f114252e3a5498082b0}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+bv16}
+\item 
+\mbox{\label{payloadtype_8h_acc09152fdfdecb7b8df1a760d7d87d7e}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+mpv}
+\item 
+\mbox{\label{payloadtype_8h_a0076999406db23d2e8188cfd409498de}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+h261}
+\item 
+\mbox{\label{payloadtype_8h_af87b4cbba73f3f6d7527268abc218937}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+h263}
+\item 
+\mbox{\label{payloadtype_8h_ac4c9b5fbf0ecae11a698d568da9abc9d}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+h263\+\_\+1998}
+\item 
+\mbox{\label{payloadtype_8h_abd1da679662738b653100d493771f3ce}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+h263\+\_\+2000}
+\item 
+\mbox{\label{payloadtype_8h_ae7d98a8c13262f58cc5d6117dee95186}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+mp4v}
+\item 
+\mbox{\label{payloadtype_8h_aa2dce1cc2d404326d120b393d60ae4cc}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+theora}
+\item 
+\mbox{\label{payloadtype_8h_a6d1d81f8f34a5f26f729f17be96e08ab}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+h264}
+\item 
+\mbox{\label{payloadtype_8h_ae27bbb7fe62c663e729cbaa2b772e822}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+x\+\_\+snow}
+\item 
+\mbox{\label{payloadtype_8h_aed137588eddbc7e4cf9c3eb7665c6dda}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+jpeg}
+\item 
+\mbox{\label{payloadtype_8h_a5577100053eca875b68bed565bc4b941}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+vp8}
+\item 
+\mbox{\label{payloadtype_8h_a8cb6c3f04e57414a7285ed0e27499a1d}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+g722}
+\item 
+\mbox{\label{payloadtype_8h_ad16f4e4a6e13c269dd0a666321277da6}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+t140}
+\item 
+\mbox{\label{payloadtype_8h_aded18ebcd610fb672b75bb6f824a5101}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+t140\+\_\+red}
+\item 
+\mbox{\label{payloadtype_8h_a84b81b1cd4183aca065e07954dba7e62}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+x\+\_\+udpftp}
+\item 
+\mbox{\label{payloadtype_8h_a0ff3f0b43f08ab0eef7725cec24be02f}} 
+O\+R\+T\+P\+\_\+\+V\+A\+R\+\_\+\+P\+U\+B\+L\+IC \textbf{ Payload\+Type} {\bfseries payload\+\_\+type\+\_\+telephone\+\_\+event}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Definition of payload types. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{payloadtype_8h_a26c31ad82ef6de2791b3ec535c1d70ef}} 
+\index{payloadtype.\+h@{payloadtype.\+h}!fmtp\+\_\+get\+\_\+value@{fmtp\+\_\+get\+\_\+value}}
+\index{fmtp\+\_\+get\+\_\+value@{fmtp\+\_\+get\+\_\+value}!payloadtype.\+h@{payloadtype.\+h}}
+\subsubsection{fmtp\+\_\+get\+\_\+value()}
+{\footnotesize\ttfamily bool\+\_\+t fmtp\+\_\+get\+\_\+value (\begin{DoxyParamCaption}\item[{const char $\ast$}]{fmtp,  }\item[{const char $\ast$}]{param\+\_\+name,  }\item[{char $\ast$}]{result,  }\item[{size\+\_\+t}]{result\+\_\+len }\end{DoxyParamCaption})}
+
+Parses a fmtp string such as \char`\"{}profile=0;level=10\char`\"{}, finds the value matching parameter param\+\_\+name, and writes it into result. If a parameter name is found multiple times, only the value of the last occurence is returned. Despite fmtp strings are not used anywhere within o\+R\+TP, this function can be useful for people using R\+TP streams described from S\+DP. 
+\begin{DoxyParams}{Parameters}
+{\em fmtp} & the fmtp line (format parameters) \\
+\hline
+{\em param\+\_\+name} & the parameter to search for \\
+\hline
+{\em result} & the value given for the parameter (if found) \\
+\hline
+{\em result\+\_\+len} & the size allocated to hold the result string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if the parameter was found, else F\+A\+L\+SE. 
+\end{DoxyReturn}
+\mbox{\label{payloadtype_8h_a100b470872849693730d0bd0fc4bd100}} 
+\index{payloadtype.\+h@{payloadtype.\+h}!payload\+\_\+type\+\_\+destroy@{payload\+\_\+type\+\_\+destroy}}
+\index{payload\+\_\+type\+\_\+destroy@{payload\+\_\+type\+\_\+destroy}!payloadtype.\+h@{payloadtype.\+h}}
+\subsubsection{payload\+\_\+type\+\_\+destroy()}
+{\footnotesize\ttfamily void payload\+\_\+type\+\_\+destroy (\begin{DoxyParamCaption}\item[{\textbf{ Payload\+Type} $\ast$}]{pt }\end{DoxyParamCaption})}
+
+Frees a Payload\+Type. \mbox{\label{payloadtype_8h_addcd222f91217de506de53400ab965aa}} 
+\index{payloadtype.\+h@{payloadtype.\+h}!payload\+\_\+type\+\_\+set\+\_\+recv\+\_\+fmtp@{payload\+\_\+type\+\_\+set\+\_\+recv\+\_\+fmtp}}
+\index{payload\+\_\+type\+\_\+set\+\_\+recv\+\_\+fmtp@{payload\+\_\+type\+\_\+set\+\_\+recv\+\_\+fmtp}!payloadtype.\+h@{payloadtype.\+h}}
+\subsubsection{payload\+\_\+type\+\_\+set\+\_\+recv\+\_\+fmtp()}
+{\footnotesize\ttfamily void payload\+\_\+type\+\_\+set\+\_\+recv\+\_\+fmtp (\begin{DoxyParamCaption}\item[{\textbf{ Payload\+Type} $\ast$}]{pt,  }\item[{const char $\ast$}]{fmtp }\end{DoxyParamCaption})}
+
+Sets a recv parameters (fmtp) for the Payload\+Type. This method is provided for applications using R\+TP with S\+DP, but actually the ftmp information is not used for R\+TP processing. \mbox{\label{payloadtype_8h_afc2a8ed40940b89cd6303f27613fa827}} 
+\index{payloadtype.\+h@{payloadtype.\+h}!payload\+\_\+type\+\_\+set\+\_\+send\+\_\+fmtp@{payload\+\_\+type\+\_\+set\+\_\+send\+\_\+fmtp}}
+\index{payload\+\_\+type\+\_\+set\+\_\+send\+\_\+fmtp@{payload\+\_\+type\+\_\+set\+\_\+send\+\_\+fmtp}!payloadtype.\+h@{payloadtype.\+h}}
+\subsubsection{payload\+\_\+type\+\_\+set\+\_\+send\+\_\+fmtp()}
+{\footnotesize\ttfamily void payload\+\_\+type\+\_\+set\+\_\+send\+\_\+fmtp (\begin{DoxyParamCaption}\item[{\textbf{ Payload\+Type} $\ast$}]{pt,  }\item[{const char $\ast$}]{fmtp }\end{DoxyParamCaption})}
+
+Sets a send parameters (fmtp) for the Payload\+Type. This method is provided for applications using R\+TP with S\+DP, but actually the ftmp information is not used for R\+TP processing. 

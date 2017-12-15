@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="dir_fe6eb5064d42f9f773e90d3512fafa25" kind="dir">
+    <compoundname>submodules</compoundname>
+    <innerdir refid="dir_56ab9a32050f12272c302af9454f020f">oRTP</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/"/>
+  </compounddef>
+</doxygen>

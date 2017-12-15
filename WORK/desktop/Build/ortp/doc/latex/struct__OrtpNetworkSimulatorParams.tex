@@ -1,0 +1,103 @@
+\section{\+\_\+\+Ortp\+Network\+Simulator\+Params Struct Reference}
+\label{struct__OrtpNetworkSimulatorParams}\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+
+
+{\ttfamily \#include $<$rtpsession.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \textbf{ enabled}
+\item 
+float \textbf{ max\+\_\+bandwidth}
+\item 
+int \textbf{ max\+\_\+buffer\+\_\+size}
+\item 
+float \textbf{ loss\+\_\+rate}
+\item 
+uint32\+\_\+t \textbf{ latency}
+\item 
+float \textbf{ consecutive\+\_\+loss\+\_\+probability}
+\item 
+float \textbf{ jitter\+\_\+burst\+\_\+density}
+\item 
+float \textbf{ jitter\+\_\+strength}
+\item 
+\mbox{\label{struct__OrtpNetworkSimulatorParams_adad6988b153ff74c0b77f9fdb54af9a0}} 
+bool\+\_\+t {\bfseries rtp\+\_\+only}
+\item 
+bool\+\_\+t \textbf{ pad} [3]
+\item 
+Ortp\+Network\+Simulator\+Mode \textbf{ mode}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Structure describing the network simulator parameters 
+
+\subsection{Field Documentation}
+\mbox{\label{struct__OrtpNetworkSimulatorParams_a21f8dab32e6a4827a0bdfa9910be5ffa}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!consecutive\+\_\+loss\+\_\+probability@{consecutive\+\_\+loss\+\_\+probability}}
+\index{consecutive\+\_\+loss\+\_\+probability@{consecutive\+\_\+loss\+\_\+probability}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{consecutive\+\_\+loss\+\_\+probability}
+{\footnotesize\ttfamily float \+\_\+\+Ortp\+Network\+Simulator\+Params\+::consecutive\+\_\+loss\+\_\+probability}
+
+a probability of having a subsequent loss after a loss occurred, in a 0-\/1 range. Useful to simulate burst of lost packets \mbox{\label{struct__OrtpNetworkSimulatorParams_a4ee678eaa1feccef5bd02067bee9e224}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!enabled@{enabled}}
+\index{enabled@{enabled}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{enabled}
+{\footnotesize\ttfamily int \+\_\+\+Ortp\+Network\+Simulator\+Params\+::enabled}
+
+Whether simulation is enabled or off. \mbox{\label{struct__OrtpNetworkSimulatorParams_af8e7c490024ac8048a5ff4424de32209}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!jitter\+\_\+burst\+\_\+density@{jitter\+\_\+burst\+\_\+density}}
+\index{jitter\+\_\+burst\+\_\+density@{jitter\+\_\+burst\+\_\+density}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{jitter\+\_\+burst\+\_\+density}
+{\footnotesize\ttfamily float \+\_\+\+Ortp\+Network\+Simulator\+Params\+::jitter\+\_\+burst\+\_\+density}
+
+density of gap/bursts events. A value of 1 means one gap/burst per second approximately \mbox{\label{struct__OrtpNetworkSimulatorParams_a6cca503f6ba1d461c5a0ccc15ba08a69}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!jitter\+\_\+strength@{jitter\+\_\+strength}}
+\index{jitter\+\_\+strength@{jitter\+\_\+strength}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{jitter\+\_\+strength}
+{\footnotesize\ttfamily float \+\_\+\+Ortp\+Network\+Simulator\+Params\+::jitter\+\_\+strength}
+
+percentage of max\+\_\+bandwidth artificially consumed during bursts events \mbox{\label{struct__OrtpNetworkSimulatorParams_aa03ec64c497e75e4fba1fe7ea4964dc5}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!latency@{latency}}
+\index{latency@{latency}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{latency}
+{\footnotesize\ttfamily uint32\+\_\+t \+\_\+\+Ortp\+Network\+Simulator\+Params\+::latency}
+
+Packet transmission delay, in ms \mbox{\label{struct__OrtpNetworkSimulatorParams_a099c1040667fe972f9ac3ea3fcf83ade}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!loss\+\_\+rate@{loss\+\_\+rate}}
+\index{loss\+\_\+rate@{loss\+\_\+rate}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{loss\+\_\+rate}
+{\footnotesize\ttfamily float \+\_\+\+Ortp\+Network\+Simulator\+Params\+::loss\+\_\+rate}
+
+Percentage of lost packets \mbox{\label{struct__OrtpNetworkSimulatorParams_a159dcf726597931ad1f830497be22626}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!max\+\_\+bandwidth@{max\+\_\+bandwidth}}
+\index{max\+\_\+bandwidth@{max\+\_\+bandwidth}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{max\+\_\+bandwidth}
+{\footnotesize\ttfamily float \+\_\+\+Ortp\+Network\+Simulator\+Params\+::max\+\_\+bandwidth}
+
+IP bandwidth, in bit/s. This limitation is applied after loss are simulated, so incoming bandwidth is N\+OT socket bandwidth, but after-\/loss-\/simulation bandwidth e.\+g with 50\% loss, the bandwidth will be 50\% reduced \mbox{\label{struct__OrtpNetworkSimulatorParams_acbf172e79d8c2efa69d2e91ddb44cc30}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!max\+\_\+buffer\+\_\+size@{max\+\_\+buffer\+\_\+size}}
+\index{max\+\_\+buffer\+\_\+size@{max\+\_\+buffer\+\_\+size}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{max\+\_\+buffer\+\_\+size}
+{\footnotesize\ttfamily int \+\_\+\+Ortp\+Network\+Simulator\+Params\+::max\+\_\+buffer\+\_\+size}
+
+Max number of bit buffered before being discarded \mbox{\label{struct__OrtpNetworkSimulatorParams_ae3c99a51604ac46edcbc70e896925a07}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!mode@{mode}}
+\index{mode@{mode}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{mode}
+{\footnotesize\ttfamily Ortp\+Network\+Simulator\+Mode \+\_\+\+Ortp\+Network\+Simulator\+Params\+::mode}
+
+whether simulation is applied to inbound or outbound stream. \mbox{\label{struct__OrtpNetworkSimulatorParams_a724eb1785697f4f0f6034a093c08d509}} 
+\index{\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}!pad@{pad}}
+\index{pad@{pad}!\+\_\+\+Ortp\+Network\+Simulator\+Params@{\+\_\+\+Ortp\+Network\+Simulator\+Params}}
+\subsubsection{pad}
+{\footnotesize\ttfamily bool\+\_\+t \+\_\+\+Ortp\+Network\+Simulator\+Params\+::pad[3]}
+
+True for only R\+TP packet loss, False for both R\+TP and R\+T\+CP 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ rtpsession.\+h}\end{DoxyCompactItemize}

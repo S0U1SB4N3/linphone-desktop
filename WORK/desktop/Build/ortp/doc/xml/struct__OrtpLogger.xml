@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__OrtpLogger" kind="struct" language="C++" prot="public">
+    <compoundname>_OrtpLogger</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__OrtpLogger_1a29d9668f04551c4ed65b104a5ae36137" prot="public" static="no" mutable="no">
+        <type>OrtpLogFunc</type>
+        <definition>OrtpLogFunc _OrtpLogger::logv_out</definition>
+        <argsstring></argsstring>
+        <name>logv_out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="40" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpLogger_1ae1ef83c26e0c8fa7053d9dd2eda42486" prot="public" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int _OrtpLogger::log_mask</definition>
+        <argsstring></argsstring>
+        <name>log_mask</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="41" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpLogger_1a9a4c34e26fb13d18efd9a990cc8eddef" prot="public" static="no" mutable="no">
+        <type>FILE *</type>
+        <definition>FILE* _OrtpLogger::log_file</definition>
+        <argsstring></argsstring>
+        <name>log_file</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="42" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpLogger_1a922bccb1b882a50be41c7b02d8f0b284" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long _OrtpLogger::log_thread_id</definition>
+        <argsstring></argsstring>
+        <name>log_thread_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="43" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpLogger_1a209e8c9d494a5e07cf4c47e7f211f396" prot="public" static="no" mutable="no">
+        <type>bctbx_list_t *</type>
+        <definition>bctbx_list_t* _OrtpLogger::log_stored_messages_list</definition>
+        <argsstring></argsstring>
+        <name>log_stored_messages_list</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="44" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpLogger_1a59bc9e2537208ebe451da1748e3fc179" prot="public" static="no" mutable="no">
+        <type>bctbx_list_t *</type>
+        <definition>bctbx_list_t* _OrtpLogger::log_domains</definition>
+        <argsstring></argsstring>
+        <name>log_domains</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="45" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpLogger_1a0798d4737e48d7b56ba1c07fe41969ed" prot="public" static="no" mutable="no">
+        <type>ortp_mutex_t</type>
+        <definition>ortp_mutex_t _OrtpLogger::log_stored_messages_mutex</definition>
+        <argsstring></argsstring>
+        <name>log_stored_messages_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="46" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpLogger_1a7f91bd179499f68d5677926960d473e4" prot="public" static="no" mutable="no">
+        <type>ortp_mutex_t</type>
+        <definition>ortp_mutex_t _OrtpLogger::domains_mutex</definition>
+        <argsstring></argsstring>
+        <name>domains_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="47" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="39" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="39" bodyend="48"/>
+    <listofallmembers>
+      <member refid="struct__OrtpLogger_1a7f91bd179499f68d5677926960d473e4" prot="public" virt="non-virtual"><scope>_OrtpLogger</scope><name>domains_mutex</name></member>
+      <member refid="struct__OrtpLogger_1a59bc9e2537208ebe451da1748e3fc179" prot="public" virt="non-virtual"><scope>_OrtpLogger</scope><name>log_domains</name></member>
+      <member refid="struct__OrtpLogger_1a9a4c34e26fb13d18efd9a990cc8eddef" prot="public" virt="non-virtual"><scope>_OrtpLogger</scope><name>log_file</name></member>
+      <member refid="struct__OrtpLogger_1ae1ef83c26e0c8fa7053d9dd2eda42486" prot="public" virt="non-virtual"><scope>_OrtpLogger</scope><name>log_mask</name></member>
+      <member refid="struct__OrtpLogger_1a209e8c9d494a5e07cf4c47e7f211f396" prot="public" virt="non-virtual"><scope>_OrtpLogger</scope><name>log_stored_messages_list</name></member>
+      <member refid="struct__OrtpLogger_1a0798d4737e48d7b56ba1c07fe41969ed" prot="public" virt="non-virtual"><scope>_OrtpLogger</scope><name>log_stored_messages_mutex</name></member>
+      <member refid="struct__OrtpLogger_1a922bccb1b882a50be41c7b02d8f0b284" prot="public" virt="non-virtual"><scope>_OrtpLogger</scope><name>log_thread_id</name></member>
+      <member refid="struct__OrtpLogger_1a29d9668f04551c4ed65b104a5ae36137" prot="public" virt="non-virtual"><scope>_OrtpLogger</scope><name>logv_out</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

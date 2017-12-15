@@ -1,0 +1,1767 @@
+.TH "rtpsession.h" 3 "Fri Dec 15 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+rtpsession.h \- The RtpSession api\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <bctoolbox/list\&.h>\fP
+.br
+\fC#include <ortp/port\&.h>\fP
+.br
+\fC#include <ortp/rtp\&.h>\fP
+.br
+\fC#include <ortp/payloadtype\&.h>\fP
+.br
+\fC#include <ortp/rtpprofile\&.h>\fP
+.br
+\fC#include <ortp/sessionset\&.h>\fP
+.br
+\fC#include <ortp/rtcp\&.h>\fP
+.br
+\fC#include <ortp/str_utils\&.h>\fP
+.br
+\fC#include <ortp/utils\&.h>\fP
+.br
+\fC#include <ortp/rtpsignaltable\&.h>\fP
+.br
+\fC#include <ortp/event\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_JBParameters\fP"
+.br
+.ti -1c
+.RI "struct \fB_JitterControl\fP"
+.br
+.ti -1c
+.RI "struct \fB_WaitPoint\fP"
+.br
+.ti -1c
+.RI "struct \fB_RtpTransportModifier\fP"
+.br
+.ti -1c
+.RI "struct \fB_RtpTransport\fP"
+.br
+.ti -1c
+.RI "struct \fB_OrtpNetworkSimulatorParams\fP"
+.br
+.ti -1c
+.RI "struct \fB_OrtpNetworkSimulatorCtx\fP"
+.br
+.ti -1c
+.RI "struct \fBOrtpRtcpSendAlgorithm\fP"
+.br
+.ti -1c
+.RI "struct \fBOrtpRtcpFbConfiguration\fP"
+.br
+.ti -1c
+.RI "struct \fBOrtpRtcpXrMediaCallbacks\fP"
+.br
+.ti -1c
+.RI "struct \fBOrtpRtcpXrConfiguration\fP"
+.br
+.ti -1c
+.RI "struct \fBOrtpRtcpXrStats\fP"
+.br
+.ti -1c
+.RI "struct \fBOrtpRtcpTmmbrInfo\fP"
+.br
+.ti -1c
+.RI "struct \fB_OrtpAddress\fP"
+.br
+.ti -1c
+.RI "struct \fB_OrtpStream\fP"
+.br
+.ti -1c
+.RI "struct \fB_RtpStream\fP"
+.br
+.ti -1c
+.RI "struct \fB_RtcpStream\fP"
+.br
+.ti -1c
+.RI "struct \fB_RtpSession\fP"
+.br
+.ti -1c
+.RI "struct \fB_OrtpVideoBandwidthEstimatorParams\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBORTP_AVPF_FEATURE_NONE\fP   0"
+.br
+.ti -1c
+.RI "#define \fBORTP_AVPF_FEATURE_TMMBR\fP   (1 << 0)"
+.br
+.ti -1c
+.RI "#define \fBORTP_AVPF_FEATURE_GENERIC_NACK\fP   (1 << 1)"
+.br
+.ti -1c
+.RI "#define \fBORTP_RTCP_XR_UNAVAILABLE_PARAMETER\fP   127"
+.br
+.ti -1c
+.RI "#define \fBrtp_session_remove_contributing_sources\fP   rtp_session_remove_contributing_source"
+.br
+.ti -1c
+.RI "#define \fBrtp_session_set_flag\fP(session,  flag)   (session)\->flags|=(flag)"
+.br
+.ti -1c
+.RI "#define \fBrtp_session_unset_flag\fP(session,  flag)   (session)\->flags&=~(flag)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum _OrtpJitterBufferAlgorithm \fBOrtpJitterBufferAlgorithm\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_JBParameters\fP \fBJBParameters\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_JitterControl\fP \fBJitterControl\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_WaitPoint\fP \fBWaitPoint\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_RtpTransportModifier\fP \fBRtpTransportModifier\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_RtpTransport\fP \fBRtpTransport\fP"
+.br
+.ti -1c
+.RI "typedef enum \fB_OrtpNetworkSimulatorMode\fP \fBOrtpNetworkSimulatorMode\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_OrtpNetworkSimulatorParams\fP \fBOrtpNetworkSimulatorParams\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_OrtpNetworkSimulatorCtx\fP \fBOrtpNetworkSimulatorCtx\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBOrtpRtcpSendAlgorithm\fP \fBOrtpRtcpSendAlgorithm\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBOrtpRtcpFbConfiguration\fP \fBOrtpRtcpFbConfiguration\fP"
+.br
+.ti -1c
+.RI "typedef OrtpRtcpXrPlcStatus(* \fBOrtpRtcpXrPlcCallback\fP) (void *userdata)"
+.br
+.ti -1c
+.RI "typedef int(* \fBOrtpRtcpXrSignalLevelCallback\fP) (void *userdata)"
+.br
+.ti -1c
+.RI "typedef int(* \fBOrtpRtcpXrNoiseLevelCallback\fP) (void *userdata)"
+.br
+.ti -1c
+.RI "typedef float(* \fBOrtpRtcpXrAverageQualityIndicatorCallback\fP) (void *userdata)"
+.br
+.ti -1c
+.RI "typedef struct \fBOrtpRtcpXrMediaCallbacks\fP \fBOrtpRtcpXrMediaCallbacks\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBOrtpRtcpXrConfiguration\fP \fBOrtpRtcpXrConfiguration\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBOrtpRtcpXrStats\fP \fBOrtpRtcpXrStats\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBOrtpRtcpTmmbrInfo\fP \fBOrtpRtcpTmmbrInfo\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_OrtpAddress\fP \fBOrtpAddress\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_OrtpStream\fP \fBOrtpStream\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_RtpStream\fP \fBRtpStream\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_RtcpStream\fP \fBRtcpStream\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_RtpSession\fP \fBRtpSession\fP"
+.br
+.ti -1c
+.RI "typedef struct \fB_OrtpVideoBandwidthEstimatorParams\fP \fBOrtpVideoBandwidthEstimatorParams\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBRtpSessionMode\fP { \fBRTP_SESSION_RECVONLY\fP, \fBRTP_SESSION_SENDONLY\fP, \fBRTP_SESSION_SENDRECV\fP }"
+.br
+.ti -1c
+.RI "enum \fB_OrtpJitterBufferAlgorithm\fP { \fBOrtpJitterBufferBasic\fP, \fBOrtpJitterBufferRecursiveLeastSquare\fP }"
+.br
+.ti -1c
+.RI "enum \fB_OrtpNetworkSimulatorMode\fP { \fBOrtpNetworkSimulatorInvalid\fP =-1, \fBOrtpNetworkSimulatorInbound\fP, \fBOrtpNetworkSimulatorOutbound\fP, \fBOrtpNetworkSimulatorOutboundControlled\fP }"
+.br
+.ti -1c
+.RI "enum \fBOrtpRtcpXrPlcStatus\fP { \fBOrtpRtcpXrNoPlc\fP, \fBOrtpRtcpXrSilencePlc\fP, \fBOrtpRtcpXrEnhancedPlc\fP }"
+.br
+.ti -1c
+.RI "enum \fBOrtpRtcpXrRcvrRttMode\fP { \fBOrtpRtcpXrRcvrRttNone\fP, \fBOrtpRtcpXrRcvrRttAll\fP, \fBOrtpRtcpXrRcvrRttSender\fP }"
+.br
+.ti -1c
+.RI "enum \fBOrtpRtcpXrStatSummaryFlag\fP { \fBOrtpRtcpXrStatSummaryLoss\fP = (1 << 7), \fBOrtpRtcpXrStatSummaryDup\fP = (1 << 6), \fBOrtpRtcpXrStatSummaryJitt\fP = (1 << 5), \fBOrtpRtcpXrStatSummaryTTL\fP = (1 << 3), \fBOrtpRtcpXrStatSummaryHL\fP = (1 << 4) }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "const char * \fBortp_network_simulator_mode_to_string\fP (OrtpNetworkSimulatorMode mode)"
+.br
+.ti -1c
+.RI "OrtpNetworkSimulatorMode \fBortp_network_simulator_mode_from_string\fP (const char *str)"
+.br
+.ti -1c
+.RI "\fBRtpSession\fP * \fBrtp_session_new\fP (int mode)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_scheduling_mode\fP (\fBRtpSession\fP *session, int yesno)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_blocking_mode\fP (\fBRtpSession\fP *session, int yesno)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_profile\fP (\fBRtpSession\fP *session, \fBRtpProfile\fP *profile)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_send_profile\fP (\fBRtpSession\fP *session, \fBRtpProfile\fP *profile)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_recv_profile\fP (\fBRtpSession\fP *session, \fBRtpProfile\fP *profile)"
+.br
+.ti -1c
+.RI "\fBRtpProfile\fP * \fBrtp_session_get_profile\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "\fBRtpProfile\fP * \fBrtp_session_get_send_profile\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "\fBRtpProfile\fP * \fBrtp_session_get_recv_profile\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_signal_connect\fP (\fBRtpSession\fP *session, const char *signal_name, RtpCallback cb, void *user_data)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_signal_disconnect_by_callback\fP (\fBRtpSession\fP *session, const char *signal_name, RtpCallback cb)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_ssrc\fP (\fBRtpSession\fP *session, uint32_t ssrc)"
+.br
+.ti -1c
+.RI "uint32_t \fBrtp_session_get_send_ssrc\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "uint32_t \fBrtp_session_get_recv_ssrc\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_seq_number\fP (\fBRtpSession\fP *session, uint16_t seq)"
+.br
+.ti -1c
+.RI "uint16_t \fBrtp_session_get_seq_number\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "uint32_t \fBrtp_session_get_rcv_ext_seq_number\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_cum_loss\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_duplication_ratio\fP (\fBRtpSession\fP *session, float ratio)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_enable_jitter_buffer\fP (\fBRtpSession\fP *session, bool_t enabled)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_jitter_buffer_enabled\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_jitter_buffer_params\fP (\fBRtpSession\fP *session, const \fBJBParameters\fP *par)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_get_jitter_buffer_params\fP (\fBRtpSession\fP *session, \fBJBParameters\fP *par)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_send_ts_offset\fP (\fBRtpSession\fP *s, uint32_t offset)"
+.br
+.ti -1c
+.RI "uint32_t \fBrtp_session_get_send_ts_offset\fP (\fBRtpSession\fP *s)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_jitter_compensation\fP (\fBRtpSession\fP *session, int milisec)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_enable_adaptive_jitter_compensation\fP (\fBRtpSession\fP *session, bool_t val)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_adaptive_jitter_compensation_enabled\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_time_jump_limit\fP (\fBRtpSession\fP *session, int miliseconds)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_join_multicast_group\fP (\fBRtpSession\fP *session, const char *ip)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_local_addr\fP (\fBRtpSession\fP *session, const char *addr, int rtp_port, int rtcp_port)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_local_port\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_local_rtcp_port\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_remote_addr_full\fP (\fBRtpSession\fP *session, const char *rtp_addr, int rtp_port, const char *rtcp_addr, int rtcp_port)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_remote_addr_and_port\fP (\fBRtpSession\fP *session, const char *addr, int rtp_port, int rtcp_port)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_remote_addr\fP (\fBRtpSession\fP *session, const char *addr, int port)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_add_aux_remote_addr_full\fP (\fBRtpSession\fP *session, const char *rtp_addr, int rtp_port, const char *rtcp_addr, int rtcp_port)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_clear_aux_remote_addr\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_sockets\fP (\fBRtpSession\fP *session, int rtpfd, int rtcpfd)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_get_transports\fP (const \fBRtpSession\fP *session, \fBRtpTransport\fP **rtptr, \fBRtpTransport\fP **rtcptr)"
+.br
+.ti -1c
+.RI "ortp_socket_t \fBrtp_session_get_rtp_socket\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "ortp_socket_t \fBrtp_session_get_rtcp_socket\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_refresh_sockets\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_dscp\fP (\fBRtpSession\fP *session, int dscp)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_dscp\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_pktinfo\fP (\fBRtpSession\fP *session, int activate)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_multicast_ttl\fP (\fBRtpSession\fP *session, int ttl)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_multicast_ttl\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_multicast_loopback\fP (\fBRtpSession\fP *session, int yesno)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_multicast_loopback\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_send_payload_type\fP (\fBRtpSession\fP *session, int paytype)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_send_payload_type\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_recv_payload_type\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_recv_payload_type\fP (\fBRtpSession\fP *session, int pt)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_send_telephone_event_payload_type\fP (\fBRtpSession\fP *session, int paytype)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_set_payload_type\fP (\fBRtpSession\fP *session, int pt)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_symmetric_rtp\fP (\fBRtpSession\fP *session, bool_t yesno)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_get_symmetric_rtp\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_enable_rtcp_mux\fP (\fBRtpSession\fP *session, bool_t yesno)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_rtcp_mux_enabled\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_connected_mode\fP (\fBRtpSession\fP *session, bool_t yesno)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_enable_rtcp\fP (\fBRtpSession\fP *session, bool_t yesno)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_rtcp_enabled\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_rtcp_report_interval\fP (\fBRtpSession\fP *session, int value_ms)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_target_upload_bandwidth\fP (\fBRtpSession\fP *session, int target_bandwidth)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_target_upload_bandwidth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_configure_rtcp_xr\fP (\fBRtpSession\fP *session, const \fBOrtpRtcpXrConfiguration\fP *config)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_rtcp_xr_media_callbacks\fP (\fBRtpSession\fP *session, const \fBOrtpRtcpXrMediaCallbacks\fP *cbs)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_ssrc_changed_threshold\fP (\fBRtpSession\fP *session, int numpackets)"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBrtp_session_recvm_with_ts\fP (\fBRtpSession\fP *session, uint32_t user_ts)"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBrtp_session_create_packet\fP (\fBRtpSession\fP *session, size_t header_size, const uint8_t *payload, size_t payload_size)"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBrtp_session_create_packet_raw\fP (const uint8_t *packet, size_t packet_size)"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBrtp_session_create_packet_with_data\fP (\fBRtpSession\fP *session, uint8_t *payload, size_t payload_size, void(*freefn)(void *))"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBrtp_session_create_packet_in_place\fP (\fBRtpSession\fP *session, uint8_t *buffer, size_t size, void(*freefn)(void *))"
+.br
+.ti -1c
+.RI "int \fBrtp_session_sendm_with_ts\fP (\fBRtpSession\fP *session, \fBmblk_t\fP *mp, uint32_t userts)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_sendto\fP (\fBRtpSession\fP *session, bool_t is_rtp, \fBmblk_t\fP *m, int flags, const struct sockaddr *destaddr, socklen_t destlen)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_recvfrom\fP (\fBRtpSession\fP *session, bool_t is_rtp, \fBmblk_t\fP *m, int flags, struct sockaddr *from, socklen_t *fromlen)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_recv_with_ts\fP (\fBRtpSession\fP *session, uint8_t *buffer, int len, uint32_t ts, int *have_more)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_send_with_ts\fP (\fBRtpSession\fP *session, const uint8_t *buffer, int len, uint32_t userts)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_register_event_queue\fP (\fBRtpSession\fP *session, \fBOrtpEvQueue\fP *q)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_unregister_event_queue\fP (\fBRtpSession\fP *session, \fBOrtpEvQueue\fP *q)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_compute_send_bandwidth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_compute_recv_bandwidth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_get_send_bandwidth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_get_recv_bandwidth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_get_rtp_send_bandwidth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_get_rtp_recv_bandwidth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_get_rtcp_send_bandwidth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_get_rtcp_recv_bandwidth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_get_send_bandwidth_smooth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_get_recv_bandwidth_smooth\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_APP\fP (\fBRtpSession\fP *session, uint8_t subtype, const char *name, const uint8_t *data, int datalen)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_rtcp_sendm_raw\fP (\fBRtpSession\fP *session, \fBmblk_t\fP *m)"
+.br
+.ti -1c
+.RI "uint32_t \fBrtp_session_get_current_send_ts\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "uint32_t \fBrtp_session_get_current_recv_ts\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_flush_sockets\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_release_sockets\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_resync\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_reset\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_destroy\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "const \fBrtp_stats_t\fP * \fBrtp_session_get_stats\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "const \fBjitter_stats_t\fP * \fBrtp_session_get_jitter_stats\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_reset_stats\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_data\fP (\fBRtpSession\fP *session, void *data)"
+.br
+.ti -1c
+.RI "void * \fBrtp_session_get_data\fP (const \fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_recv_buf_size\fP (\fBRtpSession\fP *session, int bufsize)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_rtp_socket_send_buffer_size\fP (\fBRtpSession\fP *session, unsigned int size)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_rtp_socket_recv_buffer_size\fP (\fBRtpSession\fP *session, unsigned int size)"
+.br
+.ti -1c
+.RI "uint32_t \fBrtp_session_ts_to_time\fP (\fBRtpSession\fP *session, uint32_t timestamp)"
+.br
+.ti -1c
+.RI "uint32_t \fBrtp_session_time_to_ts\fP (\fBRtpSession\fP *session, int millisecs)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_make_time_distorsion\fP (\fBRtpSession\fP *session, int milisec)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_source_description\fP (\fBRtpSession\fP *session, const char *cname, const char *name, const char *email, const char *phone, const char *loc, const char *tool, const char *note)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_add_contributing_source\fP (\fBRtpSession\fP *session, uint32_t csrc, const char *cname, const char *name, const char *email, const char *phone, const char *loc, const char *tool, const char *note)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_remove_contributing_source\fP (\fBRtpSession\fP *session, uint32_t csrc)"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBrtp_session_create_rtcp_sdes_packet\fP (\fBRtpSession\fP *session, bool_t full)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_get_last_recv_time\fP (\fBRtpSession\fP *session, struct timeval *tv)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_bye\fP (\fBRtpSession\fP *session, const char *reason)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_last_send_error_code\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_clear_send_error_code\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_get_last_recv_error_code\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_clear_recv_error_code\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "float \fBrtp_session_get_round_trip_propagation\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_enable_network_simulation\fP (\fBRtpSession\fP *session, const \fBOrtpNetworkSimulatorParams\fP *params)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_enable_congestion_detection\fP (\fBRtpSession\fP *session, bool_t enabled)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_enable_video_bandwidth_estimator\fP (\fBRtpSession\fP *session, const \fBOrtpVideoBandwidthEstimatorParams\fP *params)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_rtcp_set_lost_packet_value\fP (\fBRtpSession\fP *session, const int value)"
+.br
+.RI "For \fBtest purpose only\fP, sets a constant lost packet value within \fBall\fP RTCP output packets\&.
+.br
+\&. "
+.ti -1c
+.RI "void \fBrtp_session_rtcp_set_jitter_value\fP (\fBRtpSession\fP *session, const unsigned int value)"
+.br
+.RI "For \fBtest purpose only\fP, sets a constant interarrival_jitter value within \fBall\fP RTCP output packets\&.
+.br
+\&. "
+.ti -1c
+.RI "void \fBrtp_session_rtcp_set_delay_value\fP (\fBRtpSession\fP *session, const unsigned int value)"
+.br
+.RI "For \fBtest purpose only\fP, simulates a constant RTT (Round Trip Time) value by setting the LSR field within \fBall\fP returned RTCP output packets\&.
+.br
+\&. "
+.ti -1c
+.RI "\fBmblk_t\fP * \fBrtp_session_pick_with_cseq\fP (\fBRtpSession\fP *session, const uint16_t sequence_number)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_xr_rcvr_rtt\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_xr_dlrr\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_xr_stat_summary\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_xr_voip_metrics\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_avpf_enabled\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_avpf_payload_type_feature_enabled\fP (\fBRtpSession\fP *session, unsigned char feature)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_avpf_feature_enabled\fP (\fBRtpSession\fP *session, unsigned char feature)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_enable_avpf_feature\fP (\fBRtpSession\fP *session, unsigned char feature, bool_t enable)"
+.br
+.ti -1c
+.RI "uint16_t \fBrtp_session_get_avpf_rr_interval\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_rtcp_psfb_scheduled\fP (\fBRtpSession\fP *session, rtcp_psfb_type_t type)"
+.br
+.ti -1c
+.RI "bool_t \fBrtp_session_rtcp_rtpfb_scheduled\fP (\fBRtpSession\fP *session, rtcp_rtpfb_type_t type)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_fb_generic_nack\fP (\fBRtpSession\fP *session, uint16_t pid, uint16_t blp)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_fb_pli\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_fb_fir\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_fb_sli\fP (\fBRtpSession\fP *session, uint16_t first, uint16_t number, uint8_t picture_id)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_fb_rpsi\fP (\fBRtpSession\fP *session, uint8_t *bit_string, uint16_t bit_string_len)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_fb_tmmbr\fP (\fBRtpSession\fP *session, uint64_t mxtbr)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_send_rtcp_fb_tmmbn\fP (\fBRtpSession\fP *session, uint32_t ssrc)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_init\fP (\fBRtpSession\fP *session, int mode)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_uninit\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_dispatch_event\fP (\fBRtpSession\fP *session, \fBOrtpEvent\fP *ev)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_set_reuseaddr\fP (\fBRtpSession\fP *session, bool_t yes)"
+.br
+.ti -1c
+.RI "int \fBmeta_rtp_transport_modifier_inject_packet_to_send\fP (\fBRtpTransport\fP *t, \fBRtpTransportModifier\fP *tpm, \fBmblk_t\fP *msg, int flags)"
+.br
+.ti -1c
+.RI "int \fBmeta_rtp_transport_modifier_inject_packet_to_send_to\fP (\fBRtpTransport\fP *t, \fBRtpTransportModifier\fP *tpm, \fBmblk_t\fP *msg, int flags, const struct sockaddr *to, socklen_t tolen)"
+.br
+.ti -1c
+.RI "int \fBmeta_rtp_transport_modifier_inject_packet_to_recv\fP (\fBRtpTransport\fP *t, \fBRtpTransportModifier\fP *tpm, \fBmblk_t\fP *msg, int flags)"
+.br
+.ti -1c
+.RI "\fBRtpTransport\fP * \fBmeta_rtp_transport_get_endpoint\fP (const \fBRtpTransport\fP *transport)"
+.br
+.ti -1c
+.RI "void \fBmeta_rtp_transport_set_endpoint\fP (\fBRtpTransport\fP *transport, \fBRtpTransport\fP *endpoint)"
+.br
+.ti -1c
+.RI "void \fBmeta_rtp_transport_destroy\fP (\fBRtpTransport\fP *tp)"
+.br
+.ti -1c
+.RI "void \fBmeta_rtp_transport_append_modifier\fP (\fBRtpTransport\fP *tp, \fBRtpTransportModifier\fP *tpm)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_splice\fP (\fBRtpSession\fP *session, \fBRtpSession\fP *to_session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_unsplice\fP (\fBRtpSession\fP *session, \fBRtpSession\fP *to_session)"
+.br
+.ti -1c
+.RI "bool_t \fBortp_stream_is_ipv6\fP (\fBOrtpStream\fP *os)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The RtpSession api\&. 
+
+The RtpSession objects represent a RTP session: once it is configured with local and remote network addresses and a payload type is given, it let you send and recv a media stream\&. 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fB_JBParameters\fP  \fBJBParameters\fP"
+Jitter buffer parameters 
+.SS "typedef struct \fB_OrtpNetworkSimulatorParams\fP \fBOrtpNetworkSimulatorParams\fP"
+Structure describing the network simulator parameters 
+.SS "typedef struct \fB_OrtpVideoBandwidthEstimatorParams\fP  \fBOrtpVideoBandwidthEstimatorParams\fP"
+Structure describing the video bandwidth estimator parameters 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_OrtpNetworkSimulatorMode\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIOrtpNetworkSimulatorInbound \fP\fP
+simulation is applied when receiving packets 
+.TP
+\fB\fIOrtpNetworkSimulatorOutbound \fP\fP
+simulation is applied to sent packets 
+.TP
+\fB\fIOrtpNetworkSimulatorOutboundControlled \fP\fP
+simulation is applied to sent packets according to sent timestamps set in the timestamps field of mblk_t, which is defined only with -DORTP_TIMESTAMP 
+.SH "Function Documentation"
+.PP 
+.SS "\fBRtpTransport\fP* meta_rtp_transport_get_endpoint (const \fBRtpTransport\fP * transport)"
+get endpoint if any 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransport\fP RtpTransport object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fB_RtpTransport\fP 
+.RE
+.PP
+
+.SS "int meta_rtp_transport_modifier_inject_packet_to_recv (\fBRtpTransport\fP * t, \fBRtpTransportModifier\fP * tpm, \fBmblk_t\fP * msg, int flags)"
+allow a modifier to inject a packet which will be treated by successive modifiers 
+.SS "int meta_rtp_transport_modifier_inject_packet_to_send (\fBRtpTransport\fP * t, \fBRtpTransportModifier\fP * tpm, \fBmblk_t\fP * msg, int flags)"
+allow a modifier to inject a packet which will be treated by successive modifiers 
+.SS "int meta_rtp_transport_modifier_inject_packet_to_send_to (\fBRtpTransport\fP * t, \fBRtpTransportModifier\fP * tpm, \fBmblk_t\fP * msg, int flags, const struct sockaddr * to, socklen_t tolen)"
+allow a modifier to inject a packet which will be treated by successive modifiers 
+.SS "void meta_rtp_transport_set_endpoint (\fBRtpTransport\fP * transport, \fBRtpTransport\fP * endpoint)"
+set endpoint 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransport\fP RtpTransport object\&. 
+.br
+\fIendpoint\fP RtpEndpoint\&. 
+.RE
+.PP
+
+.SS "int rtp_session_add_aux_remote_addr_full (\fBRtpSession\fP * session, const char * rtp_addr, int rtp_port, const char * rtcp_addr, int rtcp_port)"
+rtp_session_add_remote_aux_addr_full: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session freshly created\&. 
+.br
+\fIrtp_addr\fP a local IP address in the xxx\&.xxx\&.xxx\&.xxx form\&. 
+.br
+\fIrtp_port\fP a local rtp port\&. 
+.br
+\fIrtcp_addr\fP a local IP address in the xxx\&.xxx\&.xxx\&.xxx form\&. 
+.br
+\fIrtcp_port\fP a local rtcp port\&. 
+.PP
+.nf
+    Add an auxiliary remote address for the rtp session, ie a destination address where rtp packet
+    are sent.
+
+    Returns: 0 on success.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "int rtp_session_bye (\fBRtpSession\fP * session, const char * reason)"
+Sends a RTCP bye packet\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP RtpSession 
+.br
+\fIreason\fP the reason phrase\&. 
+.RE
+.PP
+
+.SS "\fBmblk_t\fP* rtp_session_create_packet (\fBRtpSession\fP * session, size_t header_size, const uint8_t * payload, size_t payload_size)"
+Allocates a new rtp packet\&. In the header, ssrc and payload_type according to the session's context\&. Timestamp is not set, it will be set when the packet is going to be sent with \fBrtp_session_sendm_with_ts()\fP\&. Sequence number is initalized to previous sequence number sent + 1 If payload_size is zero, thus an empty packet (just a RTP header) is returned\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIheader_size\fP the rtp header size\&. For standart size (without extensions), it is RTP_FIXED_HEADER_SIZE 
+.br
+\fIpayload\fP data to be copied into the rtp packet\&. 
+.br
+\fIpayload_size\fP size of data carried by the rtp packet\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a rtp packet in a mblk_t (message block) structure\&. 
+.RE
+.PP
+
+.SS "\fBmblk_t\fP* rtp_session_create_packet_in_place (\fBRtpSession\fP * session, uint8_t * buffer, size_t size, void(*)(void *) freefn)"
+Creates a new rtp packet using the buffer given in arguments (no copy)\&. In the header, ssrc and payload_type according to the session's context\&. Timestamp and seq number are not set, there will be set when the packet is going to be sent with \fBrtp_session_sendm_with_ts()\fP\&. \fIfreefn\fP can be NULL, in that case payload will be kept untouched\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIbuffer\fP a buffer that contains first just enough place to write a RTP header, then the data to send\&. 
+.br
+\fIsize\fP the size of the buffer 
+.br
+\fIfreefn\fP a function that will be called once the buffer is no more needed (the data has been sent)\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a rtp packet in a mblk_t (message block) structure\&. 
+.RE
+.PP
+
+.SS "\fBmblk_t\fP* rtp_session_create_packet_raw (const uint8_t * packet, size_t packet_size)"
+Create a packet already including headers 
+.SS "\fBmblk_t\fP* rtp_session_create_packet_with_data (\fBRtpSession\fP * session, uint8_t * payload, size_t payload_size, void(*)(void *) freefn)"
+Creates a new rtp packet using the given payload buffer (no copy)\&. The header will be allocated separetely\&. In the header, ssrc and payload_type according to the session's context\&. Timestamp and seq number are not set, there will be set when the packet is going to be sent with \fBrtp_session_sendm_with_ts()\fP\&. oRTP will send this packet using libc's sendmsg() (if this function is availlable!) so that there will be no packet concatenation involving copies to be done in user-space\&. \fIfreefn\fP can be NULL, in that case payload will be kept untouched\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIpayload\fP the data to be sent with this packet 
+.br
+\fIpayload_size\fP size of data 
+.br
+\fIfreefn\fP a function that will be called when the payload buffer is no more needed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: a rtp packet in a mblk_t (message block) structure\&. 
+.RE
+.PP
+
+.SS "void rtp_session_destroy (\fBRtpSession\fP * session)"
+Destroys a rtp session\&. All memory allocated for the RtpSession is freed\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.RE
+.PP
+
+.SS "void rtp_session_enable_rtcp (\fBRtpSession\fP * session, bool_t yesno)"
+By default oRTP automatically sends RTCP SR or RR packets\&. If yesno is set to FALSE, the RTCP sending of packet is disabled\&. This functionality might be needed for some equipments that do not support RTCP, leading to a traffic of ICMP errors on the network\&. It can also be used to save bandwidth despite the RTCP bandwidth is actually and usually very very low\&. 
+.SS "void rtp_session_flush_sockets (\fBRtpSession\fP * session)"
+rtp_session_flush_sockets: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session
+.RE
+.PP
+Flushes the sockets for all pending incoming packets\&. This can be usefull if you did not listen to the stream for a while and wishes to start to receive again\&. During the time no receive is made packets get bufferised into the internal kernel socket structure\&. 
+.SS "int rtp_session_get_cum_loss (\fBRtpSession\fP * session)"
+Returns the latest cumulative loss value computed 
+.SS "uint32_t rtp_session_get_current_recv_ts (\fBRtpSession\fP * session)"
+Same thing as \fBrtp_session_get_current_send_ts()\fP except that it's for an incoming stream\&. Works only on scheduled mode\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the theoritical that would have to be receive now\&. 
+.RE
+.PP
+
+.SS "uint32_t rtp_session_get_current_send_ts (\fBRtpSession\fP * session)"
+When the rtp session is scheduled and has started to send packets, this function computes the timestamp that matches to the present time\&. Using this function can be usefull when sending discontinuous streams\&. Some time can be elapsed between the end of a stream burst and the begin of a new stream burst, and the application may be not not aware of this elapsed time\&. In order to get a valid (current) timestamp to pass to \fBrtp_session_send_with_ts()\fP or \fBrtp_session_sendm_with_ts()\fP, the application may use \fBrtp_session_get_current_send_ts()\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the current send timestamp for the rtp session\&. 
+.RE
+.PP
+
+.SS "void* rtp_session_get_data (const \fBRtpSession\fP * session)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the void pointer previously set using \fBrtp_session_set_data()\fP 
+.RE
+.PP
+
+.SS "int rtp_session_get_dscp (const \fBRtpSession\fP * session)"
+rtp_session_get_dscp: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session
+.RE
+.PP
+Returns the DSCP (Differentiated Services Code Point) for outgoing RTP packets\&. 
+.SS "const \fBjitter_stats_t\fP* rtp_session_get_jitter_stats (const \fBRtpSession\fP * session)"
+Retrieves the session's jitter specific statistics\&. 
+.SS "void rtp_session_get_last_recv_time (\fBRtpSession\fP * session, struct timeval * tv)"
+Gets last time a valid RTP or RTCP packet was received\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP RtpSession to get last receive time from\&. 
+.br
+\fItv\fP Pointer to struct timeval to fill\&. 
+.RE
+.PP
+
+.SS "int rtp_session_get_local_port (const \fBRtpSession\fP * session)"
+rtp_session_get_local_port: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session for which \fBrtp_session_set_local_addr()\fP or \fBrtp_session_set_remote_addr()\fP has been called 
+.PP
+.nf
+    This function can be useful to retrieve the local port that was randomly choosen by
+    rtp_session_set_remote_addr() when rtp_session_set_local_addr() was not called.
+
+    Returns: the local port used to listen for rtp packets, -1 if not set.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "int rtp_session_get_multicast_loopback (\fBRtpSession\fP * session)"
+rtp_session_get_multicast_loopback: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session
+.RE
+.PP
+Returns the multicast loopback state of rtp session (true or false)\&. 
+.SS "int rtp_session_get_multicast_ttl (\fBRtpSession\fP * session)"
+rtp_session_get_multicast_ttl: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session
+.RE
+.PP
+Returns the TTL (Time-To-Live) for outgoing multicast packets\&. 
+.SS "\fBRtpProfile\fP* rtp_session_get_profile (\fBRtpSession\fP * session)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.PP
+.nf
+    DEPRECATED! Returns current send profile.
+    Use rtp_session_get_send_profile() or rtp_session_get_recv_profile()
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "uint32_t rtp_session_get_rcv_ext_seq_number (\fBRtpSession\fP * session)"
+Returns the highest extended sequence number received\&. 
+.SS "float rtp_session_get_recv_bandwidth (\fBRtpSession\fP * session)"
+Get last computed recv bandwidth\&. Computation must have been done with rtp_session_compute_recv_bandwidth() 
+.SS "int rtp_session_get_recv_payload_type (const \fBRtpSession\fP * session)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the payload type currently used in incoming rtp packets 
+.RE
+.PP
+
+.SS "\fBRtpProfile\fP* rtp_session_get_recv_profile (\fBRtpSession\fP * session)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.PP
+.nf
+    Returns current receive profile.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "uint32_t rtp_session_get_recv_ssrc (\fBRtpSession\fP * session)"
+Get the SSRC for the incoming stream\&.
+.PP
+If no packets have been received yet, 0 is returned\&. 
+.SS "float rtp_session_get_round_trip_propagation (\fBRtpSession\fP * session)"
+Returns the last known round trip propagation delay\&.
+.PP
+This value is known after successful RTCP SR or RR exchanged between a sender and a receiver\&. oRTP automatically takes care of sending SR or RR packets\&. You might want to call this function when you receive an RTCP event (see \fBrtp_session_register_event_queue()\fP )\&. This value might not be known: at the beginning when no RTCP packets have been exchanged yet, or simply because the rtcp channel is broken due to firewall problematics, or because the remote implementation does not support RTCP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+the round trip propagation time in seconds if known, -1 if unknown\&. 
+.RE
+.PP
+
+.SS "float rtp_session_get_send_bandwidth (\fBRtpSession\fP * session)"
+Get last computed send bandwidth\&. Computation must have been done with rtp_session_compute_send_bandwidth() 
+.SS "int rtp_session_get_send_payload_type (const \fBRtpSession\fP * session)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the payload type currently used in outgoing rtp packets 
+.RE
+.PP
+
+.SS "\fBRtpProfile\fP* rtp_session_get_send_profile (\fBRtpSession\fP * session)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.PP
+.nf
+    Returns current send profile.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "uint32_t rtp_session_get_send_ssrc (\fBRtpSession\fP * session)"
+Get the SSRC for the outgoing stream\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.RE
+.PP
+
+.SS "uint16_t rtp_session_get_seq_number (\fBRtpSession\fP * session)"
+Get the current sequence number for outgoing stream\&. 
+.SS "const \fBrtp_stats_t\fP* rtp_session_get_stats (const \fBRtpSession\fP * session)"
+Retrieve the session's statistics\&. 
+.SS "\fBRtpSession\fP* rtp_session_new (int mode)"
+Creates a new rtp session\&. If the session is able to send data (RTP_SESSION_SENDONLY or RTP_SESSION_SENDRECV), then a random SSRC number is choosed for the outgoing stream\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImode\fP One of the RtpSessionMode flags\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the newly created rtp session\&. 
+.RE
+.PP
+
+.SS "\fBmblk_t\fP* rtp_session_pick_with_cseq (\fBRtpSession\fP * session, const uint16_t sequence_number)"
+Try to get an rtp packet presented as a mblk_t structure from the rtp session at a given sequence number\&. This function is very usefull for codec with Forward error correction capabilities
+.PP
+This function returns the entire packet (with header)\&.
+.PP
+.IP "\(bu" 2
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIsequence_number\fP a sequence number\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a rtp packet presented as a mblk_t, or NULL if not found\&. 
+.RE
+.PP
+
+.PP
+
+.SS "int rtp_session_recv_with_ts (\fBRtpSession\fP * session, uint8_t * buffer, int len, uint32_t ts, int * have_more)"
+NOTE: use of this function is discouraged when sending payloads other than pcm/pcmu/pcma/adpcm types\&. \fBrtp_session_recvm_with_ts()\fP does better job\&.
+.PP
+Tries to read the bytes of the incoming rtp stream related to timestamp ts\&. In case where the user supplied buffer \fIbuffer\fP is not large enough to get all the data related to timestamp ts, then *( have_more) is set to 1 to indicate that the application should recall the function with the same timestamp to get more data\&.
+.PP
+When the rtp session is scheduled (see \fBrtp_session_set_scheduling_mode()\fP ), and the blocking mode is on (see \fBrtp_session_set_blocking_mode()\fP ), then the calling thread is suspended until the timestamp given as argument expires, whatever a received packet fits the query or not\&.
+.PP
+Important note: it is clear that the application cannot know the timestamp of the first packet of the incoming stream, because it can be random\&. The \fIts\fP timestamp given to the function is used relatively to first timestamp of the stream\&. In simple words, 0 is a good value to start calling this function\&.
+.PP
+This function internally calls \fBrtp_session_recvm_with_ts()\fP to get a rtp packet\&. The content of this packet is then copied into the user supplied buffer in an intelligent manner: the function takes care of the size of the supplied buffer and the timestamp given in argument\&. Using this function it is possible to read continous audio data (e\&.g\&. pcma,pcmu\&.\&.\&.) with for example a standart buffer of size of 160 with timestamp incrementing by 160 while the incoming stream has a different packet size\&.
+.PP
+Returns: if a packet was availlable with the corresponding timestamp supplied in argument then the number of bytes written in the user supplied buffer is returned\&. If no packets are availlable, either because the sender has not started to send the stream, or either because silence packet are not transmitted, or either because the packet was lost during network transport, then the function returns zero\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIbuffer\fP a user supplied buffer to write the data\&. 
+.br
+\fIlen\fP the length in bytes of the user supplied buffer\&. 
+.br
+\fIts\fP the timestamp wanted\&. 
+.br
+\fIhave_more\fP the address of an integer to indicate if more data is availlable for the given timestamp\&. 
+.RE
+.PP
+
+.SS "\fBmblk_t\fP* rtp_session_recvm_with_ts (\fBRtpSession\fP * session, uint32_t user_ts)"
+Try to get a rtp packet presented as a mblk_t structure from the rtp session\&. The \fIuser_ts\fP parameter is relative to the first timestamp of the incoming stream\&. In other words, the application does not have to know the first timestamp of the stream, it can simply call for the first time this function with \fIuser_ts=0\fP, and then incrementing it as it want\&. The RtpSession takes care of synchronisation between the stream timestamp and the user timestamp given here\&.
+.PP
+This function returns the entire packet (with header)\&.
+.PP
+The behaviour of this function has changed since version 0\&.15\&.0\&. Previously the payload data could be accessed using mblk_t::b_cont::b_rptr field of the returned mblk_t\&. This is no more the case\&. The convenient way of accessing the payload data is to use rtp_get_payload() : 
+.PP
+.nf
+unsigned char *payload;
+int payload_size;
+payload_size=rtp_get_payload(mp,&payload);
+
+.fi
+.PP
+ OR simply skip the header this way, the data is then comprised between mp->b_rptr and mp->b_wptr: 
+.PP
+.nf
+rtp_get_payload(mp,&mp->b_rptr);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIuser_ts\fP a timestamp\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a rtp packet presented as a mblk_t\&. 
+.RE
+.PP
+
+.SS "void rtp_session_refresh_sockets (\fBRtpSession\fP * session)"
+Requests the session to re-create and bind its RTP and RTCP sockets same as they are currently\&. This is used when a change in the routing rules of the host or process was made, in order to have this routing rules change taking effect on the RTP/RTCP packets sent by the session\&. 
+.SS "void rtp_session_register_event_queue (\fBRtpSession\fP * session, \fBOrtpEvQueue\fP * q)"
+Register an event queue\&. An application can use an event queue to get informed about various RTP events\&. 
+.SS "void rtp_session_release_sockets (\fBRtpSession\fP * session)"
+Closes the rtp and rtcp sockets, and associated RtpTransport\&. 
+.SS "void rtp_session_reset (\fBRtpSession\fP * session)"
+Reset the session: local and remote addresses are kept\&. It resets timestamp, sequence number, and calls \fBrtp_session_resync()\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.RE
+.PP
+
+.SS "void rtp_session_resync (\fBRtpSession\fP * session)"
+Resynchronize to the incoming RTP streams\&. This can be useful to handle discontinuous timestamps\&. For example, call this function from the timestamp_jump signal handler\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP the rtp session 
+.RE
+.PP
+
+.SS "int rtp_session_rtcp_sendm_raw (\fBRtpSession\fP * session, \fBmblk_t\fP * m)"
+Send the rtcp datagram \fIpacket\fP to the destination set by \fBrtp_session_set_remote_addr()\fP The packet (\fIpacket\fP) is freed once it is sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIm\fP a rtcp packet presented as a mblk_t\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes sent over the network\&. 
+.RE
+.PP
+
+.SS "void rtp_session_rtcp_set_delay_value (struct \fB_RtpSession\fP * s, const unsigned int value)"
+
+.PP
+For \fBtest purpose only\fP, simulates a constant RTT (Round Trip Time) value by setting the LSR field within \fBall\fP returned RTCP output packets\&.
+.br
+\&. The RTT processing involves two RTCP packets exchanged between two different devices\&.
+.br
+In a \fBnormal\fP operation the device 1 issues a SR packets at time T0, hence this packet has a timestamp field set to T0\&. The LSR and DLSR fiels of that packet are not considered here\&. This packet is received by the Device 2 at T1\&. In response, the Device 2 issues another SR or RR packets at T2 with the following fields;
+.IP "\(bu" 2
+a timestamp set to T2\&.
+.IP "\(bu" 2
+a LSR (Last SR packet timestamp) field set to T0 ( this value has been extracted from the first packet)\&.
+.IP "\(bu" 2
+a DLSR (Delay since Last SR packet) field set to (T2 - T1)\&.
+.PP
+This packet is received by The Device 1 at T3\&. So the Device 1 is now able to process the RTT using the formula : RTT = T3 - LSR - DLSR = (T1 - T0) - (T3 - T2)\&.
+.br
+This way of processing is described in par\&. 6\&.4 of the RFC3550 standard\&.
+.PP
+In the \fBtest\fP mode that is enabled by this procedure, the RTCP stack is considered as beeing part of the device 2\&. For setting the RTT to a constant RTT0 value, the Device 2 artificially sets the LSR field of the second packet to (T1 - RTT0), instead of T0 in normal mode\&. The two other fields (timestamp and DLSR) are set as in the normal mode\&. So the Device 1 will process : RTT = T3 - LSR - DLSR = RTT0 + (T3 - T2) that is near to RTT0 is T3 - T2 is small enough\&. 
+.PP
+\fBNote:\fP
+.RS 4
+It is impossible to actually make the mesured RTT strictly equal to RTT0, as the packet trip time (T3 - T2) is unknown when this packet is issued by the Device 2\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP : the rtp session\&. 
+.br
+\fIvalue\fP : The desired RTT test vector value (RTT0)\&. 
+.RE
+.PP
+
+.SS "void rtp_session_rtcp_set_jitter_value (struct \fB_RtpSession\fP * s, const unsigned int value)"
+
+.PP
+For \fBtest purpose only\fP, sets a constant interarrival_jitter value within \fBall\fP RTCP output packets\&.
+.br
+\&. The SR or RR RTCP packet contain an interarrival jitter field\&. After this procedure is called, the interarrival jitter field will be set to a constant value in all output SR or RR packets\&. This parameter will overridden the actual interarrival jitter value that was processed by the RTCP stack\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP : the rtp session\&. 
+.br
+\fIvalue\fP : the interarrival jitter test vector value\&. 
+.RE
+.PP
+
+.SS "void rtp_session_rtcp_set_lost_packet_value (struct \fB_RtpSession\fP * s, const int value)"
+
+.PP
+For \fBtest purpose only\fP, sets a constant lost packet value within \fBall\fP RTCP output packets\&.
+.br
+\&. The SR or RR RTCP packet contain a lost packet field\&. After this procedure is called, the lost packet field will be set to a constant value in all output SR or RR packets\&. This parameter will overridden the actual number of lost packets in the input RTP stream that the RTCP stack had previously processed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP : the rtp session\&. 
+.br
+\fIvalue\fP : the lost packets test vector value\&. 
+.RE
+.PP
+
+.SS "int rtp_session_send_with_ts (\fBRtpSession\fP * session, const uint8_t * buffer, int len, uint32_t userts)"
+Send a rtp datagram to the destination set by \fBrtp_session_set_remote_addr()\fP containing the data from \fIbuffer\fP with timestamp \fIuserts\fP\&. This is a high level function that uses \fBrtp_session_create_packet()\fP and \fBrtp_session_sendm_with_ts()\fP to send the data\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIbuffer\fP a buffer containing the data to be sent in a rtp packet\&. 
+.br
+\fIlen\fP the length of the data buffer, in bytes\&. 
+.br
+\fIuserts\fP the timestamp of the data to be sent\&. Refer to the rfc to know what it is\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes sent over the network\&. 
+.RE
+.PP
+
+.SS "int rtp_session_sendm_with_ts (\fBRtpSession\fP * session, \fBmblk_t\fP * packet, uint32_t timestamp)"
+Send the rtp datagram \fIpacket\fP to the destination set by \fBrtp_session_set_remote_addr()\fP with timestamp \fItimestamp\fP\&. For audio data, the timestamp is the number of the first sample resulting of the data transmitted\&. See rfc1889 for details\&. The packet (\fIpacket\fP) is freed once it is sent\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIpacket\fP a rtp packet presented as a mblk_t\&. 
+.br
+\fItimestamp\fP the timestamp of the data to be sent\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of bytes sent over the network\&. 
+.RE
+.PP
+
+.SS "void rtp_session_set_blocking_mode (\fBRtpSession\fP * session, int yesno)"
+This function implicitely enables the scheduling mode if yesno is TRUE\&. \fBrtp_session_set_blocking_mode()\fP defines the behaviour of the \fBrtp_session_recv_with_ts()\fP and \fBrtp_session_send_with_ts()\fP functions\&. If \fIyesno\fP is TRUE, \fBrtp_session_recv_with_ts()\fP will block until it is time for the packet to be received, according to the timestamp passed to the function\&. After this time, the function returns\&. For \fBrtp_session_send_with_ts()\fP, it will block until it is time for the packet to be sent\&. If \fIyesno\fP is FALSE, then the two functions will return immediately\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIyesno\fP a boolean 
+.RE
+.PP
+
+.SS "void rtp_session_set_connected_mode (\fBRtpSession\fP * session, bool_t yesno)"
+If yesno is TRUE, thus a connect() syscall is done on the socket to the destination address set by \fBrtp_session_set_remote_addr()\fP, or if the session does symmetric rtp (see \fBrtp_session_set_symmetric_rtp()\fP) a the connect() is done to the source address of the first packet received\&. Connecting a socket has effect of rejecting all incoming packets that don't come from the address specified in connect()\&. It also makes ICMP errors (such as connection refused) available to the application\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIyesno\fP a boolean to enable or disable the feature 
+.RE
+.PP
+
+.SS "void rtp_session_set_data (\fBRtpSession\fP * session, void * data)"
+Stores some application specific data into the session, so that it is easy to retrieve it from the signal callbacks using \fBrtp_session_get_data()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIdata\fP an opaque pointer to be stored in the session 
+.RE
+.PP
+
+.SS "int rtp_session_set_dscp (\fBRtpSession\fP * session, int dscp)"
+rtp_session_set_dscp: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIdscp\fP desired DSCP PHB value
+.RE
+.PP
+Sets the DSCP (Differentiated Services Code Point) for outgoing RTP packets\&.
+.PP
+Returns: 0 on success\&. 
+.SS "void rtp_session_set_jitter_compensation (\fBRtpSession\fP * session, int milisec)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a RtpSession 
+.br
+\fImilisec\fP the time interval in milisec to be jitter compensed\&.
+.RE
+.PP
+Sets the time interval for which packet are buffered instead of being delivered to the application\&. 
+.SS "int rtp_session_set_local_addr (\fBRtpSession\fP * session, const char * addr, int rtp_port, int rtcp_port)"
+rtp_session_set_local_addr: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session freshly created\&. 
+.br
+\fIaddr\fP a local IP address in the xxx\&.xxx\&.xxx\&.xxx form\&. 
+.br
+\fIrtp_port\fP a local port or -1 to let oRTP choose the port randomly 
+.br
+\fIrtcp_port\fP a local port or -1 to let oRTP choose the port randomly 
+.PP
+.nf
+    Specify the local addr to be use to listen for rtp packets or to send rtp packet from.
+    In case where the rtp session is send-only, then it is not required to call this function:
+    when calling rtp_session_set_remote_addr(), if no local address has been set, then the
+    default INADRR_ANY (0.0.0.0) IP address with a random port will be used. Calling
+    rtp_session_set_local_addr() is mandatory when the session is recv-only or duplex.
+
+    Returns: 0 on success.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "int rtp_session_set_multicast_loopback (\fBRtpSession\fP * session, int yesno)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIyesno\fP enable multicast loopback
+.RE
+.PP
+Enable multicast loopback\&.
+.PP
+Returns: 0 on success\&. 
+.SS "int rtp_session_set_multicast_ttl (\fBRtpSession\fP * session, int ttl)"
+rtp_session_set_multicast_ttl: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIttl\fP desired Multicast Time-To-Live
+.RE
+.PP
+Sets the TTL (Time-To-Live) for outgoing multicast packets\&.
+.PP
+Returns: 0 on success\&. 
+.SS "int rtp_session_set_payload_type (\fBRtpSession\fP * session, int pt)"
+Sets the expected payload type for incoming packets and payload type to be used for outgoing packets\&. If the actual payload type in incoming packets is different that this expected payload type, thus the 'payload_type_changed' signal is emitted\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIpt\fP the payload type number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 if the payload is not defined\&. 
+.RE
+.PP
+
+.SS "int rtp_session_set_pktinfo (\fBRtpSession\fP * session, int activate)"
+rtp_session_set_pktinfo: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIactivate\fP activation flag (0 to deactivate, other value to activate)
+.RE
+.PP
+(De)activates packet info for incoming and outgoing packets\&.
+.PP
+Returns: 0 on success\&. 
+.SS "void rtp_session_set_profile (\fBRtpSession\fP * session, \fBRtpProfile\fP * profile)"
+Set the RTP profile to be used for the session\&. By default, all session are created by \fBrtp_session_new()\fP are initialized with the AV profile, as defined in RFC 3551\&. The application can set any other profile instead using that function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIprofile\fP a rtp profile 
+.RE
+.PP
+
+.SS "void rtp_session_set_recv_buf_size (\fBRtpSession\fP * session, int bufsize)"
+The default value is UDP_MAX_SIZE bytes, a value which is working for mostly everyone\&. However if your application can make assumption on the sizes of received packet, it can be interesting to set it to a lower value in order to save memory\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIbufsize\fP max size in bytes for receiving packets 
+.RE
+.PP
+
+.SS "int rtp_session_set_recv_payload_type (\fBRtpSession\fP * session, int paytype)"
+Sets the expected payload type for incoming packets\&. If the actual payload type in incoming packets is different that this expected payload type, thus the 'payload_type_changed' signal is emitted\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIpaytype\fP the payload type number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 if the payload is not defined\&. 
+.RE
+.PP
+
+.SS "void rtp_session_set_recv_profile (\fBRtpSession\fP * session, \fBRtpProfile\fP * profile)"
+Set the RTP profile to be used for the receiveing by this session\&. By default, all session are created by \fBrtp_session_new()\fP are initialized with the AV profile, as defined in RFC 3551\&. The application can set any other profile instead using that function\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIprofile\fP a rtp profile 
+.RE
+.PP
+
+.SS "int rtp_session_set_remote_addr (\fBRtpSession\fP * session, const char * addr, int port)"
+rtp_session_set_remote_addr: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session freshly created\&. 
+.br
+\fIaddr\fP a remote IP address in the xxx\&.xxx\&.xxx\&.xxx form\&. 
+.br
+\fIport\fP a remote port\&. 
+.PP
+.nf
+    Sets the remote address of the rtp session, ie the destination address where rtp packet
+    are sent. If the session is recv-only or duplex, it also sets the origin of incoming RTP
+    packets. Rtp packets that don't come from addr:port are discarded.
+
+    Returns: 0 on success.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "int rtp_session_set_remote_addr_full (\fBRtpSession\fP * session, const char * rtp_addr, int rtp_port, const char * rtcp_addr, int rtcp_port)"
+rtp_session_set_remote_addr_full: 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session freshly created\&. 
+.br
+\fIrtp_addr\fP a remote IP address in the xxx\&.xxx\&.xxx\&.xxx form\&. 
+.br
+\fIrtp_port\fP a remote rtp port\&. 
+.br
+\fIrtcp_addr\fP a remote IP address in the xxx\&.xxx\&.xxx\&.xxx form\&. 
+.br
+\fIrtcp_port\fP a remote rtcp port\&. 
+.PP
+.nf
+    Sets the remote address of the rtp session, ie the destination address where rtp packet
+    are sent. If the session is recv-only or duplex, it also sets the origin of incoming RTP
+    packets. Rtp packets that don't come from addr:port are discarded.
+
+    Returns: 0 on success.
+.fi
+.PP
+ 
+.RE
+.PP
+
+.SS "void rtp_session_set_rtcp_report_interval (\fBRtpSession\fP * session, int value_ms)"
+Sets the default interval in milliseconds for RTCP reports emitted by the session 
+.SS "void rtp_session_set_rtp_socket_recv_buffer_size (\fBRtpSession\fP * session, unsigned int size)"
+Set kernel recv maximum buffer size for the rtp socket\&. A value of zero defaults to the operating system default\&. 
+.SS "void rtp_session_set_rtp_socket_send_buffer_size (\fBRtpSession\fP * session, unsigned int size)"
+Set kernel send maximum buffer size for the rtp socket\&. A value of zero defaults to the operating system default\&. 
+.SS "void rtp_session_set_scheduling_mode (\fBRtpSession\fP * session, int yesno)"
+Sets the scheduling mode of the rtp session\&. If \fIyesno\fP is TRUE, the rtp session is in the scheduled mode, that means that you can use \fBsession_set_select()\fP to block until it's time to receive or send on this session according to the timestamp passed to the respective functions\&. You can also use blocking mode (see \fBrtp_session_set_blocking_mode()\fP ), to simply block within the receive and send functions\&. If \fIyesno\fP is FALSE, the ortp scheduler will not manage those sessions, meaning that blocking mode and the use of \fBsession_set_select()\fP for this session are disabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIyesno\fP a boolean to indicate the scheduling mode\&. 
+.RE
+.PP
+
+.SS "int rtp_session_set_send_payload_type (\fBRtpSession\fP * session, int paytype)"
+Sets the payload type of the rtp session\&. It decides of the payload types written in the of the rtp header for the outgoing stream, if the session is SENDRECV or SENDONLY\&. For payload type in incoming packets, the application can be informed by registering for the 'payload_type_changed' signal, so that it can make the necessary changes on the downstream decoder that deals with the payload of the packets\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIpaytype\fP the payload type number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success, -1 if the payload is not defined\&. 
+.RE
+.PP
+
+.SS "void rtp_session_set_send_profile (\fBRtpSession\fP * session, \fBRtpProfile\fP * profile)"
+Set the RTP profile to be used for the sending by this session\&. By default, all session are created by \fBrtp_session_new()\fP are initialized with the AV profile, as defined in RFC 3551\&. The application can set any other profile instead using that function\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIprofile\fP a rtp profile 
+.RE
+.PP
+
+.SS "int rtp_session_set_send_telephone_event_payload_type (\fBRtpSession\fP * session, int paytype)"
+Assign the payload type number for sending telephone-event\&. It is required that a 'telephone-event' PayloadType is assigned in the RtpProfile set for the RtpSession\&. This function is in most of cases useless, unless there is an ambiguity where several PayloadType for 'telephone-event' are present in the RtpProfile\&. This might happen during SIP offeranswer scenarios\&. This function allows to remove any ambiguity by letting the application choose the one to be used\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP the RtpSession 
+.br
+\fIpaytype\fP the payload type number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0, -1 on error\&. 
+.RE
+.PP
+
+.SS "void rtp_session_set_send_ts_offset (\fBRtpSession\fP * s, uint32_t offset)"
+Set an additional timestamps offset for outgoing stream\&.\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIs\fP a rtp session freshly created\&. 
+.br
+\fIoffset\fP a timestamp offset value 
+.RE
+.PP
+
+.SS "void rtp_session_set_seq_number (\fBRtpSession\fP * session, uint16_t seq)"
+Set the initial sequence number for outgoing stream\&.\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session freshly created\&. 
+.br
+\fIseq\fP a 16 bit unsigned number\&. 
+.RE
+.PP
+
+.SS "void rtp_session_set_source_description (\fBRtpSession\fP * session, const char * cname, const char * name, const char * email, const char * phone, const char * loc, const char * tool, const char * note)"
+Set session's SDES item for automatic sending of RTCP compound packets\&. If some items are not specified, use NULL\&. 
+.SS "void rtp_session_set_ssrc (\fBRtpSession\fP * session, uint32_t ssrc)"
+Sets the SSRC for the outgoing stream\&. If not done, a random ssrc is used\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIssrc\fP an unsigned 32bit integer representing the synchronisation source identifier (SSRC)\&. 
+.RE
+.PP
+
+.SS "void rtp_session_set_ssrc_changed_threshold (\fBRtpSession\fP * session, int numpackets)"
+Sets the number of packets containing a new SSRC that will trigger the 'ssrc_changed' callback\&. 
+.SS "void rtp_session_set_symmetric_rtp (\fBRtpSession\fP * session, bool_t yesno)"
+Enable or disable the 'rtp symmetric' hack which consists of the following: after the first packet is received, the source address of the packet is set to be the destination address for all next packets\&. This is useful to pass-through firewalls\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIyesno\fP a boolean to enable or disable the feature 
+.RE
+.PP
+
+.SS "void rtp_session_set_target_upload_bandwidth (\fBRtpSession\fP * session, int target_bandwidth)"
+Define the bandwidth available for RTCP streams based on the upload bandwidth targeted by the application (in bits/s)\&. RTCP streams would not take more than a few percents of the limit bandwidth (around 5%)\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fItarget_bandwidth\fP bandwidth limit in bits/s 
+.RE
+.PP
+
+.SS "void rtp_session_set_time_jump_limit (\fBRtpSession\fP * session, int milisecs)"
+oRTP has the possibility to inform the application through a callback registered with rtp_session_signal_connect about crazy incoming RTP stream that jumps from a timestamp N to N+some_crazy_value\&. This lets the opportunity for the application to reset the session in order to resynchronize, or any other action like stopping the call and reporting an error\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP the rtp session 
+.br
+\fImilisecs\fP a time interval in miliseconds 
+.RE
+.PP
+
+.SS "int rtp_session_signal_connect (\fBRtpSession\fP * session, const char * signal_name, RtpCallback cb, void * user_data)"
+This function provides the way for an application to be informed of various events that may occur during a rtp session\&. \fIsignal_name\fP is a string identifying the event, and \fIcb\fP is a user supplied function in charge of processing it\&. The application can register several callbacks for the same signal, in the limit of \fIRTP_CALLBACK_TABLE_MAX_ENTRIES\fP\&. Here are name and meaning of supported signals types:
+.PP
+'ssrc_changed': the SSRC of the incoming stream has changed\&.
+.PP
+'payload_type_changed': the payload type of the incoming stream has changed\&.
+.PP
+'telephone-event_packet': a telephone-event rtp packet (RFC2833) is received\&.
+.PP
+'telephone-event': a telephone event has occurred\&. This is a high-level shortcut for 'telephone-event_packet'\&.
+.PP
+'network_error': a network error happened on a socket\&. Arguments of the callback functions are a const char * explaining the error, an int errno error code and the user_data as usual\&.
+.PP
+'timestamp_jump': we have received a packet with timestamp in far future compared to last timestamp received\&. The farness of far future is set by rtp_sesssion_set_time_jump_limit() 'rtcp_bye': we have received a RTCP bye packet\&. Arguments of the callback functions are a const char * containing the leaving reason and the user_data\&. 'congestion_state_changed': congestion detector object changed its internal state\&. Arguments of the callback function are previous and new states\&. Returns: 0 on success, -EOPNOTSUPP if the signal does not exists, -1 if no more callbacks can be assigned to the signal type\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIsignal_name\fP the name of a signal 
+.br
+\fIcb\fP a RtpCallback 
+.br
+\fIuser_data\fP a pointer to any data to be passed when invoking the callback\&. 
+.RE
+.PP
+
+.SS "int rtp_session_signal_disconnect_by_callback (\fBRtpSession\fP * session, const char * signal_name, RtpCallback cb)"
+Removes callback function \fIcb\fP to the list of callbacks for signal \fIsignal\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIsignal_name\fP a signal name 
+.br
+\fIcb\fP a callback function\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: 0 on success, a negative value if the callback was not found\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

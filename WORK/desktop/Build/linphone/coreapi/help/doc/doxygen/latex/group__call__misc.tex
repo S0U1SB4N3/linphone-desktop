@@ -1,0 +1,733 @@
+\section{Call misc}
+\label{group__call__misc}\index{Call misc@{Call misc}}
+
+
+Obtaining information about a running call\+: sound volumes, quality indicators.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{group__call__misc_ga3aaf768a67bef73e3798ff1352a03523}} 
+\#define {\bfseries L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+C\+A\+L\+L\+\_\+\+S\+T\+A\+T\+S\+\_\+\+A\+U\+D\+IO}~((int)Linphone\+Stream\+Type\+Audio)
+\item 
+\mbox{\label{group__call__misc_ga7e84e05e3fa3bac2517ce5921558b4db}} 
+\#define {\bfseries L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+C\+A\+L\+L\+\_\+\+S\+T\+A\+T\+S\+\_\+\+V\+I\+D\+EO}~((int)Linphone\+Stream\+Type\+Video)
+\item 
+\mbox{\label{group__call__misc_gafff083100e9c3c915325df68a5d4eafb}} 
+\#define {\bfseries L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+C\+A\+L\+L\+\_\+\+S\+T\+A\+T\+S\+\_\+\+T\+E\+XT}~((int)Linphone\+Stream\+Type\+Text)
+\item 
+\mbox{\label{group__call__misc_ga7bb50ca7cd1f49ebea13eec5136ef00e}} 
+\#define \textbf{ L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+C\+A\+L\+L\+\_\+\+S\+T\+A\+T\+S\+\_\+\+R\+E\+C\+E\+I\+V\+E\+D\+\_\+\+R\+T\+C\+P\+\_\+\+U\+P\+D\+A\+TE}~(1 $<$$<$ 0)
+\begin{DoxyCompactList}\small\item\em received\+\_\+rtcp field of Linphone\+Call\+Stats object has been updated \end{DoxyCompactList}\item 
+\mbox{\label{group__call__misc_ga4418b7518b1479e9329b6de4129ed8c9}} 
+\#define \textbf{ L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+C\+A\+L\+L\+\_\+\+S\+T\+A\+T\+S\+\_\+\+S\+E\+N\+T\+\_\+\+R\+T\+C\+P\+\_\+\+U\+P\+D\+A\+TE}~(1 $<$$<$ 1)
+\begin{DoxyCompactList}\small\item\em sent\+\_\+rtcp field of Linphone\+Call\+Stats object has been updated \end{DoxyCompactList}\item 
+\mbox{\label{group__call__misc_ga0cb8916aede3c1a00a6e9aa176bf4093}} 
+\#define \textbf{ L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+C\+A\+L\+L\+\_\+\+S\+T\+A\+T\+S\+\_\+\+P\+E\+R\+I\+O\+D\+I\+C\+A\+L\+\_\+\+U\+P\+D\+A\+TE}~(1 $<$$<$ 2)
+\begin{DoxyCompactList}\small\item\em Every seconds Linphone\+Call\+Stats object has been updated. \end{DoxyCompactList}\item 
+\mbox{\label{group__call__misc_ga537911929e31ed4ca388ff40a37f97de}} 
+\#define \textbf{ L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+V\+O\+L\+U\+M\+E\+\_\+\+D\+B\+\_\+\+L\+O\+W\+E\+ST}~(-\/120) /$\ast$ W\+A\+R\+N\+I\+N\+G\+: keep this in sync with mediastreamer2/msvolume.\+h $\ast$/
+\begin{DoxyCompactList}\small\item\em Lowest volume measurement that can be returned by \doxyref{linphone\+\_\+call\+\_\+get\+\_\+play\+\_\+volume()}{p.}{group__call__misc_ga7a0ca45e0ff2bf7eaca09e795bba3486} or \doxyref{linphone\+\_\+call\+\_\+get\+\_\+record\+\_\+volume()}{p.}{group__call__misc_gac4f217936eea56196afc126974a92451}, corresponding to pure silence. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \+\_\+\+Linphone\+Call\+Stats \textbf{ Linphone\+Call\+Stats}
+\begin{DoxyCompactList}\small\item\em The Linphone\+Call\+Stats objects carries various statistic informations regarding quality of audio or video streams. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Linphone\+Chat\+Room} $\ast$ \textbf{ linphone\+\_\+call\+\_\+get\+\_\+chat\+\_\+room} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Create a new chat room for messaging from a call if not already existing, else return existing one. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+get\+\_\+play\+\_\+volume} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Get the mesured playback volume level (received from remote) in dbm0. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+get\+\_\+record\+\_\+volume} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Get the mesured record volume level (sent to remote) in dbm0. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+get\+\_\+speaker\+\_\+volume\+\_\+gain} (const \textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Get speaker volume gain. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+call\+\_\+set\+\_\+speaker\+\_\+volume\+\_\+gain} (\textbf{ Linphone\+Call} $\ast$call, float volume)
+\begin{DoxyCompactList}\small\item\em Set speaker volume gain. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+get\+\_\+microphone\+\_\+volume\+\_\+gain} (const \textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Get microphone volume gain. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+call\+\_\+set\+\_\+microphone\+\_\+volume\+\_\+gain} (\textbf{ Linphone\+Call} $\ast$call, float volume)
+\begin{DoxyCompactList}\small\item\em Set microphone volume gain. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+quality} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Obtain real-\/time quality rating of the call. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+get\+\_\+average\+\_\+quality} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Returns call quality averaged over all the duration of the call. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+call\+\_\+start\+\_\+recording} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Start call recording. \end{DoxyCompactList}\item 
+\mbox{\label{group__call__misc_ga2ef01b6aa5dc8ee76a77e5ef399a7907}} 
+void \textbf{ linphone\+\_\+call\+\_\+stop\+\_\+recording} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Stop call recording. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Player} $\ast$ \textbf{ linphone\+\_\+call\+\_\+get\+\_\+player} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Get a player associated with the call to play a local file and stream it to the remote peer. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+call\+\_\+media\+\_\+in\+\_\+progress} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Indicates whether an operation is in progress at the media side. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+call\+\_\+ogl\+\_\+render} (const \textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Call generic Open\+GL render for a given call. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Status} \textbf{ linphone\+\_\+call\+\_\+send\+\_\+info\+\_\+message} (\textbf{ Linphone\+Call} $\ast$call, const \textbf{ Linphone\+Info\+Message} $\ast$info)
+\begin{DoxyCompactList}\small\item\em Send a Linphone\+Info\+Message through an established call. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Call\+Stats} $\ast$ \textbf{ linphone\+\_\+call\+\_\+get\+\_\+stats} (\textbf{ Linphone\+Call} $\ast$call, \textbf{ Linphone\+Stream\+Type} type)
+\begin{DoxyCompactList}\small\item\em Return a copy of the call statistics for a particular stream type. \end{DoxyCompactList}\item 
+\mbox{\label{group__call__misc_ga128ab82e109066e497dded60c94bff30}} 
+\textbf{ Linphone\+Call\+Stats} $\ast$ {\bfseries linphone\+\_\+call\+\_\+get\+\_\+audio\+\_\+stats} (\textbf{ Linphone\+Call} $\ast$call)
+\item 
+\mbox{\label{group__call__misc_ga69c6481746e95a45f7315908d3c24c94}} 
+\textbf{ Linphone\+Call\+Stats} $\ast$ {\bfseries linphone\+\_\+call\+\_\+get\+\_\+video\+\_\+stats} (\textbf{ Linphone\+Call} $\ast$call)
+\item 
+\mbox{\label{group__call__misc_gabb46e3dec18f20efe66507f9121f4c07}} 
+\textbf{ Linphone\+Call\+Stats} $\ast$ {\bfseries linphone\+\_\+call\+\_\+get\+\_\+text\+\_\+stats} (\textbf{ Linphone\+Call} $\ast$call)
+\item 
+void \textbf{ linphone\+\_\+call\+\_\+add\+\_\+callbacks} (\textbf{ Linphone\+Call} $\ast$call, \textbf{ Linphone\+Call\+Cbs} $\ast$cbs)
+\begin{DoxyCompactList}\small\item\em Add a listener in order to be notified of Linphone\+Call events. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+call\+\_\+remove\+\_\+callbacks} (\textbf{ Linphone\+Call} $\ast$call, \textbf{ Linphone\+Call\+Cbs} $\ast$cbs)
+\begin{DoxyCompactList}\small\item\em Remove a listener from a Linphone\+Call. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Call\+Cbs} $\ast$ \textbf{ linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+callbacks} (const \textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Gets the current Linphone\+Call\+Cbs. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+call\+\_\+set\+\_\+params} (\textbf{ Linphone\+Call} $\ast$call, const \textbf{ Linphone\+Call\+Params} $\ast$params)
+\begin{DoxyCompactList}\small\item\em Set call parameters -\/ advanced and not recommended feature -\/ use with caution. \end{DoxyCompactList}\item 
+const \textbf{ Linphone\+Call\+Params} $\ast$ \textbf{ linphone\+\_\+call\+\_\+get\+\_\+params} (\textbf{ Linphone\+Call} $\ast$call)
+\begin{DoxyCompactList}\small\item\em Returns local parameters associated with the call. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Stream\+Type} \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+type} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the type of the stream the stats refer to. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+loss\+\_\+rate} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the local loss rate since last report. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+loss\+\_\+rate} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Gets the remote reported loss rate since last report. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+loss\+\_\+rate} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the local loss rate since last report. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+late\+\_\+rate} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Gets the local late rate since last report. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+interarrival\+\_\+jitter} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Gets the local interarrival jitter. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+interarrival\+\_\+jitter} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Gets the remote reported interarrival jitter. \end{DoxyCompactList}\item 
+\mbox{\label{group__call__misc_ga6593fa8fd15a22a9bb549683f4b4a5d8}} 
+const rtp\+\_\+stats\+\_\+t $\ast$ {\bfseries linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+rtp\+\_\+stats} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\item 
+uint64\+\_\+t \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+late\+\_\+packets\+\_\+cumulative\+\_\+number} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Gets the cumulative number of late packets. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+download\+\_\+bandwidth} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the bandwidth measurement of the received stream, expressed in kbit/s, including I\+P/\+U\+D\+P/\+R\+TP headers. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upload\+\_\+bandwidth} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the bandwidth measurement of the sent stream, expressed in kbit/s, including I\+P/\+U\+D\+P/\+R\+TP headers. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Ice\+State} \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ice\+\_\+state} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the state of I\+CE processing. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Upnp\+State} \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upnp\+\_\+state} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the state of u\+PnP processing. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Address\+Family} \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ip\+\_\+family\+\_\+of\+\_\+remote} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the IP address family of the remote peer. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+jitter\+\_\+buffer\+\_\+size\+\_\+ms} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the jitter buffer size in ms. \end{DoxyCompactList}\item 
+float \textbf{ linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+round\+\_\+trip\+\_\+delay} (const \textbf{ Linphone\+Call\+Stats} $\ast$stats)
+\begin{DoxyCompactList}\small\item\em Get the round trip delay in s. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Obtaining information about a running call\+: sound volumes, quality indicators. 
+
+When a call is running, it is possible to retrieve in real time current measured volumes and quality indicator. 
+
+\subsection{Typedef Documentation}
+\mbox{\label{group__call__misc_ga4d22764ac0e68a8d77670761429b2ee7}} 
+\index{Call misc@{Call misc}!Linphone\+Call\+Stats@{Linphone\+Call\+Stats}}
+\index{Linphone\+Call\+Stats@{Linphone\+Call\+Stats}!Call misc@{Call misc}}
+\subsubsection{Linphone\+Call\+Stats}
+{\footnotesize\ttfamily typedef struct \+\_\+\+Linphone\+Call\+Stats \textbf{ Linphone\+Call\+Stats}}
+
+
+
+The Linphone\+Call\+Stats objects carries various statistic informations regarding quality of audio or video streams. 
+
+To receive these informations periodically and as soon as they are computed, the application is invited to place a \doxyref{Linphone\+Core\+Call\+Stats\+Updated\+Cb}{p.}{group__initializing_gae50aa77005e69df0137977b45bc9e832} callback in the Linphone\+Core\+V\+Table structure it passes for instanciating the Linphone\+Core object (see \doxyref{linphone\+\_\+core\+\_\+new()}{p.}{group__initializing_ga9601ae3c81a1bbf110e84a1a484f3fee} ).
+
+At any time, the application can access last computed statistics using linphone\+\_\+call\+\_\+get\+\_\+audio\+\_\+stats() or linphone\+\_\+call\+\_\+get\+\_\+video\+\_\+stats(). 
+
+\subsection{Function Documentation}
+\mbox{\label{group__call__misc_gaeffe3718b5b59d9614fc2ff26ae35273}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+add\+\_\+callbacks@{linphone\+\_\+call\+\_\+add\+\_\+callbacks}}
+\index{linphone\+\_\+call\+\_\+add\+\_\+callbacks@{linphone\+\_\+call\+\_\+add\+\_\+callbacks}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+add\+\_\+callbacks()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+add\+\_\+callbacks (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call,  }\item[{\textbf{ Linphone\+Call\+Cbs} $\ast$}]{cbs }\end{DoxyParamCaption})}
+
+
+
+Add a listener in order to be notified of Linphone\+Call events. 
+
+Once an event is received, registred Linphone\+Call\+Cbs are invoked sequencially. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em call} & Linphone\+Call object to monitor. \\
+\hline
+\mbox{\tt in}  & {\em cbs} & A Linphone\+Call\+Cbs object holding the callbacks you need. A reference is taken by the Linphone\+Call until you invoke \doxyref{linphone\+\_\+call\+\_\+remove\+\_\+callbacks()}{p.}{group__call__misc_ga37d635aec35a4435c98d9e149b39aab8}. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__misc_gae3aaa85596484c871b57cdefafd7fd9e}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+average\+\_\+quality@{linphone\+\_\+call\+\_\+get\+\_\+average\+\_\+quality}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+average\+\_\+quality@{linphone\+\_\+call\+\_\+get\+\_\+average\+\_\+quality}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+average\+\_\+quality()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+get\+\_\+average\+\_\+quality (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Returns call quality averaged over all the duration of the call. 
+
+See \doxyref{linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+quality()}{p.}{group__call__misc_ga62c7d3d08531b0cc634b797e273a0a73} for more details about quality measurement. \mbox{\label{group__call__misc_gaee196fd489607102f0cadf4d44823fd0}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+chat\+\_\+room@{linphone\+\_\+call\+\_\+get\+\_\+chat\+\_\+room}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+chat\+\_\+room@{linphone\+\_\+call\+\_\+get\+\_\+chat\+\_\+room}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+chat\+\_\+room()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Chat\+Room}$\ast$ linphone\+\_\+call\+\_\+get\+\_\+chat\+\_\+room (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Create a new chat room for messaging from a call if not already existing, else return existing one. 
+
+No reference is given to the caller\+: the chat room will be deleted when the call is ended. 
+\begin{DoxyParams}{Parameters}
+{\em call} & \doxyref{Linphone\+Call}{p.}{group__call__control_gac0a4861d7c4702c64f7106f2b893c69e} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxyref{Linphone\+Chat\+Room}{p.}{group__chatroom_ga37902f3fc715b7f6451c241d0efd0299} where messaging can take place. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga20079cb7b040f2635067a46f66c47605}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+callbacks@{linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+callbacks}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+callbacks@{linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+callbacks}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+callbacks()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Call\+Cbs}$\ast$ linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+callbacks (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Gets the current Linphone\+Call\+Cbs. 
+
+This is meant only to be called from a callback to be able to get the user\+\_\+data associated with the Linphone\+Call\+Cbs that is calling the callback. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em call} & Linphone\+Call object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Linphone\+Call\+Cbs that has called the last callback 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga62c7d3d08531b0cc634b797e273a0a73}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+quality@{linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+quality}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+quality@{linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+quality}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+quality()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+get\+\_\+current\+\_\+quality (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Obtain real-\/time quality rating of the call. 
+
+Based on local R\+TP statistics and R\+T\+CP feedback, a quality rating is computed and updated during all the duration of the call. This function returns its value at the time of the function call. It is expected that the rating is updated at least every 5 seconds or so. The rating is a floating point number comprised between 0 and 5.
+
+4-\/5 = good quality ~\newline
+ 3-\/4 = average quality ~\newline
+ 2-\/3 = poor quality ~\newline
+ 1-\/2 = very poor quality ~\newline
+ 0-\/1 = can\textquotesingle{}t be worse, mostly unusable ~\newline
+
+
+\begin{DoxyReturn}{Returns}
+The function returns -\/1 if no quality measurement is available, for example if no active audio stream exist. Otherwise it returns the quality rating. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga3256a32cca5d521ccf85204eef665f85}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+microphone\+\_\+volume\+\_\+gain@{linphone\+\_\+call\+\_\+get\+\_\+microphone\+\_\+volume\+\_\+gain}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+microphone\+\_\+volume\+\_\+gain@{linphone\+\_\+call\+\_\+get\+\_\+microphone\+\_\+volume\+\_\+gain}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+microphone\+\_\+volume\+\_\+gain()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+get\+\_\+microphone\+\_\+volume\+\_\+gain (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Get microphone volume gain. 
+
+If the sound backend supports it, the returned gain is equal to the gain set with the system mixer. 
+\begin{DoxyParams}{Parameters}
+{\em call} & The call. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Percenatge of the max supported volume gain. Valid values are in [ 0.\+0 \+: 1.\+0 ]. In case of failure, a negative value is returned 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga344534f2019e45da3fc4935b4c662bf9}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+params@{linphone\+\_\+call\+\_\+get\+\_\+params}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+params@{linphone\+\_\+call\+\_\+get\+\_\+params}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+params()}
+{\footnotesize\ttfamily const \textbf{ Linphone\+Call\+Params}$\ast$ linphone\+\_\+call\+\_\+get\+\_\+params (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Returns local parameters associated with the call. 
+
+This is typically the parameters passed at call initiation to \doxyref{linphone\+\_\+core\+\_\+invite\+\_\+address\+\_\+with\+\_\+params()}{p.}{group__call__control_gaf73435cd4252df9cf33af90cae68d813} or \doxyref{linphone\+\_\+call\+\_\+accept\+\_\+with\+\_\+params()}{p.}{group__call__control_ga0a39c513c2e89cdddd034195342befbd}, or some default parameters if no Linphone\+Call\+Params was explicitely passed during call initiation. 
+\begin{DoxyParams}{Parameters}
+{\em call} & the Linphone\+Call object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the call\textquotesingle{}s local parameters. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga7a0ca45e0ff2bf7eaca09e795bba3486}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+play\+\_\+volume@{linphone\+\_\+call\+\_\+get\+\_\+play\+\_\+volume}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+play\+\_\+volume@{linphone\+\_\+call\+\_\+get\+\_\+play\+\_\+volume}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+play\+\_\+volume()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+get\+\_\+play\+\_\+volume (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Get the mesured playback volume level (received from remote) in dbm0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em call} & The call. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float Volume level in percentage. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_gaaf1f1134bafa200eb6cb1333eacbc28d}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+player@{linphone\+\_\+call\+\_\+get\+\_\+player}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+player@{linphone\+\_\+call\+\_\+get\+\_\+player}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+player()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Player}$\ast$ linphone\+\_\+call\+\_\+get\+\_\+player (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Get a player associated with the call to play a local file and stream it to the remote peer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em call} & Linphone\+Call object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Linphone\+Player object 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_gac4f217936eea56196afc126974a92451}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+record\+\_\+volume@{linphone\+\_\+call\+\_\+get\+\_\+record\+\_\+volume}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+record\+\_\+volume@{linphone\+\_\+call\+\_\+get\+\_\+record\+\_\+volume}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+record\+\_\+volume()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+get\+\_\+record\+\_\+volume (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Get the mesured record volume level (sent to remote) in dbm0. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em call} & The call. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+float Volume level in percentage. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga7331e4c738ec41d0eecde98fcd4491c9}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+speaker\+\_\+volume\+\_\+gain@{linphone\+\_\+call\+\_\+get\+\_\+speaker\+\_\+volume\+\_\+gain}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+speaker\+\_\+volume\+\_\+gain@{linphone\+\_\+call\+\_\+get\+\_\+speaker\+\_\+volume\+\_\+gain}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+speaker\+\_\+volume\+\_\+gain()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+get\+\_\+speaker\+\_\+volume\+\_\+gain (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Get speaker volume gain. 
+
+If the sound backend supports it, the returned gain is equal to the gain set with the system mixer. 
+\begin{DoxyParams}{Parameters}
+{\em call} & The call. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Percenatge of the max supported volume gain. Valid values are in [ 0.\+0 \+: 1.\+0 ]. In case of failure, a negative value is returned 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga081f925471dec4430a8515ba0c89076b}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+get\+\_\+stats@{linphone\+\_\+call\+\_\+get\+\_\+stats}}
+\index{linphone\+\_\+call\+\_\+get\+\_\+stats@{linphone\+\_\+call\+\_\+get\+\_\+stats}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+get\+\_\+stats()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Call\+Stats}$\ast$ linphone\+\_\+call\+\_\+get\+\_\+stats (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call,  }\item[{\textbf{ Linphone\+Stream\+Type}}]{type }\end{DoxyParamCaption})}
+
+
+
+Return a copy of the call statistics for a particular stream type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em call} & the call \\
+\hline
+{\em type} & the stream type \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__misc_gac64a301e64dcf00e5487dbb1739d5aaf}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+media\+\_\+in\+\_\+progress@{linphone\+\_\+call\+\_\+media\+\_\+in\+\_\+progress}}
+\index{linphone\+\_\+call\+\_\+media\+\_\+in\+\_\+progress@{linphone\+\_\+call\+\_\+media\+\_\+in\+\_\+progress}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+media\+\_\+in\+\_\+progress()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+call\+\_\+media\+\_\+in\+\_\+progress (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Indicates whether an operation is in progress at the media side. 
+
+It can be a bad idea to initiate signaling operations (adding video, pausing the call, removing video, changing video parameters) while the media is busy in establishing the connection (typically I\+CE connectivity checks). It can result in failures generating loss of time in future operations in the call. Applications are invited to check this function after each call state change to decide whether certain operations are permitted or not. 
+\begin{DoxyParams}{Parameters}
+{\em call} & the call \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if media is busy in establishing the connection, F\+A\+L\+SE otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga63f141edf90ea79f6461952ffd341f2f}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+ogl\+\_\+render@{linphone\+\_\+call\+\_\+ogl\+\_\+render}}
+\index{linphone\+\_\+call\+\_\+ogl\+\_\+render@{linphone\+\_\+call\+\_\+ogl\+\_\+render}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+ogl\+\_\+render()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+ogl\+\_\+render (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Call generic Open\+GL render for a given call. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em call} & The call. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__misc_ga37d635aec35a4435c98d9e149b39aab8}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+remove\+\_\+callbacks@{linphone\+\_\+call\+\_\+remove\+\_\+callbacks}}
+\index{linphone\+\_\+call\+\_\+remove\+\_\+callbacks@{linphone\+\_\+call\+\_\+remove\+\_\+callbacks}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+remove\+\_\+callbacks()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+remove\+\_\+callbacks (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call,  }\item[{\textbf{ Linphone\+Call\+Cbs} $\ast$}]{cbs }\end{DoxyParamCaption})}
+
+
+
+Remove a listener from a Linphone\+Call. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em call} & Linphone\+Call object \\
+\hline
+\mbox{\tt in}  & {\em cbs} & Linphone\+Call\+Cbs object to remove. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__misc_gad3ea082e47656c29ffc26443ce702d49}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+send\+\_\+info\+\_\+message@{linphone\+\_\+call\+\_\+send\+\_\+info\+\_\+message}}
+\index{linphone\+\_\+call\+\_\+send\+\_\+info\+\_\+message@{linphone\+\_\+call\+\_\+send\+\_\+info\+\_\+message}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+send\+\_\+info\+\_\+message()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Status} linphone\+\_\+call\+\_\+send\+\_\+info\+\_\+message (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call,  }\item[{const \textbf{ Linphone\+Info\+Message} $\ast$}]{info }\end{DoxyParamCaption})}
+
+
+
+Send a Linphone\+Info\+Message through an established call. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em call} & the call \\
+\hline
+{\em info} & the info message \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__misc_ga7a0fa668915898492c82558c7f8c176f}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+set\+\_\+microphone\+\_\+volume\+\_\+gain@{linphone\+\_\+call\+\_\+set\+\_\+microphone\+\_\+volume\+\_\+gain}}
+\index{linphone\+\_\+call\+\_\+set\+\_\+microphone\+\_\+volume\+\_\+gain@{linphone\+\_\+call\+\_\+set\+\_\+microphone\+\_\+volume\+\_\+gain}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+set\+\_\+microphone\+\_\+volume\+\_\+gain()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+set\+\_\+microphone\+\_\+volume\+\_\+gain (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call,  }\item[{float}]{volume }\end{DoxyParamCaption})}
+
+
+
+Set microphone volume gain. 
+
+If the sound backend supports it, the new gain will synchronized with the system mixer. 
+\begin{DoxyParams}{Parameters}
+{\em call} & The call. \\
+\hline
+{\em volume} & Percentage of the max supported gain. Valid values are in [ 0.\+0 \+: 1.\+0 ]. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__misc_ga0e8074f1545472346c138244d576de53}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+set\+\_\+params@{linphone\+\_\+call\+\_\+set\+\_\+params}}
+\index{linphone\+\_\+call\+\_\+set\+\_\+params@{linphone\+\_\+call\+\_\+set\+\_\+params}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+set\+\_\+params()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+set\+\_\+params (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call,  }\item[{const \textbf{ Linphone\+Call\+Params} $\ast$}]{params }\end{DoxyParamCaption})}
+
+
+
+Set call parameters -\/ advanced and not recommended feature -\/ use with caution. 
+
+Local call parameters applicable to an outgoing or incoming shall usually be passed to \doxyref{linphone\+\_\+core\+\_\+invite\+\_\+address\+\_\+with\+\_\+params()}{p.}{group__call__control_gaf73435cd4252df9cf33af90cae68d813} or \doxyref{linphone\+\_\+call\+\_\+accept\+\_\+with\+\_\+params()}{p.}{group__call__control_ga0a39c513c2e89cdddd034195342befbd}. However, in some cases it might be desirable from a software design standpoint to modify local parameters outside of the application layer, typically in the purpose of implementing a custom logic including special headers in I\+N\+V\+I\+TE or 200\+Ok requests, driven by a call\+\_\+state\+\_\+changed listener method. This function accepts to assign a new Linphone\+Call\+Params only in Linphone\+Call\+Outgoing\+Init and Linphone\+Call\+Incoming\+Received states. 
+\begin{DoxyParams}{Parameters}
+{\em call} & the Linphone\+Call object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__misc_gaa89248d3121edc343324d298297db354}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+set\+\_\+speaker\+\_\+volume\+\_\+gain@{linphone\+\_\+call\+\_\+set\+\_\+speaker\+\_\+volume\+\_\+gain}}
+\index{linphone\+\_\+call\+\_\+set\+\_\+speaker\+\_\+volume\+\_\+gain@{linphone\+\_\+call\+\_\+set\+\_\+speaker\+\_\+volume\+\_\+gain}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+set\+\_\+speaker\+\_\+volume\+\_\+gain()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+set\+\_\+speaker\+\_\+volume\+\_\+gain (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call,  }\item[{float}]{volume }\end{DoxyParamCaption})}
+
+
+
+Set speaker volume gain. 
+
+If the sound backend supports it, the new gain will synchronized with the system mixer. 
+\begin{DoxyParams}{Parameters}
+{\em call} & The call. \\
+\hline
+{\em volume} & Percentage of the max supported gain. Valid values are in [ 0.\+0 \+: 1.\+0 ]. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__call__misc_gaa92c7b4c3443ff4ae29f7b57f57cfd35}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+start\+\_\+recording@{linphone\+\_\+call\+\_\+start\+\_\+recording}}
+\index{linphone\+\_\+call\+\_\+start\+\_\+recording@{linphone\+\_\+call\+\_\+start\+\_\+recording}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+start\+\_\+recording()}
+{\footnotesize\ttfamily void linphone\+\_\+call\+\_\+start\+\_\+recording (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Call} $\ast$}]{call }\end{DoxyParamCaption})}
+
+
+
+Start call recording. 
+
+The output file where audio is recorded must be previously specified with \doxyref{linphone\+\_\+call\+\_\+params\+\_\+set\+\_\+record\+\_\+file()}{p.}{group__call__control_ga10fff1a05dc9c63249ba59dc7240d803}. \mbox{\label{group__call__misc_gae8435a45f96caefc4284575ead6ec636}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+download\+\_\+bandwidth@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+download\+\_\+bandwidth}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+download\+\_\+bandwidth@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+download\+\_\+bandwidth}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+download\+\_\+bandwidth()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+download\+\_\+bandwidth (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the bandwidth measurement of the received stream, expressed in kbit/s, including I\+P/\+U\+D\+P/\+R\+TP headers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The bandwidth measurement of the received stream in kbit/s. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_gab00ca0a997c7f740948d474062fc663c}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ice\+\_\+state@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ice\+\_\+state}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ice\+\_\+state@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ice\+\_\+state}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ice\+\_\+state()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Ice\+State} linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ice\+\_\+state (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the state of I\+CE processing. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state of I\+CE processing. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_gaddfcf9f63906d60b775ae5d080c27ca2}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ip\+\_\+family\+\_\+of\+\_\+remote@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ip\+\_\+family\+\_\+of\+\_\+remote}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ip\+\_\+family\+\_\+of\+\_\+remote@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ip\+\_\+family\+\_\+of\+\_\+remote}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ip\+\_\+family\+\_\+of\+\_\+remote()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Address\+Family} linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+ip\+\_\+family\+\_\+of\+\_\+remote (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the IP address family of the remote peer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The IP address family of the remote peer. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga3978b332ce2cb55bdbdc50c7e203de3d}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+jitter\+\_\+buffer\+\_\+size\+\_\+ms@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+jitter\+\_\+buffer\+\_\+size\+\_\+ms}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+jitter\+\_\+buffer\+\_\+size\+\_\+ms@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+jitter\+\_\+buffer\+\_\+size\+\_\+ms}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+jitter\+\_\+buffer\+\_\+size\+\_\+ms()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+jitter\+\_\+buffer\+\_\+size\+\_\+ms (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the jitter buffer size in ms. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The jitter buffer size in ms. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga96bb81b7deab4a7225524fa8a85c2a09}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+late\+\_\+packets\+\_\+cumulative\+\_\+number@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+late\+\_\+packets\+\_\+cumulative\+\_\+number}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+late\+\_\+packets\+\_\+cumulative\+\_\+number@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+late\+\_\+packets\+\_\+cumulative\+\_\+number}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+late\+\_\+packets\+\_\+cumulative\+\_\+number()}
+{\footnotesize\ttfamily uint64\+\_\+t linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+late\+\_\+packets\+\_\+cumulative\+\_\+number (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Gets the cumulative number of late packets. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The cumulative number of late packets 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_gaa92d37ad6efc20f9236db1e9d357014b}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+late\+\_\+rate@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+late\+\_\+rate}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+late\+\_\+rate@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+late\+\_\+rate}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+late\+\_\+rate()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+late\+\_\+rate (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Gets the local late rate since last report. 
+
+\begin{DoxyReturn}{Returns}
+The local late rate 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga104bc8aa663b6dd37620bc3dfffaf2db}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+loss\+\_\+rate@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+loss\+\_\+rate}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+loss\+\_\+rate@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+loss\+\_\+rate}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+loss\+\_\+rate()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+local\+\_\+loss\+\_\+rate (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the local loss rate since last report. 
+
+\begin{DoxyReturn}{Returns}
+The local loss rate 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_gab8971fd9762ed6d98efc6bed24c46f2c}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+interarrival\+\_\+jitter@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+interarrival\+\_\+jitter}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+interarrival\+\_\+jitter@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+interarrival\+\_\+jitter}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+interarrival\+\_\+jitter()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+interarrival\+\_\+jitter (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Gets the remote reported interarrival jitter. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The interarrival jitter at last received receiver report 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga09496e326d7e82e4b15dbc427d384aa0}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+loss\+\_\+rate@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+loss\+\_\+rate}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+loss\+\_\+rate@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+loss\+\_\+rate}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+loss\+\_\+rate()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+receiver\+\_\+loss\+\_\+rate (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Gets the remote reported loss rate since last report. 
+
+\begin{DoxyReturn}{Returns}
+The receiver loss rate 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_gabca589928a87a1de7d8f13ee44988023}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+round\+\_\+trip\+\_\+delay@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+round\+\_\+trip\+\_\+delay}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+round\+\_\+trip\+\_\+delay@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+round\+\_\+trip\+\_\+delay}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+round\+\_\+trip\+\_\+delay()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+round\+\_\+trip\+\_\+delay (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the round trip delay in s. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The round trip delay in s. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_gad83339416964a8b8b4a49cf17fc6cab1}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+interarrival\+\_\+jitter@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+interarrival\+\_\+jitter}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+interarrival\+\_\+jitter@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+interarrival\+\_\+jitter}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+interarrival\+\_\+jitter()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+interarrival\+\_\+jitter (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Gets the local interarrival jitter. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The interarrival jitter at last emitted sender report 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga4f67c9815b880887550873c592174b97}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+loss\+\_\+rate@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+loss\+\_\+rate}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+loss\+\_\+rate@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+loss\+\_\+rate}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+loss\+\_\+rate()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+sender\+\_\+loss\+\_\+rate (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the local loss rate since last report. 
+
+\begin{DoxyReturn}{Returns}
+The sender loss rate 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga170aa3e2a5f7deb7e43e4cfe1aabb9cd}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+type@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+type}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+type@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+type}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+type()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Stream\+Type} linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+type (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the type of the stream the stats refer to. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The type of the stream the stats refer to 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_ga75d75cf70afffebed65b9bca234120db}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upload\+\_\+bandwidth@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upload\+\_\+bandwidth}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upload\+\_\+bandwidth@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upload\+\_\+bandwidth}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upload\+\_\+bandwidth()}
+{\footnotesize\ttfamily float linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upload\+\_\+bandwidth (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the bandwidth measurement of the sent stream, expressed in kbit/s, including I\+P/\+U\+D\+P/\+R\+TP headers. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The bandwidth measurement of the sent stream in kbit/s. 
+\end{DoxyReturn}
+\mbox{\label{group__call__misc_gab475f621ff3a8a2e2d6faee0ca608f79}} 
+\index{Call misc@{Call misc}!linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upnp\+\_\+state@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upnp\+\_\+state}}
+\index{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upnp\+\_\+state@{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upnp\+\_\+state}!Call misc@{Call misc}}
+\subsubsection{linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upnp\+\_\+state()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Upnp\+State} linphone\+\_\+call\+\_\+stats\+\_\+get\+\_\+upnp\+\_\+state (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Call\+Stats} $\ast$}]{stats }\end{DoxyParamCaption})}
+
+
+
+Get the state of u\+PnP processing. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em stats} & Linphone\+Call\+Stats object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The state of u\+PnP processing. 
+\end{DoxyReturn}

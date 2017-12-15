@@ -1,0 +1,7 @@
+lib/liblinphone*.dylib
+include/linphone/*
+lib/linphone*.lib
+share/doc/linphone-*
+share/Linphone/cmake/*
+share/sounds/linphone/*
+share/locale/*/LC_MESSAGES/linphone.mo

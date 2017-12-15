@@ -1,0 +1,44 @@
+\section{\+\_\+\+Rtp\+Transport Struct Reference}
+\label{struct__RtpTransport}\index{\+\_\+\+Rtp\+Transport@{\+\_\+\+Rtp\+Transport}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct__RtpTransport_aa9a37fd678e5577da718c181e218af58}} 
+void $\ast$ {\bfseries data}
+\item 
+\mbox{\label{struct__RtpTransport_a90447010bada94c3d7edf997d9790860}} 
+struct \textbf{ \+\_\+\+Rtp\+Session} $\ast$ {\bfseries session}
+\item 
+\mbox{\label{struct__RtpTransport_ab81998e21f63188cde8d95ea2d9bc6f0}} 
+ortp\+\_\+socket\+\_\+t($\ast$ {\bfseries t\+\_\+getsocket} )(struct \textbf{ \+\_\+\+Rtp\+Transport} $\ast$t)
+\item 
+\mbox{\label{struct__RtpTransport_a063bd0739c9215ea37674469417576d8}} 
+int($\ast$ {\bfseries t\+\_\+sendto} )(struct \textbf{ \+\_\+\+Rtp\+Transport} $\ast$t, \textbf{ mblk\+\_\+t} $\ast$msg, int flags, const struct sockaddr $\ast$to, socklen\+\_\+t tolen)
+\item 
+\mbox{\label{struct__RtpTransport_aec29d4dec70fbf4422f5e97f9812f4a1}} 
+int($\ast$ {\bfseries t\+\_\+recvfrom} )(struct \textbf{ \+\_\+\+Rtp\+Transport} $\ast$t, \textbf{ mblk\+\_\+t} $\ast$msg, int flags, struct sockaddr $\ast$from, socklen\+\_\+t $\ast$fromlen)
+\item 
+\mbox{\label{struct__RtpTransport_ac5ba81ab92acf8dfea775eadc6ec73b2}} 
+void($\ast$ {\bfseries t\+\_\+close} )(struct \textbf{ \+\_\+\+Rtp\+Transport} $\ast$transport)
+\item 
+void($\ast$ \textbf{ t\+\_\+destroy} )(struct \textbf{ \+\_\+\+Rtp\+Transport} $\ast$transport)
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{struct__RtpTransport_ab6fe16fad12f5b0cf258cc24839cb4d9}} 
+\index{\+\_\+\+Rtp\+Transport@{\+\_\+\+Rtp\+Transport}!t\+\_\+destroy@{t\+\_\+destroy}}
+\index{t\+\_\+destroy@{t\+\_\+destroy}!\+\_\+\+Rtp\+Transport@{\+\_\+\+Rtp\+Transport}}
+\subsubsection{t\+\_\+destroy}
+{\footnotesize\ttfamily void($\ast$ \+\_\+\+Rtp\+Transport\+::t\+\_\+destroy) (struct \textbf{ \+\_\+\+Rtp\+Transport} $\ast$transport)}
+
+Mandatory callback responsible of freeing the \doxyref{\+\_\+\+Rtp\+Transport}{p.}{struct__RtpTransport} object A\+ND the pointer. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em transport} & \doxyref{\+\_\+\+Rtp\+Transport}{p.}{struct__RtpTransport} object to free. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ rtpsession.\+h}\end{DoxyCompactItemize}

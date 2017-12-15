@@ -1,0 +1,48 @@
+.TH "_RtpTransport" 3 "Fri Dec 15 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_RtpTransport
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "void * \fBdata\fP"
+.br
+.ti -1c
+.RI "struct \fB_RtpSession\fP * \fBsession\fP"
+.br
+.ti -1c
+.RI "ortp_socket_t(* \fBt_getsocket\fP )(struct \fB_RtpTransport\fP *t)"
+.br
+.ti -1c
+.RI "int(* \fBt_sendto\fP )(struct \fB_RtpTransport\fP *t, \fBmblk_t\fP *msg, int flags, const struct sockaddr *to, socklen_t tolen)"
+.br
+.ti -1c
+.RI "int(* \fBt_recvfrom\fP )(struct \fB_RtpTransport\fP *t, \fBmblk_t\fP *msg, int flags, struct sockaddr *from, socklen_t *fromlen)"
+.br
+.ti -1c
+.RI "void(* \fBt_close\fP )(struct \fB_RtpTransport\fP *transport)"
+.br
+.ti -1c
+.RI "void(* \fBt_destroy\fP )(struct \fB_RtpTransport\fP *transport)"
+.br
+.in -1c
+.SH "Field Documentation"
+.PP 
+.SS "void(* _RtpTransport::t_destroy) (struct \fB_RtpTransport\fP *transport)"
+Mandatory callback responsible of freeing the \fB_RtpTransport\fP object AND the pointer\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fItransport\fP \fB_RtpTransport\fP object to free\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

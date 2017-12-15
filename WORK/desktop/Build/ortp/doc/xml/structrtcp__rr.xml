@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrtcp__rr" kind="struct" language="C++" prot="public">
+    <compoundname>rtcp_rr</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrtcp__rr_1a9d969d153214fded838a160cf7317251" prot="public" static="no" mutable="no">
+        <type><ref refid="structrtcp__common__header" kindref="compound">rtcp_common_header_t</ref></type>
+        <definition>rtcp_common_header_t rtcp_rr::ch</definition>
+        <argsstring></argsstring>
+        <name>ch</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="395" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__rr_1aaee1180e3c60db1a541861165d59b9cb" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_rr::ssrc</definition>
+        <argsstring></argsstring>
+        <name>ssrc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="396" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="396" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__rr_1a1ddec5fee11bb1a6b8d562c677744e08" prot="public" static="no" mutable="no">
+        <type><ref refid="structreport__block" kindref="compound">report_block_t</ref></type>
+        <definition>report_block_t rtcp_rr::rb[1]</definition>
+        <argsstring>[1]</argsstring>
+        <name>rb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="397" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="590">
+        <label>report_block</label>
+        <link refid="structreport__block"/>
+      </node>
+      <node id="589">
+        <label>rtcp_common_header</label>
+        <link refid="structrtcp__common__header"/>
+      </node>
+      <node id="588">
+        <label>rtcp_rr</label>
+        <link refid="structrtcp__rr"/>
+        <childnode refid="589" relation="usage">
+          <edgelabel>ch</edgelabel>
+        </childnode>
+        <childnode refid="590" relation="usage">
+          <edgelabel>rb</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="394" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="394" bodyend="398"/>
+    <listofallmembers>
+      <member refid="structrtcp__rr_1a9d969d153214fded838a160cf7317251" prot="public" virt="non-virtual"><scope>rtcp_rr</scope><name>ch</name></member>
+      <member refid="structrtcp__rr_1a1ddec5fee11bb1a6b8d562c677744e08" prot="public" virt="non-virtual"><scope>rtcp_rr</scope><name>rb</name></member>
+      <member refid="structrtcp__rr_1aaee1180e3c60db1a541861165d59b9cb" prot="public" virt="non-virtual"><scope>rtcp_rr</scope><name>ssrc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

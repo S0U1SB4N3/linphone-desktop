@@ -1,0 +1,400 @@
+.TH "b64.h" 3 "Fri Dec 15 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+b64.h \- [C/C++] Header file for the b64 library\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stddef\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBB64_VER_B64_H_B64_MAJOR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_B64_H_B64_MINOR\fP   5"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_B64_H_B64_REVISION\fP   4"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_B64_H_B64_EDIT\fP   28"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_0_1\fP   0x01000100"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_0_2\fP   0x01000200"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_0_3\fP   0x01000300"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_1_1\fP   0x01010100"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_1_2\fP   0x01010200"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_1_3\fP   0x01010300"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_2_1\fP   0x01020100"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_2_2\fP   0x01020200"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_2_3\fP   0x01020300"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_2_4\fP   0x01020400"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_2_5\fP   0x01020500"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_2_6\fP   0x01020600"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_2_7\fP   0x01020700"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_3_1\fP   0x010301ff"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_3_2\fP   0x010302ff"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_3_3\fP   0x010303ff"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_1_3_4\fP   0x010304ff"
+.br
+.ti -1c
+.RI "#define \fBB64_VER\fP   B64_VER_1_3_4"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_MAJOR\fP   1"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_MINOR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBB64_VER_REVISION\fP   4"
+.br
+.ti -1c
+.RI "#define \fBB64_NO_NAMESPACE\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef enum \fBB64_RC\fP \fBB64_RC\fP"
+.br
+.ti -1c
+.RI "typedef enum \fBB64_FLAGS\fP \fBB64_FLAGS\fP"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBB64_RC\fP { \fBB64_RC_OK\fP = 0, \fBB64_RC_INSUFFICIENT_BUFFER\fP = 1, \fBB64_RC_TRUNCATED_INPUT\fP = 2, \fBB64_RC_DATA_ERROR\fP = 3, \fBB64_max_RC_value\fP }
+.RI "Return codes (from \fBb64_encode2()\fP / \fBb64_decode2()\fP) ""
+.br
+.ti -1c
+.RI "enum \fBB64_FLAGS\fP { \fBB64_F_LINE_LEN_USE_PARAM\fP = 0x0000, \fBB64_F_LINE_LEN_INFINITE\fP = 0x0001, \fBB64_F_LINE_LEN_64\fP = 0x0002, \fBB64_F_LINE_LEN_76\fP = 0x0003, \fBB64_F_LINE_LEN_MASK\fP = 0x000f, \fBB64_F_STOP_ON_NOTHING\fP = 0x0000, \fBB64_F_STOP_ON_UNKNOWN_CHAR\fP = 0x0100, \fBB64_F_STOP_ON_UNEXPECTED_WS\fP = 0x0200, \fBB64_F_STOP_ON_BAD_CHAR\fP = 0x0300 }
+.RI "Coding behaviour modification flags (for \fBb64_encode2()\fP / \fBb64_decode2()\fP) ""
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "size_t \fBb64_encode\fP (void const *src, size_t srcSize, char *dest, size_t destLen)"
+.br
+.RI "Encodes a block of binary data into Base-64\&. "
+.ti -1c
+.RI "size_t \fBb64_encode2\fP (void const *src, size_t srcSize, char *dest, size_t destLen, unsigned flags, int lineLen, \fBB64_RC\fP *rc)"
+.br
+.RI "Encodes a block of binary data into Base-64\&. "
+.ti -1c
+.RI "size_t \fBb64_decode\fP (char const *src, size_t srcLen, void *dest, size_t destSize)"
+.br
+.RI "Decodes a sequence of Base-64 into a block of binary data\&. "
+.ti -1c
+.RI "size_t \fBb64_decode2\fP (char const *src, size_t srcLen, void *dest, size_t destSize, unsigned flags, char const **badChar, \fBB64_RC\fP *rc)"
+.br
+.RI "Decodes a sequence of Base-64 into a block of binary data\&. "
+.ti -1c
+.RI "char const  * \fBb64_getErrorString\fP (\fBB64_RC\fP code)"
+.br
+.RI "Returns the textual description of the error\&. "
+.ti -1c
+.RI "size_t \fBb64_getErrorStringLength\fP (\fBB64_RC\fP code)"
+.br
+.RI "Returns the length of the textual description of the error\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+[C/C++] Header file for the b64 library\&. 
+
+
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define B64_VER   B64_VER_1_3_4"
+The current composite version number of b64 
+.SS "#define B64_VER_MAJOR   1"
+The major version number of b64 
+.SS "#define B64_VER_MINOR   3"
+The minor version number of b64 
+.SS "#define B64_VER_REVISION   4"
+The revision version number of b64 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBB64_FLAGS\fP"
+
+.PP
+Coding behaviour modification flags (for \fBb64_encode2()\fP / \fBb64_decode2()\fP) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIB64_F_LINE_LEN_USE_PARAM \fP\fP
+Uses the lineLen parameter to \fBb64_encode2()\fP\&. Ignored by \fBb64_decode2()\fP\&. 
+.TP
+\fB\fIB64_F_LINE_LEN_INFINITE \fP\fP
+Ignores the lineLen parameter to \fBb64_encode2()\fP\&. Line length is infinite\&. Ignored by \fBb64_decode2()\fP\&. 
+.TP
+\fB\fIB64_F_LINE_LEN_64 \fP\fP
+Ignores the lineLen parameter to \fBb64_encode2()\fP\&. Line length is 64\&. Ignored by \fBb64_decode2()\fP\&. 
+.TP
+\fB\fIB64_F_LINE_LEN_76 \fP\fP
+Ignores the lineLen parameter to \fBb64_encode2()\fP\&. Line length is 76\&. Ignored by \fBb64_decode2()\fP\&. 
+.TP
+\fB\fIB64_F_LINE_LEN_MASK \fP\fP
+Mask for testing line length flags to \fBb64_encode2()\fP\&. Ignored by \fBb64_encode2()\fP\&. 
+.TP
+\fB\fIB64_F_STOP_ON_NOTHING \fP\fP
+Decoding ignores all invalid characters in the input data\&. Ignored by \fBb64_encode2()\fP\&. 
+.TP
+\fB\fIB64_F_STOP_ON_UNKNOWN_CHAR \fP\fP
+Causes decoding to break if any non-Base-64 [a-zA-Z0-9=+/], non-whitespace character is encountered\&. Ignored by \fBb64_encode2()\fP\&. 
+.TP
+\fB\fIB64_F_STOP_ON_UNEXPECTED_WS \fP\fP
+Causes decoding to break if any unexpected whitespace is encountered\&. Ignored by \fBb64_encode2()\fP\&. 
+.TP
+\fB\fIB64_F_STOP_ON_BAD_CHAR \fP\fP
+Causes decoding to break if any non-Base-64 [a-zA-Z0-9=+/] character is encountered\&. Ignored by \fBb64_encode2()\fP\&. 
+.SS "enum \fBB64_RC\fP"
+
+.PP
+Return codes (from \fBb64_encode2()\fP / \fBb64_decode2()\fP) 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIB64_RC_OK \fP\fP
+Operation was successful\&. 
+.TP
+\fB\fIB64_RC_INSUFFICIENT_BUFFER \fP\fP
+The given translation buffer was not of sufficient size\&. 
+.TP
+\fB\fIB64_RC_TRUNCATED_INPUT \fP\fP
+The input did not represent a fully formed stream of octet couplings\&. 
+.TP
+\fB\fIB64_RC_DATA_ERROR \fP\fP
+Invalid data\&. 
+.SH "Function Documentation"
+.PP 
+.SS "size_t b64_decode (char const * src, size_t srcLen, void * dest, size_t destSize)"
+
+.PP
+Decodes a sequence of Base-64 into a block of binary data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsrc\fP Pointer to the Base-64 block to be decoded\&. May not be NULL, except when \fCdest\fP is NULL, in which case it is ignored\&. If \fCdest\fP is NULL, and \fCsrc\fP is \fBnot\fP NULL, then the returned value is calculated exactly, otherwise a value is returned that is guaranteed to be large enough to hold the decoded block\&.
+.br
+\fIsrcLen\fP Length of block to be encoded\&. Must be an integral of 4, the Base-64 encoding quantum, otherwise the Base-64 block is assumed to be invalid 
+.br
+\fIdest\fP Pointer to the buffer into which the result is to be written\&. May be NULL, in which case the function returns the required length 
+.br
+\fIdestSize\fP Length of the buffer into which the result is to be written\&. Must be at least as large as that indicated by the return value from \fCb64_decode(src, srcSize, NULL, 0)\fP, even in the case where the encoded form contains a number of characters that will be ignored, resulting in a lower total length of converted form\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than \fCdestSize\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+The function returns the required length if \fCdest\fP is NULL\&. The returned size might be larger than the actual required size, but will never be smaller\&.
+.PP
+The behaviour of both \fBb64_encode2()\fP and \fBb64_decode2()\fP are undefined if the line length is not a multiple of 4\&.
+.PP
+Threading: The function is fully re-entrant\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+b64::decode() 
+.RE
+.PP
+
+.SS "size_t b64_decode2 (char const * src, size_t srcLen, void * dest, size_t destSize, unsigned flags, char const ** badChar, \fBB64_RC\fP * rc)"
+
+.PP
+Decodes a sequence of Base-64 into a block of binary data\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsrc\fP Pointer to the Base-64 block to be decoded\&. May not be NULL, except when \fCdest\fP is NULL, in which case it is ignored\&. If \fCdest\fP is NULL, and \fCsrc\fP is \fBnot\fP NULL, then the returned value is calculated exactly, otherwise a value is returned that is guaranteed to be large enough to hold the decoded block\&.
+.br
+\fIsrcLen\fP Length of block to be encoded\&. Must be an integral of 4, the Base-64 encoding quantum, otherwise the Base-64 block is assumed to be invalid 
+.br
+\fIdest\fP Pointer to the buffer into which the result is to be written\&. May be NULL, in which case the function returns the required length 
+.br
+\fIdestSize\fP Length of the buffer into which the result is to be written\&. Must be at least as large as that indicated by the return value from \fCb64_decode(src, srcSize, NULL, 0)\fP, even in the case where the encoded form contains a number of characters that will be ignored, resulting in a lower total length of converted form\&. 
+.br
+\fIflags\fP A combination of the B64_FLAGS enumeration, that moderate the behaviour of the function\&. 
+.br
+\fIrc\fP The return code representing the status of the operation\&. May be NULL\&. 
+.br
+\fIbadChar\fP If the flags parameter does not contain B64_F_STOP_ON_NOTHING, this parameter specifies the address of a pointer that will be set to point to any character in the sequence that stops the parsing, as dictated by the flags parameter\&. May be NULL\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than \fCdestSize\fP, or a bad character stopped parsing\&.
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+The function returns the required length if \fCdest\fP is NULL\&. The returned size might be larger than the actual required size, but will never be smaller\&.
+.PP
+The behaviour of both \fBb64_encode2()\fP and \fBb64_decode2()\fP are undefined if the line length is not a multiple of 4\&.
+.PP
+Threading: The function is fully re-entrant\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+b64::decode() 
+.RE
+.PP
+
+.SS "size_t b64_encode (void const * src, size_t srcSize, char * dest, size_t destLen)"
+
+.PP
+Encodes a block of binary data into Base-64\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsrc\fP Pointer to the block to be encoded\&. May not be NULL, except when \fCdest\fP is NULL, in which case it is ignored\&. 
+.br
+\fIsrcSize\fP Length of block to be encoded 
+.br
+\fIdest\fP Pointer to the buffer into which the result is to be written\&. May be NULL, in which case the function returns the required length 
+.br
+\fIdestLen\fP Length of the buffer into which the result is to be written\&. Must be at least as large as that indicated by the return value from \fBb64_encode(NULL, srcSize, NULL, 0)\fP\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than \fCdestLen\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+The function returns the required length if \fCdest\fP is NULL
+.PP
+The function returns the required length if \fCdest\fP is NULL\&. The returned size might be larger than the actual required size, but will never be smaller\&.
+.PP
+Threading: The function is fully re-entrant\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+b64::encode() 
+.RE
+.PP
+
+.SS "size_t b64_encode2 (void const * src, size_t srcSize, char * dest, size_t destLen, unsigned flags, int lineLen, \fBB64_RC\fP * rc)"
+
+.PP
+Encodes a block of binary data into Base-64\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsrc\fP Pointer to the block to be encoded\&. May not be NULL, except when \fCdest\fP is NULL, in which case it is ignored\&. 
+.br
+\fIsrcSize\fP Length of block to be encoded 
+.br
+\fIdest\fP Pointer to the buffer into which the result is to be written\&. May be NULL, in which case the function returns the required length 
+.br
+\fIdestLen\fP Length of the buffer into which the result is to be written\&. Must be at least as large as that indicated by the return value from \fBb64_encode2(NULL, srcSize, NULL, 0, flags, lineLen, rc)\fP\&. 
+.br
+\fIflags\fP A combination of the B64_FLAGS enumeration, that moderate the behaviour of the function 
+.br
+\fIlineLen\fP If the flags parameter contains B64_F_LINE_LEN_USE_PARAM, then this parameter represents the length of the lines into which the encoded form is split, with a hard line break ('\\r\\n')\&. If this value is 0, then the line is not split\&. If it is <0, then the RFC-1113 recommended line length of 64 is used 
+.br
+\fIrc\fP The return code representing the status of the operation\&. May be NULL\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if the size of the buffer was insufficient, or the length of the converted buffer was longer than \fCdestLen\fP 
+.RE
+.PP
+\fBNote:\fP
+.RS 4
+The function returns the required length if \fCdest\fP is NULL\&. The returned size might be larger than the actual required size, but will never be smaller\&.
+.PP
+Threading: The function is fully re-entrant\&.
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+b64::encode() 
+.RE
+.PP
+
+.SS "char const* b64_getErrorString (\fBB64_RC\fP code)"
+
+.PP
+Returns the textual description of the error\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcode\fP The \fBerror code\fP 
+.RE
+.PP
+
+.SS "size_t b64_getErrorStringLength (\fBB64_RC\fP code)"
+
+.PP
+Returns the length of the textual description of the error\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBb64_getErrorString()\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcode\fP The \fBerror code\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

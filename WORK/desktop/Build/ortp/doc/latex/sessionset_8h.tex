@@ -1,0 +1,155 @@
+\section{sessionset.\+h File Reference}
+\label{sessionset_8h}\index{sessionset.\+h@{sessionset.\+h}}
+
+
+Sending and receiving multiple streams together with only one thread.  
+
+
+{\ttfamily \#include $<$ortp/rtpsession.\+h$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \textbf{ \+\_\+\+Session\+Set}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{sessionset_8h_a752729ed862257cade2d7339536fefcc}} 
+\#define {\bfseries O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+S\+ET}(d,  s)~F\+D\+\_\+\+S\+ET(d, s)
+\item 
+\mbox{\label{sessionset_8h_a2ff84cd0b62e99851c4cae2ee96b14cd}} 
+\#define {\bfseries O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+C\+LR}(d,  s)~F\+D\+\_\+\+C\+LR(d, s)
+\item 
+\mbox{\label{sessionset_8h_adfeeaaadca7d1ef3407a6a54a34de49c}} 
+\#define {\bfseries O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+I\+S\+S\+ET}(d,  s)~F\+D\+\_\+\+I\+S\+S\+ET(d, s)
+\item 
+\mbox{\label{sessionset_8h_adfb984b3e67b0e3377a59edec3c5223c}} 
+\#define {\bfseries O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+Z\+E\+RO}(s)~F\+D\+\_\+\+Z\+E\+RO(s)
+\item 
+\mbox{\label{sessionset_8h_a36cfdc2ea6ff577831cb1e779f65350e}} 
+\#define {\bfseries session\+\_\+set\+\_\+init}(ss)~O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+Z\+E\+RO(\&(ss)-\/$>$rtpset)
+\item 
+\#define \textbf{ session\+\_\+set\+\_\+set}(ss,  rtpsession)~O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+S\+ET((rtpsession)-\/$>$mask\+\_\+pos,\&(ss)-\/$>$rtpset)
+\item 
+\#define \textbf{ session\+\_\+set\+\_\+is\+\_\+set}(ss,  rtpsession)~O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+I\+S\+S\+ET((rtpsession)-\/$>$mask\+\_\+pos,\&(ss)-\/$>$rtpset)
+\item 
+\#define \textbf{ session\+\_\+set\+\_\+clr}(ss,  rtpsession)~O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+C\+LR((rtpsession)-\/$>$mask\+\_\+pos,\&(ss)-\/$>$rtpset)
+\item 
+\mbox{\label{sessionset_8h_a5023d9a63527201ca71e001a581a0f5a}} 
+\#define {\bfseries session\+\_\+set\+\_\+copy}(dest,  src)~memcpy(\&(dest)-\/$>$rtpset,\&(src)-\/$>$rtpset,sizeof(ortp\+\_\+fd\+\_\+set))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{sessionset_8h_a061b125afed726878a4769e93a1e1abb}} 
+typedef fd\+\_\+set {\bfseries ortp\+\_\+fd\+\_\+set}
+\item 
+\mbox{\label{sessionset_8h_af9d4ac068a63463e080b8289dc01ab29}} 
+typedef struct \textbf{ \+\_\+\+Session\+Set} {\bfseries Session\+Set}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Session\+Set} $\ast$ \textbf{ session\+\_\+set\+\_\+new} (void)
+\item 
+void \textbf{ session\+\_\+set\+\_\+destroy} (\textbf{ Session\+Set} $\ast$set)
+\item 
+int \textbf{ session\+\_\+set\+\_\+select} (\textbf{ Session\+Set} $\ast$recvs, \textbf{ Session\+Set} $\ast$sends, \textbf{ Session\+Set} $\ast$errors)
+\item 
+\mbox{\label{sessionset_8h_ae7e8d7afdbd8814e4f29c5a718f40c2e}} 
+int {\bfseries session\+\_\+set\+\_\+timedselect} (\textbf{ Session\+Set} $\ast$recvs, \textbf{ Session\+Set} $\ast$sends, \textbf{ Session\+Set} $\ast$errors, struct timeval $\ast$timeout)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sending and receiving multiple streams together with only one thread. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{sessionset_8h_a74b2d46bb4c18f418ca99dd5ec443502}} 
+\index{sessionset.\+h@{sessionset.\+h}!session\+\_\+set\+\_\+clr@{session\+\_\+set\+\_\+clr}}
+\index{session\+\_\+set\+\_\+clr@{session\+\_\+set\+\_\+clr}!sessionset.\+h@{sessionset.\+h}}
+\subsubsection{session\+\_\+set\+\_\+clr}
+{\footnotesize\ttfamily \#define session\+\_\+set\+\_\+clr(\begin{DoxyParamCaption}\item[{}]{ss,  }\item[{}]{rtpsession }\end{DoxyParamCaption})~O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+C\+LR((rtpsession)-\/$>$mask\+\_\+pos,\&(ss)-\/$>$rtpset)}
+
+Removes the session from the set. 
+\begin{DoxyParams}{Parameters}
+{\em ss} & a set of sessions. \\
+\hline
+{\em rtpsession} & a rtp session. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{sessionset_8h_a9d100df1b61766039dd0d1625794d8f5}} 
+\index{sessionset.\+h@{sessionset.\+h}!session\+\_\+set\+\_\+is\+\_\+set@{session\+\_\+set\+\_\+is\+\_\+set}}
+\index{session\+\_\+set\+\_\+is\+\_\+set@{session\+\_\+set\+\_\+is\+\_\+set}!sessionset.\+h@{sessionset.\+h}}
+\subsubsection{session\+\_\+set\+\_\+is\+\_\+set}
+{\footnotesize\ttfamily \#define session\+\_\+set\+\_\+is\+\_\+set(\begin{DoxyParamCaption}\item[{}]{ss,  }\item[{}]{rtpsession }\end{DoxyParamCaption})~O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+I\+S\+S\+ET((rtpsession)-\/$>$mask\+\_\+pos,\&(ss)-\/$>$rtpset)}
+
+This macro tests if the session is part of the set. 1 is returned if true, 0 else. 
+\begin{DoxyParams}{Parameters}
+{\em ss} & a set \\
+\hline
+{\em rtpsession} & a rtp session \\
+\hline
+\end{DoxyParams}
+\mbox{\label{sessionset_8h_a6c2e5af222e014af8cd572cae29da5c5}} 
+\index{sessionset.\+h@{sessionset.\+h}!session\+\_\+set\+\_\+set@{session\+\_\+set\+\_\+set}}
+\index{session\+\_\+set\+\_\+set@{session\+\_\+set\+\_\+set}!sessionset.\+h@{sessionset.\+h}}
+\subsubsection{session\+\_\+set\+\_\+set}
+{\footnotesize\ttfamily \#define session\+\_\+set\+\_\+set(\begin{DoxyParamCaption}\item[{}]{ss,  }\item[{}]{rtpsession }\end{DoxyParamCaption})~O\+R\+T\+P\+\_\+\+F\+D\+\_\+\+S\+ET((rtpsession)-\/$>$mask\+\_\+pos,\&(ss)-\/$>$rtpset)}
+
+This macro adds the rtp session to the set. 
+\begin{DoxyParams}{Parameters}
+{\em ss} & a set (Session\+Set object) \\
+\hline
+{\em rtpsession} & a Rtp\+Session \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Function Documentation}
+\mbox{\label{sessionset_8h_a7b977891b1a456e636c16ec964840687}} 
+\index{sessionset.\+h@{sessionset.\+h}!session\+\_\+set\+\_\+destroy@{session\+\_\+set\+\_\+destroy}}
+\index{session\+\_\+set\+\_\+destroy@{session\+\_\+set\+\_\+destroy}!sessionset.\+h@{sessionset.\+h}}
+\subsubsection{session\+\_\+set\+\_\+destroy()}
+{\footnotesize\ttfamily void session\+\_\+set\+\_\+destroy (\begin{DoxyParamCaption}\item[{\textbf{ Session\+Set} $\ast$}]{set }\end{DoxyParamCaption})}
+
+Frees a Session\+Set.
+
+Destroys a session set. \mbox{\label{sessionset_8h_a2e827fa3e1534317404d28aa3df73775}} 
+\index{sessionset.\+h@{sessionset.\+h}!session\+\_\+set\+\_\+new@{session\+\_\+set\+\_\+new}}
+\index{session\+\_\+set\+\_\+new@{session\+\_\+set\+\_\+new}!sessionset.\+h@{sessionset.\+h}}
+\subsubsection{session\+\_\+set\+\_\+new()}
+{\footnotesize\ttfamily \textbf{ Session\+Set}$\ast$ session\+\_\+set\+\_\+new (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Allocates and initialize a new empty session set.
+
+\begin{DoxyReturn}{Returns}
+the empty session set. 
+\end{DoxyReturn}
+\mbox{\label{sessionset_8h_af199d48aa2a51ff81a772aef2c477e2e}} 
+\index{sessionset.\+h@{sessionset.\+h}!session\+\_\+set\+\_\+select@{session\+\_\+set\+\_\+select}}
+\index{session\+\_\+set\+\_\+select@{session\+\_\+set\+\_\+select}!sessionset.\+h@{sessionset.\+h}}
+\subsubsection{session\+\_\+set\+\_\+select()}
+{\footnotesize\ttfamily int session\+\_\+set\+\_\+select (\begin{DoxyParamCaption}\item[{\textbf{ Session\+Set} $\ast$}]{recvs,  }\item[{\textbf{ Session\+Set} $\ast$}]{sends,  }\item[{\textbf{ Session\+Set} $\ast$}]{errors }\end{DoxyParamCaption})}
+
+This function performs similarly as libc select() function, but performs on Rtp\+Session instead of file descriptors. \doxyref{session\+\_\+set\+\_\+select()}{p.}{sessionset_8h_af199d48aa2a51ff81a772aef2c477e2e} suspends the calling process until some events arrive on one of the three sets passed in argument. Two of the sets can be N\+U\+LL. The first set {\itshape recvs} is interpreted as a set of Rtp\+Session waiting for receive events\+: a new buffer (perhaps empty) is availlable on one or more sessions of the set, or the last receive operation with \doxyref{rtp\+\_\+session\+\_\+recv\+\_\+with\+\_\+ts()}{p.}{rtpsession_8h_a2e325c908712601c051a7eedc59ca935} would have finished if it were in blocking mode. The second set is interpreted as a set of Rtp\+Session waiting for send events, i.\+e. the last \doxyref{rtp\+\_\+session\+\_\+send\+\_\+with\+\_\+ts()}{p.}{rtpsession_8h_a3ed3f377bf06840f0e32c9b9a76bad10} call on a session would have finished if it were in blocking mode.
+
+When some events arrived on some of sets, then the function returns and sets are changed to indicate the sessions where events happened. Sessions can be added to sets using \doxyref{session\+\_\+set\+\_\+set()}{p.}{sessionset_8h_a6c2e5af222e014af8cd572cae29da5c5}, a session has to be tested to be part of a set using \doxyref{session\+\_\+set\+\_\+is\+\_\+set()}{p.}{sessionset_8h_a9d100df1b61766039dd0d1625794d8f5}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em recvs} & a set of rtp sessions to be watched for read events \\
+\hline
+{\em sends} & a set of rtp sessions to be watched for write events \\
+\hline
+{\em errors} & a set of rtp sessions to be watched for errors \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\+: the number of sessions on which the selected events happened. 
+\end{DoxyReturn}

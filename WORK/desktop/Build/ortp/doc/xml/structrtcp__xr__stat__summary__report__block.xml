@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrtcp__xr__stat__summary__report__block" kind="struct" language="C++" prot="public">
+    <compoundname>rtcp_xr_stat_summary_report_block</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1a5ef04b1a2afd402cfea6488757aa890c" prot="public" static="no" mutable="no">
+        <type><ref refid="structrtcp__xr__generic__block__header" kindref="compound">rtcp_xr_generic_block_header_t</ref></type>
+        <definition>rtcp_xr_generic_block_header_t rtcp_xr_stat_summary_report_block::bh</definition>
+        <argsstring></argsstring>
+        <name>bh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="253" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="253" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1ae05dcd1316b0452218f8be76281399c2" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_stat_summary_report_block::ssrc</definition>
+        <argsstring></argsstring>
+        <name>ssrc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="254" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1a5c4cf0a0be1bdf5598d197c5c3162c47" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_xr_stat_summary_report_block::begin_seq</definition>
+        <argsstring></argsstring>
+        <name>begin_seq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="255" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1aaa23d0172c2196780d0cf866a675e6aa" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_xr_stat_summary_report_block::end_seq</definition>
+        <argsstring></argsstring>
+        <name>end_seq</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="256" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1a305e77bf8c2a3be27743f0ac675a5963" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_stat_summary_report_block::lost_packets</definition>
+        <argsstring></argsstring>
+        <name>lost_packets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="257" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="257" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1ac4669082eef9d61c8505586a6dac0e83" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_stat_summary_report_block::dup_packets</definition>
+        <argsstring></argsstring>
+        <name>dup_packets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="258" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="258" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1a128c8191929b5e2b11e32d65d593b1dd" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_stat_summary_report_block::min_jitter</definition>
+        <argsstring></argsstring>
+        <name>min_jitter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="259" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1aaa68cbf4705baa52b6057ba0c92d2f7a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_stat_summary_report_block::max_jitter</definition>
+        <argsstring></argsstring>
+        <name>max_jitter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="260" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="260" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1ab969eafc1054e87db8b06711ad06a988" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_stat_summary_report_block::mean_jitter</definition>
+        <argsstring></argsstring>
+        <name>mean_jitter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="261" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1aa84f4474ccafcdee7cbe4e763244b025" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_stat_summary_report_block::dev_jitter</definition>
+        <argsstring></argsstring>
+        <name>dev_jitter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="262" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="262" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1a52c5e9443168405cea7f93e30d593913" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_stat_summary_report_block::min_ttl_or_hl</definition>
+        <argsstring></argsstring>
+        <name>min_ttl_or_hl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="263" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1ae04519e0e87a6b7a537026118583c5c3" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_stat_summary_report_block::max_ttl_or_hl</definition>
+        <argsstring></argsstring>
+        <name>max_ttl_or_hl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="264" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1a26f60283d10b5b663e9142910ceabf72" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_stat_summary_report_block::mean_ttl_or_hl</definition>
+        <argsstring></argsstring>
+        <name>mean_ttl_or_hl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="265" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__stat__summary__report__block_1a3315ed8278efedaa8b875ca593873475" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_xr_stat_summary_report_block::dev_ttl_or_hl</definition>
+        <argsstring></argsstring>
+        <name>dev_ttl_or_hl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="266" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="266" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="612">
+        <label>rtcp_xr_generic_block_header</label>
+        <link refid="structrtcp__xr__generic__block__header"/>
+      </node>
+      <node id="611">
+        <label>rtcp_xr_stat_summary_report_block</label>
+        <link refid="structrtcp__xr__stat__summary__report__block"/>
+        <childnode refid="612" relation="usage">
+          <edgelabel>bh</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="252" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="252" bodyend="267"/>
+    <listofallmembers>
+      <member refid="structrtcp__xr__stat__summary__report__block_1a5c4cf0a0be1bdf5598d197c5c3162c47" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>begin_seq</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1a5ef04b1a2afd402cfea6488757aa890c" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>bh</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1aa84f4474ccafcdee7cbe4e763244b025" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>dev_jitter</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1a3315ed8278efedaa8b875ca593873475" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>dev_ttl_or_hl</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1ac4669082eef9d61c8505586a6dac0e83" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>dup_packets</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1aaa23d0172c2196780d0cf866a675e6aa" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>end_seq</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1a305e77bf8c2a3be27743f0ac675a5963" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>lost_packets</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1aaa68cbf4705baa52b6057ba0c92d2f7a" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>max_jitter</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1ae04519e0e87a6b7a537026118583c5c3" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>max_ttl_or_hl</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1ab969eafc1054e87db8b06711ad06a988" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>mean_jitter</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1a26f60283d10b5b663e9142910ceabf72" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>mean_ttl_or_hl</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1a128c8191929b5e2b11e32d65d593b1dd" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>min_jitter</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1a52c5e9443168405cea7f93e30d593913" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>min_ttl_or_hl</name></member>
+      <member refid="structrtcp__xr__stat__summary__report__block_1ae05dcd1316b0452218f8be76281399c2" prot="public" virt="non-virtual"><scope>rtcp_xr_stat_summary_report_block</scope><name>ssrc</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

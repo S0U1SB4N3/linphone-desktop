@@ -1,0 +1,44 @@
+\section{\+\_\+\+Rtp\+Transport\+Modifier Struct Reference}
+\label{struct__RtpTransportModifier}\index{\+\_\+\+Rtp\+Transport\+Modifier@{\+\_\+\+Rtp\+Transport\+Modifier}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct__RtpTransportModifier_a46f54f53513de50ed3e115177f122946}} 
+void $\ast$ {\bfseries data}
+\item 
+\mbox{\label{struct__RtpTransportModifier_a6bdff79df6224ba5d7fcb459e3785203}} 
+struct \textbf{ \+\_\+\+Rtp\+Session} $\ast$ {\bfseries session}
+\item 
+\mbox{\label{struct__RtpTransportModifier_a39c6e5169168aca73aa26456fd727304}} 
+struct \textbf{ \+\_\+\+Rtp\+Transport} $\ast$ {\bfseries transport}
+\item 
+\mbox{\label{struct__RtpTransportModifier_a3a25f1412f4dd28ad21191a8bd7e7d23}} 
+int($\ast$ {\bfseries t\+\_\+process\+\_\+on\+\_\+send} )(struct \textbf{ \+\_\+\+Rtp\+Transport\+Modifier} $\ast$t, \textbf{ mblk\+\_\+t} $\ast$msg)
+\item 
+\mbox{\label{struct__RtpTransportModifier_ae728953b36660076f682a1c6fed5feda}} 
+int($\ast$ {\bfseries t\+\_\+process\+\_\+on\+\_\+receive} )(struct \textbf{ \+\_\+\+Rtp\+Transport\+Modifier} $\ast$t, \textbf{ mblk\+\_\+t} $\ast$msg)
+\item 
+\mbox{\label{struct__RtpTransportModifier_a499ef58f38b2175c274af06a023ffd56}} 
+void($\ast$ {\bfseries t\+\_\+process\+\_\+on\+\_\+schedule} )(struct \textbf{ \+\_\+\+Rtp\+Transport\+Modifier} $\ast$t)
+\item 
+void($\ast$ \textbf{ t\+\_\+destroy} )(struct \textbf{ \+\_\+\+Rtp\+Transport\+Modifier} $\ast$transport)
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\label{struct__RtpTransportModifier_af32da70d72fa74e8d7cfb7244061a5f1}} 
+\index{\+\_\+\+Rtp\+Transport\+Modifier@{\+\_\+\+Rtp\+Transport\+Modifier}!t\+\_\+destroy@{t\+\_\+destroy}}
+\index{t\+\_\+destroy@{t\+\_\+destroy}!\+\_\+\+Rtp\+Transport\+Modifier@{\+\_\+\+Rtp\+Transport\+Modifier}}
+\subsubsection{t\+\_\+destroy}
+{\footnotesize\ttfamily void($\ast$ \+\_\+\+Rtp\+Transport\+Modifier\+::t\+\_\+destroy) (struct \textbf{ \+\_\+\+Rtp\+Transport\+Modifier} $\ast$transport)}
+
+Mandatory callback responsible of freeing the \doxyref{\+\_\+\+Rtp\+Transport\+Modifier}{p.}{struct__RtpTransportModifier} A\+ND the pointer. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em transport} & \doxyref{\+\_\+\+Rtp\+Transport\+Modifier}{p.}{struct__RtpTransportModifier} object to free. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ rtpsession.\+h}\end{DoxyCompactItemize}

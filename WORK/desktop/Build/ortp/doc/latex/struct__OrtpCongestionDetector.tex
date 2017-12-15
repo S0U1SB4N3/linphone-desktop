@@ -1,0 +1,43 @@
+\section{\+\_\+\+Ortp\+Congestion\+Detector Struct Reference}
+\label{struct__OrtpCongestionDetector}\index{\+\_\+\+Ortp\+Congestion\+Detector@{\+\_\+\+Ortp\+Congestion\+Detector}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_ad2ae9d07a6a797f08022ac7a65704f56}} 
+\textbf{ Ortp\+Kalman\+R\+LS} {\bfseries rls}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_a910ce2b06ca7354b871c88464acadeba}} 
+uint64\+\_\+t {\bfseries start\+\_\+ms}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_a1b5143b1ee29c3ee0088b4491b627a0f}} 
+uint64\+\_\+t {\bfseries last\+\_\+packet\+\_\+recv}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_ac579138368749c17e91fe98b01f34107}} 
+uint32\+\_\+t {\bfseries loss\+\_\+begin}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_ad8a15b630e7e6b5b0fc437dbf16c61ea}} 
+uint32\+\_\+t {\bfseries seq\+\_\+begin}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_a4707c344c16832a77854092bee0cc946}} 
+bool\+\_\+t {\bfseries initialized}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_a1b0a1f38e293d40ad169bfb38dc76592}} 
+bool\+\_\+t {\bfseries is\+\_\+in\+\_\+congestion}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_a21ed04a9aadd05b2598bfc9b09464e28}} 
+bool\+\_\+t {\bfseries skip}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_a966f1874a2ac0cb576e443c0c2114b3c}} 
+bool\+\_\+t {\bfseries too\+\_\+much\+\_\+loss}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_a5eb1c3063d03054b278a8f14ed528da1}} 
+Ortp\+Congestion\+State {\bfseries state}
+\item 
+\mbox{\label{struct__OrtpCongestionDetector_a1b723b9668479d71fcda5ef2ed353cc5}} 
+struct \textbf{ \+\_\+\+Rtp\+Session} $\ast$ {\bfseries session}
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+congestiondetector.\+h\end{DoxyCompactItemize}

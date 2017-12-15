@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrtcp__xr__rcvr__rtt__report__block" kind="struct" language="C++" prot="public">
+    <compoundname>rtcp_xr_rcvr_rtt_report_block</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrtcp__xr__rcvr__rtt__report__block_1ac9941071a0ca27916aa17ec00a3a110a" prot="public" static="no" mutable="no">
+        <type><ref refid="structrtcp__xr__generic__block__header" kindref="compound">rtcp_xr_generic_block_header_t</ref></type>
+        <definition>rtcp_xr_generic_block_header_t rtcp_xr_rcvr_rtt_report_block::bh</definition>
+        <argsstring></argsstring>
+        <name>bh</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="236" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="236" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__rcvr__rtt__report__block_1aa7162326f9a1f99ab7797a5c40a52e9a" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_rcvr_rtt_report_block::ntp_timestamp_msw</definition>
+        <argsstring></argsstring>
+        <name>ntp_timestamp_msw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="237" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="237" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__xr__rcvr__rtt__report__block_1ad9b1a3cc08ac9984fe991fa156fb3657" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t rtcp_xr_rcvr_rtt_report_block::ntp_timestamp_lsw</definition>
+        <argsstring></argsstring>
+        <name>ntp_timestamp_lsw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="238" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="238" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="608">
+        <label>rtcp_xr_rcvr_rtt_report_block</label>
+        <link refid="structrtcp__xr__rcvr__rtt__report__block"/>
+        <childnode refid="609" relation="usage">
+          <edgelabel>bh</edgelabel>
+        </childnode>
+      </node>
+      <node id="609">
+        <label>rtcp_xr_generic_block_header</label>
+        <link refid="structrtcp__xr__generic__block__header"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="235" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="235" bodyend="239"/>
+    <listofallmembers>
+      <member refid="structrtcp__xr__rcvr__rtt__report__block_1ac9941071a0ca27916aa17ec00a3a110a" prot="public" virt="non-virtual"><scope>rtcp_xr_rcvr_rtt_report_block</scope><name>bh</name></member>
+      <member refid="structrtcp__xr__rcvr__rtt__report__block_1ad9b1a3cc08ac9984fe991fa156fb3657" prot="public" virt="non-virtual"><scope>rtcp_xr_rcvr_rtt_report_block</scope><name>ntp_timestamp_lsw</name></member>
+      <member refid="structrtcp__xr__rcvr__rtt__report__block_1aa7162326f9a1f99ab7797a5c40a52e9a" prot="public" virt="non-virtual"><scope>rtcp_xr_rcvr_rtt_report_block</scope><name>ntp_timestamp_msw</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

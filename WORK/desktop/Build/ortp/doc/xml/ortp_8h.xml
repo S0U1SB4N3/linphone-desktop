@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="ortp_8h" kind="file" language="C++">
+    <compoundname>ortp.h</compoundname>
+    <includes refid="logging_8h" local="yes">ortp/logging.h</includes>
+    <includes refid="rtpsession_8h" local="yes">ortp/rtpsession.h</includes>
+    <includes refid="sessionset_8h" local="yes">ortp/sessionset.h</includes>
+    <includedby refid="avprofile_8c" local="no">avprofile.c</includedby>
+    <includedby refid="dll__entry_8c" local="yes">dll_entry.c</includedby>
+    <includedby refid="event_8c" local="yes">event.c</includedby>
+    <includedby refid="jitterctl_8c" local="yes">jitterctl.c</includedby>
+    <includedby refid="netsim_8c" local="yes">netsim.c</includedby>
+    <includedby refid="ortp_8c" local="yes">ortp.c</includedby>
+    <includedby refid="posixtimer_8c" local="yes">posixtimer.c</includedby>
+    <includedby refid="rtcp_8c" local="yes">rtcp.c</includedby>
+    <includedby refid="rtcp__fb_8c" local="yes">rtcp_fb.c</includedby>
+    <includedby refid="rtcp__xr_8c" local="yes">rtcp_xr.c</includedby>
+    <includedby refid="rtcpparse_8c" local="yes">rtcpparse.c</includedby>
+    <includedby refid="rtpparse_8c" local="yes">rtpparse.c</includedby>
+    <includedby refid="rtpprofile_8c" local="yes">rtpprofile.c</includedby>
+    <includedby refid="rtpsession_8c" local="yes">rtpsession.c</includedby>
+    <includedby refid="rtpsession__inet_8c" local="yes">rtpsession_inet.c</includedby>
+    <includedby refid="rtptimer_8c" local="yes">rtptimer.c</includedby>
+    <includedby refid="scheduler_8c" local="no">scheduler.c</includedby>
+    <includedby refid="sessionset_8c" local="no">sessionset.c</includedby>
+    <includedby refid="telephonyevents_8c" local="no">telephonyevents.c</includedby>
+    <incdepgraph>
+      <node id="134">
+        <label>ortp/payloadtype.h</label>
+        <link refid="payloadtype_8h"/>
+      </node>
+      <node id="135">
+        <label>ortp/rtpprofile.h</label>
+        <link refid="rtpprofile_8h"/>
+      </node>
+      <node id="130">
+        <label>ortp.h</label>
+        <link refid="ortp_8h"/>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>ortp/rtpsession.h</label>
+        <link refid="rtpsession_8h"/>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+      </node>
+      <node id="136">
+        <label>ortp/sessionset.h</label>
+        <link refid="sessionset_8h"/>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="138" relation="include">
+        </childnode>
+        <childnode refid="139" relation="include">
+        </childnode>
+      </node>
+      <node id="138">
+        <label>sys/types.h</label>
+      </node>
+      <node id="139">
+        <label>unistd.h</label>
+      </node>
+      <node id="131">
+        <label>ortp/logging.h</label>
+        <link refid="logging_8h"/>
+      </node>
+      <node id="133">
+        <label>bctoolbox/list.h</label>
+      </node>
+      <node id="137">
+        <label>sys/time.h</label>
+      </node>
+    </incdepgraph>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="ortp_8h_1af34bbd80494df1ad8c62d2a79fcf8190" prot="public" static="no" mutable="no">
+        <type><ref refid="structrtp__stats" kindref="compound">rtp_stats_t</ref></type>
+        <definition>rtp_stats_t ortp_global_stats</definition>
+        <argsstring></argsstring>
+        <name>ortp_global_stats</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="84" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="ortp_8h_1aa04f26740f760e228c4443fbfdd4f5ea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool_t</type>
+        <definition>bool_t ortp_min_version_required</definition>
+        <argsstring>(int major, int minor, int micro)</argsstring>
+        <name>ortp_min_version_required</name>
+        <param>
+          <type>int</type>
+          <declname>major</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minor</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>micro</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function give the opportunity to programs to check if the libortp they link to has the minimum version number they need.</para><para>Returns: true if ortp has a version number greater or equal than the required one. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="75" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="196" bodyend="199"/>
+      </memberdef>
+      <memberdef kind="function" id="ortp_8h_1ab415c0a8f20298e82e76dcea13a745b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>ortp_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the oRTP library. You should call this function first before using oRTP API. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="76" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="73" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="ortp_8h_1a5e141585e75d0b7fca43797088f2b04e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_scheduler_init</definition>
+        <argsstring>(void)</argsstring>
+        <name>ortp_scheduler_init</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialize the oRTP scheduler. You only have to do that if you intend to use the scheduled mode of the RtpSession in your application. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="77" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="94" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="ortp_8h_1abb4e3cb949ec64f2ff4a50c093d86852" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_exit</definition>
+        <argsstring>(void)</argsstring>
+        <name>ortp_exit</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Gracefully uninitialize the library, including shutdowning the scheduler if it was started. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="78" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="118" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="ortp_8h_1a65efb3c4d9efc26f0b8e76723814e52f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_global_stats_reset</definition>
+        <argsstring>(void)</argsstring>
+        <name>ortp_global_stats_reset</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="86" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="177" bodyend="179"/>
+      </memberdef>
+      <memberdef kind="function" id="ortp_8h_1ad85430e4ac2d58bed0161c8085e16ee3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structrtp__stats" kindref="compound">rtp_stats_t</ref> *</type>
+        <definition>rtp_stats_t* ortp_get_global_stats</definition>
+        <argsstring>(void)</argsstring>
+        <name>ortp_get_global_stats</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="87" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="181" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="ortp_8h_1ad2233a20047fbd0912caad6dc2e1291e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void ortp_global_stats_display</definition>
+        <argsstring>(void)</argsstring>
+        <name>ortp_global_stats_display</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Display global statistics (cumulative for all RtpSession) </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="89" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="146" bodyend="152"/>
+      </memberdef>
+      <memberdef kind="function" id="ortp_8h_1ad4b2b584a56ce6251ba3b6cf9df02c3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtp_stats_display</definition>
+        <argsstring>(const rtp_stats_t *stats, const char *header)</argsstring>
+        <name>rtp_stats_display</name>
+        <param>
+          <type>const <ref refid="structrtp__stats" kindref="compound">rtp_stats_t</ref> *</type>
+          <declname>stats</declname>
+        </param>
+        <param>
+          <type>const char *</type>
+          <declname>header</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Print RTP statistics. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="90" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="157" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="ortp_8h_1a9840903a5632f77514f0e12af04f3abf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void rtp_stats_reset</definition>
+        <argsstring>(rtp_stats_t *stats)</argsstring>
+        <name>rtp_stats_reset</name>
+        <param>
+          <type><ref refid="structrtp__stats" kindref="compound">rtp_stats_t</ref> *</type>
+          <declname>stats</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h" line="91" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/ortp.c" bodystart="185" bodyend="187"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>General purpose library functions. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>The<sp/>oRTP<sp/>library<sp/>is<sp/>an<sp/>RTP<sp/>(Realtime<sp/>Transport<sp/>Protocol<sp/>-<sp/>rfc3550)<sp/>implementation<sp/>with<sp/>additional<sp/>features.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2017<sp/>Belledonne<sp/>Communications<sp/>SARL</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>Foundation,<sp/>Inc.,<sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/>02111-1307,<sp/>USA.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="preprocessor">#ifndef<sp/>ORTP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="logging_8h" kindref="compound">ortp/logging.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="rtpsession_8h" kindref="compound">ortp/rtpsession.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="sessionset_8h" kindref="compound">ortp/sessionset.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal">ORTP_PUBLIC<sp/>bool_t<sp/><ref refid="ortp_8h_1aa04f26740f760e228c4443fbfdd4f5ea" kindref="member">ortp_min_version_required</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>major,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>minor,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>micro);</highlight></codeline>
+<codeline lineno="76"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ortp_8h_1ab415c0a8f20298e82e76dcea13a745b5" kindref="member">ortp_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="77"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ortp_8h_1a5e141585e75d0b7fca43797088f2b04e" kindref="member">ortp_scheduler_init</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="78"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ortp_8h_1abb4e3cb949ec64f2ff4a50c093d86852" kindref="member">ortp_exit</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight><highlight class="comment">/****************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight><highlight class="comment">/*statistics<sp/>api*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="comment">/****************/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="structrtp__stats" kindref="compound">rtp_stats_t</ref><sp/>ortp_global_stats;</highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>ortp_global_stats_reset(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="87"><highlight class="normal">ORTP_PUBLIC<sp/><ref refid="structrtp__stats" kindref="compound">rtp_stats_t</ref><sp/>*ortp_get_global_stats(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ortp_8h_1ad2233a20047fbd0912caad6dc2e1291e" kindref="member">ortp_global_stats_display</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="ortp_8h_1ad4b2b584a56ce6251ba3b6cf9df02c3e" kindref="member">rtp_stats_display</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structrtp__stats" kindref="compound">rtp_stats_t</ref><sp/>*stats,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>*header);</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>rtp_stats_reset(<ref refid="structrtp__stats" kindref="compound">rtp_stats_t</ref><sp/>*stats);</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/ortp.h"/>
+  </compounddef>
+</doxygen>

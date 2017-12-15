@@ -1,0 +1,917 @@
+\section{Tunnel}
+\label{group__tunnel}\index{Tunnel@{Tunnel}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \textbf{ L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+T\+U\+N\+N\+EL}(obj)~B\+E\+L\+L\+E\+\_\+\+S\+I\+P\+\_\+\+C\+A\+ST(obj, \textbf{ Linphone\+Tunnel})
+\begin{DoxyCompactList}\small\item\em Linphone tunnel aims is to bypass IP traffic blocking due to aggressive firewalls which typically only authorize T\+CP traffic with destination port 443. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{group__tunnel_gafac6fdea7804b750849d0df376b45052}} 
+typedef struct \+\_\+\+Linphone\+Tunnel \textbf{ Linphone\+Tunnel}
+\begin{DoxyCompactList}\small\item\em Linphone tunnel object. \end{DoxyCompactList}\item 
+\mbox{\label{group__tunnel_ga78ea57de829da9eabff1bc87f816aef5}} 
+typedef enum \textbf{ \+\_\+\+Linphone\+Tunnel\+Mode} \textbf{ Linphone\+Tunnel\+Mode}
+\begin{DoxyCompactList}\small\item\em Enum describing the tunnel modes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \textbf{ \+\_\+\+Linphone\+Tunnel\+Mode} \{ \newline
+\textbf{ Linphone\+Tunnel\+Mode\+Disable}, 
+\newline
+\textbf{ Linphone\+Tunnel\+Mode\+Enable}, 
+\newline
+\textbf{ Linphone\+Tunnel\+Mode\+Auto}
+ \}\begin{DoxyCompactList}\small\item\em Enum describing the tunnel modes. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{group__tunnel_ga6c411bd114b1e45806dbbb7c02912b35}} 
+bool\+\_\+t \textbf{ linphone\+\_\+core\+\_\+tunnel\+\_\+available} (void)
+\begin{DoxyCompactList}\small\item\em True if tunnel support was compiled. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Tunnel} $\ast$ \textbf{ linphone\+\_\+core\+\_\+get\+\_\+tunnel} (const \textbf{ Linphone\+Core} $\ast$lc)
+\begin{DoxyCompactList}\small\item\em get tunnel instance if available \end{DoxyCompactList}\item 
+\mbox{\label{group__tunnel_ga779c4280b7f6c1e5a161fd98e6671d81}} 
+Linphone\+Tunnel\+Config $\ast$ \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+new} (void)
+\begin{DoxyCompactList}\small\item\em Create a new tunnel configuration. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Tunnel} $\ast$ \textbf{ linphone\+\_\+tunnel\+\_\+ref} (\textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Take a reference on a \doxyref{Linphone\+Tunnel}{p.}{group__tunnel_gafac6fdea7804b750849d0df376b45052}. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+unref} (\textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Release a reference on a \doxyref{Linphone\+Tunnel}{p.}{group__tunnel_gafac6fdea7804b750849d0df376b45052}. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host} (Linphone\+Tunnel\+Config $\ast$tunnel, const char $\ast$host)
+\begin{DoxyCompactList}\small\item\em Set the IP address or hostname of the tunnel server. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host} (const Linphone\+Tunnel\+Config $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Get the IP address or hostname of the tunnel server. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port} (Linphone\+Tunnel\+Config $\ast$tunnel, int port)
+\begin{DoxyCompactList}\small\item\em Set tls port of server. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port} (const Linphone\+Tunnel\+Config $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Get the T\+LS port of the tunnel server. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host2} (Linphone\+Tunnel\+Config $\ast$tunnel, const char $\ast$host)
+\begin{DoxyCompactList}\small\item\em Set the IP address or hostname of the second tunnel server when using dual tunnel client. \end{DoxyCompactList}\item 
+const char $\ast$ \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host2} (const Linphone\+Tunnel\+Config $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Get the IP address or hostname of the second tunnel server when using dual tunnel client. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port2} (Linphone\+Tunnel\+Config $\ast$tunnel, int port)
+\begin{DoxyCompactList}\small\item\em Set tls port of the second server when using dual tunnel client. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port2} (const Linphone\+Tunnel\+Config $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Get the T\+LS port of the second tunnel server when using dual tunnel client. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port} (Linphone\+Tunnel\+Config $\ast$tunnel, int remote\+\_\+udp\+\_\+mirror\+\_\+port)
+\begin{DoxyCompactList}\small\item\em Set the remote port on the tunnel server side used to test U\+DP reachability. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port} (const Linphone\+Tunnel\+Config $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Get the remote port on the tunnel server side used to test U\+DP reachability. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+delay} (Linphone\+Tunnel\+Config $\ast$tunnel, int delay)
+\begin{DoxyCompactList}\small\item\em Set the U\+DP packet round trip delay in ms for a tunnel configuration. \end{DoxyCompactList}\item 
+int \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+delay} (const Linphone\+Tunnel\+Config $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Get the U\+DP packet round trip delay in ms for a tunnel configuration. \end{DoxyCompactList}\item 
+Linphone\+Tunnel\+Config $\ast$ \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+ref} (Linphone\+Tunnel\+Config $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Increment the refcount of Linphone\+Tunnel\+Config object. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+unref} (Linphone\+Tunnel\+Config $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Decrement the refcount of Linphone\+Tunnel\+Config object. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+destroy} (Linphone\+Tunnel\+Config $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Destroy a tunnel configuration. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+user\+\_\+data} (Linphone\+Tunnel\+Config $\ast$cfg, void $\ast$ud)
+\begin{DoxyCompactList}\small\item\em Store a user data in the tunnel config object. \end{DoxyCompactList}\item 
+void $\ast$ \textbf{ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+user\+\_\+data} (Linphone\+Tunnel\+Config $\ast$cfg)
+\begin{DoxyCompactList}\small\item\em Retrieve user data from the tunnel config. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+add\+\_\+server} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, Linphone\+Tunnel\+Config $\ast$tunnel\+\_\+config)
+\begin{DoxyCompactList}\small\item\em Add a tunnel server configuration. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+remove\+\_\+server} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, Linphone\+Tunnel\+Config $\ast$tunnel\+\_\+config)
+\begin{DoxyCompactList}\small\item\em Remove a tunnel server configuration. \end{DoxyCompactList}\item 
+const bctbx\+\_\+list\+\_\+t $\ast$ \textbf{ linphone\+\_\+tunnel\+\_\+get\+\_\+servers} (const \textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Get added servers. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+clean\+\_\+servers} (\textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Remove all tunnel server addresses previously entered with \doxyref{linphone\+\_\+tunnel\+\_\+add\+\_\+server()}{p.}{group__tunnel_ga762cc31830da8eb5736017e690ced895} \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+set\+\_\+mode} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, \textbf{ Linphone\+Tunnel\+Mode} mode)
+\begin{DoxyCompactList}\small\item\em Set the tunnel mode. \end{DoxyCompactList}\item 
+\textbf{ Linphone\+Tunnel\+Mode} \textbf{ linphone\+\_\+tunnel\+\_\+get\+\_\+mode} (const \textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Get the tunnel mode. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+enable\+\_\+dual\+\_\+mode} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, bool\+\_\+t dual\+\_\+mode\+\_\+enabled)
+\begin{DoxyCompactList}\small\item\em Sets whether or not to use the dual tunnel client mode. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+tunnel\+\_\+dual\+\_\+mode\+\_\+enabled} (const \textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Get the dual tunnel client mode. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+tunnel\+\_\+get\+\_\+activated} (const \textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Returns whether the tunnel is activated. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+tunnel\+\_\+connected} (const \textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Check whether the tunnel is connected. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+reconnect} (\textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Force reconnection to the tunnel server. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+enable\+\_\+sip} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, bool\+\_\+t enable)
+\begin{DoxyCompactList}\small\item\em Set whether S\+IP packets must be directly sent to a UA or pass through the tunnel. \end{DoxyCompactList}\item 
+bool\+\_\+t \textbf{ linphone\+\_\+tunnel\+\_\+sip\+\_\+enabled} (const \textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Check whether tunnel is set to transport S\+IP packets. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, const char $\ast$host, int port, const char $\ast$username, const char $\ast$passwd)
+\begin{DoxyCompactList}\small\item\em Set an optional http proxy to go through when connecting to tunnel server. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+get\+\_\+http\+\_\+proxy} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, const char $\ast$$\ast$host, int $\ast$port, const char $\ast$$\ast$username, const char $\ast$$\ast$passwd)
+\begin{DoxyCompactList}\small\item\em Retrieve optional http proxy configuration previously set with \doxyref{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy()}{p.}{group__tunnel_gae0718a3a72763c91b63a2afe67205d8b}. \end{DoxyCompactList}\item 
+void \textbf{ linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy\+\_\+auth\+\_\+info} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, const char $\ast$username, const char $\ast$passwd)
+\begin{DoxyCompactList}\small\item\em Set authentication info for the http proxy. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+tunnel\+\_\+enable} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, bool\+\_\+t enabled)
+\begin{DoxyCompactList}\small\item\em Sets whether tunneling of S\+IP and R\+TP is required. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED bool\+\_\+t \textbf{ linphone\+\_\+tunnel\+\_\+enabled} (const \textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Check whether tunnel is enabled. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void \textbf{ linphone\+\_\+tunnel\+\_\+auto\+\_\+detect} (\textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Start tunnel need detection. \end{DoxyCompactList}\item 
+L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED bool\+\_\+t \textbf{ linphone\+\_\+tunnel\+\_\+auto\+\_\+detect\+\_\+enabled} (\textbf{ Linphone\+Tunnel} $\ast$tunnel)
+\begin{DoxyCompactList}\small\item\em Tell whether tunnel auto detection is enabled. \end{DoxyCompactList}\item 
+\mbox{\label{group__tunnel_ga58485cb859eabb7cbdda267780cb17c1}} 
+void {\bfseries linphone\+\_\+tunnel\+\_\+simulate\+\_\+udp\+\_\+loss} (\textbf{ Linphone\+Tunnel} $\ast$tunnel, bool\+\_\+t enabled)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\label{group__tunnel_ga60fead31e5ef822855a9a622eb6bd834}} 
+\index{Tunnel@{Tunnel}!L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+T\+U\+N\+N\+EL@{L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+T\+U\+N\+N\+EL}}
+\index{L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+T\+U\+N\+N\+EL@{L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+T\+U\+N\+N\+EL}!Tunnel@{Tunnel}}
+\subsubsection{L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+T\+U\+N\+N\+EL}
+{\footnotesize\ttfamily \#define L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+T\+U\+N\+N\+EL(\begin{DoxyParamCaption}\item[{}]{obj }\end{DoxyParamCaption})~B\+E\+L\+L\+E\+\_\+\+S\+I\+P\+\_\+\+C\+A\+ST(obj, \textbf{ Linphone\+Tunnel})}
+
+
+
+Linphone tunnel aims is to bypass IP traffic blocking due to aggressive firewalls which typically only authorize T\+CP traffic with destination port 443. 
+
+~\newline
+ Its principle is tunneling all S\+IP and/or R\+TP traffic through a single secure https connection up to a detunnelizer server. ~\newline
+ This set of methods enhance Linphone\+Core functionalities in order to provide an easy to use A\+PI to \begin{DoxyItemize}
+\item provision tunnel servers IP addresses and ports. This functionality is an option not implemented under G\+PL. Availability can be check at runtime using function \doxyref{linphone\+\_\+core\+\_\+tunnel\+\_\+available}{p.}{group__tunnel_ga6c411bd114b1e45806dbbb7c02912b35} \item start/stop the tunneling service \item perform auto-\/detection whether tunneling is required, based on a test of sending/receiving a flow of U\+DP packets.\end{DoxyItemize}
+It takes in charge automatically the S\+IP registration procedure when connecting or disconnecting to a tunnel server. No other action on Linphone\+Core is required to enable full operation in tunnel mode.
+
+~\newline
+ Provision is done using object \#\+Linphone\+Tunnel\+Config created by function \doxyref{linphone\+\_\+tunnel\+\_\+config\+\_\+new()}{p.}{group__tunnel_ga779c4280b7f6c1e5a161fd98e6671d81}. Functions \doxyref{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host}{p.}{group__tunnel_ga3528ad019e02f1dafbed28b588032309} and \doxyref{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port}{p.}{group__tunnel_ga01f6ec956efbb074a611c4256e86eab0} allow to point to tunnel server I\+P/port. Once set, use function \doxyref{linphone\+\_\+tunnel\+\_\+add\+\_\+server}{p.}{group__tunnel_ga762cc31830da8eb5736017e690ced895} to provision a tunnel server. ~\newline
+ Finally tunnel mode configuration is achieved by function \doxyref{linphone\+\_\+tunnel\+\_\+set\+\_\+mode}{p.}{group__tunnel_ga2ff9779aefdb5455c3509d75cf89a88c}. ~\newline
+ Tunnel connection status can be checked using function \doxyref{linphone\+\_\+tunnel\+\_\+connected}{p.}{group__tunnel_ga047ca9bc9546a6c5bffb27209b0a7706}.
+
+Bellow pseudo code that can be use to configure, enable, check state and disable tunnel functionality\+:
+
+
+\begin{DoxyCode}
+LinphoneTunnel *tunnel = linphone_core_get_tunnel(linphone\_core);
+LinphoneTunnelConfig *config=linphone_tunnel_config_new(); \textcolor{comment}{//instantiate tunnel configuration}
+linphone_tunnel_config_set_host(config, \textcolor{stringliteral}{"tunnel.linphone.org"}); \textcolor{comment}{//set tunnel server host address}
+linphone_tunnel_config_set_port(config, 443); \textcolor{comment}{//set tunnel server port}
+linphone_tunnel_add_server(tunnel, config); \textcolor{comment}{//provision tunnel config}
+linphone_tunnel_set_mode(tunnel, LinphoneTunnelModeEnable); \textcolor{comment}{//activate the tunnel unconditional}
+
+\textcolor{keywordflow}{while} (!linphone_tunnel_connected(tunnel)) \{ \textcolor{comment}{//wait for tunnel to be ready}
+   linphone_core_iterate(linphone\_core); \textcolor{comment}{//schedule core main loop}
+   ms\_sleep(100); \textcolor{comment}{//wait 100ms}
+\}
+
+LinphoneCall *call = linphone_core_invite(linphone\_core,\textcolor{stringliteral}{"sip:foo@example.org"}); \textcolor{comment}{//place an outgoing call}
+linphone_call_ref(call); \textcolor{comment}{//acquire a reference on the call to avoid deletion after completion}
+\textcolor{comment}{//...}
+linphone_core_terminate_call(linphone\_core,call);
+
+\textcolor{keywordflow}{while} (linphone_call_get_state(call) != LinphoneCallReleased) \{ \textcolor{comment}{//wait for call to be in release state}
+   linphone_core_iterate(linphone\_core); \textcolor{comment}{//schedule core main loop}
+   ms\_sleep(100); \textcolor{comment}{//wait 100ms}
+\}
+
+linphone_tunnel_set_mode(tunnel, LinphoneTunnelModeDisable); \textcolor{comment}{//deactivate tunnel}
+linphone_call_unref(call); \textcolor{comment}{//release reference on the call}
+\end{DoxyCode}
+ 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\label{group__tunnel_gac832d7950d88dc22e3d002ffd46a2d36}} 
+\index{Tunnel@{Tunnel}!\+\_\+\+Linphone\+Tunnel\+Mode@{\+\_\+\+Linphone\+Tunnel\+Mode}}
+\index{\+\_\+\+Linphone\+Tunnel\+Mode@{\+\_\+\+Linphone\+Tunnel\+Mode}!Tunnel@{Tunnel}}
+\subsubsection{\+\_\+\+Linphone\+Tunnel\+Mode}
+{\footnotesize\ttfamily enum \textbf{ \+\_\+\+Linphone\+Tunnel\+Mode}}
+
+
+
+Enum describing the tunnel modes. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Tunnel\+Mode\+Disable@{Linphone\+Tunnel\+Mode\+Disable}!Tunnel@{Tunnel}}\index{Tunnel@{Tunnel}!Linphone\+Tunnel\+Mode\+Disable@{Linphone\+Tunnel\+Mode\+Disable}}}\mbox{\label{group__tunnel_ggac832d7950d88dc22e3d002ffd46a2d36a52d2fc6a079979cffe8bdb3a0b1e2faa}} 
+Linphone\+Tunnel\+Mode\+Disable&The tunnel is disabled. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Tunnel\+Mode\+Enable@{Linphone\+Tunnel\+Mode\+Enable}!Tunnel@{Tunnel}}\index{Tunnel@{Tunnel}!Linphone\+Tunnel\+Mode\+Enable@{Linphone\+Tunnel\+Mode\+Enable}}}\mbox{\label{group__tunnel_ggac832d7950d88dc22e3d002ffd46a2d36aff4e1cb7aeacdc18ea31844b98ac3aaa}} 
+Linphone\+Tunnel\+Mode\+Enable&The tunnel is enabled. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Linphone\+Tunnel\+Mode\+Auto@{Linphone\+Tunnel\+Mode\+Auto}!Tunnel@{Tunnel}}\index{Tunnel@{Tunnel}!Linphone\+Tunnel\+Mode\+Auto@{Linphone\+Tunnel\+Mode\+Auto}}}\mbox{\label{group__tunnel_ggac832d7950d88dc22e3d002ffd46a2d36a7b5180b37f9211cc046f0f77dda8a39f}} 
+Linphone\+Tunnel\+Mode\+Auto&The tunnel is enabled automatically if it is required. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\label{group__tunnel_ga672373b56a111f52d8aed78f375c11be}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+core\+\_\+get\+\_\+tunnel@{linphone\+\_\+core\+\_\+get\+\_\+tunnel}}
+\index{linphone\+\_\+core\+\_\+get\+\_\+tunnel@{linphone\+\_\+core\+\_\+get\+\_\+tunnel}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+core\+\_\+get\+\_\+tunnel()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Tunnel}$\ast$ linphone\+\_\+core\+\_\+get\+\_\+tunnel (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Core} $\ast$}]{lc }\end{DoxyParamCaption})}
+
+
+
+get tunnel instance if available 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lc} & core object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Linphone\+Tunnel or N\+U\+LL if not available 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga762cc31830da8eb5736017e690ced895}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+add\+\_\+server@{linphone\+\_\+tunnel\+\_\+add\+\_\+server}}
+\index{linphone\+\_\+tunnel\+\_\+add\+\_\+server@{linphone\+\_\+tunnel\+\_\+add\+\_\+server}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+add\+\_\+server()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+add\+\_\+server (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel,  }\item[{Linphone\+Tunnel\+Config $\ast$}]{tunnel\+\_\+config }\end{DoxyParamCaption})}
+
+
+
+Add a tunnel server configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+{\em tunnel\+\_\+config} & Linphone\+Tunnel\+Config object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga8e56c8bd91a630e36eee0b4444840654}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+auto\+\_\+detect@{linphone\+\_\+tunnel\+\_\+auto\+\_\+detect}}
+\index{linphone\+\_\+tunnel\+\_\+auto\+\_\+detect@{linphone\+\_\+tunnel\+\_\+auto\+\_\+detect}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+auto\+\_\+detect()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+tunnel\+\_\+auto\+\_\+detect (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Start tunnel need detection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & object In auto detect mode, the tunnel manager try to establish a real time rtp communication with the tunnel server on specified port. ~\newline
+In case of success, the tunnel is automatically turned off. Otherwise, if no udp communication is feasible, tunnel mode is turned on. ~\newline
+ Call this method each time to run the auto detection algorithm \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Replaced by linphone\+\_\+tunnel\+\_\+set\+\_\+mode(\+Linphone\+Tunnel\+Mode\+Auto)  \end{DoxyRefDesc}
+\mbox{\label{group__tunnel_ga33ddcc837865707f7919ead2b3d998f5}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+auto\+\_\+detect\+\_\+enabled@{linphone\+\_\+tunnel\+\_\+auto\+\_\+detect\+\_\+enabled}}
+\index{linphone\+\_\+tunnel\+\_\+auto\+\_\+detect\+\_\+enabled@{linphone\+\_\+tunnel\+\_\+auto\+\_\+detect\+\_\+enabled}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+auto\+\_\+detect\+\_\+enabled()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED bool\+\_\+t linphone\+\_\+tunnel\+\_\+auto\+\_\+detect\+\_\+enabled (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Tell whether tunnel auto detection is enabled. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tunnel} & Linphone\+Tunnel object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if auto detection is enabled, F\+A\+L\+SE otherwise. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Replaced by \doxyref{linphone\+\_\+tunnel\+\_\+get\+\_\+mode()}{p.}{group__tunnel_gaf526043ec604b44782b5eedc2a806a40}  \end{DoxyRefDesc}
+\mbox{\label{group__tunnel_ga691d163b762cbf5e159883feab1e9ab4}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+clean\+\_\+servers@{linphone\+\_\+tunnel\+\_\+clean\+\_\+servers}}
+\index{linphone\+\_\+tunnel\+\_\+clean\+\_\+servers@{linphone\+\_\+tunnel\+\_\+clean\+\_\+servers}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+clean\+\_\+servers()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+clean\+\_\+servers (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Remove all tunnel server addresses previously entered with \doxyref{linphone\+\_\+tunnel\+\_\+add\+\_\+server()}{p.}{group__tunnel_ga762cc31830da8eb5736017e690ced895} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga8356ca53f3f0f7d5220f5f3ba3b80cc5}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+destroy@{linphone\+\_\+tunnel\+\_\+config\+\_\+destroy}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+destroy@{linphone\+\_\+tunnel\+\_\+config\+\_\+destroy}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+destroy()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+tunnel\+\_\+config\+\_\+destroy (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Destroy a tunnel configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]use \doxyref{linphone\+\_\+tunnel\+\_\+config\+\_\+unref()}{p.}{group__tunnel_ga33f6342a82b43174b8e5a3ca87d4f532}.  \end{DoxyRefDesc}
+\mbox{\label{group__tunnel_ga7ca84486dfe60616558f5cf9ddd2313e}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+delay@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+delay}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+delay@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+delay}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+delay()}
+{\footnotesize\ttfamily int linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+delay (\begin{DoxyParamCaption}\item[{const Linphone\+Tunnel\+Config $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Get the U\+DP packet round trip delay in ms for a tunnel configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The U\+DP packet round trip delay in ms. 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_gafa66d330fd8ab9c34943141e01951062}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host (\begin{DoxyParamCaption}\item[{const Linphone\+Tunnel\+Config $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Get the IP address or hostname of the tunnel server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The tunnel server IP address or hostname 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_gab3fb40460fd89036cc9a798030362cbb}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host2@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host2}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host2@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host2}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host2()}
+{\footnotesize\ttfamily const char$\ast$ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+host2 (\begin{DoxyParamCaption}\item[{const Linphone\+Tunnel\+Config $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Get the IP address or hostname of the second tunnel server when using dual tunnel client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The tunnel server IP address or hostname 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga489397d1b58df97ee4060d0522ad7d4f}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port()}
+{\footnotesize\ttfamily int linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port (\begin{DoxyParamCaption}\item[{const Linphone\+Tunnel\+Config $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Get the T\+LS port of the tunnel server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The T\+LS port of the tunnel server 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga6ed4ad2bf8ec1c87baee5893e0f77567}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port2@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port2}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port2@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port2}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port2()}
+{\footnotesize\ttfamily int linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+port2 (\begin{DoxyParamCaption}\item[{const Linphone\+Tunnel\+Config $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Get the T\+LS port of the second tunnel server when using dual tunnel client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The T\+LS port of the tunnel server 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_gab2e28e4cdc76d9cd18441c7da2bad71f}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port()}
+{\footnotesize\ttfamily int linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port (\begin{DoxyParamCaption}\item[{const Linphone\+Tunnel\+Config $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Get the remote port on the tunnel server side used to test U\+DP reachability. 
+
+This is used when the mode is set auto, to detect whether the tunnel has to be enabled or not. 
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The remote port on the tunnel server side used to test U\+DP reachability 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga30b71f0701051bb97a760bfb56985bd7}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+user\+\_\+data@{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+user\+\_\+data}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void$\ast$ linphone\+\_\+tunnel\+\_\+config\+\_\+get\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Retrieve user data from the tunnel config. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cfg} & the tunnel config \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the user data 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga980f0cb00358b9e850b3913df279dd89}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+ref@{linphone\+\_\+tunnel\+\_\+config\+\_\+ref}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+ref@{linphone\+\_\+tunnel\+\_\+config\+\_\+ref}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+ref()}
+{\footnotesize\ttfamily Linphone\+Tunnel\+Config$\ast$ linphone\+\_\+tunnel\+\_\+config\+\_\+ref (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Increment the refcount of Linphone\+Tunnel\+Config object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cfg} & the Linphone\+Tunnel\+Config object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the same cfg object. 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga16a880e0479e5ab816e910b70abc2fa7}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+delay@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+delay}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+delay@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+delay}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+delay()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+delay (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{tunnel,  }\item[{int}]{delay }\end{DoxyParamCaption})}
+
+
+
+Set the U\+DP packet round trip delay in ms for a tunnel configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+{\em delay} & The U\+DP packet round trip delay in ms considered as acceptable (recommended value is 1000 ms). \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga3528ad019e02f1dafbed28b588032309}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{tunnel,  }\item[{const char $\ast$}]{host }\end{DoxyParamCaption})}
+
+
+
+Set the IP address or hostname of the tunnel server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+{\em host} & The tunnel server IP address or hostname \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga6ae686dc83cadbef4af76ea1ccb7db7a}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host2@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host2}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host2@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host2}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host2()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+host2 (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{tunnel,  }\item[{const char $\ast$}]{host }\end{DoxyParamCaption})}
+
+
+
+Set the IP address or hostname of the second tunnel server when using dual tunnel client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+{\em host} & The tunnel server IP address or hostname \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga01f6ec956efbb074a611c4256e86eab0}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{tunnel,  }\item[{int}]{port }\end{DoxyParamCaption})}
+
+
+
+Set tls port of server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+{\em port} & The tunnel server T\+LS port, recommended value is 443 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga7e7db78f9340a7da6124bf0e54cd8961}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port2@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port2}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port2@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port2}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port2()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+port2 (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{tunnel,  }\item[{int}]{port }\end{DoxyParamCaption})}
+
+
+
+Set tls port of the second server when using dual tunnel client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+{\em port} & The tunnel server T\+LS port, recommended value is 443 \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga16b085d99ac03532ec604980c1c575cc}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+remote\+\_\+udp\+\_\+mirror\+\_\+port (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{tunnel,  }\item[{int}]{remote\+\_\+udp\+\_\+mirror\+\_\+port }\end{DoxyParamCaption})}
+
+
+
+Set the remote port on the tunnel server side used to test U\+DP reachability. 
+
+This is used when the mode is set auto, to detect whether the tunnel has to be enabled or not. 
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel\+Config object \\
+\hline
+{\em remote\+\_\+udp\+\_\+mirror\+\_\+port} & The remote port on the tunnel server side used to test U\+DP reachability, set to -\/1 to disable the feature \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga3af1248717bbb610343a6b6fa352c36c}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+user\+\_\+data}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+user\+\_\+data@{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+user\+\_\+data}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+user\+\_\+data()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+config\+\_\+set\+\_\+user\+\_\+data (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{cfg,  }\item[{void $\ast$}]{ud }\end{DoxyParamCaption})}
+
+
+
+Store a user data in the tunnel config object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cfg} & the tunnel config \\
+\hline
+{\em ud} & the user data \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga33f6342a82b43174b8e5a3ca87d4f532}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+config\+\_\+unref@{linphone\+\_\+tunnel\+\_\+config\+\_\+unref}}
+\index{linphone\+\_\+tunnel\+\_\+config\+\_\+unref@{linphone\+\_\+tunnel\+\_\+config\+\_\+unref}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+config\+\_\+unref()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+config\+\_\+unref (\begin{DoxyParamCaption}\item[{Linphone\+Tunnel\+Config $\ast$}]{cfg }\end{DoxyParamCaption})}
+
+
+
+Decrement the refcount of Linphone\+Tunnel\+Config object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cfg} & the Linphone\+Tunnel\+Config object. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga047ca9bc9546a6c5bffb27209b0a7706}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+connected@{linphone\+\_\+tunnel\+\_\+connected}}
+\index{linphone\+\_\+tunnel\+\_\+connected@{linphone\+\_\+tunnel\+\_\+connected}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+connected()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+tunnel\+\_\+connected (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Check whether the tunnel is connected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean value telling if the tunnel is connected 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga43424accb2eed18dd9fb0aee0403bd2a}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+dual\+\_\+mode\+\_\+enabled@{linphone\+\_\+tunnel\+\_\+dual\+\_\+mode\+\_\+enabled}}
+\index{linphone\+\_\+tunnel\+\_\+dual\+\_\+mode\+\_\+enabled@{linphone\+\_\+tunnel\+\_\+dual\+\_\+mode\+\_\+enabled}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+dual\+\_\+mode\+\_\+enabled()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+tunnel\+\_\+dual\+\_\+mode\+\_\+enabled (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Get the dual tunnel client mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if dual tunnel client mode is enabled, F\+A\+L\+SE otherwise 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_gaf215fabef9349712e323aed676a41da9}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+enable@{linphone\+\_\+tunnel\+\_\+enable}}
+\index{linphone\+\_\+tunnel\+\_\+enable@{linphone\+\_\+tunnel\+\_\+enable}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+enable()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED void linphone\+\_\+tunnel\+\_\+enable (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel,  }\item[{bool\+\_\+t}]{enabled }\end{DoxyParamCaption})}
+
+
+
+Sets whether tunneling of S\+IP and R\+TP is required. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & object \\
+\hline
+{\em enabled} & If true enter in tunneled mode, if false exits from tunneled mode. The Tunnel\+Manager takes care of refreshing S\+IP registration when switching on or off the tunneled mode. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Replaced by \doxyref{linphone\+\_\+tunnel\+\_\+set\+\_\+mode()}{p.}{group__tunnel_ga2ff9779aefdb5455c3509d75cf89a88c}  \end{DoxyRefDesc}
+\mbox{\label{group__tunnel_gaacfe8d9491972b0f0d405b8c51efc1f4}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+enable\+\_\+dual\+\_\+mode@{linphone\+\_\+tunnel\+\_\+enable\+\_\+dual\+\_\+mode}}
+\index{linphone\+\_\+tunnel\+\_\+enable\+\_\+dual\+\_\+mode@{linphone\+\_\+tunnel\+\_\+enable\+\_\+dual\+\_\+mode}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+enable\+\_\+dual\+\_\+mode()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+enable\+\_\+dual\+\_\+mode (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel,  }\item[{bool\+\_\+t}]{dual\+\_\+mode\+\_\+enabled }\end{DoxyParamCaption})}
+
+
+
+Sets whether or not to use the dual tunnel client mode. 
+
+By default this feature is disabled. After enabling it, add a server with 2 hosts and 2 ports for the feature to work. 
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+{\em dual\+\_\+mode\+\_\+enabled} & T\+R\+UE to enable it, F\+A\+L\+SE to disable it \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_gafc4e154bec332ad975c373e205f66795}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+enable\+\_\+sip@{linphone\+\_\+tunnel\+\_\+enable\+\_\+sip}}
+\index{linphone\+\_\+tunnel\+\_\+enable\+\_\+sip@{linphone\+\_\+tunnel\+\_\+enable\+\_\+sip}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+enable\+\_\+sip()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+enable\+\_\+sip (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel,  }\item[{bool\+\_\+t}]{enable }\end{DoxyParamCaption})}
+
+
+
+Set whether S\+IP packets must be directly sent to a UA or pass through the tunnel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+{\em enable} & If true, S\+IP packets shall pass through the tunnel \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_gaf0f50dce4bb56e248232bc72fbb6cc5b}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+enabled@{linphone\+\_\+tunnel\+\_\+enabled}}
+\index{linphone\+\_\+tunnel\+\_\+enabled@{linphone\+\_\+tunnel\+\_\+enabled}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+enabled()}
+{\footnotesize\ttfamily L\+I\+N\+P\+H\+O\+N\+E\+\_\+\+D\+E\+P\+R\+E\+C\+A\+T\+ED bool\+\_\+t linphone\+\_\+tunnel\+\_\+enabled (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Check whether tunnel is enabled. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Tunnel object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a boolean indicating whether tunneled operation is enabled. 
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Deprecated}
+\item[\textbf{ Deprecated}]Replaced by \doxyref{linphone\+\_\+tunnel\+\_\+get\+\_\+mode()}{p.}{group__tunnel_gaf526043ec604b44782b5eedc2a806a40}  \end{DoxyRefDesc}
+\mbox{\label{group__tunnel_gaf5236ffc93b2a983fcb888c0f4614d85}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+get\+\_\+activated@{linphone\+\_\+tunnel\+\_\+get\+\_\+activated}}
+\index{linphone\+\_\+tunnel\+\_\+get\+\_\+activated@{linphone\+\_\+tunnel\+\_\+get\+\_\+activated}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+get\+\_\+activated()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+tunnel\+\_\+get\+\_\+activated (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Returns whether the tunnel is activated. 
+
+If mode is set to auto, this gives indication whether the automatic detection determined that tunnel was necessary or not. 
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & the tunnel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE if tunnel is in use, F\+A\+L\+SE otherwise. 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_gab41bfb94d11b7c31d09ab65776f7e701}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+get\+\_\+http\+\_\+proxy@{linphone\+\_\+tunnel\+\_\+get\+\_\+http\+\_\+proxy}}
+\index{linphone\+\_\+tunnel\+\_\+get\+\_\+http\+\_\+proxy@{linphone\+\_\+tunnel\+\_\+get\+\_\+http\+\_\+proxy}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+get\+\_\+http\+\_\+proxy()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+get\+\_\+http\+\_\+proxy (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel,  }\item[{const char $\ast$$\ast$}]{host,  }\item[{int $\ast$}]{port,  }\item[{const char $\ast$$\ast$}]{username,  }\item[{const char $\ast$$\ast$}]{passwd }\end{DoxyParamCaption})}
+
+
+
+Retrieve optional http proxy configuration previously set with \doxyref{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy()}{p.}{group__tunnel_gae0718a3a72763c91b63a2afe67205d8b}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+{\em host} & http proxy host \\
+\hline
+{\em port} & http proxy port \\
+\hline
+{\em username} & Optional http proxy username if the proxy request authentication. Currently only basic authentication is supported. Use N\+U\+LL if not needed. \\
+\hline
+{\em passwd} & Optional http proxy password. Use N\+U\+LL if not needed.  \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_gaf526043ec604b44782b5eedc2a806a40}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+get\+\_\+mode@{linphone\+\_\+tunnel\+\_\+get\+\_\+mode}}
+\index{linphone\+\_\+tunnel\+\_\+get\+\_\+mode@{linphone\+\_\+tunnel\+\_\+get\+\_\+mode}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+get\+\_\+mode()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Tunnel\+Mode} linphone\+\_\+tunnel\+\_\+get\+\_\+mode (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Get the tunnel mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current Linphone\+Tunnel\+Mode 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga3c9e143f3904c7228908d3b6e1350c96}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+get\+\_\+servers@{linphone\+\_\+tunnel\+\_\+get\+\_\+servers}}
+\index{linphone\+\_\+tunnel\+\_\+get\+\_\+servers@{linphone\+\_\+tunnel\+\_\+get\+\_\+servers}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+get\+\_\+servers()}
+{\footnotesize\ttfamily const bctbx\+\_\+list\+\_\+t$\ast$ linphone\+\_\+tunnel\+\_\+get\+\_\+servers (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Get added servers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of Linphone\+Tunnel\+Config objects. 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga1676eda6a96c9bd730a873124459ac9d}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+reconnect@{linphone\+\_\+tunnel\+\_\+reconnect}}
+\index{linphone\+\_\+tunnel\+\_\+reconnect@{linphone\+\_\+tunnel\+\_\+reconnect}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+reconnect()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+reconnect (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Force reconnection to the tunnel server. 
+
+This method is useful when the device switches from wifi to Edge/3G or vice versa. In most cases the tunnel client socket won\textquotesingle{}t be notified promptly that its connection is now zombie, so it is recommended to call this method that will cause the lost connection to be closed and new connection to be issued. 
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga32b44eed2a87bdb889d27f89209ce16d}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+ref@{linphone\+\_\+tunnel\+\_\+ref}}
+\index{linphone\+\_\+tunnel\+\_\+ref@{linphone\+\_\+tunnel\+\_\+ref}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+ref()}
+{\footnotesize\ttfamily \textbf{ Linphone\+Tunnel}$\ast$ linphone\+\_\+tunnel\+\_\+ref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Take a reference on a \doxyref{Linphone\+Tunnel}{p.}{group__tunnel_gafac6fdea7804b750849d0df376b45052}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tunnel} & The \doxyref{Linphone\+Tunnel}{p.}{group__tunnel_gafac6fdea7804b750849d0df376b45052} whose the ref counter will be increased. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer on the freshly refed \doxyref{Linphone\+Tunnel}{p.}{group__tunnel_gafac6fdea7804b750849d0df376b45052}. 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_gabf2355476ef1e2e28da5d09fb9713ae7}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+remove\+\_\+server@{linphone\+\_\+tunnel\+\_\+remove\+\_\+server}}
+\index{linphone\+\_\+tunnel\+\_\+remove\+\_\+server@{linphone\+\_\+tunnel\+\_\+remove\+\_\+server}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+remove\+\_\+server()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+remove\+\_\+server (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel,  }\item[{Linphone\+Tunnel\+Config $\ast$}]{tunnel\+\_\+config }\end{DoxyParamCaption})}
+
+
+
+Remove a tunnel server configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+{\em tunnel\+\_\+config} & Linphone\+Tunnel\+Config object \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_gae0718a3a72763c91b63a2afe67205d8b}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy@{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy}}
+\index{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy@{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel,  }\item[{const char $\ast$}]{host,  }\item[{int}]{port,  }\item[{const char $\ast$}]{username,  }\item[{const char $\ast$}]{passwd }\end{DoxyParamCaption})}
+
+
+
+Set an optional http proxy to go through when connecting to tunnel server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+{\em host} & http proxy host \\
+\hline
+{\em port} & http proxy port \\
+\hline
+{\em username} & Optional http proxy username if the proxy request authentication. Currently only basic authentication is supported. Use N\+U\+LL if not needed. \\
+\hline
+{\em passwd} & Optional http proxy password. Use N\+U\+LL if not needed. \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga3f0eb1ebe109c8c58c7e92c7d2226423}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy\+\_\+auth\+\_\+info@{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy\+\_\+auth\+\_\+info}}
+\index{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy\+\_\+auth\+\_\+info@{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy\+\_\+auth\+\_\+info}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy\+\_\+auth\+\_\+info()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+set\+\_\+http\+\_\+proxy\+\_\+auth\+\_\+info (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel,  }\item[{const char $\ast$}]{username,  }\item[{const char $\ast$}]{passwd }\end{DoxyParamCaption})}
+
+
+
+Set authentication info for the http proxy. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+{\em username} & User name \\
+\hline
+{\em passwd} & Password \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga2ff9779aefdb5455c3509d75cf89a88c}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+set\+\_\+mode@{linphone\+\_\+tunnel\+\_\+set\+\_\+mode}}
+\index{linphone\+\_\+tunnel\+\_\+set\+\_\+mode@{linphone\+\_\+tunnel\+\_\+set\+\_\+mode}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+set\+\_\+mode()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+set\+\_\+mode (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel,  }\item[{\textbf{ Linphone\+Tunnel\+Mode}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set the tunnel mode. 
+
+The tunnel mode can be \textquotesingle{}enable\textquotesingle{}, \textquotesingle{}disable\textquotesingle{} or \textquotesingle{}auto\textquotesingle{} If the mode is set to \textquotesingle{}auto\textquotesingle{}, the tunnel manager will try to established an R\+TP session with the tunnel server on the Udp\+Mirror\+Port. If the connection fail, the tunnel is automatically activated whereas the tunnel is automatically disabled if the connection succeed. 
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+{\em mode} & The desired Linphone\+Tunnel\+Mode \\
+\hline
+\end{DoxyParams}
+\mbox{\label{group__tunnel_ga92b4df41ad2c71ce4e59de5acd37674b}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+sip\+\_\+enabled@{linphone\+\_\+tunnel\+\_\+sip\+\_\+enabled}}
+\index{linphone\+\_\+tunnel\+\_\+sip\+\_\+enabled@{linphone\+\_\+tunnel\+\_\+sip\+\_\+enabled}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+sip\+\_\+enabled()}
+{\footnotesize\ttfamily bool\+\_\+t linphone\+\_\+tunnel\+\_\+sip\+\_\+enabled (\begin{DoxyParamCaption}\item[{const \textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Check whether tunnel is set to transport S\+IP packets. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em tunnel} & Linphone\+Tunnel object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A boolean value telling whether S\+IP packets shall pass through the tunnel 
+\end{DoxyReturn}
+\mbox{\label{group__tunnel_ga6a0c447395a5fa9df2b46e73f3c53c00}} 
+\index{Tunnel@{Tunnel}!linphone\+\_\+tunnel\+\_\+unref@{linphone\+\_\+tunnel\+\_\+unref}}
+\index{linphone\+\_\+tunnel\+\_\+unref@{linphone\+\_\+tunnel\+\_\+unref}!Tunnel@{Tunnel}}
+\subsubsection{linphone\+\_\+tunnel\+\_\+unref()}
+{\footnotesize\ttfamily void linphone\+\_\+tunnel\+\_\+unref (\begin{DoxyParamCaption}\item[{\textbf{ Linphone\+Tunnel} $\ast$}]{tunnel }\end{DoxyParamCaption})}
+
+
+
+Release a reference on a \doxyref{Linphone\+Tunnel}{p.}{group__tunnel_gafac6fdea7804b750849d0df376b45052}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em tunnel} & The \doxyref{Linphone\+Tunnel}{p.}{group__tunnel_gafac6fdea7804b750849d0df376b45052} whose the ref counter will be decreased. \\
+\hline
+\end{DoxyParams}

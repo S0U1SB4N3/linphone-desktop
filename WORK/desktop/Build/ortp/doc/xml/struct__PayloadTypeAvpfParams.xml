@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__PayloadTypeAvpfParams" kind="struct" language="C++" prot="public">
+    <compoundname>_PayloadTypeAvpfParams</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__PayloadTypeAvpfParams_1a4959dbe199adacec98fa942d75da0aaf" prot="public" static="no" mutable="no">
+        <type>unsigned char</type>
+        <definition>unsigned char _PayloadTypeAvpfParams::features</definition>
+        <argsstring></argsstring>
+        <name>features</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>A bitmask of PAYLOAD_TYPE_AVPF_* macros. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="66" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__PayloadTypeAvpfParams_1af1572df0e909b3972705750a416bfa01" prot="public" static="no" mutable="no">
+        <type>bool_t</type>
+        <definition>bool_t _PayloadTypeAvpfParams::rpsi_compatibility</definition>
+        <argsstring></argsstring>
+        <name>rpsi_compatibility</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="67" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="67" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__PayloadTypeAvpfParams_1a43083ad028c739e1d1d207e71bc9ee3a" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t _PayloadTypeAvpfParams::trr_interval</definition>
+        <argsstring></argsstring>
+        <name>trr_interval</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>The interval in milliseconds between regular RTCP packets. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="70" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="65" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="65" bodyend="71"/>
+    <listofallmembers>
+      <member refid="struct__PayloadTypeAvpfParams_1a4959dbe199adacec98fa942d75da0aaf" prot="public" virt="non-virtual"><scope>_PayloadTypeAvpfParams</scope><name>features</name></member>
+      <member refid="struct__PayloadTypeAvpfParams_1af1572df0e909b3972705750a416bfa01" prot="public" virt="non-virtual"><scope>_PayloadTypeAvpfParams</scope><name>rpsi_compatibility</name></member>
+      <member refid="struct__PayloadTypeAvpfParams_1a43083ad028c739e1d1d207e71bc9ee3a" prot="public" virt="non-virtual"><scope>_PayloadTypeAvpfParams</scope><name>trr_interval</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

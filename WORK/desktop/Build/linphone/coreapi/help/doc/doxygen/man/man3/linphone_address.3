@@ -1,0 +1,367 @@
+.TH "linphone_address" 3 "Fri Dec 15 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+linphone_address \- SIP address parser API\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct SalAddress \fBLinphoneAddress\fP"
+.br
+.RI "Object that represents a SIP address\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneTransportType\fP \fBLinphoneTransportType\fP"
+.br
+.RI "Enum describing transport type for LinphoneAddress\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_LinphoneTransportType\fP { \fBLinphoneTransportUdp\fP, \fBLinphoneTransportTcp\fP, \fBLinphoneTransportTls\fP, \fBLinphoneTransportDtls\fP }
+.RI "Enum describing transport type for LinphoneAddress\&. ""
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLinphoneAddress\fP * \fBlinphone_address_new\fP (const char *addr)"
+.br
+.RI "Constructs a LinphoneAddress object by parsing the user supplied address, given as a string\&. "
+.ti -1c
+.RI "\fBLinphoneAddress\fP * \fBlinphone_address_clone\fP (const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Clones a LinphoneAddress object\&. "
+.ti -1c
+.RI "\fBLinphoneAddress\fP * \fBlinphone_address_ref\fP (\fBLinphoneAddress\fP *addr)"
+.br
+.RI "Increment reference count of LinphoneAddress object\&. "
+.ti -1c
+.RI "void \fBlinphone_address_unref\fP (\fBLinphoneAddress\fP *addr)"
+.br
+.RI "Decrement reference count of LinphoneAddress object\&. "
+.ti -1c
+.RI "const char * \fBlinphone_address_get_scheme\fP (const \fBLinphoneAddress\fP *u)"
+.br
+.RI "Returns the address scheme, normally 'sip'\&. "
+.ti -1c
+.RI "const char * \fBlinphone_address_get_display_name\fP (const \fBLinphoneAddress\fP *u)"
+.br
+.RI "Returns the display name\&. "
+.ti -1c
+.RI "const char * \fBlinphone_address_get_username\fP (const \fBLinphoneAddress\fP *u)"
+.br
+.RI "Returns the username\&. "
+.ti -1c
+.RI "const char * \fBlinphone_address_get_domain\fP (const \fBLinphoneAddress\fP *u)"
+.br
+.RI "Returns the domain name\&. "
+.ti -1c
+.RI "int \fBlinphone_address_get_port\fP (const \fBLinphoneAddress\fP *u)"
+.br
+.RI "Get port number as an integer value, 0 if not present\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_address_set_display_name\fP (\fBLinphoneAddress\fP *u, const char *display_name)"
+.br
+.RI "Sets the display name\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_address_set_username\fP (\fBLinphoneAddress\fP *uri, const char *username)"
+.br
+.RI "Sets the username\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_address_set_domain\fP (\fBLinphoneAddress\fP *uri, const char *host)"
+.br
+.RI "Sets the domain\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_address_set_port\fP (\fBLinphoneAddress\fP *uri, int port)"
+.br
+.RI "Sets the port number\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_address_set_transport\fP (\fBLinphoneAddress\fP *uri, \fBLinphoneTransportType\fP type)"
+.br
+.RI "Set a transport\&. "
+.ti -1c
+.RI "void \fBlinphone_address_clean\fP (\fBLinphoneAddress\fP *uri)"
+.br
+.RI "Removes address's tags and uri headers so that it is displayable to the user\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED bool_t \fBlinphone_address_is_secure\fP (const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Returns true if address refers to a secure location (sips) "
+.ti -1c
+.RI "bool_t \fBlinphone_address_get_secure\fP (const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Returns true if address refers to a secure location (sips) "
+.ti -1c
+.RI "void \fBlinphone_address_set_secure\fP (\fBLinphoneAddress\fP *addr, bool_t enabled)"
+.br
+.RI "Make the address refer to a secure location (sips scheme) "
+.ti -1c
+.RI "bool_t \fBlinphone_address_is_sip\fP (const \fBLinphoneAddress\fP *uri)"
+.br
+.RI "returns true if address is a routable sip address "
+.ti -1c
+.RI "\fBLinphoneTransportType\fP \fBlinphone_address_get_transport\fP (const \fBLinphoneAddress\fP *uri)"
+.br
+.RI "Get the transport\&. "
+.ti -1c
+.RI "const char * \fBlinphone_address_get_method_param\fP (const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Get the value of the method parameter\&. "
+.ti -1c
+.RI "void \fBlinphone_address_set_method_param\fP (\fBLinphoneAddress\fP *addr, const char *method)"
+.br
+.RI "Set the value of the method parameter\&. "
+.ti -1c
+.RI "char * \fBlinphone_address_as_string\fP (const \fBLinphoneAddress\fP *u)"
+.br
+.RI "Returns the address as a string\&. "
+.ti -1c
+.RI "char * \fBlinphone_address_as_string_uri_only\fP (const \fBLinphoneAddress\fP *u)"
+.br
+.RI "Returns the SIP uri only as a string, that is display name is removed\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_address_weak_equal\fP (const \fBLinphoneAddress\fP *a1, const \fBLinphoneAddress\fP *a2)"
+.br
+.RI "Compare two LinphoneAddress ignoring tags and headers, basically just domain, username, and port\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_address_equal\fP (const \fBLinphoneAddress\fP *a1, const \fBLinphoneAddress\fP *a2)"
+.br
+.RI "Compare two LinphoneAddress taking the tags and headers into account\&. "
+.ti -1c
+.RI "void \fBlinphone_address_set_password\fP (\fBLinphoneAddress\fP *addr, const char *passwd)"
+.br
+.RI "Set the password encoded in the address\&. "
+.ti -1c
+.RI "const char * \fBlinphone_address_get_password\fP (const \fBLinphoneAddress\fP *addr)"
+.br
+.RI "Get the password encoded in the address\&. "
+.ti -1c
+.RI "void \fBlinphone_address_set_header\fP (\fBLinphoneAddress\fP *addr, const char *header_name, const char *header_value)"
+.br
+.RI "Set a header into the address\&. "
+.ti -1c
+.RI "const char * \fBlinphone_address_get_header\fP (const \fBLinphoneAddress\fP *addr, const char *name)"
+.br
+.RI "Get the header encoded in the address\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_address_has_param\fP (const \fBLinphoneAddress\fP *addr, const char *name)"
+.br
+.ti -1c
+.RI "const char * \fBlinphone_address_get_param\fP (const \fBLinphoneAddress\fP *addr, const char *name)"
+.br
+.ti -1c
+.RI "void \fBlinphone_address_set_param\fP (\fBLinphoneAddress\fP *addr, const char *name, const char *value)"
+.br
+.ti -1c
+.RI "void \fBlinphone_address_set_params\fP (\fBLinphoneAddress\fP *addr, const char *params)"
+.br
+.ti -1c
+.RI "void \fBlinphone_address_set_uri_param\fP (\fBLinphoneAddress\fP *addr, const char *name, const char *value)"
+.br
+.ti -1c
+.RI "void \fBlinphone_address_set_uri_params\fP (\fBLinphoneAddress\fP *addr, const char *params)"
+.br
+.ti -1c
+.RI "bool_t \fBlinphone_address_has_uri_param\fP (const \fBLinphoneAddress\fP *addr, const char *name)"
+.br
+.ti -1c
+.RI "const char * \fBlinphone_address_get_uri_param\fP (const \fBLinphoneAddress\fP *addr, const char *name)"
+.br
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_address_destroy\fP (\fBLinphoneAddress\fP *u)"
+.br
+.RI "Destroys a LinphoneAddress object (actually calls \fBlinphone_address_unref()\fP)\&. "
+.ti -1c
+.RI "\fBLinphoneAddress\fP * \fBlinphone_core_create_address\fP (\fBLinphoneCore\fP *lc, const char *address)"
+.br
+.RI "Create a \fBLinphoneAddress\fP object by parsing the user supplied address, given as a string\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+SIP address parser API\&. 
+
+This api is useful for manipulating SIP addresses ('from' or 'to' headers)\&. 
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct SalAddress \fBLinphoneAddress\fP"
+
+.PP
+Object that represents a SIP address\&. The LinphoneAddress is an opaque object to represents SIP addresses, ie the content of SIP's 'from' and 'to' headers\&. A SIP address is made of display name, username, domain name, port, and various uri headers (such as tags)\&. It looks like 'Alice <sip:alice@example.net>'\&. The LinphoneAddress has methods to extract and manipulate all parts of the address\&. When some part of the address (for example the username) is empty, the accessor methods return NULL\&. 
+.SH "Function Documentation"
+.PP 
+.SS "char* linphone_address_as_string (const \fBLinphoneAddress\fP * u)"
+
+.PP
+Returns the address as a string\&. The returned char * must be freed by the application\&. Use ms_free()\&. 
+.SS "char* linphone_address_as_string_uri_only (const \fBLinphoneAddress\fP * u)"
+
+.PP
+Returns the SIP uri only as a string, that is display name is removed\&. The returned char * must be freed by the application\&. Use ms_free()\&. 
+.SS "LINPHONE_DEPRECATED void linphone_address_destroy (\fBLinphoneAddress\fP * u)"
+
+.PP
+Destroys a LinphoneAddress object (actually calls \fBlinphone_address_unref()\fP)\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_address_unref()\fP instead  
+.RE
+.PP
+
+.SS "bool_t linphone_address_equal (const \fBLinphoneAddress\fP * a1, const \fBLinphoneAddress\fP * a2)"
+
+.PP
+Compare two LinphoneAddress taking the tags and headers into account\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa1\fP LinphoneAddress object 
+.br
+\fIa2\fP LinphoneAddress object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling if the LinphoneAddress objects are equal\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_address_weak_equal()\fP 
+.RE
+.PP
+
+.SS "const char* linphone_address_get_header (const \fBLinphoneAddress\fP * addr, const char * name)"
+
+.PP
+Get the header encoded in the address\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP the address 
+.RE
+.PP
+
+.SS "const char* linphone_address_get_password (const \fBLinphoneAddress\fP * addr)"
+
+.PP
+Get the password encoded in the address\&. It is used for basic authentication (not recommended)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP the address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the password, if any, NULL otherwise\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED bool_t linphone_address_is_secure (const \fBLinphoneAddress\fP * addr)"
+
+.PP
+Returns true if address refers to a secure location (sips) 
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_address_get_secure()\fP  
+.RE
+.PP
+
+.SS "void linphone_address_set_header (\fBLinphoneAddress\fP * addr, const char * header_name, const char * header_value)"
+
+.PP
+Set a header into the address\&. Headers appear in the URI with '?', such as <sip:test@linphone.org?SomeHeader=SomeValue>\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP the address 
+.br
+\fIheader_name\fP the header name 
+.br
+\fIheader_value\fP the header value 
+.RE
+.PP
+
+.SS "void linphone_address_set_password (\fBLinphoneAddress\fP * addr, const char * passwd)"
+
+.PP
+Set the password encoded in the address\&. It is used for basic authentication (not recommended)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP the LinphoneAddress 
+.br
+\fIpasswd\fP the password to set\&. 
+.RE
+.PP
+
+.SS "void linphone_address_set_secure (\fBLinphoneAddress\fP * addr, bool_t enabled)"
+
+.PP
+Make the address refer to a secure location (sips scheme) 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIaddr\fP A \fBLinphoneAddress\fP object 
+.br
+\fIenabled\fP TRUE if address is requested to be secure\&. 
+.RE
+.PP
+
+.SS "void linphone_address_unref (\fBLinphoneAddress\fP * addr)"
+
+.PP
+Decrement reference count of LinphoneAddress object\&. When dropped to zero, memory is freed\&. 
+.SS "bool_t linphone_address_weak_equal (const \fBLinphoneAddress\fP * a1, const \fBLinphoneAddress\fP * a2)"
+
+.PP
+Compare two LinphoneAddress ignoring tags and headers, basically just domain, username, and port\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIa1\fP LinphoneAddress object 
+.br
+\fIa2\fP LinphoneAddress object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Boolean value telling if the LinphoneAddress objects are equal\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_address_equal()\fP 
+.RE
+.PP
+
+.SS "\fBLinphoneAddress\fP* linphone_core_create_address (\fBLinphoneCore\fP * lc, const char * address)"
+
+.PP
+Create a \fBLinphoneAddress\fP object by parsing the user supplied address, given as a string\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.br
+\fIaddress\fP String containing the user supplied address 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The create \fBLinphoneAddress\fP object 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

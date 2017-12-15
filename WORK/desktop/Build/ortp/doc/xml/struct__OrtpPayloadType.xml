@@ -1,0 +1,210 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__OrtpPayloadType" kind="struct" language="C++" prot="public">
+    <compoundname>_OrtpPayloadType</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a5e2888d66a1bc98be34fb3bca55f88d2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _OrtpPayloadType::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one of PAYLOAD_* macros </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="75" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a020ebbacab34872cfdffc7a5cddf6aa8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _OrtpPayloadType::clock_rate</definition>
+        <argsstring></argsstring>
+        <name>clock_rate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>rtp clock rate </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="76" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a2fa8198a95a8fbd7f90b96aa05510454" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char _OrtpPayloadType::bits_per_sample</definition>
+        <argsstring></argsstring>
+        <name>bits_per_sample</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="77" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a70863f62bea3eda071265b8d614de293" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* _OrtpPayloadType::zero_pattern</definition>
+        <argsstring></argsstring>
+        <name>zero_pattern</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="78" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1ae583f7613c1ab46e823ba2cdd3717f0d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _OrtpPayloadType::pattern_length</definition>
+        <argsstring></argsstring>
+        <name>pattern_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="79" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a2df08deb22028a17d0f6edc6baf22f05" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _OrtpPayloadType::normal_bitrate</definition>
+        <argsstring></argsstring>
+        <name>normal_bitrate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="81" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1aca553824693e8dcf4a6181a4310c0d11" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* _OrtpPayloadType::mime_type</definition>
+        <argsstring></argsstring>
+        <name>mime_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>actually the submime, ex: pcm, pcma, gsm </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="82" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1ac5381077d9a9c0ac2b2209d9a73cf924" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _OrtpPayloadType::channels</definition>
+        <argsstring></argsstring>
+        <name>channels</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>number of channels of audio </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="83" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a2fe78d9559d2a738c3e898d88ceafd79" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* _OrtpPayloadType::recv_fmtp</definition>
+        <argsstring></argsstring>
+        <name>recv_fmtp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="84" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a095e85e7f09e44b3c0de9b6334c9eea9" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* _OrtpPayloadType::send_fmtp</definition>
+        <argsstring></argsstring>
+        <name>send_fmtp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="85" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a725d6fb741e6943f0049f20998257171" prot="public" static="no" mutable="no">
+        <type>struct <ref refid="struct__PayloadTypeAvpfParams" kindref="compound">_PayloadTypeAvpfParams</ref></type>
+        <definition>struct _PayloadTypeAvpfParams _OrtpPayloadType::avpf</definition>
+        <argsstring></argsstring>
+        <name>avpf</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="85" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a3c53ee19e610a9c1fdefb8eb334a590d" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int _OrtpPayloadType::flags</definition>
+        <argsstring></argsstring>
+        <name>flags</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="87" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct__OrtpPayloadType_1a71de6980ac7689ab9528fc810dacc641" prot="public" static="no" mutable="no">
+        <type>void *</type>
+        <definition>void* _OrtpPayloadType::user_data</definition>
+        <argsstring></argsstring>
+        <name>user_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="88" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="118">
+        <label>_OrtpPayloadType</label>
+        <link refid="struct__OrtpPayloadType"/>
+        <childnode refid="119" relation="usage">
+          <edgelabel>avpf</edgelabel>
+        </childnode>
+      </node>
+      <node id="119">
+        <label>_PayloadTypeAvpfParams</label>
+        <link refid="struct__PayloadTypeAvpfParams"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" line="74" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/payloadtype.h" bodystart="73" bodyend="89"/>
+    <listofallmembers>
+      <member refid="struct__OrtpPayloadType_1a725d6fb741e6943f0049f20998257171" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>avpf</name></member>
+      <member refid="struct__OrtpPayloadType_1a2fa8198a95a8fbd7f90b96aa05510454" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>bits_per_sample</name></member>
+      <member refid="struct__OrtpPayloadType_1ac5381077d9a9c0ac2b2209d9a73cf924" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>channels</name></member>
+      <member refid="struct__OrtpPayloadType_1a020ebbacab34872cfdffc7a5cddf6aa8" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>clock_rate</name></member>
+      <member refid="struct__OrtpPayloadType_1a3c53ee19e610a9c1fdefb8eb334a590d" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>flags</name></member>
+      <member refid="struct__OrtpPayloadType_1aca553824693e8dcf4a6181a4310c0d11" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>mime_type</name></member>
+      <member refid="struct__OrtpPayloadType_1a2df08deb22028a17d0f6edc6baf22f05" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>normal_bitrate</name></member>
+      <member refid="struct__OrtpPayloadType_1ae583f7613c1ab46e823ba2cdd3717f0d" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>pattern_length</name></member>
+      <member refid="struct__OrtpPayloadType_1a2fe78d9559d2a738c3e898d88ceafd79" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>recv_fmtp</name></member>
+      <member refid="struct__OrtpPayloadType_1a095e85e7f09e44b3c0de9b6334c9eea9" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>send_fmtp</name></member>
+      <member refid="struct__OrtpPayloadType_1a5e2888d66a1bc98be34fb3bca55f88d2" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>type</name></member>
+      <member refid="struct__OrtpPayloadType_1a71de6980ac7689ab9528fc810dacc641" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>user_data</name></member>
+      <member refid="struct__OrtpPayloadType_1a70863f62bea3eda071265b8d614de293" prot="public" virt="non-virtual"><scope>_OrtpPayloadType</scope><name>zero_pattern</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

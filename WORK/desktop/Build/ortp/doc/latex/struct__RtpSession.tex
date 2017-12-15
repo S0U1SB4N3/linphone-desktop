@@ -1,0 +1,215 @@
+\section{\+\_\+\+Rtp\+Session Struct Reference}
+\label{struct__RtpSession}\index{\+\_\+\+Rtp\+Session@{\+\_\+\+Rtp\+Session}}
+
+
+{\ttfamily \#include $<$rtpsession.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct__RtpSession_a6b1399c564ac89a3217ef4218c96fa27}} 
+\textbf{ Rtp\+Session} $\ast$ {\bfseries next}
+\item 
+\mbox{\label{struct__RtpSession_ab72219a85559c508ab9526cabcadb171}} 
+int {\bfseries mask\+\_\+pos}
+\item 
+\mbox{\label{struct__RtpSession_a02906526222e842169e209dfefba9313}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\textbf{ RtpProfile} $\ast$ {\bfseries profile}\\
+\>int {\bfseries pt}\\
+\>unsigned int {\bfseries ssrc}\\
+\>\textbf{ WaitPoint} {\bfseries wp}\\
+\} {\bfseries snd}\\
+
+\end{tabbing}\item 
+\mbox{\label{struct__RtpSession_a1e045ace4bcaa9b4f550efac20a0e942}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\textbf{ RtpProfile} $\ast$ {\bfseries profile}\\
+\>int {\bfseries pt}\\
+\>unsigned int {\bfseries ssrc}\\
+\>\textbf{ WaitPoint} {\bfseries wp}\\
+\} {\bfseries rcv}\\
+
+\end{tabbing}\item 
+\mbox{\label{struct__RtpSession_acef5f7ad1d6ef887ce85084f2e935fa1}} 
+unsigned int {\bfseries inc\+\_\+ssrc\+\_\+candidate}
+\item 
+\mbox{\label{struct__RtpSession_a009cc1a100546470badce7615f9ea54e}} 
+int {\bfseries inc\+\_\+same\+\_\+ssrc\+\_\+count}
+\item 
+\mbox{\label{struct__RtpSession_a39c90947a1471aa0fcaf79a9e9cd22a3}} 
+int {\bfseries hw\+\_\+recv\+\_\+pt}
+\item 
+\mbox{\label{struct__RtpSession_a35224fa6de29685bd09192242ba91346}} 
+int {\bfseries recv\+\_\+buf\+\_\+size}
+\item 
+\mbox{\label{struct__RtpSession_a0daf8e1128981ca6e415f87af86153a3}} 
+int {\bfseries target\+\_\+upload\+\_\+bandwidth}
+\item 
+\mbox{\label{struct__RtpSession_a8e3b02123c1d4e420e94d611237d0bd9}} 
+\textbf{ Rtp\+Signal\+Table} {\bfseries on\+\_\+ssrc\+\_\+changed}
+\item 
+\mbox{\label{struct__RtpSession_ae7e1888dc483887ca1ca518bb1295f80}} 
+\textbf{ Rtp\+Signal\+Table} {\bfseries on\+\_\+payload\+\_\+type\+\_\+changed}
+\item 
+\mbox{\label{struct__RtpSession_a7ce03164514eb1d3b8bb4e42b9d806dd}} 
+\textbf{ Rtp\+Signal\+Table} {\bfseries on\+\_\+telephone\+\_\+event\+\_\+packet}
+\item 
+\mbox{\label{struct__RtpSession_aea7589d032b769a2893d0a9d881e03f6}} 
+\textbf{ Rtp\+Signal\+Table} {\bfseries on\+\_\+telephone\+\_\+event}
+\item 
+\mbox{\label{struct__RtpSession_aa239f28f1d1e143bc236b741d6205b76}} 
+\textbf{ Rtp\+Signal\+Table} {\bfseries on\+\_\+timestamp\+\_\+jump}
+\item 
+\mbox{\label{struct__RtpSession_a64162b14de7440eaea29844a057c0f22}} 
+\textbf{ Rtp\+Signal\+Table} {\bfseries on\+\_\+network\+\_\+error}
+\item 
+\mbox{\label{struct__RtpSession_ab57f76cbb09b49bc2d98175bb03ef337}} 
+\textbf{ Rtp\+Signal\+Table} {\bfseries on\+\_\+rtcp\+\_\+bye}
+\item 
+\mbox{\label{struct__RtpSession_ace6656c6b2d39ca7274b6565208b72ce}} 
+bctbx\+\_\+list\+\_\+t $\ast$ {\bfseries signal\+\_\+tables}
+\item 
+\mbox{\label{struct__RtpSession_a99b066ef1aad8b45dd849240371233a9}} 
+bctbx\+\_\+list\+\_\+t $\ast$ {\bfseries eventqs}
+\item 
+\mbox{\label{struct__RtpSession_ac0ac7703e01f0624ecb11cc833bca49e}} 
+\textbf{ Rtp\+Stream} {\bfseries rtp}
+\item 
+\mbox{\label{struct__RtpSession_a9fac1b3781bb5a97909c76236d73b94e}} 
+\textbf{ Rtcp\+Stream} {\bfseries rtcp}
+\item 
+\mbox{\label{struct__RtpSession_ac62a1f4842529dbb65ffb8e0cae3b1b6}} 
+\textbf{ Ortp\+Rtcp\+Xr\+Stats} {\bfseries rtcp\+\_\+xr\+\_\+stats}
+\item 
+\mbox{\label{struct__RtpSession_a2d66c29b65656185ff13446187b215f7}} 
+Rtp\+Session\+Mode {\bfseries mode}
+\item 
+\mbox{\label{struct__RtpSession_afd1e941d3806a4f92708c2f33311b389}} 
+struct \textbf{ \+\_\+\+Rtp\+Scheduler} $\ast$ {\bfseries sched}
+\item 
+\mbox{\label{struct__RtpSession_acfa3a2ba5ca10f21e96872d7ec035195}} 
+uint32\+\_\+t {\bfseries flags}
+\item 
+\mbox{\label{struct__RtpSession_aedafcf4cc566a8335ba78582cfb80366}} 
+int {\bfseries dscp}
+\item 
+\mbox{\label{struct__RtpSession_ac3ff164940f934cab2e9e0fb44d1ee6e}} 
+int {\bfseries multicast\+\_\+ttl}
+\item 
+\mbox{\label{struct__RtpSession_ae1cdba8dba6e9bfa5dbdadab7aa73139}} 
+int {\bfseries multicast\+\_\+loopback}
+\item 
+\mbox{\label{struct__RtpSession_a6bfb88a4dbbbf0e56e69147f3454acd6}} 
+float {\bfseries duplication\+\_\+ratio}
+\item 
+\mbox{\label{struct__RtpSession_a0c1ad25f6323faae09149fff32a62acb}} 
+float {\bfseries duplication\+\_\+left}
+\item 
+\mbox{\label{struct__RtpSession_a9c2f9f00e6733bd384499ab8d9762d4b}} 
+void $\ast$ {\bfseries user\+\_\+data}
+\item 
+\mbox{\label{struct__RtpSession_aec9fbf1f7284424a1102597bab355c8f}} 
+struct timeval {\bfseries last\+\_\+recv\+\_\+time}
+\item 
+\mbox{\label{struct__RtpSession_abd80f49e848cfc18905e66888ef2ef09}} 
+\textbf{ mblk\+\_\+t} $\ast$ {\bfseries pending}
+\item 
+\mbox{\label{struct__RtpSession_ac7d92cfbac540b7df25e8db92f13ce33}} 
+int {\bfseries tev\+\_\+send\+\_\+pt}
+\item 
+\mbox{\label{struct__RtpSession_ace578dcf10bbed982f13acee262979f3}} 
+\textbf{ mblk\+\_\+t} $\ast$ {\bfseries current\+\_\+tev}
+\item 
+\mbox{\label{struct__RtpSession_a0c8b57737a5add9e7c67abeeb0555029}} 
+\textbf{ mblk\+\_\+t} $\ast$ {\bfseries minimal\+\_\+sdes}
+\item 
+\mbox{\label{struct__RtpSession_a7cd8c5c2b529efeec6af2095de996d8a}} 
+\textbf{ mblk\+\_\+t} $\ast$ {\bfseries full\+\_\+sdes}
+\item 
+\mbox{\label{struct__RtpSession_a7ec507ecb2aad39696fdd274f8c7054a}} 
+\textbf{ queue\+\_\+t} {\bfseries contributing\+\_\+sources}
+\item 
+\mbox{\label{struct__RtpSession_ab96404b00b2350e52234e9a602430f5b}} 
+int {\bfseries lost\+\_\+packets\+\_\+test\+\_\+vector}
+\item 
+\mbox{\label{struct__RtpSession_a414baeb4675a6de4a04ef6bfdcbd6558}} 
+unsigned int {\bfseries interarrival\+\_\+jitter\+\_\+test\+\_\+vector}
+\item 
+\mbox{\label{struct__RtpSession_a7df9f513a893272ae977e6265782d1e1}} 
+unsigned int {\bfseries delay\+\_\+test\+\_\+vector}
+\item 
+\mbox{\label{struct__RtpSession_a19892f0fee3053259bc0a1d5f01d16a1}} 
+float {\bfseries rtt}
+\item 
+\mbox{\label{struct__RtpSession_a4753cae386cd36564c8c271b6b855b00}} 
+int {\bfseries cum\+\_\+loss}
+\item 
+\mbox{\label{struct__RtpSession_ae52228bcb95092183602e80876b94b0f}} 
+\textbf{ Ortp\+Network\+Simulator\+Ctx} $\ast$ {\bfseries net\+\_\+sim\+\_\+ctx}
+\item 
+\mbox{\label{struct__RtpSession_ac37e043ed1b20bb009263728f0975ae5}} 
+\textbf{ Rtp\+Session} $\ast$ {\bfseries spliced\+\_\+session}
+\item 
+\mbox{\label{struct__RtpSession_a91f4e5609dccecbd3bf6059bdff9863c}} 
+\textbf{ rtp\+\_\+stats\+\_\+t} {\bfseries stats}
+\item 
+\mbox{\label{struct__RtpSession_aee3bb36671f9789ecc6923933dbc98d8}} 
+bctbx\+\_\+list\+\_\+t $\ast$ {\bfseries recv\+\_\+addr\+\_\+map}
+\item 
+\mbox{\label{struct__RtpSession_addb4c3cbbec7c09f98136517516ae311}} 
+uint32\+\_\+t {\bfseries send\+\_\+ts\+\_\+offset}
+\item 
+\mbox{\label{struct__RtpSession_a6fe00de5a38287596658b9c9cfc12c7f}} 
+bool\+\_\+t {\bfseries symmetric\+\_\+rtp}
+\item 
+\mbox{\label{struct__RtpSession_a842f07c64492fa1adfa1e0e2c8265b6c}} 
+bool\+\_\+t {\bfseries permissive}
+\item 
+\mbox{\label{struct__RtpSession_a607489d68b5f6e470c300acb17a9bde7}} 
+bool\+\_\+t {\bfseries use\+\_\+connect}
+\item 
+\mbox{\label{struct__RtpSession_a1558b178e0443c7856a4a1abba5fabde}} 
+bool\+\_\+t {\bfseries ssrc\+\_\+set}
+\item 
+\mbox{\label{struct__RtpSession_a482e4126148c688eb7999098bb8e710a}} 
+bool\+\_\+t {\bfseries reuseaddr}
+\item 
+\mbox{\label{struct__RtpSession_a7fa5bd12423894972ae51fdcba70e1de}} 
+bool\+\_\+t {\bfseries rtcp\+\_\+mux}
+\item 
+unsigned char \textbf{ avpf\+\_\+features}
+\item 
+\mbox{\label{struct__RtpSession_adf814181727eef338092e24008c0f4f7}} 
+bool\+\_\+t {\bfseries use\+\_\+pktinfo}
+\item 
+\mbox{\label{struct__RtpSession_a2ddb860fe8fa376522ba619430b6855e}} 
+bool\+\_\+t {\bfseries is\+\_\+spliced}
+\item 
+\mbox{\label{struct__RtpSession_a78f1fa74937e35e70f87c3f7d902d58d}} 
+bool\+\_\+t {\bfseries congestion\+\_\+detector\+\_\+enabled}
+\item 
+\mbox{\label{struct__RtpSession_a0d5f3189b2d2d9e709a4f1c56de8a329}} 
+bool\+\_\+t {\bfseries video\+\_\+bandwidth\+\_\+estimator\+\_\+enabled}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An object representing a bi-\/directional R\+TP session. It holds sockets, jitter buffer, various counters (timestamp, sequence numbers...) Applications S\+H\+O\+U\+LD N\+OT try to read things within the Rtp\+Session object but use instead its public A\+PI (the rtp\+\_\+session\+\_\+$\ast$ methods) where Rtp\+Session is used as a pointer. \doxyref{rtp\+\_\+session\+\_\+new()}{p.}{rtpsession_8h_a0fa068a78f69d25603baf8801cd352b7} allocates and initialize a Rtp\+Session. 
+
+\subsection{Field Documentation}
+\mbox{\label{struct__RtpSession_a037dc588472fb580586959a3eb534def}} 
+\index{\+\_\+\+Rtp\+Session@{\+\_\+\+Rtp\+Session}!avpf\+\_\+features@{avpf\+\_\+features}}
+\index{avpf\+\_\+features@{avpf\+\_\+features}!\+\_\+\+Rtp\+Session@{\+\_\+\+Rtp\+Session}}
+\subsubsection{avpf\+\_\+features}
+{\footnotesize\ttfamily unsigned char \+\_\+\+Rtp\+Session\+::avpf\+\_\+features}
+
+A bitmask of O\+R\+T\+P\+\_\+\+A\+V\+P\+F\+\_\+\+F\+E\+A\+T\+U\+R\+E\+\_\+$\ast$ macros. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\textbf{ rtpsession.\+h}\end{DoxyCompactItemize}

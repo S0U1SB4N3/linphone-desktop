@@ -1,0 +1,87 @@
+\section{ortp.\+h File Reference}
+\label{ortp_8h}\index{ortp.\+h@{ortp.\+h}}
+
+
+General purpose library functions.  
+
+
+{\ttfamily \#include \char`\"{}ortp/logging.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ortp/rtpsession.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ortp/sessionset.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool\+\_\+t \textbf{ ortp\+\_\+min\+\_\+version\+\_\+required} (int major, int minor, int micro)
+\item 
+void \textbf{ ortp\+\_\+init} (void)
+\item 
+void \textbf{ ortp\+\_\+scheduler\+\_\+init} (void)
+\item 
+void \textbf{ ortp\+\_\+exit} (void)
+\item 
+\mbox{\label{ortp_8h_a65efb3c4d9efc26f0b8e76723814e52f}} 
+void {\bfseries ortp\+\_\+global\+\_\+stats\+\_\+reset} (void)
+\item 
+\mbox{\label{ortp_8h_ad85430e4ac2d58bed0161c8085e16ee3}} 
+\textbf{ rtp\+\_\+stats\+\_\+t} $\ast$ {\bfseries ortp\+\_\+get\+\_\+global\+\_\+stats} (void)
+\item 
+void \textbf{ ortp\+\_\+global\+\_\+stats\+\_\+display} (void)
+\item 
+void \textbf{ rtp\+\_\+stats\+\_\+display} (const \textbf{ rtp\+\_\+stats\+\_\+t} $\ast$stats, const char $\ast$header)
+\item 
+\mbox{\label{ortp_8h_a9840903a5632f77514f0e12af04f3abf}} 
+void {\bfseries rtp\+\_\+stats\+\_\+reset} (\textbf{ rtp\+\_\+stats\+\_\+t} $\ast$stats)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{ortp_8h_af34bbd80494df1ad8c62d2a79fcf8190}} 
+\textbf{ rtp\+\_\+stats\+\_\+t} {\bfseries ortp\+\_\+global\+\_\+stats}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+General purpose library functions. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\label{ortp_8h_abb4e3cb949ec64f2ff4a50c093d86852}} 
+\index{ortp.\+h@{ortp.\+h}!ortp\+\_\+exit@{ortp\+\_\+exit}}
+\index{ortp\+\_\+exit@{ortp\+\_\+exit}!ortp.\+h@{ortp.\+h}}
+\subsubsection{ortp\+\_\+exit()}
+{\footnotesize\ttfamily void ortp\+\_\+exit (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Gracefully uninitialize the library, including shutdowning the scheduler if it was started. \mbox{\label{ortp_8h_ad2233a20047fbd0912caad6dc2e1291e}} 
+\index{ortp.\+h@{ortp.\+h}!ortp\+\_\+global\+\_\+stats\+\_\+display@{ortp\+\_\+global\+\_\+stats\+\_\+display}}
+\index{ortp\+\_\+global\+\_\+stats\+\_\+display@{ortp\+\_\+global\+\_\+stats\+\_\+display}!ortp.\+h@{ortp.\+h}}
+\subsubsection{ortp\+\_\+global\+\_\+stats\+\_\+display()}
+{\footnotesize\ttfamily void ortp\+\_\+global\+\_\+stats\+\_\+display (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Display global statistics (cumulative for all Rtp\+Session) \mbox{\label{ortp_8h_ab415c0a8f20298e82e76dcea13a745b5}} 
+\index{ortp.\+h@{ortp.\+h}!ortp\+\_\+init@{ortp\+\_\+init}}
+\index{ortp\+\_\+init@{ortp\+\_\+init}!ortp.\+h@{ortp.\+h}}
+\subsubsection{ortp\+\_\+init()}
+{\footnotesize\ttfamily void ortp\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize the o\+R\+TP library. You should call this function first before using o\+R\+TP A\+PI. \mbox{\label{ortp_8h_aa04f26740f760e228c4443fbfdd4f5ea}} 
+\index{ortp.\+h@{ortp.\+h}!ortp\+\_\+min\+\_\+version\+\_\+required@{ortp\+\_\+min\+\_\+version\+\_\+required}}
+\index{ortp\+\_\+min\+\_\+version\+\_\+required@{ortp\+\_\+min\+\_\+version\+\_\+required}!ortp.\+h@{ortp.\+h}}
+\subsubsection{ortp\+\_\+min\+\_\+version\+\_\+required()}
+{\footnotesize\ttfamily bool\+\_\+t ortp\+\_\+min\+\_\+version\+\_\+required (\begin{DoxyParamCaption}\item[{int}]{major,  }\item[{int}]{minor,  }\item[{int}]{micro }\end{DoxyParamCaption})}
+
+This function give the opportunity to programs to check if the libortp they link to has the minimum version number they need.
+
+Returns\+: true if ortp has a version number greater or equal than the required one. \mbox{\label{ortp_8h_a5e141585e75d0b7fca43797088f2b04e}} 
+\index{ortp.\+h@{ortp.\+h}!ortp\+\_\+scheduler\+\_\+init@{ortp\+\_\+scheduler\+\_\+init}}
+\index{ortp\+\_\+scheduler\+\_\+init@{ortp\+\_\+scheduler\+\_\+init}!ortp.\+h@{ortp.\+h}}
+\subsubsection{ortp\+\_\+scheduler\+\_\+init()}
+{\footnotesize\ttfamily void ortp\+\_\+scheduler\+\_\+init (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Initialize the o\+R\+TP scheduler. You only have to do that if you intend to use the scheduled mode of the Rtp\+Session in your application. \mbox{\label{ortp_8h_ad4b2b584a56ce6251ba3b6cf9df02c3e}} 
+\index{ortp.\+h@{ortp.\+h}!rtp\+\_\+stats\+\_\+display@{rtp\+\_\+stats\+\_\+display}}
+\index{rtp\+\_\+stats\+\_\+display@{rtp\+\_\+stats\+\_\+display}!ortp.\+h@{ortp.\+h}}
+\subsubsection{rtp\+\_\+stats\+\_\+display()}
+{\footnotesize\ttfamily void rtp\+\_\+stats\+\_\+display (\begin{DoxyParamCaption}\item[{const \textbf{ rtp\+\_\+stats\+\_\+t} $\ast$}]{stats,  }\item[{const char $\ast$}]{header }\end{DoxyParamCaption})}
+
+Print R\+TP statistics. 

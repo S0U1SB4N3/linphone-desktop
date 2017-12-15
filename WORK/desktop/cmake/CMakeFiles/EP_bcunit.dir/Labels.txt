@@ -1,0 +1,14 @@
+# Target labels
+ EP_bcunit
+# Source files and their labels
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_bcunit
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_bcunit.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_bcunit-complete.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bcunit/EP_bcunit-install.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bcunit/EP_bcunit-mkdir.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bcunit/EP_bcunit-download.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bcunit/EP_bcunit-update.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bcunit/EP_bcunit-patch.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bcunit/EP_bcunit-configure.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bcunit/EP_bcunit-build.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bcunit/EP_bcunit-force_build.rule

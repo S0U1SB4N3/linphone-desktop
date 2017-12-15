@@ -1,0 +1,265 @@
+.TH "telephonyevents.h" 3 "Fri Dec 15 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+telephonyevents.h \- Receiving and sending telephone events (RFC2833)  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <ortp/rtpsession\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fB_telephone_event\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTELEPHONY_EVENTS_ALLOCATED_SIZE\fP   (4*sizeof(\fBtelephone_event_t\fP))"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_0\fP   (0)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_1\fP   (1)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_2\fP   (2)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_3\fP   (3)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_4\fP   (4)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_5\fP   (5)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_6\fP   (6)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_7\fP   (7)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_8\fP   (8)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_9\fP   (9)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_STAR\fP   (10)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_POUND\fP   (11)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_A\fP   (12)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_B\fP   (13)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_C\fP   (14)"
+.br
+.ti -1c
+.RI "#define \fBTEV_DTMF_D\fP   (15)"
+.br
+.ti -1c
+.RI "#define \fBTEV_FLASH\fP   (16)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fB_telephone_event\fP \fBtelephone_event_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBrtp_session_telephone_events_supported\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_send_telephone_events_supported\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_recv_telephone_events_supported\fP (\fBRtpSession\fP *session)"
+.br
+.ti -1c
+.RI "\fBmblk_t\fP * \fBrtp_session_create_telephone_event_packet\fP (\fBRtpSession\fP *session, int start)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_add_telephone_event\fP (\fBRtpSession\fP *session, \fBmblk_t\fP *packet, uint8_t event, int end, uint8_t volume, uint16_t duration)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_read_telephone_event\fP (\fBRtpSession\fP *session, \fBmblk_t\fP *packet, \fBtelephone_event_t\fP **tab)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_send_dtmf\fP (\fBRtpSession\fP *session, char dtmf, uint32_t userts)"
+.br
+.ti -1c
+.RI "int \fBrtp_session_send_dtmf2\fP (\fBRtpSession\fP *session, char dtmf, uint32_t userts, int duration)"
+.br
+.ti -1c
+.RI "void \fBrtp_session_check_telephone_events\fP (\fBRtpSession\fP *session, \fBmblk_t\fP *m0)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Receiving and sending telephone events (RFC2833) 
+
+
+.SH "Function Documentation"
+.PP 
+.SS "int rtp_session_add_telephone_event (\fBRtpSession\fP * session, \fBmblk_t\fP * packet, uint8_t event, int end, uint8_t volume, uint16_t duration)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIpacket\fP a rtp packet as a mblk_t 
+.br
+\fIevent\fP the event type as described in rfc2833, ie one of the TEV_* macros\&. 
+.br
+\fIend\fP a boolean to indicate if the end bit should be set\&. (end of tone) 
+.br
+\fIvolume\fP the volume of the telephony tone, as described in rfc2833 
+.br
+\fIduration\fP the duration of the telephony tone, in timestamp unit\&.
+.RE
+.PP
+Adds a named telephony event to a rtp packet previously allocated using \fBrtp_session_create_telephone_event_packet()\fP\&.
+.PP
+\fBReturns:\fP
+.RS 4
+0 on success\&. 
+.RE
+.PP
+
+.SS "\fBmblk_t\fP* rtp_session_create_telephone_event_packet (\fBRtpSession\fP * session, int start)"
+Allocates a new rtp packet to be used to add named telephony events\&. The application can use then \fBrtp_session_add_telephone_event()\fP to add named events to the packet\&. Finally the packet has to be sent with \fBrtp_session_sendm_with_ts()\fP\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session\&. 
+.br
+\fIstart\fP boolean to indicate if the marker bit should be set\&.
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a message block containing the rtp packet if successfull, NULL if the rtp session cannot support telephony event (because the rtp profile it is bound to does not include a telephony event payload type)\&. 
+.RE
+.PP
+
+.SS "int rtp_session_read_telephone_event (\fBRtpSession\fP * session, \fBmblk_t\fP * packet, \fBtelephone_event_t\fP ** tab)"
+Reads telephony events from a rtp packet\&. \fI*tab\fP points to the beginning of the event buffer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session from which telephony events are received\&. 
+.br
+\fIpacket\fP a rtp packet as a mblk_t\&. 
+.br
+\fItab\fP the address of a pointer\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of events in the packet if successfull, 0 if the packet did not contain telephony events\&. 
+.RE
+.PP
+
+.SS "int rtp_session_recv_telephone_events_supported (\fBRtpSession\fP * session)"
+Tells whether telephone event payload type is supported for receiving within the context of the rtp session\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the payload type number used for telephony events if found, -1 if not found\&. 
+.RE
+.PP
+
+.SS "int rtp_session_send_dtmf (\fBRtpSession\fP * session, char dtmf, uint32_t userts)"
+This functions creates telephony events packets for dtmf and sends them\&. It uses \fBrtp_session_create_telephone_event_packet()\fP and \fBrtp_session_add_telephone_event()\fP to create them and finally \fBrtp_session_sendm_with_ts()\fP to send them\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIdtmf\fP a character meaning the dtmf (ex: '1', '#' , '9' \&.\&.\&.) 
+.br
+\fIuserts\fP the timestamp 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successfull, -1 if the session cannot support telephony events or if the dtmf given as argument is not valid\&. 
+.RE
+.PP
+
+.SS "int rtp_session_send_dtmf2 (\fBRtpSession\fP * session, char dtmf, uint32_t userts, int duration)"
+A variation of \fBrtp_session_send_dtmf()\fP with duration specified\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session 
+.br
+\fIdtmf\fP a character meaning the dtmf (ex: '1', '#' , '9' \&.\&.\&.) 
+.br
+\fIuserts\fP the timestamp 
+.br
+\fIduration\fP duration of the dtmf in timestamp units 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+0 if successfull, -1 if the session cannot support telephony events or if the dtmf given as argument is not valid\&. 
+.RE
+.PP
+
+.SS "int rtp_session_send_telephone_events_supported (\fBRtpSession\fP * session)"
+Tells whether telephone event payload type is supported for send within the context of the rtp session\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the payload type number used for telephony events if found, -1 if not found\&. 
+.RE
+.PP
+
+.SS "int rtp_session_telephone_events_supported (\fBRtpSession\fP * session)"
+Tells whether telephony events payload type is supported within the context of the rtp session\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIsession\fP a rtp session
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the payload type number used for telephony events if found, -1 if not found\&. 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

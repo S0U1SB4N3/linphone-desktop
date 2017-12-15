@@ -1,0 +1,2 @@
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/lib/libgsm.dylib
+/Users/S0U1SB4N3/test006/linphone-desktop/OUTPUT/desktop/include/gsm/gsm.h

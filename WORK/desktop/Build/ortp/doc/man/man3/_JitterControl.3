@@ -1,0 +1,82 @@
+.TH "_JitterControl" 3 "Fri Dec 15 2017" "Version 1.0.2" "oRTP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+_JitterControl
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBJBParameters\fP \fBparams\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBcount\fP"
+.br
+.ti -1c
+.RI "int \fBjitt_comp_ts\fP"
+.br
+.ti -1c
+.RI "int \fBadapt_jitt_comp_ts\fP"
+.br
+.ti -1c
+.RI "int32_t \fBclock_offset_ts\fP"
+.br
+.ti -1c
+.RI "int32_t \fBprev_clock_offset_ts\fP"
+.br
+.ti -1c
+.RI "int32_t \fBolddiff\fP"
+.br
+.ti -1c
+.RI "float \fBjitter\fP"
+.br
+.ti -1c
+.RI "float \fBinter_jitter\fP"
+.br
+.ti -1c
+.RI "float \fBjitter_buffer_mean_size\fP"
+.br
+.ti -1c
+.RI "int \fBcorrective_step\fP"
+.br
+.ti -1c
+.RI "int \fBcorrective_slide\fP"
+.br
+.ti -1c
+.RI "uint64_t \fBcum_jitter_buffer_size\fP"
+.br
+.ti -1c
+.RI "unsigned int \fBcum_jitter_buffer_count\fP"
+.br
+.ti -1c
+.RI "int \fBclock_rate\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBadapt_refresh_prev_ts\fP"
+.br
+.ti -1c
+.RI "\fBOrtpExtremum\fP \fBmax_ts_deviation\fP"
+.br
+.ti -1c
+.RI "\fBOrtpKalmanRLS\fP \fBkalman_rls\fP"
+.br
+.ti -1c
+.RI "double \fBcapped_clock_ratio\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlast_log_ts\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBlocal_ts_start\fP"
+.br
+.ti -1c
+.RI "uint32_t \fBremote_ts_start\fP"
+.br
+.in -1c
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for oRTP from the source code\&.

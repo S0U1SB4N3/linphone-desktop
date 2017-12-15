@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="struct__msgb__allocator" kind="struct" language="C++" prot="public">
+    <compoundname>_msgb_allocator</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct__msgb__allocator_1a4a23257c1c0e0c35b6d0cf034414880c" prot="public" static="no" mutable="no">
+        <type><ref refid="struct__queue" kindref="compound">queue_t</ref></type>
+        <definition>queue_t _msgb_allocator::q</definition>
+        <argsstring></argsstring>
+        <name>q</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="158" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="53">
+        <label>ortp_recv_addr</label>
+        <link refid="structortp__recv__addr"/>
+      </node>
+      <node id="50">
+        <label>_queue</label>
+        <link refid="struct__queue"/>
+        <childnode refid="51" relation="usage">
+          <edgelabel>_q_stopper</edgelabel>
+        </childnode>
+      </node>
+      <node id="51">
+        <label>msgb</label>
+        <link refid="structmsgb"/>
+        <childnode refid="52" relation="usage">
+          <edgelabel>b_datap</edgelabel>
+        </childnode>
+        <childnode refid="51" relation="usage">
+          <edgelabel>b_next</edgelabel>
+          <edgelabel>b_cont</edgelabel>
+          <edgelabel>b_prev</edgelabel>
+        </childnode>
+        <childnode refid="53" relation="usage">
+          <edgelabel>recv_addr</edgelabel>
+        </childnode>
+      </node>
+      <node id="49">
+        <label>_msgb_allocator</label>
+        <link refid="struct__msgb__allocator"/>
+        <childnode refid="50" relation="usage">
+          <edgelabel>q</edgelabel>
+        </childnode>
+      </node>
+      <node id="52">
+        <label>datab</label>
+        <link refid="structdatab"/>
+      </node>
+    </collaborationgraph>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" line="157" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/str_utils.h" bodystart="157" bodyend="159"/>
+    <listofallmembers>
+      <member refid="struct__msgb__allocator_1a4a23257c1c0e0c35b6d0cf034414880c" prot="public" virt="non-virtual"><scope>_msgb_allocator</scope><name>q</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+# Target labels
+ EP_bellesip
+# Source files and their labels
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_bellesip
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_bellesip.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/cmake/CMakeFiles/EP_bellesip-complete.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bellesip/EP_bellesip-install.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bellesip/EP_bellesip-mkdir.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bellesip/EP_bellesip-download.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bellesip/EP_bellesip-update.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bellesip/EP_bellesip-patch.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bellesip/EP_bellesip-configure.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bellesip/EP_bellesip-build.rule
+/Users/S0U1SB4N3/test006/linphone-desktop/WORK/desktop/Stamp/EP_bellesip/EP_bellesip-force_build.rule

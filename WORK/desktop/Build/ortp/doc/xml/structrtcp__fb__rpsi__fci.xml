@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structrtcp__fb__rpsi__fci" kind="struct" language="C++" prot="public">
+    <compoundname>rtcp_fb_rpsi_fci</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structrtcp__fb__rpsi__fci_1a76e78672f337d2543f056a82bc3b8516" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_fb_rpsi_fci::pb</definition>
+        <argsstring></argsstring>
+        <name>pb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="374" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="374" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__fb__rpsi__fci_1afe34ce2207fccdba842dd78951c4ba6c" prot="public" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t rtcp_fb_rpsi_fci::payload_type</definition>
+        <argsstring></argsstring>
+        <name>payload_type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="375" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="375" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structrtcp__fb__rpsi__fci_1aa67d8a2dad637ff7221783b94a6de75d" prot="public" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t rtcp_fb_rpsi_fci::bit_string[1]</definition>
+        <argsstring>[1]</argsstring>
+        <name>bit_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="376" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="376" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" line="373" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/rtcp.h" bodystart="373" bodyend="377"/>
+    <listofallmembers>
+      <member refid="structrtcp__fb__rpsi__fci_1aa67d8a2dad637ff7221783b94a6de75d" prot="public" virt="non-virtual"><scope>rtcp_fb_rpsi_fci</scope><name>bit_string</name></member>
+      <member refid="structrtcp__fb__rpsi__fci_1afe34ce2207fccdba842dd78951c4ba6c" prot="public" virt="non-virtual"><scope>rtcp_fb_rpsi_fci</scope><name>payload_type</name></member>
+      <member refid="structrtcp__fb__rpsi__fci_1a76e78672f337d2543f056a82bc3b8516" prot="public" virt="non-virtual"><scope>rtcp_fb_rpsi_fci</scope><name>pb</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

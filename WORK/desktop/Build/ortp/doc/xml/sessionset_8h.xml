@@ -1,0 +1,512 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="sessionset_8h" kind="file" language="C++">
+    <compoundname>sessionset.h</compoundname>
+    <includes refid="rtpsession_8h" local="no">ortp/rtpsession.h</includes>
+    <includes local="no">sys/time.h</includes>
+    <includes local="no">sys/types.h</includes>
+    <includes local="no">unistd.h</includes>
+    <includedby refid="scheduler_8h" local="yes">scheduler.h</includedby>
+    <includedby refid="sessionset_8c" local="no">sessionset.c</includedby>
+    <includedby refid="ortp_8h" local="yes">ortp.h</includedby>
+    <includedby refid="rtpsession_8h" local="no">rtpsession.h</includedby>
+    <incdepgraph>
+      <node id="404">
+        <label>ortp/payloadtype.h</label>
+        <link refid="payloadtype_8h"/>
+      </node>
+      <node id="405">
+        <label>ortp/rtpprofile.h</label>
+        <link refid="rtpprofile_8h"/>
+      </node>
+      <node id="402">
+        <label>ortp/rtpsession.h</label>
+        <link refid="rtpsession_8h"/>
+        <childnode refid="403" relation="include">
+        </childnode>
+        <childnode refid="404" relation="include">
+        </childnode>
+        <childnode refid="405" relation="include">
+        </childnode>
+        <childnode refid="401" relation="include">
+        </childnode>
+      </node>
+      <node id="401">
+        <label>sessionset.h</label>
+        <link refid="sessionset_8h"/>
+        <childnode refid="402" relation="include">
+        </childnode>
+        <childnode refid="406" relation="include">
+        </childnode>
+        <childnode refid="407" relation="include">
+        </childnode>
+        <childnode refid="408" relation="include">
+        </childnode>
+      </node>
+      <node id="407">
+        <label>sys/types.h</label>
+      </node>
+      <node id="408">
+        <label>unistd.h</label>
+      </node>
+      <node id="403">
+        <label>bctoolbox/list.h</label>
+      </node>
+      <node id="406">
+        <label>sys/time.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="412">
+        <label>telephonyevents.h</label>
+        <link refid="telephonyevents_8h"/>
+      </node>
+      <node id="410">
+        <label>ortp.h</label>
+        <link refid="ortp_8h"/>
+      </node>
+      <node id="411">
+        <label>rtpsession.h</label>
+        <link refid="rtpsession_8h"/>
+        <childnode refid="410" relation="include">
+        </childnode>
+        <childnode refid="409" relation="include">
+        </childnode>
+        <childnode refid="412" relation="include">
+        </childnode>
+      </node>
+      <node id="409">
+        <label>sessionset.h</label>
+        <link refid="sessionset_8h"/>
+        <childnode refid="410" relation="include">
+        </childnode>
+        <childnode refid="411" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct__SessionSet" prot="public">_SessionSet</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="sessionset_8h_1a752729ed862257cade2d7339536fefcc" prot="public" static="no">
+        <name>ORTP_FD_SET</name>
+        <param><defname>d</defname></param>
+        <param><defname>s</defname></param>
+        <initializer>FD_SET(d, s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="41" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sessionset_8h_1a2ff84cd0b62e99851c4cae2ee96b14cd" prot="public" static="no">
+        <name>ORTP_FD_CLR</name>
+        <param><defname>d</defname></param>
+        <param><defname>s</defname></param>
+        <initializer>FD_CLR(d, s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="42" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sessionset_8h_1adfeeaaadca7d1ef3407a6a54a34de49c" prot="public" static="no">
+        <name>ORTP_FD_ISSET</name>
+        <param><defname>d</defname></param>
+        <param><defname>s</defname></param>
+        <initializer>FD_ISSET(d, s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="43" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sessionset_8h_1adfb984b3e67b0e3377a59edec3c5223c" prot="public" static="no">
+        <name>ORTP_FD_ZERO</name>
+        <param><defname>s</defname></param>
+        <initializer>FD_ZERO(s)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="44" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="44" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sessionset_8h_1a36cfdc2ea6ff577831cb1e779f65350e" prot="public" static="no">
+        <name>session_set_init</name>
+        <param><defname>ss</defname></param>
+        <initializer>ORTP_FD_ZERO(&amp;(ss)-&gt;rtpset)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="96" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sessionset_8h_1a6c2e5af222e014af8cd572cae29da5c5" prot="public" static="no">
+        <name>session_set_set</name>
+        <param><defname>ss</defname></param>
+        <param><defname>rtpsession</defname></param>
+        <initializer>ORTP_FD_SET((rtpsession)-&gt;mask_pos,&amp;(ss)-&gt;rtpset)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This macro adds the rtp session to the set. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ss</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a set (SessionSet object) </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rtpsession</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a RtpSession </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="104" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sessionset_8h_1a9d100df1b61766039dd0d1625794d8f5" prot="public" static="no">
+        <name>session_set_is_set</name>
+        <param><defname>ss</defname></param>
+        <param><defname>rtpsession</defname></param>
+        <initializer>ORTP_FD_ISSET((rtpsession)-&gt;mask_pos,&amp;(ss)-&gt;rtpset)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This macro tests if the session is part of the set. 1 is returned if true, 0 else. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ss</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a set </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rtpsession</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a rtp session </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="112" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sessionset_8h_1a74b2d46bb4c18f418ca99dd5ec443502" prot="public" static="no">
+        <name>session_set_clr</name>
+        <param><defname>ss</defname></param>
+        <param><defname>rtpsession</defname></param>
+        <initializer>ORTP_FD_CLR((rtpsession)-&gt;mask_pos,&amp;(ss)-&gt;rtpset)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the session from the set. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ss</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a set of sessions. </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>rtpsession</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a rtp session. </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="121" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="sessionset_8h_1a5023d9a63527201ca71e001a581a0f5a" prot="public" static="no">
+        <name>session_set_copy</name>
+        <param><defname>dest</defname></param>
+        <param><defname>src</defname></param>
+        <initializer>memcpy(&amp;(dest)-&gt;rtpset,&amp;(src)-&gt;rtpset,sizeof(ortp_fd_set))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="123" column="9" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="123" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="sessionset_8h_1a061b125afed726878a4769e93a1e1abb" prot="public" static="no">
+        <type>fd_set</type>
+        <definition>typedef fd_set ortp_fd_set</definition>
+        <argsstring></argsstring>
+        <name>ortp_fd_set</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="46" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="sessionset_8h_1af9d4ac068a63463e080b8289dc01ab29" prot="public" static="no">
+        <type>struct <ref refid="struct__SessionSet" kindref="compound">_SessionSet</ref></type>
+        <definition>typedef struct _SessionSet SessionSet</definition>
+        <argsstring></argsstring>
+        <name>SessionSet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="46" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="sessionset_8h_1a2e827fa3e1534317404d28aa3df73775" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct__SessionSet" kindref="compound">SessionSet</ref> *</type>
+        <definition>SessionSet* session_set_new</definition>
+        <argsstring>(void)</argsstring>
+        <name>session_set_new</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Allocates and initialize a new empty session set.</para><para><simplesect kind="return"><para>the empty session set. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="98" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/sessionset.c" bodystart="30" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="function" id="sessionset_8h_1a7b977891b1a456e636c16ec964840687" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void session_set_destroy</definition>
+        <argsstring>(SessionSet *set)</argsstring>
+        <name>session_set_destroy</name>
+        <param>
+          <type><ref refid="struct__SessionSet" kindref="compound">SessionSet</ref> *</type>
+          <declname>set</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Frees a SessionSet.</para><para>Destroys a session set. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="129" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/sessionset.c" bodystart="43" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="sessionset_8h_1af199d48aa2a51ff81a772aef2c477e2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int session_set_select</definition>
+        <argsstring>(SessionSet *recvs, SessionSet *sends, SessionSet *errors)</argsstring>
+        <name>session_set_select</name>
+        <param>
+          <type><ref refid="struct__SessionSet" kindref="compound">SessionSet</ref> *</type>
+          <declname>recvs</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__SessionSet" kindref="compound">SessionSet</ref> *</type>
+          <declname>sends</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__SessionSet" kindref="compound">SessionSet</ref> *</type>
+          <declname>errors</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>This function performs similarly as libc select() function, but performs on RtpSession instead of file descriptors. <ref refid="sessionset_8h_1af199d48aa2a51ff81a772aef2c477e2e" kindref="member">session_set_select()</ref> suspends the calling process until some events arrive on one of the three sets passed in argument. Two of the sets can be NULL. The first set <emphasis>recvs</emphasis> is interpreted as a set of RtpSession waiting for receive events: a new buffer (perhaps empty) is availlable on one or more sessions of the set, or the last receive operation with <ref refid="rtpsession_8h_1a2e325c908712601c051a7eedc59ca935" kindref="member">rtp_session_recv_with_ts()</ref> would have finished if it were in blocking mode. The second set is interpreted as a set of RtpSession waiting for send events, i.e. the last <ref refid="rtpsession_8h_1a3ed3f377bf06840f0e32c9b9a76bad10" kindref="member">rtp_session_send_with_ts()</ref> call on a session would have finished if it were in blocking mode.</para><para>When some events arrived on some of sets, then the function returns and sets are changed to indicate the sessions where events happened. Sessions can be added to sets using <ref refid="sessionset_8h_1a6c2e5af222e014af8cd572cae29da5c5" kindref="member">session_set_set()</ref>, a session has to be tested to be part of a set using <ref refid="sessionset_8h_1a9d100df1b61766039dd0d1625794d8f5" kindref="member">session_set_is_set()</ref>.</para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>recvs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a set of rtp sessions to be watched for read events </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>sends</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a set of rtp sessions to be watched for write events </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>errors</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>a set of rtp sessions to be watched for errors </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>: the number of sessions on which the selected events happened. </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="132" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/sessionset.c" bodystart="113" bodyend="162"/>
+      </memberdef>
+      <memberdef kind="function" id="sessionset_8h_1ae7e8d7afdbd8814e4f29c5a718f40c2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int session_set_timedselect</definition>
+        <argsstring>(SessionSet *recvs, SessionSet *sends, SessionSet *errors, struct timeval *timeout)</argsstring>
+        <name>session_set_timedselect</name>
+        <param>
+          <type><ref refid="struct__SessionSet" kindref="compound">SessionSet</ref> *</type>
+          <declname>recvs</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__SessionSet" kindref="compound">SessionSet</ref> *</type>
+          <declname>sends</declname>
+        </param>
+        <param>
+          <type><ref refid="struct__SessionSet" kindref="compound">SessionSet</ref> *</type>
+          <declname>errors</declname>
+        </param>
+        <param>
+          <type>struct timeval *</type>
+          <declname>timeout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h" line="133" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/sessionset.c" bodystart="164" bodyend="220"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Sending and receiving multiple streams together with only one thread. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="comment">/*</highlight></codeline>
+<codeline lineno="2"><highlight class="comment"><sp/>*<sp/>The<sp/>oRTP<sp/>library<sp/>is<sp/>an<sp/>RTP<sp/>(Realtime<sp/>Transport<sp/>Protocol<sp/>-<sp/>rfc3550)<sp/>implementation<sp/>with<sp/>additional<sp/>features.</highlight></codeline>
+<codeline lineno="3"><highlight class="comment"><sp/>*<sp/>Copyright<sp/>(C)<sp/>2017<sp/>Belledonne<sp/>Communications<sp/>SARL</highlight></codeline>
+<codeline lineno="4"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="5"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>free<sp/>software;<sp/>you<sp/>can<sp/>redistribute<sp/>it<sp/>and/or<sp/>modify</highlight></codeline>
+<codeline lineno="6"><highlight class="comment"><sp/>*<sp/><sp/>it<sp/>under<sp/>the<sp/>terms<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>as<sp/>published<sp/>by</highlight></codeline>
+<codeline lineno="7"><highlight class="comment"><sp/>*<sp/><sp/>the<sp/>Free<sp/>Software<sp/>Foundation;<sp/>either<sp/>version<sp/>2<sp/>of<sp/>the<sp/>License,<sp/>or</highlight></codeline>
+<codeline lineno="8"><highlight class="comment"><sp/>*<sp/><sp/>(at<sp/>your<sp/>option)<sp/>any<sp/>later<sp/>version.</highlight></codeline>
+<codeline lineno="9"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="10"><highlight class="comment"><sp/>*<sp/><sp/>This<sp/>program<sp/>is<sp/>distributed<sp/>in<sp/>the<sp/>hope<sp/>that<sp/>it<sp/>will<sp/>be<sp/>useful,</highlight></codeline>
+<codeline lineno="11"><highlight class="comment"><sp/>*<sp/><sp/>but<sp/>WITHOUT<sp/>ANY<sp/>WARRANTY;<sp/>without<sp/>even<sp/>the<sp/>implied<sp/>warranty<sp/>of</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"><sp/>*<sp/><sp/>MERCHANTABILITY<sp/>or<sp/>FITNESS<sp/>FOR<sp/>A<sp/>PARTICULAR<sp/>PURPOSE.<sp/><sp/>See<sp/>the</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"><sp/>*<sp/><sp/>GNU<sp/>General<sp/>Public<sp/>License<sp/>for<sp/>more<sp/>details.</highlight></codeline>
+<codeline lineno="14"><highlight class="comment"><sp/>*</highlight></codeline>
+<codeline lineno="15"><highlight class="comment"><sp/>*<sp/><sp/>You<sp/>should<sp/>have<sp/>received<sp/>a<sp/>copy<sp/>of<sp/>the<sp/>GNU<sp/>General<sp/>Public<sp/>License</highlight></codeline>
+<codeline lineno="16"><highlight class="comment"><sp/>*<sp/><sp/>along<sp/>with<sp/>this<sp/>program;<sp/>if<sp/>not,<sp/>write<sp/>to<sp/>the<sp/>Free<sp/>Software</highlight></codeline>
+<codeline lineno="17"><highlight class="comment"><sp/>*<sp/><sp/>Foundation,<sp/>Inc.,<sp/>59<sp/>Temple<sp/>Place<sp/>-<sp/>Suite<sp/>330,<sp/>Boston,<sp/>MA<sp/>02111-1307,<sp/>USA.</highlight></codeline>
+<codeline lineno="18"><highlight class="comment"><sp/>*/</highlight></codeline>
+<codeline lineno="24"><highlight class="preprocessor">#ifndef<sp/>SESSIONSET_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SESSIONSET_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;<ref refid="rtpsession_8h" kindref="compound">ortp/rtpsession.h</ref>&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/></highlight><highlight class="stringliteral">&quot;C&quot;</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#if<sp/><sp/><sp/><sp/><sp/>!defined(_WIN32)<sp/>&amp;&amp;<sp/>!defined(_WIN32_WCE)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>UNIX<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/time.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;sys/types.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;unistd.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP_FD_SET(d,<sp/>s)<sp/><sp/><sp/><sp/><sp/>FD_SET(d,<sp/>s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP_FD_CLR(d,<sp/>s)<sp/><sp/><sp/><sp/><sp/>FD_CLR(d,<sp/>s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP_FD_ISSET(d,<sp/>s)<sp/><sp/><sp/>FD_ISSET(d,<sp/>s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP_FD_ZERO(s)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>FD_ZERO(s)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/>fd_set<sp/>ortp_fd_set;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>_WIN32<sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP_FD_ZERO(s)<sp/>\</highlight></codeline>
+<codeline lineno="53"><highlight class="preprocessor"><sp/><sp/>do<sp/>{<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="54"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>unsigned<sp/>int<sp/>__i;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="55"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>ortp_fd_set<sp/>*__arr<sp/>=<sp/>(s);<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="56"><highlight class="preprocessor"><sp/><sp/><sp/><sp/>for<sp/>(__i<sp/>=<sp/>0;<sp/>__i<sp/>&lt;<sp/>sizeof<sp/>(ortp_fd_set)<sp/>/<sp/>sizeof<sp/>(ortp__fd_mask);<sp/>++__i)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="57"><highlight class="preprocessor"><sp/><sp/><sp/><sp/><sp/><sp/>ORTP__FDS_BITS<sp/>(__arr)[__i]<sp/>=<sp/>0;<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>\</highlight></codeline>
+<codeline lineno="58"><highlight class="preprocessor"><sp/><sp/>}<sp/>while<sp/>(0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP_FD_SET(d,<sp/>s)<sp/><sp/><sp/><sp/><sp/>(ORTP__FDS_BITS<sp/>(s)[ORTP__FDELT(d)]<sp/>|=<sp/>ORTP__FDMASK(d))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP_FD_CLR(d,<sp/>s)<sp/><sp/><sp/><sp/><sp/>(ORTP__FDS_BITS<sp/>(s)[ORTP__FDELT(d)]<sp/>&amp;=<sp/>~ORTP__FDMASK(d))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP_FD_ISSET(d,<sp/>s)<sp/><sp/><sp/>((ORTP__FDS_BITS<sp/>(s)[ORTP__FDELT(d)]<sp/>&amp;<sp/>ORTP__FDMASK(d))<sp/>!=<sp/>0)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>The<sp/>fd_set<sp/>member<sp/>is<sp/>required<sp/>to<sp/>be<sp/>an<sp/>array<sp/>of<sp/>longs.<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">long</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ortp__fd_mask;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>Number<sp/>of<sp/>bits<sp/>per<sp/>word<sp/>of<sp/>`fd_set&apos;<sp/>(some<sp/>code<sp/>assumes<sp/>this<sp/>is<sp/>32).<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP__FD_SETSIZE<sp/>1024</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>It&apos;s<sp/>easier<sp/>to<sp/>assume<sp/>8-bit<sp/>bytes<sp/>than<sp/>to<sp/>get<sp/>CHAR_BIT.<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP__NFDBITS<sp/><sp/><sp/>(8<sp/>*<sp/>sizeof<sp/>(ortp__fd_mask))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP__FDELT(d)<sp/><sp/>((d)<sp/>/<sp/>ORTP__NFDBITS)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>ORTP__FDMASK(d)<sp/>((ortp__fd_mask)<sp/>1<sp/>&lt;&lt;<sp/>((d)<sp/>%<sp/>ORTP__NFDBITS))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight><highlight class="comment">/*<sp/>fd_set<sp/>for<sp/>select<sp/>and<sp/>pselect.<sp/><sp/>*/</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/>{</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/>ortp__fd_mask<sp/>fds_bits[ORTP__FD_SETSIZE<sp/>/<sp/>ORTP__NFDBITS];</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#<sp/>define<sp/>ORTP__FDS_BITS(set)<sp/>((set)-&gt;fds_bits)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/>}<sp/>ortp_fd_set;</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"></highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/></highlight><highlight class="comment">/*end<sp/>_WIN32*/</highlight><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="struct__SessionSet" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__SessionSet" kindref="compound">_SessionSet</ref></highlight></codeline>
+<codeline lineno="89"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ortp_fd_set<sp/>rtpset;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"></highlight></codeline>
+<codeline lineno="94"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct__SessionSet" kindref="compound">_SessionSet</ref><sp/>SessionSet;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>session_set_init(ss)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ORTP_FD_ZERO(&amp;(ss)-&gt;rtpset)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">ORTP_PUBLIC<sp/>SessionSet<sp/>*<sp/><ref refid="sessionset_8h_1a2e827fa3e1534317404d28aa3df73775" kindref="member">session_set_new</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="104"><highlight class="preprocessor">#define<sp/>session_set_set(ss,rtpsession)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ORTP_FD_SET((rtpsession)-&gt;mask_pos,&amp;(ss)-&gt;rtpset)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"></highlight></codeline>
+<codeline lineno="112"><highlight class="preprocessor">#define<sp/>session_set_is_set(ss,rtpsession)<sp/><sp/><sp/><sp/><sp/><sp/><sp/>ORTP_FD_ISSET((rtpsession)-&gt;mask_pos,&amp;(ss)-&gt;rtpset)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="preprocessor">#define<sp/>session_set_clr(ss,rtpsession)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>ORTP_FD_CLR((rtpsession)-&gt;mask_pos,&amp;(ss)-&gt;rtpset)</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>session_set_copy(dest,src)<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>memcpy(&amp;(dest)-&gt;rtpset,&amp;(src)-&gt;rtpset,sizeof(ortp_fd_set))</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="sessionset_8h_1a7b977891b1a456e636c16ec964840687" kindref="member">session_set_destroy</ref>(SessionSet<sp/>*</highlight><highlight class="keyword">set</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="132"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="sessionset_8h_1af199d48aa2a51ff81a772aef2c477e2e" kindref="member">session_set_select</ref>(SessionSet<sp/>*recvs,<sp/>SessionSet<sp/>*sends,<sp/>SessionSet<sp/>*errors);</highlight></codeline>
+<codeline lineno="133"><highlight class="normal">ORTP_PUBLIC<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>session_set_timedselect(SessionSet<sp/>*recvs,<sp/>SessionSet<sp/>*sends,<sp/>SessionSet<sp/>*errors,<sp/><sp/></highlight><highlight class="keyword">struct</highlight><highlight class="normal"><sp/>timeval<sp/>*timeout);</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>__cplusplus</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="136"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/include/ortp/sessionset.h"/>
+  </compounddef>
+</doxygen>

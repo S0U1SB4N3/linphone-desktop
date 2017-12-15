@@ -1,0 +1,1556 @@
+.TH "proxies" 3 "Fri Dec 15 2017" "Version 3.12.0" "Liblinphone" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+proxies \- Managing proxies\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBlinphone_core_set_default_proxy\fP(lc,  config)   \fBlinphone_core_set_default_proxy_config\fP(lc, config)"
+.br
+.ti -1c
+.RI "#define \fBlinphone_proxy_config_expires\fP   \fBlinphone_proxy_config_set_expires\fP"
+.br
+.ti -1c
+.RI "#define \fBlinphone_proxy_config_enableregister\fP   \fBlinphone_proxy_config_enable_register\fP"
+.br
+.ti -1c
+.RI "#define \fBlinphone_proxy_config_get_addr\fP   \fBlinphone_proxy_config_get_server_addr\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct _LinphoneProxyConfig \fBLinphoneProxyConfig\fP"
+.br
+.RI "The LinphoneProxyConfig object represents a proxy configuration to be used by the LinphoneCore object\&. "
+.ti -1c
+.RI "typedef enum \fB_LinphoneRegistrationState\fP \fBLinphoneRegistrationState\fP"
+.br
+.RI "LinphoneRegistrationState describes proxy registration states\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fB_LinphoneRegistrationState\fP { \fBLinphoneRegistrationNone\fP, \fBLinphoneRegistrationProgress\fP, \fBLinphoneRegistrationOk\fP, \fBLinphoneRegistrationCleared\fP, \fBLinphoneRegistrationFailed\fP }
+.RI "LinphoneRegistrationState describes proxy registration states\&. ""
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_core_set_primary_contact\fP (\fBLinphoneCore\fP *lc, const char *contact)"
+.br
+.RI "Sets the local 'from' identity\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_primary_contact\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Returns the default identity when no proxy configuration is used\&. "
+.ti -1c
+.RI "const char * \fBlinphone_core_get_identity\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Gets the default identity SIP address\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_guess_hostname\fP (\fBLinphoneCore\fP *lc, bool_t val)"
+.br
+.RI "Tells LinphoneCore to guess local hostname automatically in primary contact\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_core_get_guess_hostname\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Returns TRUE if hostname part of primary contact is guessed automatically\&. "
+.ti -1c
+.RI "\fBLinphoneAddress\fP * \fBlinphone_core_get_primary_contact_parsed\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Same as \fBlinphone_core_get_primary_contact()\fP but the result is a LinphoneAddress object instead of const char*\&. "
+.ti -1c
+.RI "\fBLinphoneProxyConfig\fP * \fBlinphone_core_create_proxy_config\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Create a proxy config with default values from Linphone core\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_core_add_proxy_config\fP (\fBLinphoneCore\fP *lc, \fBLinphoneProxyConfig\fP *config)"
+.br
+.RI "Add a proxy configuration\&. "
+.ti -1c
+.RI "void \fBlinphone_core_clear_proxy_config\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "Erase all proxies from config\&. "
+.ti -1c
+.RI "void \fBlinphone_core_remove_proxy_config\fP (\fBLinphoneCore\fP *lc, \fBLinphoneProxyConfig\fP *config)"
+.br
+.RI "Removes a proxy configuration\&. "
+.ti -1c
+.RI "const bctbx_list_t * \fBlinphone_core_get_proxy_config_list\fP (const \fBLinphoneCore\fP *lc)"
+.br
+.RI "Returns an unmodifiable list of entered proxy configurations\&. "
+.ti -1c
+.RI "void \fBlinphone_core_set_default_proxy_index\fP (\fBLinphoneCore\fP *lc, int index)"
+.br
+.ti -1c
+.RI "LINPHONE_DEPRECATED int \fBlinphone_core_get_default_proxy\fP (\fBLinphoneCore\fP *lc, \fBLinphoneProxyConfig\fP **config)"
+.br
+.ti -1c
+.RI "\fBLinphoneProxyConfig\fP * \fBlinphone_core_get_default_proxy_config\fP (\fBLinphoneCore\fP *lc)"
+.br
+.ti -1c
+.RI "void \fBlinphone_core_set_default_proxy_config\fP (\fBLinphoneCore\fP *lc, \fBLinphoneProxyConfig\fP *config)"
+.br
+.RI "Sets the default proxy\&. "
+.ti -1c
+.RI "void \fBlinphone_core_refresh_registers\fP (\fBLinphoneCore\fP *lc)"
+.br
+.RI "force registration refresh to be initiated upon next iterate "
+.ti -1c
+.RI "const char * \fBlinphone_registration_state_to_string\fP (\fBLinphoneRegistrationState\fP cs)"
+.br
+.RI "Human readable version of the \fBLinphoneRegistrationState\fP\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneProxyConfig\fP * \fBlinphone_proxy_config_new\fP (void)"
+.br
+.RI "Creates an empty proxy config\&. "
+.ti -1c
+.RI "\fBLinphoneProxyConfig\fP * \fBlinphone_proxy_config_ref\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Acquire a reference to the proxy config\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_unref\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Release reference to the proxy config\&. "
+.ti -1c
+.RI "void * \fBlinphone_proxy_config_get_user_data\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Retrieve the user pointer associated with the proxy config\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_user_data\fP (\fBLinphoneProxyConfig\fP *cfg, void *ud)"
+.br
+.RI "Assign a user pointer to the proxy config\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_proxy_config_set_server_addr\fP (\fBLinphoneProxyConfig\fP *cfg, const char *server_addr)"
+.br
+.RI "Sets the proxy address\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED \fBLinphoneStatus\fP \fBlinphone_proxy_config_set_identity\fP (\fBLinphoneProxyConfig\fP *cfg, const char *identity)"
+.br
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_proxy_config_set_identity_address\fP (\fBLinphoneProxyConfig\fP *cfg, const \fBLinphoneAddress\fP *identity)"
+.br
+.RI "Sets the user identity as a SIP address\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_proxy_config_set_route\fP (\fBLinphoneProxyConfig\fP *cfg, const char *route)"
+.br
+.RI "Sets a SIP route\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_expires\fP (\fBLinphoneProxyConfig\fP *cfg, int expires)"
+.br
+.RI "Sets the registration expiration time in seconds\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_enable_register\fP (\fBLinphoneProxyConfig\fP *cfg, bool_t val)"
+.br
+.RI "Indicates either or not, REGISTRATION must be issued for this \fBLinphoneProxyConfig\fP \&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_edit\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Starts editing a proxy configuration\&. "
+.ti -1c
+.RI "\fBLinphoneStatus\fP \fBlinphone_proxy_config_done\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Commits modification made to the proxy configuration\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_enable_publish\fP (\fBLinphoneProxyConfig\fP *cfg, bool_t val)"
+.br
+.RI "Indicates either or not, PUBLISH must be issued for this \fBLinphoneProxyConfig\fP \&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_publish_expires\fP (\fBLinphoneProxyConfig\fP *cfg, int expires)"
+.br
+.RI "Set the publish expiration time in second\&. "
+.ti -1c
+.RI "int \fBlinphone_proxy_config_get_publish_expires\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "get the publish expiration time in second\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_dial_escape_plus\fP (\fBLinphoneProxyConfig\fP *cfg, bool_t val)"
+.br
+.RI "Sets whether liblinphone should replace '+' by international calling prefix in dialed numbers (passed to \fBlinphone_core_invite\fP )\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_dial_prefix\fP (\fBLinphoneProxyConfig\fP *cfg, const char *prefix)"
+.br
+.RI "Sets a dialing prefix to be automatically prepended when inviting a number with \fBlinphone_core_invite()\fP; This dialing prefix shall usually be the country code of the country where the user is living, without '+'\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_enable_quality_reporting\fP (\fBLinphoneProxyConfig\fP *cfg, bool_t enable)"
+.br
+.RI "Indicates whether quality statistics during call should be stored and sent to a collector according to RFC 6035\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_proxy_config_quality_reporting_enabled\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Indicates whether quality statistics during call should be stored and sent to a collector according to RFC 6035\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_quality_reporting_collector\fP (\fBLinphoneProxyConfig\fP *cfg, const char *collector)"
+.br
+.RI "Set the route of the collector end-point when using quality reporting\&. "
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_quality_reporting_collector\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the route of the collector end-point when using quality reporting\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_quality_reporting_interval\fP (\fBLinphoneProxyConfig\fP *cfg, int interval)"
+.br
+.RI "Set the interval between 2 interval reports sending when using quality reporting\&. "
+.ti -1c
+.RI "int \fBlinphone_proxy_config_get_quality_reporting_interval\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the interval between interval reports when using quality reporting\&. "
+.ti -1c
+.RI "\fBLinphoneRegistrationState\fP \fBlinphone_proxy_config_get_state\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the registration state of the given proxy config\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED bool_t \fBlinphone_proxy_config_is_registered\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_domain\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the domain name of the given proxy config\&. "
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_realm\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the realm of the given proxy config\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_realm\fP (\fBLinphoneProxyConfig\fP *cfg, const char *realm)"
+.br
+.RI "Set the realm of the given proxy config\&. "
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_route\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_proxy_config_get_identity_address\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "LINPHONE_DEPRECATED const char * \fBlinphone_proxy_config_get_identity\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "bool_t \fBlinphone_proxy_config_publish_enabled\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_server_addr\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "int \fBlinphone_proxy_config_get_expires\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "bool_t \fBlinphone_proxy_config_register_enabled\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "void \fBlinphone_proxy_config_refresh_register\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Refresh a proxy registration\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_pause_register\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Prevent a proxy config from refreshing its registration\&. "
+.ti -1c
+.RI "const \fBLinphoneAddress\fP * \fBlinphone_proxy_config_get_contact\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_contact_parameters\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_contact_parameters\fP (\fBLinphoneProxyConfig\fP *cfg, const char *contact_params)"
+.br
+.RI "Set optional contact parameters that will be added to the contact information sent in the registration\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_contact_uri_parameters\fP (\fBLinphoneProxyConfig\fP *cfg, const char *contact_uri_params)"
+.br
+.RI "Set optional contact parameters that will be added to the contact information sent in the registration, inside the URI\&. "
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_contact_uri_parameters\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "\fBLinphoneCore\fP * \fBlinphone_proxy_config_get_core\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the \fBLinphoneCore\fP object to which is associated the \fBLinphoneProxyConfig\fP\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_proxy_config_get_dial_escape_plus\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_dial_prefix\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "\fBLinphoneReason\fP \fBlinphone_proxy_config_get_error\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the reason why registration failed when the proxy config state is LinphoneRegistrationFailed\&. "
+.ti -1c
+.RI "const \fBLinphoneErrorInfo\fP * \fBlinphone_proxy_config_get_error_info\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get detailed information why registration failed when the proxy config state is LinphoneRegistrationFailed\&. "
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_transport\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the transport from either service route, route or addr\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_proxy_config_destroy\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Destroys a proxy config\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_sip_setup\fP (\fBLinphoneProxyConfig\fP *cfg, const char *type)"
+.br
+.ti -1c
+.RI "\fBSipSetupContext\fP * \fBlinphone_proxy_config_get_sip_setup_context\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "\fBSipSetup\fP * \fBlinphone_proxy_config_get_sip_setup\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.ti -1c
+.RI "bool_t \fBlinphone_proxy_config_is_phone_number\fP (\fBLinphoneProxyConfig\fP *proxy, const char *username)"
+.br
+.RI "Detect if the given input is a phone number or not\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED bool_t \fBlinphone_proxy_config_normalize_number\fP (\fBLinphoneProxyConfig\fP *proxy, const char *username, char *result, size_t result_len)"
+.br
+.RI "See linphone_proxy_config_normalize_phone_number\&. "
+.ti -1c
+.RI "char * \fBlinphone_proxy_config_normalize_phone_number\fP (\fBLinphoneProxyConfig\fP *proxy, const char *username)"
+.br
+.RI "Normalize a human readable phone number into a basic string\&. "
+.ti -1c
+.RI "\fBLinphoneAddress\fP * \fBlinphone_proxy_config_normalize_sip_uri\fP (\fBLinphoneProxyConfig\fP *proxy, const char *username)"
+.br
+.RI "Normalize a human readable sip uri into a fully qualified LinphoneAddress\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_privacy\fP (\fBLinphoneProxyConfig\fP *cfg, \fBLinphonePrivacyMask\fP privacy)"
+.br
+.RI "Set default privacy policy for all calls routed through this proxy\&. "
+.ti -1c
+.RI "\fBLinphonePrivacyMask\fP \fBlinphone_proxy_config_get_privacy\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get default privacy policy for all calls routed through this proxy\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_file_transfer_server\fP (\fBLinphoneProxyConfig\fP *cfg, const char *server_url)"
+.br
+.RI "Set the http file transfer server to be used for content type application/vnd\&.gsma\&.rcs-ft-http+xml\&. "
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_file_transfer_server\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the http file transfer server to be used for content type application/vnd\&.gsma\&.rcs-ft-http+xml\&. "
+.ti -1c
+.RI "LINPHONE_DEPRECATED void \fBlinphone_proxy_config_enable_avpf\fP (\fBLinphoneProxyConfig\fP *cfg, bool_t enable)"
+.br
+.RI "Indicates whether AVPF/SAVPF must be used for calls using this proxy config\&. "
+.ti -1c
+.RI "bool_t \fBlinphone_proxy_config_avpf_enabled\fP (\fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Indicates whether AVPF/SAVPF is being used for calls using this proxy config\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_avpf_rr_interval\fP (\fBLinphoneProxyConfig\fP *cfg, uint8_t interval)"
+.br
+.RI "Set the interval between regular RTCP reports when using AVPF/SAVPF\&. "
+.ti -1c
+.RI "uint8_t \fBlinphone_proxy_config_get_avpf_rr_interval\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the interval between regular RTCP reports when using AVPF/SAVPF\&. "
+.ti -1c
+.RI "\fBLinphoneAVPFMode\fP \fBlinphone_proxy_config_get_avpf_mode\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get enablement status of RTCP feedback (also known as AVPF profile)\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_avpf_mode\fP (\fBLinphoneProxyConfig\fP *cfg, \fBLinphoneAVPFMode\fP mode)"
+.br
+.RI "Enable the use of RTCP feedback (also known as AVPF profile)\&. "
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_custom_header\fP (\fBLinphoneProxyConfig\fP *cfg, const char *header_name)"
+.br
+.RI "Obtain the value of a header sent by the server in last answer to REGISTER\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_custom_header\fP (\fBLinphoneProxyConfig\fP *cfg, const char *header_name, const char *header_value)"
+.br
+.RI "Set the value of a custom header sent to the server in REGISTERs request\&. "
+.ti -1c
+.RI "const \fBLinphoneAuthInfo\fP * \fBlinphone_proxy_config_find_auth_info\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Find authentication info matching proxy config, if any, similarly to linphone_core_find_auth_info\&. "
+.ti -1c
+.RI "const char * \fBlinphone_proxy_config_get_ref_key\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get the persistent reference key associated to the proxy config\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_ref_key\fP (\fBLinphoneProxyConfig\fP *cfg, const char *refkey)"
+.br
+.RI "Associate a persistent reference key to the proxy config\&. "
+.ti -1c
+.RI "\fBLinphoneNatPolicy\fP * \fBlinphone_proxy_config_get_nat_policy\fP (const \fBLinphoneProxyConfig\fP *cfg)"
+.br
+.RI "Get The policy that is used to pass through NATs/firewalls when using this proxy config\&. "
+.ti -1c
+.RI "void \fBlinphone_proxy_config_set_nat_policy\fP (\fBLinphoneProxyConfig\fP *cfg, \fBLinphoneNatPolicy\fP *policy)"
+.br
+.RI "Set the policy to use to pass through NATs/firewalls when using this proxy config\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Managing proxies\&. 
+
+User registration is controled by \fBLinphoneProxyConfig\fP settings\&.
+.br
+ Each \fBLinphoneProxyConfig\fP object can be configured with registration informations like \fBproxy address \fP , \fBuser id \fP, \fBrefresh period \fP, and so on\&. 
+.br
+ A created proxy config using \fBlinphone_proxy_config_new()\fP, once configured, must be added to \fBLinphoneCore\fP using function \fBlinphone_core_add_proxy_config()\fP\&. 
+.br
+ It is recommended to set a default \fBproxy config \fP using function \fBlinphone_core_set_default_proxy()\fP\&. Once done, if \fBa proxy config \fP has been configured with attribute \fBenable register \fP , next call to \fBlinphone_core_iterate()\fP triggers a SIP register\&. 
+.br
+ Registration status is reported by LinphoneCoreRegistrationStateChangedCb\&. 
+.br
+ 
+.br
+ This pseudo code demonstrates basic registration operations: 
+.br
+.PP
+.nf
+LinphoneProxyConfig* proxy_cfg;
+/*create proxy config*/
+proxy_cfg = linphone_proxy_config_new();
+/*parse identity*/
+LinphoneAddress *from = linphone_address_new("sip:toto@sip\&.titi\&.com");
+LinphoneAuthInfo *info;
+if (password!=NULL){
+        info=linphone_auth_info_new(linphone_address_get_username(from),NULL,"secret",NULL,NULL); /*create authentication structure from identity*/
+        linphone_core_add_auth_info(lc,info); /*add authentication info to LinphoneCore*/
+}
+// configure proxy entries
+linphone_proxy_config_set_identity(proxy_cfg,identity); /*set identity with user name and domain*/
+const char* server_addr = linphone_address_get_domain(from); /*extract domain address from identity*/
+linphone_proxy_config_set_server_addr(proxy_cfg,server_addr); /* we assume domain = proxy server address*/
+linphone_proxy_config_enable_register(proxy_cfg,TRUE); /*activate registration for this proxy config*/
+linphone_address_destroy(from); /*release resource*/
+
+linphone_core_add_proxy_config(lc,proxy_cfg); /*add proxy config to linphone core*/
+linphone_core_set_default_proxy(lc,proxy_cfg); /*set to default proxy*/ 
+.fi
+.PP
+ 
+.br
+ Registration sate call back: 
+.PP
+.nf
+ static void registration_state_changed(struct _LinphoneCore *lc, LinphoneProxyConfig *cfg, LinphoneRegistrationState cstate, const char *message){
+                printf("New registration state %s for user id [%s] at proxy [%s]\n"
+                                ,linphone_registration_state_to_string(cstate)
+                                ,linphone_proxy_config_get_identity(cfg)
+                                ,linphone_proxy_config_get_addr(cfg));
+}
+
+.fi
+.PP
+ 
+.br
+\fBAuthentication:\fP 
+.br
+Most of the time, registration requires \fBauthentication\fP to succeed\&. \fBLinphoneAuthInfo\fP info must be either added to \fBLinphoneCore\fP using function \fBlinphone_core_add_auth_info()\fP before \fBLinphoneProxyConfig\fP is added to Linphone core, or on demand from call back \fBLinphoneCoreAuthInfoRequestedCb\fP\&. 
+.br
+ 
+.br
+\fBUnregistration:\fP 
+.br
+ Unregistration or any changes to \fBLinphoneProxyConfig\fP must be first started by a call to function \fBlinphone_proxy_config_edit()\fP and validated by function \fBlinphone_proxy_config_done()\fP 
+.br
+ This pseudo code shows how to unregister a user associated to a \fBLinphoneProxyConfig\fP 
+.PP
+.nf
+LinphoneProxyConfig* proxy_cfg;
+linphone_core_get_default_proxy(lc,&proxy_cfg); /* get default proxy config*/
+linphone_proxy_config_edit(proxy_cfg); /*start editing proxy configuration*/
+linphone_proxy_config_enable_register(proxy_cfg,FALSE); /*de-activate registration for this proxy config*/
+linphone_proxy_config_done(proxy_cfg); /*initiate REGISTER with expire = 0*/
+
+.fi
+.PP
+ 
+.br
+ A complete tutorial can be found at : \fBRegistration tutorial\fP 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define linphone_core_set_default_proxy(lc, config)   \fBlinphone_core_set_default_proxy_config\fP(lc, config)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_core_set_default_proxy_config()\fP instead\&.
+.RE
+.PP
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct _LinphoneProxyConfig \fBLinphoneProxyConfig\fP"
+
+.PP
+The LinphoneProxyConfig object represents a proxy configuration to be used by the LinphoneCore object\&. Its fields must not be used directly in favour of the accessors methods\&. Once created and filled properly the LinphoneProxyConfig can be given to LinphoneCore with \fBlinphone_core_add_proxy_config()\fP\&. This will automatically triggers the registration, if enabled\&.
+.PP
+The proxy configuration are persistent to restarts because they are saved in the configuration file\&. As a consequence, after \fBlinphone_core_new()\fP there might already be a list of configured proxy that can be examined with \fBlinphone_core_get_proxy_config_list()\fP\&.
+.PP
+The default proxy (see \fBlinphone_core_set_default_proxy()\fP ) is the one of the list that is used by default for calls\&. 
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fB_LinphoneRegistrationState\fP"
+
+.PP
+LinphoneRegistrationState describes proxy registration states\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fILinphoneRegistrationNone \fP\fP
+Initial state for registrations\&. 
+.TP
+\fB\fILinphoneRegistrationProgress \fP\fP
+Registration is in progress\&. 
+.TP
+\fB\fILinphoneRegistrationOk \fP\fP
+Registration is successful\&. 
+.TP
+\fB\fILinphoneRegistrationCleared \fP\fP
+Unregistration succeeded\&. 
+.TP
+\fB\fILinphoneRegistrationFailed \fP\fP
+Registration failed\&. 
+.SH "Function Documentation"
+.PP 
+.SS "\fBLinphoneStatus\fP linphone_core_add_proxy_config (\fBLinphoneCore\fP * lc, \fBLinphoneProxyConfig\fP * config)"
+
+.PP
+Add a proxy configuration\&. This will start registration on the proxy, if registration is enabled\&. 
+.SS "\fBLinphoneProxyConfig\fP* linphone_core_create_proxy_config (\fBLinphoneCore\fP * lc)"
+
+.PP
+Create a proxy config with default values from Linphone core\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP \fBLinphoneCore\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+\fBLinphoneProxyConfig\fP with default values set 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED int linphone_core_get_default_proxy (\fBLinphoneCore\fP * lc, \fBLinphoneProxyConfig\fP ** config)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the default proxy configuration, that is the one used to determine the current identity\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_core_get_default_proxy_config()\fP instead\&.  
+.RE
+.PP
+
+.SS "\fBLinphoneProxyConfig\fP* linphone_core_get_default_proxy_config (\fBLinphoneCore\fP * lc)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the default proxy configuration, that is the one used to determine the current identity\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The default proxy configuration\&. 
+.RE
+.PP
+
+.SS "const char * linphone_core_get_identity (\fBLinphoneCore\fP * lc)"
+
+.PP
+Gets the default identity SIP address\&. This is an helper function\&. If no default proxy is set, this will return the primary contact ( see \fBlinphone_core_get_primary_contact()\fP )\&. If a default proxy is set it returns the registered identity on the proxy\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The default identity SIP address 
+.RE
+.PP
+
+.SS "const bctbx_list_t* linphone_core_get_proxy_config_list (const \fBLinphoneCore\fP * lc)"
+
+.PP
+Returns an unmodifiable list of entered proxy configurations\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP The LinphoneCore object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A list of \fBLinphoneProxyConfig\fP objects\&. 
+.RE
+.PP
+
+.SS "void linphone_core_remove_proxy_config (\fBLinphoneCore\fP * lc, \fBLinphoneProxyConfig\fP * config)"
+
+.PP
+Removes a proxy configuration\&. LinphoneCore will then automatically unregister and place the proxy configuration on a deleted list\&. For that reason, a removed proxy does NOT need to be freed\&. 
+.SS "void linphone_core_set_default_proxy_config (\fBLinphoneCore\fP * lc, \fBLinphoneProxyConfig\fP * config)"
+
+.PP
+Sets the default proxy\&. This default proxy must be part of the list of already entered LinphoneProxyConfig\&. Toggling it as default will make LinphoneCore use the identity associated with the proxy configuration in all incoming and outgoing calls\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIlc\fP LinphoneCore object 
+.br
+\fIconfig\fP The proxy configuration to use as the default one\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_core_set_primary_contact (\fBLinphoneCore\fP * lc, const char * contact)"
+
+.PP
+Sets the local 'from' identity\&. This data is used in absence of any proxy configuration or when no default proxy configuration is set\&. See LinphoneProxyConfig 
+.SS "bool_t linphone_proxy_config_avpf_enabled (\fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Indicates whether AVPF/SAVPF is being used for calls using this proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if AVPF/SAVPF is enabled, false otherwise\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED void linphone_proxy_config_destroy (\fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Destroys a proxy config\&. 
+.PP
+\fBNote:\fP
+.RS 4
+: LinphoneProxyConfig that have been removed from LinphoneCore with \fBlinphone_core_remove_proxy_config()\fP must not be freed\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+ 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_edit (\fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Starts editing a proxy configuration\&. Because proxy configuration must be consistent, applications MUST call \fBlinphone_proxy_config_edit()\fP before doing any attempts to modify proxy configuration (such as identity, proxy address and so on)\&. Once the modifications are done, then the application must call \fBlinphone_proxy_config_done()\fP to commit the changes\&. 
+.SS "LINPHONE_DEPRECATED void linphone_proxy_config_enable_avpf (\fBLinphoneProxyConfig\fP * cfg, bool_t enable)"
+
+.PP
+Indicates whether AVPF/SAVPF must be used for calls using this proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIenable\fP True to enable AVPF/SAVF, false to disable it\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_proxy_config_set_avpf_mode()\fP  
+.RE
+.PP
+
+.SS "void linphone_proxy_config_enable_publish (\fBLinphoneProxyConfig\fP * cfg, bool_t val)"
+
+.PP
+Indicates either or not, PUBLISH must be issued for this \fBLinphoneProxyConfig\fP \&. 
+.br
+ In case this \fBLinphoneProxyConfig\fP has been added to \fBLinphoneCore\fP, follows the \fBlinphone_proxy_config_edit()\fP rule\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIval\fP if true, publish will be engaged 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_enable_quality_reporting (\fBLinphoneProxyConfig\fP * cfg, bool_t enable)"
+
+.PP
+Indicates whether quality statistics during call should be stored and sent to a collector according to RFC 6035\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIenable\fP True to sotre quality statistics and sent them to the collector, false to disable it\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_enable_register (\fBLinphoneProxyConfig\fP * cfg, bool_t val)"
+
+.PP
+Indicates either or not, REGISTRATION must be issued for this \fBLinphoneProxyConfig\fP \&. 
+.br
+ In case this \fBLinphoneProxyConfig\fP has been added to \fBLinphoneCore\fP, follows the \fBlinphone_proxy_config_edit()\fP rule\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIval\fP if true, registration will be engaged 
+.RE
+.PP
+
+.SS "const \fBLinphoneAuthInfo\fP* linphone_proxy_config_find_auth_info (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Find authentication info matching proxy config, if any, similarly to linphone_core_find_auth_info\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a \fBLinphoneAuthInfo\fP matching proxy config criteria if possible, NULL if nothing can be found\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAVPFMode\fP linphone_proxy_config_get_avpf_mode (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get enablement status of RTCP feedback (also known as AVPF profile)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the enablement mode, which can be LinphoneAVPFDefault (use LinphoneCore's mode), LinphoneAVPFEnabled (avpf is enabled), or LinphoneAVPFDisabled (disabled)\&. 
+.RE
+.PP
+
+.SS "uint8_t linphone_proxy_config_get_avpf_rr_interval (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the interval between regular RTCP reports when using AVPF/SAVPF\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The interval in seconds\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_contact_parameters (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+previously set contact parameters\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_contact_uri_parameters (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+previously set contact URI parameters\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneCore\fP* linphone_proxy_config_get_core (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the \fBLinphoneCore\fP object to which is associated the \fBLinphoneProxyConfig\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBLinphoneCore\fP object to which is associated the \fBLinphoneProxyConfig\fP\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_custom_header (\fBLinphoneProxyConfig\fP * cfg, const char * header_name)"
+
+.PP
+Obtain the value of a header sent by the server in last answer to REGISTER\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIheader_name\fP the header name for which to fetch corresponding value 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the value of the queried header\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_proxy_config_get_dial_escape_plus (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+whether liblinphone should replace '+' by '00' in dialed numbers (passed to \fBlinphone_core_invite\fP )\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_dial_prefix (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+dialing prefix\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_domain (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the domain name of the given proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The domain name of the proxy config\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneReason\fP linphone_proxy_config_get_error (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the reason why registration failed when the proxy config state is LinphoneRegistrationFailed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The reason why registration failed for this proxy config\&. 
+.RE
+.PP
+
+.SS "const \fBLinphoneErrorInfo\fP* linphone_proxy_config_get_error_info (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get detailed information why registration failed when the proxy config state is LinphoneRegistrationFailed\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The details why registration failed for this proxy config\&. 
+.RE
+.PP
+
+.SS "int linphone_proxy_config_get_expires (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the duration of registration\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_file_transfer_server (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the http file transfer server to be used for content type application/vnd\&.gsma\&.rcs-ft-http+xml\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+URL of the file server like https://file.linphone.org/upload.php 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+That function isn't implemented yet\&.  
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED const char* linphone_proxy_config_get_identity (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_proxy_config_get_identity_address()\fP  
+.RE
+.PP
+
+.SS "const \fBLinphoneAddress\fP* linphone_proxy_config_get_identity_address (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the SIP identity that belongs to this proxy configuration\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneNatPolicy\fP* linphone_proxy_config_get_nat_policy (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get The policy that is used to pass through NATs/firewalls when using this proxy config\&. If it is set to NULL, the default NAT policy from the core will be used instead\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+LinphoneNatPolicy object in use\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_core_get_nat_policy()\fP 
+.RE
+.PP
+
+.SS "\fBLinphonePrivacyMask\fP linphone_proxy_config_get_privacy (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get default privacy policy for all calls routed through this proxy\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Privacy mode 
+.RE
+.PP
+
+.SS "int linphone_proxy_config_get_publish_expires (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+get the publish expiration time in second\&. Default value is the registration expiration value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+expires in second 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_quality_reporting_collector (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the route of the collector end-point when using quality reporting\&. This SIP address should be used on server-side to process packets directly before discarding packets\&. Collector address should be a non existing account and will not receive any messages\&. If NULL, reports will be send to the proxy domain\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The SIP address of the collector end-point\&. 
+.RE
+.PP
+
+.SS "int linphone_proxy_config_get_quality_reporting_interval (\fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the interval between interval reports when using quality reporting\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The interval in seconds, 0 means interval reports are disabled\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_realm (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the realm of the given proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The realm of the proxy config\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_ref_key (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the persistent reference key associated to the proxy config\&. The reference key can be for example an id to an external database\&. It is stored in the config file, thus can survive to process exits/restarts\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The reference key string that has been associated to the proxy config, or NULL if none has been associated\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_route (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the route set for this proxy configuration\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_server_addr (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+the proxy's SIP address\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneRegistrationState\fP linphone_proxy_config_get_state (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the registration state of the given proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The registration state of the proxy config\&. 
+.RE
+.PP
+
+.SS "const char* linphone_proxy_config_get_transport (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Get the transport from either service route, route or addr\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The transport as a string (I\&.E udp, tcp, tls, dtls) 
+.RE
+.PP
+
+.SS "void* linphone_proxy_config_get_user_data (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Retrieve the user pointer associated with the proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The user pointer associated with the proxy config\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_proxy_config_is_phone_number (\fBLinphoneProxyConfig\fP * proxy, const char * username)"
+
+.PP
+Detect if the given input is a phone number or not\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproxy\fP \fBLinphoneProxyConfig\fP argument, unused yet but may contain useful data\&. Can be NULL\&. 
+.br
+\fIusername\fP string to parse\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if input is a phone number, FALSE otherwise\&. 
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED bool_t linphone_proxy_config_is_registered (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+a boolean indicating that the user is sucessfully registered on the proxy\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_proxy_config_get_state()\fP instead\&.  
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneProxyConfig\fP* linphone_proxy_config_new (void)"
+
+.PP
+Creates an empty proxy config\&. 
+.PP
+\fBDeprecated\fP
+.RS 4
+, use \fBlinphone_core_create_proxy_config\fP instead  
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED bool_t linphone_proxy_config_normalize_number (\fBLinphoneProxyConfig\fP * proxy, const char * username, char * result, size_t result_len)"
+
+.PP
+See linphone_proxy_config_normalize_phone_number\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproxy\fP \fBLinphoneProxyConfig\fP object containing country code and/or escape symbol\&. If NULL passed, will use default configuration\&. 
+.br
+\fIusername\fP the string to parse 
+.br
+\fIresult\fP the newly normalized number 
+.br
+\fIresult_len\fP the size of the normalized number \fIresult\fP 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if a phone number was recognized, FALSE otherwise\&. 
+.RE
+.PP
+\fBDeprecated\fP
+.RS 4
+use \fBlinphone_proxy_config_normalize_phone_number()\fP  
+.RE
+.PP
+
+.SS "char* linphone_proxy_config_normalize_phone_number (\fBLinphoneProxyConfig\fP * proxy, const char * username)"
+
+.PP
+Normalize a human readable phone number into a basic string\&. 888-444-222 becomes 888444222 or +33888444222 depending on the \fBLinphoneProxyConfig\fP object\&. This function will always generate a normalized username if input is a phone number\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproxy\fP \fBLinphoneProxyConfig\fP object containing country code and/or escape symbol\&. If NULL passed, will use default configuration\&. 
+.br
+\fIusername\fP the string to parse 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+NULL if input is an invalid phone number, normalized phone number from username input otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneAddress\fP* linphone_proxy_config_normalize_sip_uri (\fBLinphoneProxyConfig\fP * proxy, const char * username)"
+
+.PP
+Normalize a human readable sip uri into a fully qualified LinphoneAddress\&. A sip address should look like DisplayName <sip:username@domain:port> \&. Basically this function performs the following tasks
+.IP "\(bu" 2
+if a phone number is entered, prepend country prefix and eventually escape the '+' by 00 of the proxy config\&.
+.IP "\(bu" 2
+if no domain part is supplied, append the domain name of the proxy config\&. Returns NULL if no proxy is provided at this point\&.
+.IP "\(bu" 2
+if no sip: is present, prepend it\&.
+.PP
+.PP
+The result is a syntactically correct SIP address\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIproxy\fP \fBLinphoneProxyConfig\fP object containing country code, escape symbol and/or domain name\&. Can be NULL if domain is already provided\&. 
+.br
+\fIusername\fP the string to parse 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+NULL if invalid input, normalized sip address otherwise\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_pause_register (\fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Prevent a proxy config from refreshing its registration\&. This is useful to let registrations to expire naturally (or) when the application wants to keep control on when refreshes are sent\&. However, linphone_core_set_network_reachable(lc,TRUE) will always request the proxy configs to refresh their registrations\&. The refreshing operations can be resumed with \fBlinphone_proxy_config_refresh_register()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_proxy_config_publish_enabled (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if PUBLISH request is enabled for this proxy\&. 
+.RE
+.PP
+
+.SS "bool_t linphone_proxy_config_quality_reporting_enabled (\fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Indicates whether quality statistics during call should be stored and sent to a collector according to RFC 6035\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if quality repotring is enabled, false otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneProxyConfig\fP* linphone_proxy_config_ref (\fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Acquire a reference to the proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The same proxy config\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_refresh_register (\fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Refresh a proxy registration\&. This is useful if for example you resuming from suspend, thus IP address may have changed\&. 
+.SS "bool_t linphone_proxy_config_register_enabled (const \fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+\fBReturns:\fP
+.RS 4
+TRUE if registration to the proxy is enabled\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_avpf_mode (\fBLinphoneProxyConfig\fP * cfg, \fBLinphoneAVPFMode\fP mode)"
+
+.PP
+Enable the use of RTCP feedback (also known as AVPF profile)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fImode\fP the enablement mode, which can be LinphoneAVPFDefault (use LinphoneCore's mode), LinphoneAVPFEnabled (avpf is enabled), or LinphoneAVPFDisabled (disabled)\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_avpf_rr_interval (\fBLinphoneProxyConfig\fP * cfg, uint8_t interval)"
+
+.PP
+Set the interval between regular RTCP reports when using AVPF/SAVPF\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIinterval\fP The interval in seconds (between 0 and 5 seconds)\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_contact_parameters (\fBLinphoneProxyConfig\fP * cfg, const char * contact_params)"
+
+.PP
+Set optional contact parameters that will be added to the contact information sent in the registration\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIcontact_params\fP a string contaning the additional parameters in text form, like 'myparam=something;myparam2=something_else'
+.RE
+.PP
+The main use case for this function is provide the proxy additional information regarding the user agent, like for example unique identifier or apple push id\&. As an example, the contact address in the SIP register sent will look like <sip:joe@15.128.128.93:50421>;apple-push-id=43143-DFE23F-2323-FA2232\&. 
+.SS "void linphone_proxy_config_set_contact_uri_parameters (\fBLinphoneProxyConfig\fP * cfg, const char * contact_uri_params)"
+
+.PP
+Set optional contact parameters that will be added to the contact information sent in the registration, inside the URI\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIcontact_uri_params\fP a string containing the additional parameters in text form, like 'myparam=something;myparam2=something_else'
+.RE
+.PP
+The main use case for this function is provide the proxy additional information regarding the user agent, like for example unique identifier or apple push id\&. As an example, the contact address in the SIP register sent will look like <sip:joe@15.128.128.93:50421;apple-push-id=43143-DFE23F-2323-FA2232>\&. 
+.SS "void linphone_proxy_config_set_custom_header (\fBLinphoneProxyConfig\fP * cfg, const char * header_name, const char * header_value)"
+
+.PP
+Set the value of a custom header sent to the server in REGISTERs request\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIheader_name\fP the header name 
+.br
+\fIheader_value\fP the header's value 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_file_transfer_server (\fBLinphoneProxyConfig\fP * cfg, const char * server_url)"
+
+.PP
+Set the http file transfer server to be used for content type application/vnd\&.gsma\&.rcs-ft-http+xml\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIserver_url\fP URL of the file server like https://file.linphone.org/upload.php 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+That function isn't implemented yet\&.  
+.RE
+.PP
+
+.SS "LINPHONE_DEPRECATED \fBLinphoneStatus\fP linphone_proxy_config_set_identity (\fBLinphoneProxyConfig\fP * cfg, const char * identity)"
+
+.PP
+\fBDeprecated\fP
+.RS 4
+Use \fBlinphone_proxy_config_set_identity_address()\fP  
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_proxy_config_set_identity_address (\fBLinphoneProxyConfig\fP * cfg, const \fBLinphoneAddress\fP * identity)"
+
+.PP
+Sets the user identity as a SIP address\&. This identity is normally formed with display name, username and domain, such as: Alice <sip:alice@example.net> The REGISTER messages will have from and to set to this identity\&. 
+.SS "void linphone_proxy_config_set_nat_policy (\fBLinphoneProxyConfig\fP * cfg, \fBLinphoneNatPolicy\fP * policy)"
+
+.PP
+Set the policy to use to pass through NATs/firewalls when using this proxy config\&. If it is set to NULL, the default NAT policy from the core will be used instead\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object 
+.br
+\fIpolicy\fP LinphoneNatPolicy object 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBlinphone_core_set_nat_policy()\fP 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_privacy (\fBLinphoneProxyConfig\fP * cfg, \fBLinphonePrivacyMask\fP privacy)"
+
+.PP
+Set default privacy policy for all calls routed through this proxy\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIprivacy\fP LinphonePrivacy to configure privacy 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_publish_expires (\fBLinphoneProxyConfig\fP * cfg, int expires)"
+
+.PP
+Set the publish expiration time in second\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIexpires\fP in second 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_quality_reporting_collector (\fBLinphoneProxyConfig\fP * cfg, const char * collector)"
+
+.PP
+Set the route of the collector end-point when using quality reporting\&. This SIP address should be used on server-side to process packets directly before discarding packets\&. Collector address should be a non existing account and will not receive any messages\&. If NULL, reports will be send to the proxy domain\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIcollector\fP route of the collector end-point, if NULL PUBLISH will be sent to the proxy domain\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_quality_reporting_interval (\fBLinphoneProxyConfig\fP * cfg, int interval)"
+
+.PP
+Set the interval between 2 interval reports sending when using quality reporting\&. If call exceed interval size, an interval report will be sent to the collector\&. On call termination, a session report will be sent for the remaining period\&. Value must be 0 (disabled) or positive\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIinterval\fP The interval in seconds, 0 means interval reports are disabled\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_realm (\fBLinphoneProxyConfig\fP * cfg, const char * realm)"
+
+.PP
+Set the realm of the given proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIrealm\fP New realm value\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_set_ref_key (\fBLinphoneProxyConfig\fP * cfg, const char * refkey)"
+
+.PP
+Associate a persistent reference key to the proxy config\&. The reference key can be for example an id to an external database\&. It is stored in the config file, thus can survive to process exits/restarts\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIrefkey\fP The reference key string to associate to the proxy config\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_proxy_config_set_route (\fBLinphoneProxyConfig\fP * cfg, const char * route)"
+
+.PP
+Sets a SIP route\&. When a route is set, all outgoing calls will go to the route's destination if this proxy is the default one (see \fBlinphone_core_set_default_proxy()\fP )\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+-1 if route is invalid, 0 otherwise\&. 
+.RE
+.PP
+
+.SS "\fBLinphoneStatus\fP linphone_proxy_config_set_server_addr (\fBLinphoneProxyConfig\fP * cfg, const char * server_addr)"
+
+.PP
+Sets the proxy address\&. Examples of valid sip proxy address are:
+.IP "\(bu" 2
+IP address: sip:87\&.98\&.157\&.38
+.IP "\(bu" 2
+IP address with port: sip:87\&.98\&.157\&.38:5062
+.IP "\(bu" 2
+hostnames : sip:sip\&.example\&.net 
+.PP
+
+.SS "void linphone_proxy_config_set_user_data (\fBLinphoneProxyConfig\fP * cfg, void * ud)"
+
+.PP
+Assign a user pointer to the proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.br
+\fIud\fP The user pointer to associate with the proxy config\&. 
+.RE
+.PP
+
+.SS "void linphone_proxy_config_unref (\fBLinphoneProxyConfig\fP * cfg)"
+
+.PP
+Release reference to the proxy config\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcfg\fP \fBLinphoneProxyConfig\fP object\&. 
+.RE
+.PP
+
+.SS "const char* linphone_registration_state_to_string (\fBLinphoneRegistrationState\fP cs)"
+
+.PP
+Human readable version of the \fBLinphoneRegistrationState\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcs\fP sate 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Liblinphone from the source code\&.

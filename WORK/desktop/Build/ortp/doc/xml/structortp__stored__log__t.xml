@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.13">
+  <compounddef id="structortp__stored__log__t" kind="struct" language="C++" prot="public">
+    <compoundname>ortp_stored_log_t</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structortp__stored__log__t_1a15f11ee60a94ed93b1bfeb8e9dd599d8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ortp_stored_log_t::level</definition>
+        <argsstring></argsstring>
+        <name>level</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="246" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="246" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structortp__stored__log__t_1ad914187896e5bac4af71b2f88a5e31c4" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* ortp_stored_log_t::msg</definition>
+        <argsstring></argsstring>
+        <name>msg</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="247" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="247" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structortp__stored__log__t_1ac560849bc119e8c6fb1b891c2a58e350" prot="public" static="no" mutable="no">
+        <type>char *</type>
+        <definition>char* ortp_stored_log_t::domain</definition>
+        <argsstring></argsstring>
+        <name>domain</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="248" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="248" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" line="245" column="1" bodyfile="/Users/S0U1SB4N3/test006/linphone-desktop/submodules/oRTP/src/logging.c" bodystart="245" bodyend="249"/>
+    <listofallmembers>
+      <member refid="structortp__stored__log__t_1ac560849bc119e8c6fb1b891c2a58e350" prot="public" virt="non-virtual"><scope>ortp_stored_log_t</scope><name>domain</name></member>
+      <member refid="structortp__stored__log__t_1a15f11ee60a94ed93b1bfeb8e9dd599d8" prot="public" virt="non-virtual"><scope>ortp_stored_log_t</scope><name>level</name></member>
+      <member refid="structortp__stored__log__t_1ad914187896e5bac4af71b2f88a5e31c4" prot="public" virt="non-virtual"><scope>ortp_stored_log_t</scope><name>msg</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
